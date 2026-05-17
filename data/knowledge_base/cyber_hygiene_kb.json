@@ -1,1 +1,105 @@
+{
+  "metadata": {
+    "project": "",
+    "version": "",
+    "created_by": "",
+    "description": ""
+  },
 
+  "sources": [
+    {
+      "id": "",
+      "citation_key": "",
+      "authors": [],
+      "year": null,
+      "title": "",
+      "venue": "",
+      "peer_reviewed": true,
+      "doi": "",
+      "notes": ""
+    }
+  ],
+
+  "cyber_hygiene_categories": [
+    {
+      "id": "",
+      "name": "",
+      "definition": "",
+      "examples": [],
+      "source_ids": []
+    }
+  ],
+
+  "threats": [
+    {
+      "id": "",
+      "name": "",
+      "definition": "",
+      "related_categories": [],
+      "source_ids": []
+    }
+  ],
+
+  "practices": [
+    {
+      "id": "",
+      "name": "",
+      "description": "",
+      "category_id": "",
+      "mitigates": [],
+      "source_ids": []
+    }
+  ],
+
+  "knowledge_units": [
+    {
+      "id": "",
+
+      "title": "",
+
+      "category_id": "",
+
+      "threat_ids": [],
+
+      "practice_ids": [],
+
+      "claim": "",
+
+      "explanation": "",
+
+      "recommended_actions": [],
+
+      "evidence": [
+        {
+          "source_id": "",
+          "citation_key": "",
+          "support_type": "",
+          "exact_supporting_text": "",
+          "page": null,
+          "section": ""
+        }
+      ],
+
+      "validity_facts": [
+        {
+          "fact_id": "",
+          "fact": ""
+        }
+      ],
+
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [],
+        "citation_granularity": ""
+      },
+
+      "agent_answer_guidance": {
+        "answer_style": "",
+
+        "must_include": [],
+
+        "avoid_claims": []
+      }
+    }
+  ]
+}
