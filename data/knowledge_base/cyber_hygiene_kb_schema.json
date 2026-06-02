@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "project": "",
-    "version": "",
-    "created_by": "",
-    "description": ""
+    "project": "Cyber Hygiene Assistant Knowledge Base",
+    "version": "1.0",
+    "created_by": "Andrei Badea, s3012115",
+    "description": "A curated knowledge base on cyber hygiene practices, threats, and source-grounded recommendations. The knowledge base supports a knowledge graph-grounded conversational agent and enables evaluation across validity, traceability, and stability."
   },
 
   "sources": [
@@ -14,8 +14,12 @@
       "year": null,
       "title": "",
       "venue": "",
+      "volume": "",
+      "number": "",
+      "pages": "",
       "peer_reviewed": true,
       "doi": "",
+      "url": "",
       "notes": ""
     }
   ],
@@ -69,6 +73,10 @@
 
       "recommended_actions": [],
 
+      "evidence_strength": "",
+
+      "question_templates": [],
+
       "evidence": [
         {
           "source_id": "",
@@ -76,28 +84,35 @@
           "support_type": "",
           "exact_supporting_text": "",
           "page": null,
-          "section": ""
+          "section": "",
+          "paragraph": "",
+          "claim_location": {
+            "page": null,
+            "section": "",
+            "paragraph": ""
+          }
         }
       ],
 
       "validity_facts": [
         {
           "fact_id": "",
-          "fact": ""
+          "fact": "",
+          "source_id": "",
+          "evidence_id": ""
         }
       ],
 
       "traceability": {
         "requires_citation": true,
         "acceptable_sources": [],
-        "citation_granularity": ""
+        "citation_granularity": "",
+        "minimum_traceability_requirement": ""
       },
 
       "agent_answer_guidance": {
         "answer_style": "",
-
         "must_include": [],
-
         "avoid_claims": []
       }
     }

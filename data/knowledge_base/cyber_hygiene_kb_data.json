@@ -1,0 +1,1684 @@
+{
+  "metadata": {
+    "project": "Cyber Hygiene Assistant Knowledge Base",
+    "version": "1.0",
+    "created_by": "Andrei Badea, s3012115",
+    "description": "A curated knowledge base on cyber hygiene practices, threats, and source-grounded recommendations. The knowledge base supports a knowledge graph-grounded conversational agent and enables evaluation across validity, traceability, and stability.",
+    "curation_notes": [
+      "Some threat mappings are initially inferred from Karayel et al.'s cyber hygiene categories and should later be supported by additional sources."
+    ]
+  },
+
+  "sources": [
+    {
+      "id": "SRC-KARAYEL-2024",
+      "citation_key": "karayel_human_2024",
+      "authors": [
+        "Tuğçe Karayel",
+        "Bahadır Aktaş",
+        "Adem Akbıyık"
+      ],
+      "year": 2024,
+      "title": "Human factors in remote work: examining cyber hygiene practices",
+      "venue": "Information and Computer Security",
+      "volume": "33",
+      "number": "1",
+      "pages": "96--116",
+      "peer_reviewed": true,
+      "doi": "10.1108/ICS-11-2023-0215",
+      "url": "https://doi.org/10.1108/ICS-11-2023-0215",
+      "notes": "Primary source for cyber hygiene practices among remote workers and for the five cyber hygiene categories used as the initial taxonomy of the knowledge base."
+    },
+    {
+      "id": "SRC-VISHWANATH-2020",
+      "citation_key": "vishwanath_cyber_2020",
+      "authors": [
+        "Arun Vishwanath",
+        "Loo Seng Neo",
+        "Pamela Goh",
+        "Seyoung Lee",
+        "Majeed Khader",
+        "Gabriel Ong",
+        "Jeffery Chin"
+      ],
+      "year": 2020,
+      "title": "Cyber hygiene: The concept, its measure, and its initial tests",
+      "venue": "Decision Support Systems",
+      "volume": "128",
+      "number": "",
+      "pages": "113160",
+      "peer_reviewed": true,
+      "doi": "10.1016/j.dss.2019.113160",
+      "url": "https://doi.org/10.1016/j.dss.2019.113160",
+      "notes": "Original source for the Cyber Hygiene Inventory and its five cyber hygiene dimensions."
+    }
+  ],
+
+  "cyber_hygiene_categories": [
+      {
+        "id": "CAT-GENERAL-CYBER-HYGIENE",
+        "name": "General cyber hygiene",
+        "definition": "General concepts and foundational definitions related to cyber hygiene.",
+        "examples": [
+          "Routine security behaviors",
+          "Protection of personal information",
+          "Reduction of cyber threat exposure"
+        ],
+        "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      },
+      {
+        "id": "CAT-STORAGE-DEVICE",
+        "name": "Storage and device hygiene",
+        "definition": "Security measures and behaviors related to the configuration settings of digital devices.",
+        "examples": [
+          "Conducting virus scans on storage devices",
+          "Backing up important files",
+          "Keeping virus protection and device software up to date"
+        ],
+        "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      },
+      {
+        "id": "CAT-TRANSMISSION",
+        "name": "Transmission hygiene",
+        "definition": "Computer security behaviors when connecting to unknown or insecure wireless networks.",
+        "examples": [
+          "Checking the quality of SSL certificates",
+          "Checking the lock icon in the web browser"
+        ],
+        "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      },
+      {
+        "id": "CAT-SOCIAL-MEDIA",
+        "name": "Social media hygiene",
+        "definition": "Computer security behaviors during the general use of social media.",
+        "examples": [
+          "Evaluating the authenticity of friend requests",
+          "Being aware of who you are friends with on social media",
+          "Managing privacy settings"
+        ],
+        "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      },
+      {
+        "id": "CAT-AUTH-CREDENTIAL",
+        "name": "Authentication and credential hygiene",
+        "definition": "Computer security behaviors related to the use of passwords and authentication.",
+        "examples": [
+          "Changing default usernames and passwords",
+          "Creating complex usernames and passwords",
+          "Enabling multifactor authentication"
+        ],
+        "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      },
+      {
+        "id": "CAT-EMAIL-MESSAGING",
+        "name": "Email and messaging hygiene",
+        "definition": "Computer security behaviors related to email usage and messaging.",
+        "examples": [
+          "Checking the subject of an incoming email",
+          "Checking the sender's email domain name",
+          "Checking spelling and grammar of email requests"
+        ],
+        "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      }
+    ],
+
+  "threats": [
+    {
+      "id": "THR-MALWARE-INFECTION",
+      "name": "Malware infection",
+      "definition": "A compromise in which malicious software infects a device or storage medium.",
+      "related_categories": ["CAT-STORAGE-DEVICE"],
+      "source_ids": [],
+      "support_status": "inferred_from_practice",
+      "support_notes": "Inferred from storage and device hygiene practices such as virus scans and keeping protection software up to date. Requires an additional source for a direct malware definition."
+    },
+    {
+      "id": "THR-DATA-LOSS",
+      "name": "Data loss",
+      "definition": "Loss of access to important files or information due to device failure, accidental deletion, malware, or other incidents.",
+      "related_categories": ["CAT-STORAGE-DEVICE"],
+      "source_ids": ["SRC-KARAYEL-2024"],
+      "support_status": "partially_supported",
+      "support_notes": "Karayel et al. directly mention backing up important files and secure data storage, but additional sources may be used to strengthen the broader data loss definition."
+    },
+    {
+      "id": "THR-RANSOMWARE",
+      "name": "Ransomware",
+      "definition": "A form of malware that restricts access to data or systems until a ransom is paid.",
+      "related_categories": ["CAT-STORAGE-DEVICE", "CAT-EMAIL-MESSAGING"],
+      "source_ids": [],
+      "support_status": "inferred_from_practice",
+      "support_notes": "Inferred from backup, malware, and email hygiene practices. Requires an additional source for a direct ransomware definition and mapping."
+    },
+    {
+      "id": "THR-UNPATCHED-SOFTWARE",
+      "name": "Unpatched software",
+      "definition": "Risk arising from outdated software that may contain unresolved security vulnerabilities.",
+      "related_categories": ["CAT-STORAGE-DEVICE"],
+      "source_ids": ["SRC-KARAYEL-2024"],
+      "support_status": "partially_supported",
+      "support_notes": "Karayel et al. directly mention keeping device software up to date, but an additional source should support the specific vulnerability-risk framing."
+    },
+    {
+      "id": "THR-INSECURE-CONNECTION",
+      "name": "Insecure connection",
+      "definition": "A network or website connection that does not provide sufficient protection for transmitted information.",
+      "related_categories": ["CAT-TRANSMISSION"],
+      "source_ids": ["SRC-KARAYEL-2024"],
+      "support_status": "directly_supported",
+      "support_notes": "Karayel et al. directly link transmission hygiene to unknown or insecure wireless networks and websites without SSL security certificates."
+    },
+    {
+      "id": "THR-MAN-IN-THE-MIDDLE",
+      "name": "Man-in-the-middle attack",
+      "definition": "An attack in which a third party intercepts or manipulates communication between two parties.",
+      "related_categories": ["CAT-TRANSMISSION"],
+      "source_ids": [],
+      "support_status": "inferred_from_practice",
+      "support_notes": "Inferred from SSL certificate and insecure connection practices. Requires an additional source for a direct man-in-the-middle definition."
+    },
+    {
+      "id": "THR-SOCIAL-ENGINEERING",
+      "name": "Social engineering",
+      "definition": "Manipulation of users into revealing information or performing unsafe actions.",
+      "related_categories": ["CAT-SOCIAL-MEDIA", "CAT-EMAIL-MESSAGING"],
+      "source_ids": ["SRC-KARAYEL-2024"],
+      "support_status": "directly_supported",
+      "support_notes": "Karayel et al. explicitly mention social engineering frauds in relation to email and messaging hygiene in remote work."
+    },
+    {
+      "id": "THR-IMPERSONATION",
+      "name": "Impersonation",
+      "definition": "A deception tactic in which an attacker pretends to be a trusted person, organization, or account.",
+      "related_categories": ["CAT-SOCIAL-MEDIA", "CAT-EMAIL-MESSAGING"],
+      "source_ids": ["SRC-KARAYEL-2024"],
+      "support_status": "partially_supported",
+      "support_notes": "Supported by practices such as evaluating authenticity of social media friend requests and checking sender email domains. Additional sources may strengthen the explicit impersonation framing."
+    },
+    {
+      "id": "THR-OVERSHARING",
+      "name": "Oversharing personal information",
+      "definition": "Exposure of personal or sensitive information through excessive or poorly controlled sharing.",
+      "related_categories": ["CAT-SOCIAL-MEDIA"],
+      "source_ids": ["SRC-KARAYEL-2024"],
+      "support_status": "partially_supported",
+      "support_notes": "Supported by Karayel et al.'s social media hygiene examples, including awareness of who users are friends with and managing privacy settings."
+    },
+    {
+      "id": "THR-PRIVACY-EXPOSURE",
+      "name": "Privacy exposure",
+      "definition": "Risk of unintended disclosure of personal information due to weak privacy settings or unsafe online behavior.",
+      "related_categories": ["CAT-SOCIAL-MEDIA"],
+      "source_ids": ["SRC-KARAYEL-2024"],
+      "support_status": "directly_supported",
+      "support_notes": "Karayel et al. directly include managing privacy settings within social media hygiene."
+    },
+    {
+      "id": "THR-CREDENTIAL-TARGETING",
+      "name": "Credential targeting",
+      "definition": "Attempts by attackers to target user information, usernames, passwords, or authentication mechanisms.",
+      "related_categories": ["CAT-AUTH-CREDENTIAL", "CAT-EMAIL-MESSAGING"],
+      "source_ids": ["SRC-KARAYEL-2024"],
+      "support_status": "directly_supported",
+      "support_notes": "Karayel et al. discuss authentication and credential hygiene and state that user information and passwords are frequently targeted by hackers."
+    },
+    {
+      "id": "THR-CREDENTIAL-THEFT",
+      "name": "Credential theft",
+      "definition": "Unauthorized acquisition or misuse of usernames, passwords, or other authentication information.",
+      "related_categories": ["CAT-AUTH-CREDENTIAL", "CAT-EMAIL-MESSAGING"],
+      "source_ids": [],
+      "support_status": "inferred_from_practice",
+      "support_notes": "Closely related to credential targeting, but the specific theft framing should be supported by an additional source."
+    },
+    {
+      "id": "THR-BRUTE-FORCE",
+      "name": "Brute-force credential attack",
+      "definition": "An attempt to guess credentials through repeated login attempts.",
+      "related_categories": ["CAT-AUTH-CREDENTIAL"],
+      "source_ids": [],
+      "support_status": "inferred_from_practice",
+      "support_notes": "Inferred from complex password practices. Requires an additional source for a direct brute-force definition."
+    },
+    {
+      "id": "THR-UNAUTHORIZED-ACCESS",
+      "name": "Unauthorized access",
+      "definition": "Access to an account, device, or system without legitimate permission.",
+      "related_categories": ["CAT-AUTH-CREDENTIAL", "CAT-STORAGE-DEVICE"],
+      "source_ids": [],
+      "support_status": "inferred_from_practice",
+      "support_notes": "Inferred from authentication practices such as changing defaults and enabling MFA. Requires an additional source for a direct unauthorized-access definition."
+    },
+    {
+      "id": "THR-PHISHING",
+      "name": "Phishing",
+      "definition": "A deceptive attack in which users are tricked into revealing information, clicking malicious links, opening harmful attachments, or performing unsafe actions.",
+      "related_categories": ["CAT-EMAIL-MESSAGING", "CAT-AUTH-CREDENTIAL"],
+      "source_ids": ["SRC-KARAYEL-2024"],
+      "support_status": "directly_supported",
+      "support_notes": "Karayel et al. explicitly mention phishing attacks in relation to email and messaging hygiene."
+    },
+    {
+      "id": "THR-EMAIL-SCAM",
+      "name": "Email scam and e-fraud",
+      "definition": "A fraudulent email-based attempt to deceive users into unsafe actions or disclosure of information.",
+      "related_categories": ["CAT-EMAIL-MESSAGING"],
+      "source_ids": ["SRC-KARAYEL-2024"],
+      "support_status": "directly_supported",
+      "support_notes": "Karayel et al. mention e-fraud in relation to email and messaging hygiene."
+    },
+    {
+      "id": "THR-USER-NONCOMPLIANCE",
+      "name": "User noncompliance with security practices",
+      "definition": "A behavioral cybersecurity risk in which users fail to follow recommended or required security practices, increasing the likelihood of security incidents.",
+      "related_categories": ["CAT-GENERAL-CYBER-HYGIENE"],
+      "source_ids": ["SRC-KARAYEL-2024"],
+      "support_status": "directly_supported",
+      "support_notes": "Karayel et al. discuss human factors as a weak link in security systems and state that noncompliance with security practices is a primary cause of security breaches."
+    },
+    {
+      "id": "THR-INSUFFICIENT-ORG-SECURITY-MEASURES",
+      "name": "Insufficient organizational cybersecurity measures",
+      "definition": "A contextual cybersecurity risk in which weak or insufficient organizational security measures may be associated with poorer employee cyber hygiene practices.",
+      "related_categories": ["CAT-GENERAL-CYBER-HYGIENE"],
+      "source_ids": ["SRC-KARAYEL-2024"],
+      "support_status": "directly_supported",
+      "support_notes": "Karayel et al. report a statistically significant positive relationship between organizational cybersecurity measures and employees' cyber hygiene practices."
+    }
+  ],
+
+  "practices": [
+    {
+      "id": "PRA-VIRUS-SCAN-STORAGE",
+      "name": "Conduct virus scans on storage devices",
+      "description": "Users should conduct virus scans on storage devices to detect potentially malicious or infected files.",
+      "category_id": "CAT-STORAGE-DEVICE",
+      "mitigates": ["THR-MALWARE-INFECTION"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-BACKUP-FILES",
+      "name": "Back up important files",
+      "description": "Users should back up important files to reduce the impact of data loss, malware, or device failure.",
+      "category_id": "CAT-STORAGE-DEVICE",
+      "mitigates": ["THR-DATA-LOSS", "THR-RANSOMWARE"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-UPDATE-PROTECTION-SOFTWARE",
+      "name": "Keep protection software up to date",
+      "description": "Users should keep antivirus protection and device software up to date.",
+      "category_id": "CAT-STORAGE-DEVICE",
+      "mitigates": ["THR-MALWARE-INFECTION", "THR-UNPATCHED-SOFTWARE"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-CHECK-SSL-CERTIFICATE",
+      "name": "Check SSL certificate quality",
+      "description": "Users should check whether a website uses a valid SSL certificate before entering sensitive information.",
+      "category_id": "CAT-TRANSMISSION",
+      "mitigates": ["THR-INSECURE-CONNECTION"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-CHECK-BROWSER-LOCK",
+      "name": "Check browser lock icon",
+      "description": "Users should check for the browser lock icon to identify whether a connection appears secured.",
+      "category_id": "CAT-TRANSMISSION",
+      "mitigates": ["THR-INSECURE-CONNECTION"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-EVALUATE-FRIEND-REQUESTS",
+      "name": "Evaluate authenticity of friend requests",
+      "description": "Users should evaluate whether social media friend requests are authentic before accepting them.",
+      "category_id": "CAT-SOCIAL-MEDIA",
+      "mitigates": ["THR-SOCIAL-ENGINEERING", "THR-IMPERSONATION"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-MANAGE-PRIVACY-SETTINGS",
+      "name": "Manage privacy settings",
+      "description": "Users should manage social media privacy settings to control who can view their information.",
+      "category_id": "CAT-SOCIAL-MEDIA",
+      "mitigates": ["THR-OVERSHARING", "THR-PRIVACY-EXPOSURE"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-CHANGE-DEFAULT-CREDENTIALS",
+      "name": "Change default usernames and passwords",
+      "description": "Users should change default usernames and passwords to reduce the risk of unauthorized access.",
+      "category_id": "CAT-AUTH-CREDENTIAL",
+      "mitigates": ["THR-CREDENTIAL-THEFT", "THR-UNAUTHORIZED-ACCESS"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-CREATE-COMPLEX-CREDENTIALS",
+      "name": "Create complex usernames and passwords",
+      "description": "Users should create complex usernames and passwords to reduce the risk of credential compromise.",
+      "category_id": "CAT-AUTH-CREDENTIAL",
+      "mitigates": ["THR-CREDENTIAL-THEFT", "THR-BRUTE-FORCE"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-ENABLE-MFA",
+      "name": "Enable multifactor authentication",
+      "description": "Users should enable multifactor authentication to add an additional layer of account security.",
+      "category_id": "CAT-AUTH-CREDENTIAL",
+      "mitigates": ["THR-CREDENTIAL-THEFT", "THR-UNAUTHORIZED-ACCESS"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-CHECK-EMAIL-SUBJECT",
+      "name": "Check incoming email subjects",
+      "description": "Users should inspect the subject of incoming emails for suspicious, unexpected, or urgency-based requests that may indicate phishing or e-fraud.",
+      "category_id": "CAT-EMAIL-MESSAGING",
+      "mitigates": ["THR-PHISHING", "THR-EMAIL-SCAM", "THR-SOCIAL-ENGINEERING"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-CHECK-SENDER-DOMAIN",
+      "name": "Check sender email domain",
+      "description": "Users should check the sender's email domain name before trusting an email request, especially when the message asks for sensitive information or urgent action.",
+      "category_id": "CAT-EMAIL-MESSAGING",
+      "mitigates": ["THR-PHISHING", "THR-IMPERSONATION", "THR-SOCIAL-ENGINEERING"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-CHECK-EMAIL-LANGUAGE",
+      "name": "Check spelling and grammar of email requests",
+      "description": "Users should inspect spelling and grammar in email requests as possible warning signs of suspicious, fraudulent, or socially engineered messages.",
+      "category_id": "CAT-EMAIL-MESSAGING",
+      "mitigates": ["THR-PHISHING", "THR-EMAIL-SCAM", "THR-SOCIAL-ENGINEERING"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-ADDRESS-USER-BEHAVIOR",
+      "name": "Address individual user behavior",
+      "description": "Cybersecurity guidance should address individual user behavior in addition to technical security measures.",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "mitigates": ["THR-USER-NONCOMPLIANCE"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-USE-STRONG-PASSWORDS",
+      "name": "Use strong passwords",
+      "description": "Users should use strong passwords as part of routine cyber hygiene behavior.",
+      "category_id": "CAT-AUTH-CREDENTIAL",
+      "mitigates": ["THR-CREDENTIAL-TARGETING", "THR-CREDENTIAL-THEFT", "THR-BRUTE-FORCE"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-CHANGE-PASSWORDS-REGULARLY",
+      "name": "Change passwords regularly",
+      "description": "Users should change passwords regularly as part of maintaining cyber hygiene.",
+      "category_id": "CAT-AUTH-CREDENTIAL",
+      "mitigates": ["THR-CREDENTIAL-TARGETING", "THR-CREDENTIAL-THEFT"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-AVOID-PASSWORD-REUSE",
+      "name": "Avoid password reuse",
+      "description": "Users should avoid reusing passwords across accounts to reduce credential-related risk.",
+      "category_id": "CAT-AUTH-CREDENTIAL",
+      "mitigates": ["THR-CREDENTIAL-TARGETING", "THR-CREDENTIAL-THEFT"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-UPDATE-ANTIVIRUS",
+      "name": "Update antivirus software",
+      "description": "Users should keep antivirus software up to date to reduce exposure to cyber threats.",
+      "category_id": "CAT-STORAGE-DEVICE",
+      "mitigates": ["THR-MALWARE-INFECTION", "THR-UNPATCHED-SOFTWARE"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-SECURELY-STORE-INFORMATION",
+      "name": "Securely store online information",
+      "description": "Users should securely store online information to protect personal and sensitive data.",
+      "category_id": "CAT-STORAGE-DEVICE",
+      "mitigates": ["THR-DATA-LOSS", "THR-PRIVACY-EXPOSURE"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-CONDUCT-SECURITY-SCANS",
+      "name": "Conduct appropriate security scans",
+      "description": "Users should conduct appropriate security scans to detect cyber threats or attack attempts.",
+      "category_id": "CAT-STORAGE-DEVICE",
+      "mitigates": ["THR-MALWARE-INFECTION"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-STRENGTHEN-ORG-CYBERSECURITY-MEASURES",
+      "name": "Strengthen organizational cybersecurity measures",
+      "description": "Organizations should strengthen cybersecurity measures that support employees' cyber hygiene practices.",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "mitigates": ["THR-INSUFFICIENT-ORG-SECURITY-MEASURES"],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+    "id": "PRA-CYBERSECURITY-TRAINING",
+    "name": "Provide cybersecurity training",
+    "description": "Organizations should educate and train employees on cyber hygiene to support improved cyber hygiene behavior.",
+    "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+    "mitigates": [
+      "THR-INSUFFICIENT-ORG-SECURITY-MEASURES",
+      "THR-USER-NONCOMPLIANCE"
+    ],
+    "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-TAILORED-TRAINING",
+      "name": "Provide tailored cybersecurity training",
+      "description": "Organizations should tailor cyber hygiene improvement initiatives and training to employees' characteristics, such as educational level, age, or comprehension needs.",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "mitigates": [
+        "THR-INSUFFICIENT-ORG-SECURITY-MEASURES",
+        "THR-USER-NONCOMPLIANCE"
+      ],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-SECURITY-POLICIES-PROCEDURES",
+      "name": "Develop cybersecurity policies and procedures",
+      "description": "Organizations should develop cybersecurity policies and procedures that support remote work systems and foster a strong cyber hygiene culture.",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "mitigates": [
+        "THR-INSUFFICIENT-ORG-SECURITY-MEASURES",
+        "THR-USER-NONCOMPLIANCE"
+      ],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-INCIDENT-MANAGEMENT-TRAINING",
+      "name": "Provide incident management training",
+      "description": "Organizations should adopt incident management training as part of advanced cybersecurity measures for coordinating and managing incidents.",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "mitigates": [
+        "THR-INSUFFICIENT-ORG-SECURITY-MEASURES"
+      ],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    },
+    {
+      "id": "PRA-CYBERSECURITY-PROTOCOLS",
+      "name": "Use cybersecurity protocols for incident coordination",
+      "description": "Organizations should adopt cybersecurity protocols for coordinating and managing cybersecurity incidents.",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "mitigates": [
+        "THR-INSUFFICIENT-ORG-SECURITY-MEASURES"
+      ],
+      "source_ids": ["SRC-KARAYEL-2024"]
+    }
+  ],
+
+  "knowledge_units": [
+    {
+      "id": "KU-CYBER-HYGIENE-DEFINITION-001",
+      "title": "Cyber hygiene as routine security behavior for protecting personal information",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "threat_ids": [],
+      "practice_ids": [],
+      "claim": "Cyber hygiene refers to routine cybersecurity practices that online users adopt to protect the security and integrity of their personal information on internet-connected devices against cyber threats.",
+      "explanation": "Cyber hygiene consists of regular security behaviors and habits that reduce risky online activity and help protect devices, personal information, and organizational data from cyber threats.",
+      "recommended_actions": [
+        "Adopt routine security habits when using internet-connected devices.",
+        "Protect personal, financial, and social information during online activity.",
+        "Follow security guidelines that reduce exposure to cyber threats.",
+        "Maintain secure behavior across devices, accounts, networks, and online communication."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "What is cyber hygiene?",
+        "Why is cyber hygiene important?",
+        "What does cyber hygiene mean?",
+        "What kinds of behaviors are included in cyber hygiene?",
+        "How does cyber hygiene reduce cybersecurity risk?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-KARAYEL-CYBER-HYGIENE-DEF-001",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Cyber hygiene refers to a set of cybersecurity practices that online users should adopt to safeguard the security and integrity of their personal information on internet-connected devices against potential cyber threats.",
+          "page": 3,
+          "section": "2.1 Cyber hygiene",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 3,
+            "section": "2.1 Cyber hygiene",
+            "paragraph": "1"
+          }
+        },
+        {
+          "evidence_id": "EVID-KARAYEL-CYBER-HYGIENE-DEF-002",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "As a fundamental principle of information security, cyber hygiene comprises simple, routine measures that mitigate the risk of cyber threats.",
+          "page": 3,
+          "section": "2.1 Cyber hygiene",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 3,
+            "section": "2.1 Cyber hygiene",
+            "paragraph": "1"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-CYBER-HYGIENE-DEF-001",
+          "fact": "Cyber hygiene refers to cybersecurity practices adopted by online users.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-CYBER-HYGIENE-DEF-001"
+        },
+        {
+          "fact_id": "VF-CYBER-HYGIENE-DEF-002",
+          "fact": "Cyber hygiene aims to protect the security and integrity of personal information.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-CYBER-HYGIENE-DEF-001"
+        },
+        {
+          "fact_id": "VF-CYBER-HYGIENE-DEF-003",
+          "fact": "Cyber hygiene applies to internet-connected devices.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-CYBER-HYGIENE-DEF-001"
+        },
+        {
+          "fact_id": "VF-CYBER-HYGIENE-DEF-004",
+          "fact": "Cyber hygiene consists of simple, routine measures that reduce cyber threat risk.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-CYBER-HYGIENE-DEF-002"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-KARAYEL-2024"
+        ],
+        "citation_granularity": "section_or_paragraph",
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 and should be traceable to Section 2.1, Cyber hygiene."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "definition_with_brief_explanation",
+        "must_include": [
+          "cybersecurity practices",
+          "protect personal information",
+          "internet-connected devices",
+          "routine measures",
+          "reduce cyber threats"
+        ],
+        "avoid_claims": [
+          "Cyber hygiene is only about antivirus software",
+          "Cyber hygiene is only relevant to organizations",
+          "Cyber hygiene completely eliminates cybersecurity risk"
+        ]
+      }
+    },
+    {
+      "id": "KU-HUMAN-FACTORS-001",
+      "title": "Cyber hygiene guidance should address user behavior as well as technical controls",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "threat_ids": [
+        "THR-USER-NONCOMPLIANCE"
+      ],
+      "practice_ids": [
+        "PRA-ADDRESS-USER-BEHAVIOR"
+      ],
+      "claim": "Cyber hygiene guidance should address individual user behavior, because technical cybersecurity measures alone are insufficient for effective cybersecurity.",
+      "explanation": "Karayel et al. emphasize that cybersecurity depends not only on organizational or technical measures, but also on individual behavior. Users who do not comply with security practices can weaken otherwise secure systems, making behavioral guidance an important part of cyber hygiene.",
+      "recommended_actions": [
+        "Address user behavior when designing cyber hygiene guidance.",
+        "Encourage users to follow recommended security practices consistently.",
+        "Combine technical cybersecurity measures with awareness of individual security behavior.",
+        "Recognize that noncompliance with security practices can increase security risk."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "Why does cyber hygiene depend on user behavior?",
+        "Are technical cybersecurity measures enough to ensure good cyber hygiene?",
+        "Why should cyber hygiene guidance focus on people as well as technology?",
+        "How do human factors affect cybersecurity?",
+        "Why is user compliance important for cyber hygiene?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-001",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "cybersecurity investments and measures alone are insufficient",
+          "page": 2,
+          "section": "1. Introduction",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 2,
+            "section": "1. Introduction",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-002",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Human factors often constitute the weakest link",
+          "page": 2,
+          "section": "1. Introduction",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 2,
+            "section": "1. Introduction",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-003",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "noncompliance with security practices",
+          "page": 2,
+          "section": "1. Introduction",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 2,
+            "section": "1. Introduction",
+            "paragraph": "3"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-HUMAN-FACTORS-001",
+          "fact": "Technical cybersecurity measures alone are insufficient for effective cybersecurity.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-001"
+        },
+        {
+          "fact_id": "VF-HUMAN-FACTORS-002",
+          "fact": "Cybersecurity also requires attention to individual user behavior.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-001"
+        },
+        {
+          "fact_id": "VF-HUMAN-FACTORS-003",
+          "fact": "Human factors can weaken security systems.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-002"
+        },
+        {
+          "fact_id": "VF-HUMAN-FACTORS-004",
+          "fact": "Noncompliance with security practices is an important cause of security breaches.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-003"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-KARAYEL-2024"
+        ],
+        "citation_granularity": "section_or_paragraph",
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 and should be traceable to the Introduction section discussing technical measures, individual behavior, and human factors."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "explanatory_guidance",
+        "must_include": [
+          "technical measures alone are insufficient",
+          "individual user behavior matters",
+          "human factors can weaken security",
+          "noncompliance with security practices increases risk"
+        ],
+        "avoid_claims": [
+          "Cybersecurity is only a technical problem",
+          "User behavior does not matter if technical controls are strong",
+          "Human error is the only cause of cybersecurity breaches"
+        ]
+      }
+    },
+    {
+      "id": "KU-AUTH-CREDENTIAL-001",
+      "title": "Authentication hygiene includes changing defaults, creating complex credentials, and enabling MFA",
+      "category_id": "CAT-AUTH-CREDENTIAL",
+      "threat_ids": [
+        "THR-CREDENTIAL-TARGETING",
+        "THR-CREDENTIAL-THEFT",
+        "THR-UNAUTHORIZED-ACCESS",
+        "THR-BRUTE-FORCE"
+      ],
+      "practice_ids": [
+        "PRA-CHANGE-DEFAULT-CREDENTIALS",
+        "PRA-CREATE-COMPLEX-CREDENTIALS",
+        "PRA-ENABLE-MFA"
+      ],
+      "claim": "Authentication and credential hygiene involves changing default usernames and passwords, creating complex credentials, and enabling multifactor authentication.",
+      "explanation": "These practices describe authentication and credential hygiene behaviors that help users protect access to accounts and systems by improving how usernames, passwords, and authentication mechanisms are managed. Karayel et al. emphasize that user information and passwords are frequently targeted by hackers, making high authentication and credential hygiene important for internet users.",
+      "recommended_actions": [
+        "Change default usernames and passwords.",
+        "Create complex usernames and passwords.",
+        "Enable multifactor authentication where possible."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "What are good authentication and credential hygiene practices?",
+        "How can users improve password and authentication security?",
+        "What should remote workers do to protect their login credentials?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-KARAYEL-AUTH-001",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Changing default usernames and passwords, creating complex usernames and passwords and enabling multifactor authentication",
+          "page": 7,
+          "section": "Table 2. Cyber hygiene categories",
+          "paragraph": "",
+          "claim_location": {
+            "page": 7,
+            "section": "Table 2. Cyber hygiene categories",
+            "paragraph": ""
+          }
+        },
+        {
+          "evidence_id": "EVID-KARAYEL-AUTH-002",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "High authentication and credential hygiene, which involve using complex usernames and passwords, changing defaults and enabling multifactor authentication, are observed in the IT, defense, automotive and manufacturing industries. In contrast, the food, service and construction industries demonstrate the lowest levels. As user information and passwords are frequently targeted by hackers, maintaining high cyber hygiene is crucial for all internet users.",
+          "page": 13,
+          "section": "4. Results and discussion, RQ4 explanation",
+          "paragraph": "6",
+          "claim_location": {
+            "page": 13,
+            "section": "4. Results and discussion, RQ4 explanation",
+            "paragraph": "6"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-AUTH-001",
+          "fact": "Authentication and credential hygiene includes changing default usernames and passwords.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-AUTH-001"
+        },
+        {
+          "fact_id": "VF-AUTH-002",
+          "fact": "Authentication and credential hygiene includes creating complex usernames and passwords.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-AUTH-001"
+        },
+        {
+          "fact_id": "VF-AUTH-003",
+          "fact": "Authentication and credential hygiene includes enabling multifactor authentication.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-AUTH-001"
+        },
+        {
+          "fact_id": "VF-AUTH-004",
+          "fact": "User information and passwords are frequently targeted by hackers, making authentication and credential hygiene important.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-AUTH-002"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": ["SRC-KARAYEL-2024"],
+        "citation_granularity": "table_or_section",
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 and should be traceable to Table 2, Cyber hygiene categories, and to the RQ4 discussion in Section 4 for the claim that user information and passwords are frequently targeted by hackers."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "practical_advice",
+        "must_include": [
+          "change default usernames and passwords",
+          "create complex usernames and passwords",
+          "enable multifactor authentication",
+          "user information and passwords are frequently targeted"
+        ],
+        "avoid_claims": [
+          "Passwords alone are sufficient protection",
+          "Multifactor authentication eliminates all account compromise risk",
+          "Authentication hygiene only means choosing a strong password"
+        ]
+      }
+    },
+    {
+      "id": "KU-ROUTINE-CYBER-HYGIENE-PRACTICES-001",
+      "title": "Routine cyber hygiene practices include password, antivirus, storage, and security scanning behaviors",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "threat_ids": [
+        "THR-CREDENTIAL-TARGETING",
+        "THR-MALWARE-INFECTION",
+        "THR-DATA-LOSS",
+        "THR-PRIVACY-EXPOSURE"
+      ],
+      "practice_ids": [
+        "PRA-USE-STRONG-PASSWORDS",
+        "PRA-CHANGE-PASSWORDS-REGULARLY",
+        "PRA-AVOID-PASSWORD-REUSE",
+        "PRA-UPDATE-ANTIVIRUS",
+        "PRA-SECURELY-STORE-INFORMATION",
+        "PRA-CONDUCT-SECURITY-SCANS"
+      ],
+      "claim": "Routine cyber hygiene practices include checking devices for cyber threats, using strong passwords, changing passwords regularly, avoiding password reuse, updating antivirus software, securely storing online information, and conducting security scans.",
+      "explanation": "These practices represent recurring security habits that help users protect personal information, devices, and accounts from cyber threats. They complement the five cyber hygiene categories by providing concrete examples of day-to-day protective behavior.",
+      "recommended_actions": [
+        "Check computers and devices for cyber threats or attack attempts.",
+        "Use strong passwords.",
+        "Change passwords regularly where appropriate.",
+        "Avoid reusing passwords across accounts.",
+        "Keep antivirus software up to date.",
+        "Securely store online information.",
+        "Conduct appropriate security scans."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "What are examples of routine cyber hygiene practices?",
+        "What cyber hygiene habits should users follow regularly?",
+        "What are concrete examples of good cyber hygiene?",
+        "Which routine behaviors help users reduce cybersecurity risk?",
+        "What basic cyber hygiene practices protect personal information?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Examples include routinely checking computers for cyber threats or attack attempts, using strong passwords, changing passwords regularly and avoiding password reuse, updating antivirus software, securely storing online information and conducting appropriate security scans.",
+          "page": 3,
+          "section": "2.1 Cyber hygiene",
+          "paragraph": "4",
+          "claim_location": {
+            "page": 3,
+            "section": "2.1 Cyber hygiene",
+            "paragraph": "4"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-ROUTINE-PRACTICES-001",
+          "fact": "Routine cyber hygiene includes checking computers for cyber threats or attack attempts.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+        },
+        {
+          "fact_id": "VF-ROUTINE-PRACTICES-002",
+          "fact": "Routine cyber hygiene includes using strong passwords.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+        },
+        {
+          "fact_id": "VF-ROUTINE-PRACTICES-003",
+          "fact": "Routine cyber hygiene includes changing passwords regularly.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+        },
+        {
+          "fact_id": "VF-ROUTINE-PRACTICES-004",
+          "fact": "Routine cyber hygiene includes avoiding password reuse.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+        },
+        {
+          "fact_id": "VF-ROUTINE-PRACTICES-005",
+          "fact": "Routine cyber hygiene includes updating antivirus software.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+        },
+        {
+          "fact_id": "VF-ROUTINE-PRACTICES-006",
+          "fact": "Routine cyber hygiene includes securely storing online information.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+        },
+        {
+          "fact_id": "VF-ROUTINE-PRACTICES-007",
+          "fact": "Routine cyber hygiene includes conducting appropriate security scans.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-KARAYEL-2024"
+        ],
+        "citation_granularity": "section_or_paragraph",
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 and should be traceable to Section 2.1, Cyber hygiene, where routine cyber hygiene examples are listed."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "practical_advice",
+        "must_include": [
+          "checking computers for cyber threats",
+          "strong passwords",
+          "changing passwords regularly",
+          "avoiding password reuse",
+          "updating antivirus software",
+          "securely storing online information",
+          "security scans"
+        ],
+        "avoid_claims": [
+          "Only technical tools are needed for cyber hygiene",
+          "Antivirus software alone is enough for good cyber hygiene",
+          "Password reuse is safe if the password is strong",
+          "Cyber hygiene completely eliminates all cyber risk"
+        ]
+      }
+    },
+    {
+      "id": "KU-EMAIL-MESSAGING-001",
+      "title": "Email and messaging hygiene helps users detect phishing, e-fraud, and social engineering attempts",
+      "category_id": "CAT-EMAIL-MESSAGING",
+      "threat_ids": [
+        "THR-PHISHING",
+        "THR-EMAIL-SCAM",
+        "THR-SOCIAL-ENGINEERING",
+        "THR-IMPERSONATION"
+      ],
+      "practice_ids": [
+        "PRA-CHECK-EMAIL-SUBJECT",
+        "PRA-CHECK-SENDER-DOMAIN",
+        "PRA-CHECK-EMAIL-LANGUAGE"
+      ],
+      "claim": "Email and messaging hygiene involves checking email subjects, sender domains, and the spelling and grammar of email requests, helping users remain cautious against phishing, e-fraud, and social engineering attempts.",
+      "explanation": "Remote workers rely heavily on email and messaging platforms for communication. Karayel et al. identify email and messaging hygiene as an important cyber hygiene subdimension for preventing phishing, e-fraud, and social engineering-related attacks.",
+      "recommended_actions": [
+        "Check the subject of incoming emails for suspicious or unexpected requests.",
+        "Check the sender's email domain before trusting an email request.",
+        "Inspect spelling and grammar in email requests.",
+        "Remain cautious when receiving unexpected requests through email or messaging platforms."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "How can users reduce phishing risk through email hygiene?",
+        "What email and messaging hygiene practices help prevent phishing?",
+        "What should remote workers check in suspicious emails?",
+        "How does email hygiene help prevent social engineering attacks?",
+        "What are good email security habits for remote workers?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-KARAYEL-EMAIL-MESSAGING-001",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Checking the subject of an incoming email, checking the email domain name of the sender and checking the spelling and grammar of email requests",
+          "page": 7,
+          "section": "Table 2. Cyber hygiene categories",
+          "paragraph": "",
+          "claim_location": {
+            "page": 7,
+            "section": "Table 2. Cyber hygiene categories",
+            "paragraph": ""
+          }
+        },
+        {
+          "evidence_id": "EVID-KARAYEL-EMAIL-MESSAGING-002",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "E-mail and messaging hygiene is the highest subdimension for both sectors, requiring a high level of awareness to prevent cyberattacks like phishing and e-fraud",
+          "page": 11,
+          "section": "4.3 Research subquestions, RQ3 discussion",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 11,
+            "section": "4.3 Research subquestions, RQ3 discussion",
+            "paragraph": "5"
+          }
+        },
+        {
+          "evidence_id": "EVID-KARAYEL-EMAIL-MESSAGING-003",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Maintaining caution and high awareness is vital for preventing social engineering frauds and phishing attacks",
+          "page": 12,
+          "section": "4.3 Research subquestions, RQ3 discussion",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 12,
+            "section": "4.3 Research subquestions, RQ3 discussion",
+            "paragraph": "1"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-001",
+          "fact": "Email and messaging hygiene includes checking the subject of incoming emails.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-EMAIL-MESSAGING-001"
+        },
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-002",
+          "fact": "Email and messaging hygiene includes checking the sender's email domain name.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-EMAIL-MESSAGING-001"
+        },
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-003",
+          "fact": "Email and messaging hygiene includes checking spelling and grammar of email requests.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-EMAIL-MESSAGING-001"
+        },
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-004",
+          "fact": "Email and messaging hygiene helps prevent phishing and e-fraud.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-EMAIL-MESSAGING-002"
+        },
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-005",
+          "fact": "Caution and awareness in email and messaging help prevent social engineering frauds and phishing attacks.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-EMAIL-MESSAGING-003"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-KARAYEL-2024"
+        ],
+        "citation_granularity": "table_or_section",
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 and should be traceable to Table 2 and the discussion of email and messaging hygiene in Section 4.3."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "practical_advice",
+        "must_include": [
+          "check email subject",
+          "check sender domain",
+          "check spelling and grammar",
+          "phishing",
+          "e-fraud",
+          "social engineering"
+        ],
+        "avoid_claims": [
+          "All phishing emails contain spelling mistakes",
+          "Checking spelling and grammar is sufficient by itself",
+          "Email security tools alone eliminate phishing risk",
+          "Users can always identify phishing by appearance alone"
+        ]
+      }
+    },
+    {
+      "id": "KU-TRANSMISSION-001",
+      "title": "Transmission hygiene involves checking secure website connections and SSL indicators",
+      "category_id": "CAT-TRANSMISSION",
+      "threat_ids": [
+        "THR-INSECURE-CONNECTION"
+      ],
+      "practice_ids": [
+        "PRA-CHECK-SSL-CERTIFICATE",
+        "PRA-CHECK-BROWSER-LOCK"
+      ],
+      "claim": "Transmission hygiene involves checking SSL certificate quality and the browser lock icon to reduce risky behavior when using websites or networks that may not provide secure connections.",
+      "explanation": "Karayel et al. describe transmission hygiene as cyber hygiene behavior related to connections with unknown or insecure wireless networks. They also associate browsing and transmission hygiene with avoiding websites that lack SSL security certificates.",
+      "recommended_actions": [
+        "Check whether a website has a valid SSL certificate before entering sensitive information.",
+        "Check for the browser lock icon when assessing whether a website connection appears secured.",
+        "Be cautious when connecting to unknown or insecure wireless networks.",
+        "Avoid entering sensitive information on websites that lack SSL security indicators."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "What is transmission hygiene?",
+        "How can users check whether a website connection is secure?",
+        "What should users look for before entering sensitive information on a website?",
+        "How does checking SSL certificates support cyber hygiene?",
+        "What are good transmission hygiene practices?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-KARAYEL-TRANSMISSION-001",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Checking the quality of the SSL certificate, checking the lock icon in the web browser",
+          "page": 7,
+          "section": "Table 2. Cyber hygiene categories",
+          "paragraph": "Third column, second row of the table",
+          "claim_location": {
+            "page": 7,
+            "section": "Table 2. Cyber hygiene categories",
+            "paragraph": "Third column, second row of the table"
+          }
+        },
+        {
+          "evidence_id": "EVID-KARAYEL-TRANSMISSION-002",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Transmission hygiene measures risky practices on connections with unknown or insecure wireless networks.",
+          "page": 12,
+          "section": "4.3 Research subquestions, RQ3 discussion",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 12,
+            "section": "4.3 Research subquestions, RQ3 discussion",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-KARAYEL-TRANSMISSION-003",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Browsing hygiene measures unsafe practices such as visiting websites without SSL security certificates.",
+          "page": 12,
+          "section": "4.3 Research subquestions, RQ3 discussion",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 12,
+            "section": "4.3 Research subquestions, RQ3 discussion",
+            "paragraph": "2"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-TRANSMISSION-001",
+          "fact": "Transmission hygiene includes checking the quality of SSL certificates.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-TRANSMISSION-001"
+        },
+        {
+          "fact_id": "VF-TRANSMISSION-002",
+          "fact": "Transmission hygiene includes checking the browser lock icon.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-TRANSMISSION-001"
+        },
+        {
+          "fact_id": "VF-TRANSMISSION-003",
+          "fact": "Transmission hygiene relates to risky connections with unknown or insecure wireless networks.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-TRANSMISSION-002"
+        },
+        {
+          "fact_id": "VF-TRANSMISSION-004",
+          "fact": "Browsing hygiene relates to avoiding websites without SSL security certificates.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-TRANSMISSION-003"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-KARAYEL-2024"
+        ],
+        "citation_granularity": "table_or_section",
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 and should be traceable to Table 2 and the discussion of transmission and browsing hygiene in Section 4.3."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "practical_advice",
+        "must_include": [
+          "check SSL certificate quality",
+          "check browser lock icon",
+          "unknown or insecure wireless networks",
+          "websites without SSL security certificates"
+        ],
+        "avoid_claims": [
+          "The browser lock icon guarantees that a website is safe",
+          "SSL certificates eliminate all transmission risk",
+          "Transmission hygiene only applies to public Wi-Fi",
+          "Checking SSL certificates alone is sufficient for secure browsing"
+        ]
+      }
+    },
+    {
+      "id": "KU-STORAGE-DEVICE-001",
+      "title": "Storage and device hygiene includes backups, antivirus updates, secure storage, and virus scans",
+      "category_id": "CAT-STORAGE-DEVICE",
+      "threat_ids": [
+        "THR-MALWARE-INFECTION",
+        "THR-DATA-LOSS",
+        "THR-UNPATCHED-SOFTWARE"
+      ],
+      "practice_ids": [
+        "PRA-VIRUS-SCAN-STORAGE",
+        "PRA-BACKUP-FILES",
+        "PRA-UPDATE-PROTECTION-SOFTWARE",
+        "PRA-UPDATE-ANTIVIRUS",
+        "PRA-SECURELY-STORE-INFORMATION",
+        "PRA-CONDUCT-SECURITY-SCANS"
+      ],
+      "claim": "Storage and device hygiene involves conducting virus scans, backing up important files, keeping virus protection and device software up to date, and securely storing data.",
+      "explanation": "Karayel et al. describe storage and device hygiene as cyber hygiene behavior related to the configuration and security of digital devices. This includes scanning devices for viruses, backing up important files, keeping protection software updated, and securely storing data.",
+      "recommended_actions": [
+        "Conduct virus scans or security scans on storage devices.",
+        "Back up important files.",
+        "Keep antivirus, virus protection, and device software up to date.",
+        "Securely store data, including physical and cloud-based information."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "What is storage and device hygiene?",
+        "How can users improve storage and device hygiene?",
+        "What device security practices help maintain cyber hygiene?",
+        "Why are antivirus updates and virus scans part of cyber hygiene?",
+        "What should users do to protect important files and devices?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-001",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Conducting virus scans on any storage device, backing up important files and keeping the device’s virus protection and device software up to date",
+          "page": 7,
+          "section": "Table 2. Cyber hygiene categories",
+          "paragraph": "Third column, first row of the table",
+          "claim_location": {
+            "page": 7,
+            "section": "Table 2. Cyber hygiene categories",
+            "paragraph": "Third column, first row of the table"
+          }
+        },
+        {
+          "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-002",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Storage and device hygiene, encompassing secure data storage (both physical and cloud-based), up-to-date antivirus software and regular virus scans",
+          "page": 13,
+          "section": "4. Results and discussion, RQ4 explanation",
+          "paragraph": "7",
+          "claim_location": {
+            "page": 13,
+            "section": "4. Results and discussion, RQ4 explanation",
+            "paragraph": "7"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-STORAGE-DEVICE-001",
+          "fact": "Storage and device hygiene includes conducting virus scans on storage devices.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-001"
+        },
+        {
+          "fact_id": "VF-STORAGE-DEVICE-002",
+          "fact": "Storage and device hygiene includes backing up important files.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-001"
+        },
+        {
+          "fact_id": "VF-STORAGE-DEVICE-003",
+          "fact": "Storage and device hygiene includes keeping virus protection and device software up to date.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-001"
+        },
+        {
+          "fact_id": "VF-STORAGE-DEVICE-004",
+          "fact": "Storage and device hygiene includes secure data storage, including physical and cloud-based storage.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-002"
+        },
+        {
+          "fact_id": "VF-STORAGE-DEVICE-005",
+          "fact": "Storage and device hygiene includes up-to-date antivirus software.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-002"
+        },
+        {
+          "fact_id": "VF-STORAGE-DEVICE-006",
+          "fact": "Storage and device hygiene includes regular virus scans.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-002"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-KARAYEL-2024"
+        ],
+        "citation_granularity": "table_or_section",
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 and should be traceable to Table 2, Cyber hygiene categories, and to the RQ4 discussion in Section 4 for secure storage, antivirus updates, and regular virus scans."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "practical_advice",
+        "must_include": [
+          "virus scans",
+          "backing up important files",
+          "keeping virus protection and device software up to date",
+          "secure data storage",
+          "up-to-date antivirus software",
+          "regular virus scans"
+        ],
+        "avoid_claims": [
+          "Antivirus software alone is enough for storage and device hygiene",
+          "Backups prevent all malware damage",
+          "Cloud storage is automatically secure",
+          "Virus scans eliminate all device security risk"
+        ]
+      }
+    },
+    {
+      "id": "KU-ORG-MEASURES-INFLUENCE-001",
+      "title": "Organizational cybersecurity measures are associated with employee cyber hygiene practices",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "threat_ids": [
+        "THR-INSUFFICIENT-ORG-SECURITY-MEASURES",
+        "THR-USER-NONCOMPLIANCE"
+      ],
+      "practice_ids": [
+        "PRA-STRENGTHEN-ORG-CYBERSECURITY-MEASURES"
+      ],
+      "claim": "Stronger organizational cybersecurity measures are associated with improved cyber hygiene practices among remote employees.",
+      "explanation": "Karayel et al. found a statistically significant positive relationship between the cybersecurity measures adopted by organizations and employees' cyber hygiene practices. This suggests that individual cyber hygiene should be understood not only as a personal behavior issue, but also as something influenced by the organizational security environment.",
+      "recommended_actions": [
+        "Strengthen organizational cybersecurity measures that support employees' cyber hygiene practices.",
+        "Consider organizational cybersecurity measures when trying to improve employees' cyber hygiene.",
+        "Treat employee cyber hygiene as connected to the broader organizational security environment."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "How do organizational cybersecurity measures affect employee cyber hygiene?",
+        "Do company cybersecurity measures influence remote workers' cyber hygiene practices?",
+        "Why are organizational security measures important for cyber hygiene?",
+        "Is cyber hygiene only an individual responsibility?",
+        "How can organizations support employees' cyber hygiene?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-KARAYEL-ORG-MEASURES-001",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "The findings indicate a significant correlation between the security measures implemented by companies and their employees’ cyber hygiene practices.",
+          "page": 1,
+          "section": "Abstract",
+          "paragraph": "Findings",
+          "claim_location": {
+            "page": 1,
+            "section": "Abstract",
+            "paragraph": "Findings"
+          }
+        },
+        {
+          "evidence_id": "EVID-KARAYEL-ORG-MEASURES-002",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "The research revealed a statistically significant positive relationship between companies’ cybersecurity measures and individual cyber hygiene behaviour.",
+          "page": 10,
+          "section": "4.3 Research subquestions, RQ2 discussion",
+          "paragraph": "4",
+          "claim_location": {
+            "page": 10,
+            "section": "4.3 Research subquestions, RQ2 discussion",
+            "paragraph": "4"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-ORG-MEASURES-001",
+          "fact": "Karayel et al. found a significant correlation between company cybersecurity measures and employees' cyber hygiene practices.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ORG-MEASURES-001"
+        },
+        {
+          "fact_id": "VF-ORG-MEASURES-002",
+          "fact": "Karayel et al. found a statistically significant relationship between individual cyber hygiene behavior and cybersecurity measures implemented by companies.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ORG-MEASURES-002"
+        },
+        {
+          "fact_id": "VF-ORG-MEASURES-003",
+          "fact": "Employee cyber hygiene is influenced by the organizational cybersecurity environment, not only by individual behavior.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ORG-MEASURES-002"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-KARAYEL-2024"
+        ],
+        "citation_granularity": "section_or_paragraph",
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 and should be traceable to the abstract findings and the RQ2 discussion in Section 4.3 regarding the statistically significant relationship between organizational cybersecurity measures and employee cyber hygiene behavior."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "explanatory_guidance",
+        "must_include": [
+          "significant correlation",
+          "organizational cybersecurity measures",
+          "employees' cyber hygiene practices",
+          "positive relationship",
+          "not only individual responsibility"
+        ],
+        "avoid_claims": [
+          "Organizational cybersecurity measures guarantee good employee cyber hygiene",
+          "Employee cyber hygiene depends only on individual behavior",
+          "The study proves strict causation between company measures and employee behavior",
+          "Technical controls alone are sufficient to improve cyber hygiene"
+        ]
+      }
+    },
+    {
+      "id": "KU-ORG-TRAINING-POLICIES-001",
+      "title": "Organizations can support cyber hygiene through training, tailored initiatives, policies, and incident protocols",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "threat_ids": [
+        "THR-INSUFFICIENT-ORG-SECURITY-MEASURES",
+        "THR-USER-NONCOMPLIANCE"
+      ],
+      "practice_ids": [
+        "PRA-CYBERSECURITY-TRAINING",
+        "PRA-TAILORED-TRAINING",
+        "PRA-SECURITY-POLICIES-PROCEDURES",
+        "PRA-INCIDENT-MANAGEMENT-TRAINING",
+        "PRA-CYBERSECURITY-PROTOCOLS",
+        "PRA-STRENGTHEN-ORG-CYBERSECURITY-MEASURES"
+      ],
+      "claim": "Organizations can support employees' cyber hygiene by strengthening cybersecurity measures, providing cyber hygiene education and training, tailoring improvement initiatives to employee needs, developing cybersecurity policies, and adopting incident management training and cybersecurity protocols.",
+      "explanation": "Karayel et al. recommend organizational support for cyber hygiene in remote work contexts, including stronger cybersecurity measures, employee education and training, tailored improvement initiatives, cybersecurity policies, and tools or protocols for managing incidents.",
+      "recommended_actions": [
+        "Strengthen cybersecurity measures in remote work systems.",
+        "Educate and train employees on cyber hygiene.",
+        "Tailor cyber hygiene improvement initiatives to employee needs.",
+        "Develop cybersecurity policies for remote work systems.",
+        "Adopt incident management training.",
+        "Use cybersecurity protocols for coordinating and managing incidents."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "How can organizations improve employees' cyber hygiene?",
+        "What organizational measures support cyber hygiene?",
+        "Why should cybersecurity training be tailored to employees?",
+        "How can companies support remote workers' cyber hygiene?",
+        "What should organizations do besides technical cybersecurity measures?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-KARAYEL-ORG-TRAINING-POLICIES-001",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Consequently, it is crucial for organizations to ensure IT employees maintain a high level of cyber hygiene awareness.",
+          "page": 13,
+          "section": "4. Results and discussion, RQ4 explanation",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 13,
+            "section": "4. Results and discussion, RQ4 explanation",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-KARAYEL-ORG-TRAINING-POLICIES-002",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "This finding align with Fatokun et al. (2019), suggesting that cyber hygiene improvement initiatives should be tailored to different educational levels.",
+          "page": 14,
+          "section": "4. Results and discussion, education and age explanation",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 14,
+            "section": "4. Results and discussion, education and age explanation",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-KARAYEL-ORG-TRAINING-POLICIES-003",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Consequently, it is recommended that older workers receive more focused training in information and computer security, with specialized and simplified content tailored to their comprehension capabilities.",
+          "page": 14,
+          "section": "4. Results and discussion, education and age explanation",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 14,
+            "section": "4. Results and discussion, education and age explanation",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-KARAYEL-ORG-TRAINING-POLICIES-004",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "To mitigate this risk and improve employees’ cyber hygiene, it is essential to strengthen cyber security measures within the public sector’s remote work systems. In addition, it is advisable to educate and train employees on cyber hygiene to cultivate a cyber security culture within organizations. Developing cyber security policies for remote work systems is recommended for both public and private institutions to enhance cyber hygiene.",
+          "page": 15,
+          "section": "4. Results and discussion, RQ3 discussion",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 15,
+            "section": "4. Results and discussion, RQ3 discussion",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-KARAYEL-ORG-TRAINING-POLICIES-005",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Developing comprehensive training programs, raising awareness and implementing effective policies and procedures can contribute to fostering a culture of strong cyber hygiene within organizations. This will help minimize potential risks associated with remote work and ensure the security of digital assets.",
+          "page": 17,
+          "section": "5.1 Answering main research question and subquestions",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 17,
+            "section": "5.1 Answering main research question and subquestions",
+            "paragraph": "1"
+          }
+        },
+        {
+          "evidence_id": "EVID-KARAYEL-ORG-TRAINING-POLICIES-006",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "To mitigate the risks posed by cyberattacks, organizations and decision-makers should invest in advanced cybersecurity measures. We recommend adopting new-generation tools and techniques, such as incident management training, educational booklets and cybersecurity protocols for coordinating and managing incidents. These efforts will help improve employees’ cyber hygiene behaviors.",
+          "page": 17,
+          "section": "5.2 Implications",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 17,
+            "section": "5.2 Implications",
+            "paragraph": "2"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-ORG-TRAINING-POLICIES-001",
+          "fact": "Organizations should ensure IT employees maintain a high level of cyber hygiene awareness.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ORG-TRAINING-POLICIES-001"
+        },
+        {
+          "fact_id": "VF-ORG-TRAINING-POLICIES-002",
+          "fact": "Cyber hygiene improvement initiatives should be tailored to different educational levels.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ORG-TRAINING-POLICIES-002"
+        },
+        {
+          "fact_id": "VF-ORG-TRAINING-POLICIES-003",
+          "fact": "Older workers should receive more focused information and computer security training with specialized and simplified content.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ORG-TRAINING-POLICIES-003"
+        },
+        {
+          "fact_id": "VF-ORG-TRAINING-POLICIES-004",
+          "fact": "Organizations should strengthen cybersecurity measures in remote work systems.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ORG-TRAINING-POLICIES-004"
+        },
+        {
+          "fact_id": "VF-ORG-TRAINING-POLICIES-005",
+          "fact": "Organizations should educate and train employees on cyber hygiene.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ORG-TRAINING-POLICIES-004"
+        },
+        {
+          "fact_id": "VF-ORG-TRAINING-POLICIES-006",
+          "fact": "Organizations should develop cybersecurity policies for remote work systems.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ORG-TRAINING-POLICIES-004"
+        },
+        {
+          "fact_id": "VF-ORG-TRAINING-POLICIES-007",
+          "fact": "Comprehensive training programs, awareness, policies, and procedures can foster a culture of strong cyber hygiene.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ORG-TRAINING-POLICIES-005"
+        },
+        {
+          "fact_id": "VF-ORG-TRAINING-POLICIES-008",
+          "fact": "Organizations and decision-makers should invest in advanced cybersecurity measures.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ORG-TRAINING-POLICIES-006"
+        },
+        {
+          "fact_id": "VF-ORG-TRAINING-POLICIES-009",
+          "fact": "Incident management training, educational booklets, and cybersecurity protocols are recommended for coordinating and managing incidents.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ORG-TRAINING-POLICIES-006"
+        },
+        {
+          "fact_id": "VF-ORG-TRAINING-POLICIES-010",
+          "fact": "These organizational efforts can help improve employees' cyber hygiene behaviors.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-ORG-TRAINING-POLICIES-006"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-KARAYEL-2024"
+        ],
+        "citation_granularity": "section_or_paragraph",
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 and should be traceable to the RQ3/RQ4 discussion, conclusion, and implications sections where organizational training, tailored initiatives, policies, procedures, incident management training, and cybersecurity protocols are discussed."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "organizational_guidance",
+        "must_include": [
+          "strengthen cybersecurity measures",
+          "educate and train employees",
+          "tailored training",
+          "cybersecurity policies",
+          "comprehensive training programs",
+          "awareness",
+          "policies and procedures",
+          "incident management training",
+          "cybersecurity protocols"
+        ],
+        "avoid_claims": [
+          "Training alone guarantees good cyber hygiene",
+          "All employees should receive identical cybersecurity training regardless of need",
+          "Policies and procedures are sufficient without employee behavior change",
+          "Organizational support eliminates individual responsibility",
+          "The paper recommends cybersecurity inspections"
+        ]
+      }
+    }
+  ]
+}
