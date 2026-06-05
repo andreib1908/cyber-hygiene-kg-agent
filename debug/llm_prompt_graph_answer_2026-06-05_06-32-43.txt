@@ -1,3 +1,7 @@
+
+====================================================================================================
+EXACT LLM PROMPT SENT TO MODEL — MODE: graph_answer
+====================================================================================================
 You are Neo, a source-grounded cyber hygiene assistant.
 
 Your task is to answer the user's question using ONLY the retrieved graph context.
@@ -211,9 +215,213 @@ Before writing the final answer, follow this process silently:
 
 
 User question:
-{question}
+What basic cyber hygiene practices protect personal information?
 
 Retrieved graph context:
-{context}
+[
+  {
+    "retrieval_rank": 0,
+    "ku_id": "KU-ROUTINE-CYBER-HYGIENE-PRACTICES-001",
+    "ku_title": "Routine cyber hygiene practices include password, antivirus, storage, and security scanning behaviors",
+    "knowledge_units": [
+      {
+        "recommended_actions": [
+          "Check computers and devices for cyber threats or attack attempts.",
+          "Use strong passwords.",
+          "Change passwords regularly where appropriate.",
+          "Avoid reusing passwords across accounts.",
+          "Keep antivirus software up to date.",
+          "Securely store online information.",
+          "Conduct appropriate security scans."
+        ],
+        "evidence_strength": "high",
+        "claim": "Routine cyber hygiene practices include checking devices for cyber threats, using strong passwords, changing passwords regularly, avoiding password reuse, updating antivirus software, securely storing online information, and conducting security scans.",
+        "id": "KU-ROUTINE-CYBER-HYGIENE-PRACTICES-001",
+        "explanation": "These practices represent recurring security habits that help users protect personal information, devices, and accounts from cyber threats. They complement the five cyber hygiene categories by providing concrete examples of day-to-day protective behavior.",
+        "title": "Routine cyber hygiene practices include password, antivirus, storage, and security scanning behaviors"
+      }
+    ],
+    "categories": [
+      {
+        "name": "General cyber hygiene",
+        "definition": "General concepts and foundational definitions related to cyber hygiene.",
+        "id": "CAT-GENERAL-CYBER-HYGIENE"
+      }
+    ],
+    "threats": [
+      {
+        "support_status": "directly_supported",
+        "name": "Privacy exposure",
+        "definition": "Risk of unintended disclosure of personal information due to weak privacy settings or unsafe online behavior.",
+        "id": "THR-PRIVACY-EXPOSURE",
+        "support_notes": "Karayel et al. directly include managing privacy settings within social media hygiene."
+      },
+      {
+        "support_status": "inferred_from_practice",
+        "name": "Malware infection",
+        "definition": "A compromise in which malicious software infects a device or storage medium.",
+        "id": "THR-MALWARE-INFECTION",
+        "support_notes": "Inferred from storage and device hygiene practices such as virus scans and keeping protection software up to date. Requires an additional source for a direct malware definition."
+      },
+      {
+        "support_status": "directly_supported",
+        "name": "Credential targeting",
+        "definition": "Attempts by attackers to target user information, usernames, passwords, or authentication mechanisms.",
+        "id": "THR-CREDENTIAL-TARGETING",
+        "support_notes": "Karayel et al. discuss authentication and credential hygiene and state that user information and passwords are frequently targeted by hackers."
+      },
+      {
+        "support_status": "partially_supported",
+        "name": "Data loss",
+        "definition": "Loss of access to important files or information due to device failure, accidental deletion, malware, or other incidents.",
+        "id": "THR-DATA-LOSS",
+        "support_notes": "Karayel et al. directly mention backing up important files and secure data storage, but additional sources may be used to strengthen the broader data loss definition."
+      }
+    ],
+    "practices": [
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024"
+        ],
+        "name": "Conduct appropriate security scans",
+        "description": "Users should conduct appropriate security scans to detect cyber threats or attack attempts.",
+        "id": "PRA-CONDUCT-SECURITY-SCANS"
+      },
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024"
+        ],
+        "name": "Use strong passwords",
+        "description": "Users should use strong passwords as part of routine cyber hygiene behavior.",
+        "id": "PRA-USE-STRONG-PASSWORDS"
+      },
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024"
+        ],
+        "name": "Securely store online information",
+        "description": "Users should securely store online information to protect personal and sensitive data.",
+        "id": "PRA-SECURELY-STORE-INFORMATION"
+      },
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024",
+          "SRC-VISHWANATH-2020"
+        ],
+        "name": "Update antivirus software",
+        "description": "Users should keep antivirus software up to date to reduce exposure to cyber threats.",
+        "id": "PRA-UPDATE-ANTIVIRUS"
+      },
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024"
+        ],
+        "name": "Avoid password reuse",
+        "description": "Users should avoid reusing passwords across accounts to reduce credential-related risk.",
+        "id": "PRA-AVOID-PASSWORD-REUSE"
+      },
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024"
+        ],
+        "name": "Change passwords regularly",
+        "description": "Users should change passwords regularly as part of maintaining cyber hygiene.",
+        "id": "PRA-CHANGE-PASSWORDS-REGULARLY"
+      }
+    ],
+    "evidence": [
+      {
+        "paragraph": "4",
+        "year": 2024,
+        "citation_key": "karayel_human_2024",
+        "section": "2.1 Cyber hygiene",
+        "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001",
+        "page": 3,
+        "source_id": "SRC-KARAYEL-2024",
+        "support_type": "direct",
+        "text": "Examples include routinely checking computers for cyber threats or attack attempts, using strong passwords, changing passwords regularly and avoiding password reuse, updating antivirus software, securely storing online information and conducting appropriate security scans.",
+        "source_title": "Human factors in remote work: examining cyber hygiene practices"
+      }
+    ],
+    "validity_facts": [
+      {
+        "fact": "Routine cyber hygiene includes updating antivirus software.",
+        "fact_id": "VF-ROUTINE-PRACTICES-005",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+      },
+      {
+        "fact": "Routine cyber hygiene includes changing passwords regularly.",
+        "fact_id": "VF-ROUTINE-PRACTICES-003",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+      },
+      {
+        "fact": "Routine cyber hygiene includes checking computers for cyber threats or attack attempts.",
+        "fact_id": "VF-ROUTINE-PRACTICES-001",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+      },
+      {
+        "fact": "Routine cyber hygiene includes avoiding password reuse.",
+        "fact_id": "VF-ROUTINE-PRACTICES-004",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+      },
+      {
+        "fact": "Routine cyber hygiene includes securely storing online information.",
+        "fact_id": "VF-ROUTINE-PRACTICES-006",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+      },
+      {
+        "fact": "Routine cyber hygiene includes using strong passwords.",
+        "fact_id": "VF-ROUTINE-PRACTICES-002",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+      },
+      {
+        "fact": "Routine cyber hygiene includes conducting appropriate security scans.",
+        "fact_id": "VF-ROUTINE-PRACTICES-007",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+      }
+    ],
+    "traceability": [
+      {
+        "citation_granularity": "section_or_paragraph",
+        "acceptable_sources": [
+          "SRC-KARAYEL-2024"
+        ],
+        "requires_citation": true,
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 and should be traceable to Section 2.1, Cyber hygiene, where routine cyber hygiene examples are listed."
+      }
+    ],
+    "answer_guidance": [
+      {
+        "must_include": [
+          "checking computers for cyber threats",
+          "strong passwords",
+          "changing passwords regularly",
+          "avoiding password reuse",
+          "updating antivirus software",
+          "securely storing online information",
+          "security scans"
+        ],
+        "answer_style": "practical_advice",
+        "avoid_claims": [
+          "Only technical tools are needed for cyber hygiene",
+          "Antivirus software alone is enough for good cyber hygiene",
+          "Password reuse is safe if the password is strong",
+          "Cyber hygiene completely eliminates all cyber risk"
+        ]
+      }
+    ]
+  }
+]
 
 Final answer:
+
+====================================================================================================
+END LLM PROMPT
+====================================================================================================

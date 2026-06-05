@@ -1,403 +1,523 @@
+"""Interactive CLI for Neo.
+
+Neo is a source-grounded cyber hygiene assistant.
+
+Current MVP flow:
+    user question
+    -> retrieve graph context through safe retrieval templates
+    -> generate answer with local Ollama model
+    -> render answer nicely in terminal
+
+Run from project root:
+    python -m src.agent.cli
+"""
+
+from __future__ import annotations
+
 import os
+import re
 import socket
+import sys
 import textwrap
 import threading
 import time
 import webbrowser
 from datetime import datetime
-from getpass import getpass
+from pathlib import Path
+from typing import Any
 
-from build_graph import main as rebuild_graph
-from dotenv import load_dotenv, set_key
-from graph_chain import create_chain
-from neo4j.exceptions import Neo4jError, ServiceUnavailable
-from utils import (
-	BOLD,
-	ENV_FILE,
-	GREEN,
-	INDENT,
-	ORANGE,
-	RED,
-	RESET,
-	ask_question,
-	divider,
-	log_entry,
-	spinner,
-)
-from validator import validate_answer_with_llm
+from dotenv import load_dotenv
 
-# Run Second LLM (Llama 3.1) Validator - True to run validation, False to skip validation
-# This is the base value, we always show validation by default.
-# It can toggled in the CLI with the commands: 'valid' and 'novalid'
-VALIDATION_ENABLED = True
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
+from src.agent.neo_answer import answer_from_context
+from src.ingestion.build_graph import main as rebuild_graph
+from src.retrieval.retriever import retrieve_context
+from src.agent.neo_answer import answer_conversationally, answer_from_context
 
-# Verbose enabled to see full context or not
-VERBOSE_ENABLED = False
+# ---------------------------------------------------------------------------
+# Terminal formatting
+# ---------------------------------------------------------------------------
 
+BOLD = "\033[1m"
+RESET = "\033[0m"
+GREEN = "\033[92m"
+RED = "\033[91m"
+ORANGE = "\033[38;5;214m"
+BLUE = "\033[94m"
+CYAN = "\033[96m"
+DIM = "\033[2m"
+INDENT = "  "
 
-def setup_phase():
-	print(
-		f"\n{GREEN}{BOLD}Initial setup:{RESET} Let's connect to your Neo4j database. "
-		f"Press the 'ENTER' key to accept default values."
-	)
+DIVIDER = f"{DIM}{'─' * 78}{RESET}"
 
-	# Warn if config file already exists
-	if os.path.exists(ENV_FILE):
-		print(f"\n{ORANGE}A configuration file already exists at {ENV_FILE}.{RESET}")
-		choice = input("Do you want to overwrite it? (y/N): ").strip().lower() or "n"
-		if choice != "y":
-			print(f"{BOLD}Setup cancelled. Keeping existing configuration.{RESET}\n")
-			return
-
-	while True:
-		try:
-			# Prompt for connection details (with sensible defaults)
-			print()
-			uri = (
-				input(
-					f"{BOLD}Neo4j URI{RESET} (default bolt://127.0.0.1:7687): "
-				).strip()
-				or "bolt://127.0.0.1:7687"
-			)
-			username = (
-				input(f"{BOLD}Neo4j username{RESET} (default neo4j): ").strip()
-				or "neo4j"
-			)
-			password = (
-				getpass(f"{BOLD}Neo4j password{RESET} (default: 'password'): ").strip()
-				or "password"
-			)
-
-			print("\nTesting connection...")
-
-			from neo4j import GraphDatabase
-
-			driver = GraphDatabase.driver(uri, auth=(username, password))
-			with driver.session() as session:
-				session.run("RETURN 1")
-
-			print(f"{GREEN}Successfully connected to Neo4j!{RESET}\n")
-
-			# Save configuration once successful
-			if not os.path.exists(ENV_FILE):
-				open(ENV_FILE, "w").close()
-
-			set_key(ENV_FILE, "NEO4J_URI", uri)
-			set_key(ENV_FILE, "NEO4J_USERNAME", username)
-			set_key(ENV_FILE, "NEO4J_PASSWORD", password)
-
-			print(f"{BOLD}Saved configuration to {ENV_FILE}{RESET}")
-			print(f"{BOLD}→ URI:{RESET} {uri}")
-			print(f"{BOLD}→ Username:{RESET} {username}")
-			print(f"→{BOLD} Password:{RESET} (hidden)\n")
-
-			# Rebuild after success
-			choice = (
-				input(
-					f"\n{BOLD}{GREEN}Would you like to build the knowledge graph?{RESET} (y/N): "
-				)
-				.strip()
-				.lower()
-				or "n"
-			)
-			if choice != "y":
-				print(
-					f"{ORANGE}Graph rebuild aborted. Run the 'rebuild' or 'setup' commands to attempt this process again.{RESET}\n"
-				)
-				break
-			else:
-				print(
-					f"{GREEN}{BOLD}Now building your Neo4j graph from local data...{RESET}"
-				)
-				start_time = time.perf_counter()
-				try:
-					rebuild_graph()
-					print(
-						f"{GREEN}Graph successfully built from data/sia-projects.json{RESET}"
-					)
-				except Exception as e:
-					print(f"{RED}Graph rebuild failed:{RESET} {e}")
-				finally:
-					elapsed = time.perf_counter() - start_time
-					print(f"{GREEN}{BOLD}Duration:{RESET} {elapsed:.2f} seconds\n")
-
-				break  # Exit setup loop on success
-
-		except KeyboardInterrupt:
-			print(f"\n{RED}Setup cancelled by user.{RESET}\n")
-			exit(0)
-
-		except Exception as e:
-			print(f"\n{RED}Connection failed: {e}{RESET}")
-			print(
-				f"{ORANGE}Please verify your credentials or ensure Neo4j is running.{RESET}"
-			)
-			retry = input("Try again? (Y/n): ").strip().lower() or "y"
-			if retry != "y":
-				print(f"\n{BOLD}Setup aborted.{RESET}\n")
-				exit(1)
+LOGS_DIR = PROJECT_ROOT / "logs"
+ENV_PATH = PROJECT_ROOT / ".env"
 
 
-# Build the chain
-chain = create_chain()
+# ---------------------------------------------------------------------------
+# Markdown-ish terminal rendering
+# ---------------------------------------------------------------------------
 
-chain.top_k = (
-	50  # or 25, or 100. Include your limit of how many entries you want to display
-)
+def render_markdown_terminal(text: str) -> str:
+    """Render a small subset of Markdown as ANSI terminal formatting.
 
-print(f"\n{GREEN}{BOLD}Welcome to the SIA-Projects LangChain CLI{RESET}")
-print(f"{INDENT}Connected to Neo4j → {BOLD}bolt://127.0.0.1:7687{RESET}")
-print(f"{INDENT}Using model → {BOLD}Llama 3.1 (via Ollama){RESET}\n")
+    This handles the common output style used by LLMs:
+    - **bold**
+    - ### headings
+    - bullet lists
+    """
+    if not text:
+        return text
 
-print(
-	textwrap.indent(
-		"This interactive assistant lets you explore and query the SIA research projects database "
-		"through natural language — no Cypher required. You can ask about project titles, participants, "
-		"funding amounts, years, or organizations. It automatically converts your questions into Cypher "
-		"and summarizes the results in plain English.\n\n"
-		"Before first use, run 'setup' to connect your local Neo4j database.\n"
-		"To view the database visually in Neo4j Browser, type 'browser'.",
-		INDENT,
-	)
-)
+    # Convert headings.
+    text = re.sub(
+        r"^###\s+(.*)$",
+        lambda m: f"{BOLD}{CYAN}{m.group(1).strip()}{RESET}",
+        text,
+        flags=re.MULTILINE,
+    )
+    text = re.sub(
+        r"^##\s+(.*)$",
+        lambda m: f"{BOLD}{CYAN}{m.group(1).strip()}{RESET}",
+        text,
+        flags=re.MULTILINE,
+    )
+    text = re.sub(
+        r"^#\s+(.*)$",
+        lambda m: f"{BOLD}{CYAN}{m.group(1).strip()}{RESET}",
+        text,
+        flags=re.MULTILINE,
+    )
+	
+    # Convert bold markdown to ANSI bold.
+    text = re.sub(r"\*\*(.*?)\*\*", rf"{BOLD}\1{RESET}", text)
 
-print(
-	textwrap.indent(
-		"\nAvailable commands:\n"
-		"• {BOLD}help{RESET} — show usage instructions and examples\n"
-		"• {BOLD}setup{RESET} — configure Neo4j connection credentials\n"
-		"• {BOLD}browser / open-browser{RESET} — open Neo4j Browser at http://localhost:7474/browser/\n"
-		"• {BOLD}build / rebuild / refresh / update{RESET} — (re)build the Neo4j graph from JSON data\n"
-		"• {BOLD}novalid / skip-validation{RESET} — disable LLM validation for faster responses\n"
-		"• {BOLD}valid / enable-validation{RESET} — enable validation — disable LLM validation for faster responses\n"
-		"• {BOLD}noverbose / skip-verbose{RESET} — disable verbose (detailed output of Langchain and LLM Cypher Generation).\n"
-		"• {BOLD}verbose / enable-verbose{RESET} — enable verbose\n"
-		"• {BOLD}exit{RESET} — quit the program\n",
-		INDENT,
-	).format(BOLD=BOLD, RESET=RESET)
-)
+	# Make "Sources used:" stand out.
+    text = re.sub(
+        r"(?im)^sources used:\s*$",
+        f"{BOLD}Sources used:{RESET}",
+        text,
+    )
+
+    # Turn raw evidence lines into bullet points.
+    text = re.sub(
+        r"(?m)^(EVID-[A-Z0-9-]+)\s*-\s*\(",
+        r"- \1 - (",
+        text,
+    )
+
+    # Clean occasional trailing spaces before line breaks.
+    text = re.sub(r"[ \t]+\n", "\n", text)
+
+    return text
 
 
-while True:
-	if not os.path.exists("neo4j_db.env"):
-		setup_phase()
-	else:
-		load_dotenv("neo4j_db.env")
+def indent_block(text: str, indent: str = INDENT) -> str:
+    return textwrap.indent(text.strip(), indent)
 
-	question = input(f"\n{GREEN}{BOLD}Ask a question:{RESET}\n{INDENT}").strip()
 
-	if question.lower() in {"exit", "quit"}:
-		print(f"{BOLD}Exiting... Goodbye!{RESET}")
-		break
-	elif question.lower() in {"help", "h", "?"}:
-		print(f"\n{divider}")
-		print(f"{GREEN}{BOLD}HELP MENU — Using the SIA-Projects LangChain CLI{RESET}\n")
+def split_qwen_thinking(text: str) -> tuple[str | None, str]:
+    marker = "...done thinking."
+    if "Thinking..." in text and marker in text:
+        before, after = text.split(marker, 1)
+        thinking = before.replace("Thinking...", "").strip()
+        final = after.strip()
+        return thinking, final
 
-		print(f"{BOLD}Overview:{RESET}")
-		print(
-			textwrap.indent(
-				"This assistant allows you to query a Neo4j graph database containing SIA-funded research "
-				"and collaboration projects. Each project includes details such as title, funding amount, "
-				"participating organizations, network members, and key dates. The Llama 3.1 model (via Ollama) "
-				"translates your natural-language questions into Cypher queries and summarizes the results.\n",
-				INDENT,
-			)
-		)
+    return None, text
 
-		print(f"{BOLD}Main Commands:{RESET}")
-		print(
-			print(
-				print(
-					textwrap.indent(
-						"\nAvailable commands:\n"
-						"• {BOLD}help{RESET} — show usage instructions and examples\n"
-						"• {BOLD}setup{RESET} — configure Neo4j connection credentials\n"
-						"• {BOLD}browser / open-browser{RESET} — open Neo4j Browser at http://localhost:7474/browser/\n"
-						"• {BOLD}build / rebuild / refresh / update{RESET} — (re)build the Neo4j graph from JSON data\n"
-						"• {BOLD}novalid / skip-validation{RESET} — disable LLM validation for faster responses\n"
-						"• {BOLD}valid / enable-validation{RESET} — enable validation — disable LLM validation for faster responses\n"
-						"• {BOLD}noverbose / skip-verbose{RESET} — disable verbose (detailed output of Langchain and LLM Cypher Generation).\n"
-						"• {BOLD}verbose / enable-verbose{RESET} — enable verbose\n"
-						"• {BOLD}exit{RESET} — quit the program\n",
-						INDENT,
-					).format(BOLD=BOLD, RESET=RESET)
-				)
-			)
-		)
+# ---------------------------------------------------------------------------
+# Logging
+# ---------------------------------------------------------------------------
 
-		print(f"{BOLD}You can ask about:{RESET}")
-		print(
-			textwrap.indent(
-				"- Projects by title, keywords, or year\n"
-				"- Projects involving specific organizations or participants\n"
-				"- Funding details (e.g., top N projects by payment amount)\n"
-				"- Start and end dates of projects\n"
-				"- Coordinating and participating organizations\n"
-				"- Any property available in the Neo4j schema\n",
-				INDENT,
-			)
-		)
+def get_log_path() -> Path:
+    LOGS_DIR.mkdir(exist_ok=True)
+    today = datetime.now().strftime("%Y-%m-%d")
+    return LOGS_DIR / f"neo_cli_{today}.txt"
 
-		print(f"{BOLD}Example questions:{RESET}")
-		print(
-			textwrap.indent(
-				"1) What are the top 10 most expensive projects?\n"
-				'2) Which organizations participated in "SAVE in woord en daad"?\n'
-				"3) Which projects were funded under the KIEM scheme?\n"
-				"4) Which projects started in 2023?\n"
-				"5) What projects involve Avans Hogeschool as a participant?\n"
-				"6) How many total projects exist in the database?\n",
-				INDENT,
-			)
-		)
 
-		print(f"{BOLD}Notes & Tips:{RESET}")
-		print(
-			textwrap.indent(
-				"- You can type questions in plain English — the model handles the Cypher translation.\n"
-				"- All answers are formatted clearly with bullet lists or summaries.\n"
-				"- Each Q/A pair (with query and duration) is saved in /logs/ for review.\n"
-				"- Use {BOLD}browser{RESET} anytime to view your graph visually in Neo4j Browser.\n"
-				"- If connection fails, rerun {BOLD}setup{RESET} to reconfigure credentials.\n",
-				INDENT,
-			).format(BOLD=BOLD, RESET=RESET)
-		)
+def log_entry(
+    question: str,
+    answer: str,
+    elapsed: float,
+    context_count: int,
+) -> None:
+    log_path = get_log_path()
+    is_new_file = not log_path.exists()
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-		print(f"{divider}\n")
-		continue
+    with open(log_path, "a", encoding="utf-8") as log:
+        if is_new_file:
+            log.write("=" * 78 + "\n")
+            log.write(f"Neo CLI session started: {timestamp}\n")
+            log.write("=" * 78 + "\n\n")
 
-	elif question.lower() in {"build", "rebuild", "refresh", "update"}:
-		confirm = (
-			input(f"{INDENT}This will overwrite the current graph. Continue? (y/N): ")
-			.strip()
-			.lower()
-		)
-		if confirm != "y":
-			print(f"{INDENT}Cancelled rebuild.\n")
-			continue
+        log.write(f"[{timestamp}]\n")
+        log.write(f"Q: {question.strip()}\n")
+        log.write(f"Context records: {context_count}\n")
+        log.write(f"A: {answer.strip()}\n")
+        log.write(f"Duration: {elapsed:.2f}s\n")
+        log.write("-" * 78 + "\n\n")
 
-		print(f"\n{GREEN}{BOLD}Rebuilding Neo4j graph from JSON...{RESET}")
-		start_time = time.perf_counter()
-		try:
-			rebuild_graph()
-			print(
-				f"{GREEN}Graph successfully rebuilt from data/sia-projects.json{RESET}"
-			)
-		except Exception as e:
-			print(f"\n{RED} Graph rebuild failed:{RESET}{e}")
-		finally:
-			elapsed = time.perf_counter() - start_time
-			print(f"{GREEN}{BOLD}Duration:{RESET} {elapsed:.2f} seconds\n")
-		continue
-	elif question.lower() in {"browser", "open-browser"}:
-		host, port = "127.0.0.1", 7474
-		with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-			if s.connect_ex((host, port)) == 0:
-				print(f"{GREEN}Opening Neo4j Browser...{RESET}")
-				webbrowser.open("http://localhost:7474/browser/")
-			else:
-				print(
-					f"{RED}Neo4j Browser does not seem to be running at localhost:7474{RESET}"
-				)
-				print(f"{ORANGE}Please start your Neo4j Desktop app first.{RESET}")
-		continue
-	elif question.lower() in {"skip-validation", "novalid"}:
-		VALIDATION_ENABLED = False
-		print(f"{ORANGE}Validation disabled for this session.{RESET}")
-		continue
-	elif question.lower() in {"enable-validation", "valid"}:
-		VALIDATION_ENABLED = True
-		print(f"{GREEN}Validation enabled for this session.{RESET}")
-		continue
-	elif question.lower() in {"enable-verbose", "verbose"}:
-		chain.verbose = True
-		print(f"{GREEN}Verbose enabled for this session.{RESET}")
-		continue
-	elif question.lower() in {"skip-verbose", "noverbose"}:
-		chain.verbose = False
-		print(f"{ORANGE}Verbose disabled for this session.{RESET}")
-		continue
 
-	elif question.lower() == "setup":
-		setup_phase()
-		continue
+# ---------------------------------------------------------------------------
+# Spinner
+# ---------------------------------------------------------------------------
 
-	stop_event = threading.Event()
-	t = threading.Thread(target=spinner, args=(stop_event,))
-	t.start()
+def spinner(stop_event: threading.Event, message: str = "Neo is consulting the scrolls") -> None:
+    frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
 
-	start_time = time.perf_counter()
+    for frame in iter(lambda: frames[int(time.time() * 10) % len(frames)], None):
+        if stop_event.is_set():
+            break
+        sys.stdout.write(f"\r{GREEN}{message} {frame}{RESET}")
+        sys.stdout.flush()
+        time.sleep(0.1)
 
-	try:
-		answer = ask_question(chain, question)
-		context_data = answer.get("context", "")
-		final_answer = answer.get("result", "")
+    sys.stdout.write("\r" + " " * 80 + "\r")
+    sys.stdout.flush()
 
-		# Validator phase
-		if VALIDATION_ENABLED:
-			print(f"\n{ORANGE}Running validator check...{RESET}")
-			validation_result = validate_answer_with_llm(context_data, final_answer)
-		else:
-			validation_result = {
-				"verdict": "SKIPPED",
-				"justification": "Validation disabled.",
-			}
 
-		verdict = validation_result.get("verdict", "UNKNOWN")
-		justification = validation_result.get("justification", "")
-		if verdict not in {"VALID", "INVALID", "SKIPPED"}:
-			verdict = "UNKNOWN"
-			justification = justification or "Could not parse validator output."
-	except (ServiceUnavailable, Neo4jError) as e:
-		print(f"\n{RED}Connection to Neo4j failed:{RESET} {e}")
-		retry = (
-			input(f"{ORANGE}Do you want to re-attempt connection? (y/N): {RESET}")
-			.strip()
-			.lower()
-			or "n"
-		)
-		if retry == "y":
-			print(f"{GREEN}Retrying connection...{RESET}")
-			continue
-		else:
-			print(
-				f"{RED}Aborting query. Please ensure Neo4j is running and try again later.{RESET}\n"
-			)
-			break
-	finally:
-		stop_event.set()
-		t.join()
+# ---------------------------------------------------------------------------
+# Environment / status helpers
+# ---------------------------------------------------------------------------
 
-	end_time = time.perf_counter()
-	elapsed = end_time - start_time
+def load_environment() -> None:
+    if ENV_PATH.exists():
+        load_dotenv(ENV_PATH)
 
-	result_text = answer.get("result", "(no answer returned)")
-	cypher_query = answer.get("cypher", None)
 
-	timestamp = datetime.now().strftime("%H:%M:%S")
+def get_model_name() -> str:
+    load_environment()
+    return os.getenv("OLLAMA_MODEL", "qwen3:8b")
 
-	print(
-		f"{GREEN}{BOLD}Answer:{RESET}\n{textwrap.indent(result_text.strip(), INDENT)}"
-	)
 
-	if verdict == "VALID":
-		print(f"{GREEN}{BOLD}Validator Verdict:{RESET} {verdict} — {justification}")
-	elif verdict == "INVALID":
-		print(f"{RED}{BOLD}Validator Verdict:{RESET} {verdict} — {justification}")
-	elif verdict == "SKIPPED":
-		print(f"{ORANGE}{BOLD}Validator Verdict:{RESET} {verdict} — {justification}")
-	else:
-		print(f"{ORANGE}{BOLD}Validator Verdict:{RESET} UNKNOWN — {justification}")
+def get_neo4j_uri() -> str:
+    load_environment()
+    return os.getenv("NEO4J_URI", "bolt://127.0.0.1:7687")
 
-	print(f"{GREEN}{BOLD}Duration:{RESET} {elapsed:.2f} seconds")
-	print(f"{GREEN}{BOLD}Time:{RESET} {timestamp}")
 
-	log_entry(
-		question=question,
-		cypher_query=cypher_query,
-		answer=result_text,
-		elapsed=elapsed,
-		verdict=verdict,
-		justification=justification,
-	)
+def print_header() -> None:
+    model = get_model_name()
+    uri = get_neo4j_uri()
+
+    print()
+    print(f"{GREEN}{BOLD}Neo — Cyber Hygiene KG Assistant{RESET}")
+    print(DIVIDER)
+    print(f"{INDENT}{BOLD}Neo4j:{RESET} {uri}")
+    print(f"{INDENT}{BOLD}Model:{RESET} {model}")
+    print(f"{INDENT}{BOLD}Mode:{RESET} source-grounded graph retrieval")
+    print()
+    print(
+        textwrap.indent(
+            "Ask cyber hygiene questions in natural language. Neo retrieves relevant "
+            "knowledge units, practices, evidence, and source metadata from the local "
+            "Neo4j knowledge graph, then answers using only that context.",
+            INDENT,
+        )
+    )
+    print()
+    print(f"{DIM}Type 'help' for commands, 'browser' to open Neo4j, or 'exit' to quit.{RESET}")
+
+
+def print_help() -> None:
+    print()
+    print(f"{CYAN}{BOLD}Help — Neo CLI{RESET}")
+    print(DIVIDER)
+
+    print(f"{BOLD}Commands:{RESET}")
+    print(
+        textwrap.indent(
+            "help                 Show this help menu\n"
+            "browser              Open Neo4j Browser\n"
+            "build / rebuild      Rebuild the Neo4j graph from the KB JSON\n"
+            "model                Show the active Ollama model\n"
+            "clear                Clear the terminal screen\n"
+            "exit / quit          Quit Neo\n",
+            INDENT,
+        )
+    )
+
+    print(f"{BOLD}Example questions:{RESET}")
+    print(
+        textwrap.indent(
+            "What is cyber hygiene?\n"
+            "What are the five dimensions of cyber hygiene?\n"
+            "How do I protect myself against phishing?\n"
+            "How can I check whether a website connection is secure?\n"
+            "How can organizations improve employee cyber hygiene?\n"
+            "Why does awareness matter for cyber hygiene?\n",
+            INDENT,
+        )
+    )
+
+    print(f"{BOLD}Current design:{RESET}")
+    print(
+        textwrap.indent(
+            "Neo does not freely generate Cypher in this MVP. It uses safe retrieval "
+            "templates and graph context, then generates a source-grounded answer "
+            "with citations in the Sources used section.",
+            INDENT,
+        )
+    )
+    print(DIVIDER)
+
+
+def open_browser() -> None:
+    host, port = "127.0.0.1", 7474
+
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        if sock.connect_ex((host, port)) == 0:
+            print(f"{GREEN}Opening Neo4j Browser...{RESET}")
+            webbrowser.open("http://localhost:7474/browser/")
+        else:
+            print(f"{RED}Neo4j Browser does not seem to be running at localhost:7474.{RESET}")
+            print(f"{ORANGE}Start Neo4j first, then try again.{RESET}")
+
+
+def rebuild_graph_interactive() -> None:
+    confirm = input(
+        f"{ORANGE}This will clear and rebuild the current Neo4j graph. Continue? (y/N): {RESET}"
+    ).strip().lower()
+
+    if confirm != "y":
+        print(f"{ORANGE}Rebuild cancelled.{RESET}")
+        return
+
+    print(f"\n{GREEN}{BOLD}Rebuilding Neo knowledge graph...{RESET}")
+    start = time.perf_counter()
+
+    try:
+        rebuild_graph(clear_existing=True)
+    except Exception as exc:
+        print(f"{RED}Graph rebuild failed:{RESET} {exc}")
+        return
+
+    elapsed = time.perf_counter() - start
+    print(f"{GREEN}{BOLD}Graph rebuild complete.{RESET} Duration: {elapsed:.2f}s")
+
+
+# ---------------------------------------------------------------------------
+# Context memory
+# ---------------------------------------------------------------------------
+
+def empty_memory() -> dict[str, Any]:
+    return {
+        "last_question": None,
+        "last_answer": None,
+        "last_context_count": 0,
+    }
+
+
+def update_memory(
+    memory: dict[str, Any],
+    question: str,
+    answer: str,
+    context: list[dict[str, Any]],
+) -> None:
+    memory["last_question"] = question
+    memory["last_answer"] = answer
+    memory["last_context_count"] = len(context)
+
+
+def summarize_context(context: list[dict[str, Any]]) -> str:
+    summaries = []
+
+    for record in context:
+        ku_ids = []
+        answer_styles = []
+
+        for ku in record.get("knowledge_units", []):
+            ku_id = ku.get("id")
+            if ku_id and ku_id not in ku_ids:
+                ku_ids.append(ku_id)
+
+        for guidance in record.get("answer_guidance", []):
+            style = guidance.get("answer_style")
+            if style and style not in answer_styles:
+                answer_styles.append(style)
+
+        if ku_ids:
+            summary = ", ".join(ku_ids)
+            if answer_styles:
+                summary += f" [{', '.join(answer_styles)}]"
+            summaries.append(summary)
+
+    if not summaries:
+        return "No KUs retrieved."
+
+    return "Retrieved KUs: " + " | ".join(summaries)
+
+# ---------------------------------------------------------------------------
+# Main asking flow
+# ---------------------------------------------------------------------------
+
+def is_conversational_question(question: str) -> bool:
+    """Detect non-technical conversational inputs."""
+    q = question.lower().strip()
+
+    conversational_markers = [
+        "hello",
+        "hi",
+        "hey",
+        "how are you",
+        "how are you doing",
+        "who are you",
+        "what are you",
+        "what can you do",
+        "how can you help",
+        "thanks",
+        "thank you",
+    ]
+
+    cyber_markers = [
+        "cyber",
+        "hygiene",
+        "phishing",
+        "password",
+        "credential",
+        "mfa",
+        "2fa",
+        "email",
+        "domain",
+        "website",
+        "ssl",
+        "certificate",
+        "browser",
+        "malware",
+        "ransomware",
+        "security",
+        "secure",
+        "privacy",
+        "social media",
+        "training",
+        "policy",
+    ]
+
+    if any(marker in q for marker in cyber_markers):
+        return False
+
+    return any(marker in q for marker in conversational_markers)
+
+def answer_question(question: str, memory: dict[str, Any]) -> None:
+    start = time.perf_counter()
+
+    stop_event = threading.Event()
+    spin_thread = threading.Thread(target=spinner, args=(stop_event,))
+    spin_thread.start()
+
+    context: list[dict[str, Any]] = []
+    answer = ""
+
+    try:
+        if is_conversational_question(question):
+            context = []
+            answer = answer_conversationally(question)
+        else:
+            context = retrieve_context(question, limit=2)
+
+            # Debug: show which KUs were retrieved.
+            # Later we can hide this behind a debug toggle.
+            stop_event.set()
+            spin_thread.join()
+            print(f"{DIM}{summarize_context(context)}{RESET}")
+
+            # Restart spinner while the model answers.
+            stop_event = threading.Event()
+            spin_thread = threading.Thread(target=spinner, args=(stop_event,))
+            spin_thread.start()
+
+            answer = answer_from_context(question, context)
+
+    except KeyboardInterrupt:
+        stop_event.set()
+        spin_thread.join()
+        print(f"\n{ORANGE}Cancelled.{RESET}")
+        return
+    except Exception as exc:
+        stop_event.set()
+        spin_thread.join()
+        print(f"\n{RED}Neo failed:{RESET} {exc}")
+        return
+    finally:
+        stop_event.set()
+        spin_thread.join()
+
+    elapsed = time.perf_counter() - start
+
+    thinking, final_answer = split_qwen_thinking(answer)
+    if thinking:
+        print(f"\n{ORANGE}{BOLD}Model deliberation{RESET}")
+        print(DIVIDER)
+        print(indent_block(render_markdown_terminal(thinking)))
+        print(DIVIDER)
+
+    print(f"\n{GREEN}{BOLD}Answer{RESET}")
+    print(DIVIDER)
+    print(indent_block(render_markdown_terminal(final_answer)))
+    print(DIVIDER)
+    print(
+        f"{DIM}{INDENT}Context records: {len(context)} | "
+        f"Duration: {elapsed:.2f}s | Time: {datetime.now().strftime('%H:%M:%S')}{RESET}"
+    )
+
+    log_entry(
+        question=question,
+        answer=answer,
+        elapsed=elapsed,
+        context_count=len(context),
+    )
+
+    update_memory(memory, question, answer, context)
+
+def main() -> None:
+    load_environment()
+    print_header()
+
+    memory = empty_memory()
+
+    while True:
+        try:
+            question = input(f"\n{GREEN}{BOLD}Ask Neo:{RESET}\n{INDENT}").strip()
+        except KeyboardInterrupt:
+            print(f"\n{BOLD}Exiting... Goodbye!{RESET}")
+            break
+
+        if not question:
+            continue
+
+        command = question.lower()
+
+        if command in {"exit", "quit"}:
+            print(f"{BOLD}Exiting... Goodbye!{RESET}")
+            break
+
+        if command in {"help", "h", "?"}:
+            print_help()
+            continue
+
+        if command in {"browser", "open-browser"}:
+            open_browser()
+            continue
+
+        if command in {"build", "rebuild", "refresh", "update"}:
+            rebuild_graph_interactive()
+            continue
+
+        if command == "model":
+            print(f"{BOLD}Active model:{RESET} {get_model_name()}")
+            continue
+
+        if command == "clear":
+            os.system("clear")
+            print_header()
+            continue
+
+        answer_question(question, memory)
+
+
+if __name__ == "__main__":
+    main()

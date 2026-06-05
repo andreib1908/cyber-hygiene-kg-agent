@@ -2349,7 +2349,7 @@
       "category_id": "CAT-GENERAL-CYBER-HYGIENE",
       "threat_ids": [],
       "practice_ids": [],
-      "claim": "Cyber hygiene is a multidimensional construct whose specific subdimensions and practices can vary according to user context, technology, organizational setting, role, and changes in the technological environment.",
+      "claim": "The Cyber Hygiene Inventory organizes user cyber hygiene into five dimensions: storage/device, transmission/browsing, social media, authentication/credential, and email/messaging hygiene. Vishwanath et al. empirically identify these dimensions, and Karayel et al. also applies comparable cyber hygiene categories in the remote-work context.",
       "explanation": "Vishwanath et al. conceptualize cyber hygiene as an overarching construct whose subdimensions are not fixed in advance, but can be empirically identified and adapted to context. This supports representing cyber hygiene as a set of categories rather than as a single undifferentiated list of security advice.",
       "recommended_actions": [
         "Treat cyber hygiene as a multidimensional concept rather than a single behavior.",
@@ -2548,6 +2548,21 @@
             "page": 9,
             "section": "4. Overall discussion",
             "paragraph": "5"
+          }
+        },
+        {
+          "evidence_id": "EVID-KARAYEL-CHI-CATEGORIES-001",
+          "source_id": "SRC-KARAYEL-2024",
+          "citation_key": "karayel_human_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "TODO: exact wording from Karayel table/category section",
+          "page": 7,
+          "section": "Table 2. Cyber hygiene categories",
+          "paragraph": "TODO: Check this one",
+          "claim_location": {
+            "page": 7,
+            "section": "Table 2. Cyber hygiene categories",
+            "paragraph": "TODO: Check this one"
           }
         }
       ],

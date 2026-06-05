@@ -1,0 +1,1105 @@
+
+====================================================================================================
+EXACT LLM PROMPT SENT TO MODEL — MODE: graph_answer
+====================================================================================================
+You are Neo, a source-grounded cyber hygiene assistant.
+
+Your task is to answer the user's question using ONLY the retrieved graph context.
+
+Follow the below rules religously. ALL RULES MUST BE FOLLOWED! DO NOT OMMIT ANY RULE!
+
+Length rule:
+- For normal questions, the main answer should be at most 180 words.
+- The "Sources used:" section does not count toward the 180-word limit.
+- NEVER omit the "Sources used:" section because of the word limit.
+
+
+Formatting rule:
+- If the answer contains 3 or more items, use a bullet point list.
+- If the question asks for dimensions, categories, practices, steps, measures, or recommendations, use bullet points.
+- Keep each bullet point short: one sentence maximum.
+- Do not use markdown tables unless the user explicitly asks for a comparison.
+- Do not use bold text unless it improves readability.
+- Do not include "Final Answer:" in the response.
+
+Strict rules:
+1. Use only the information provided in the graph context.
+2. Do not add external cybersecurity advice.
+3. Do not add examples, threats, practices, or recommendations unless they appear in the graph context.
+4. If the graph context does not answer the question, say:
+   "The knowledge base does not contain enough evidence to answer this."
+5. Do not mention internal graph structure, node labels, JSON, Cypher, or retrieval logic.
+6. Respect the avoid_claims field.
+7. Prefer practical, clear language.
+8. Keep the answer concise unless the question asks for detail.
+
+Traceability rules:
+1. Every main claim or recommendation should be supported by a citation.
+2. Use this citation format:
+   evidence_id - (Academic Citation, citation_key, source_id, page X, section "Y", paragraph Z)
+3. Example:
+   EVID-VISHWANATH-CHI-DIMENSIONS-001 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 5, section "3.2 Sorting and multidimensional scaling", paragraph "3")
+4. Always use citation details from the evidence objects in the retrieved graph context.
+5. Do not cite KnowledgeUnit IDs or ValidityFact IDs as sources.
+6. If paragraph is missing or marked TODO, omit the paragraph and cite page and section only. However, if there is any data in the paragraph field, display it. So if you find in paragraph something like "2" or "continues from bottom of page 2 to top of page 3", display them! Do not display that information only if the entry is an empty string such as "".
+7. If multiple evidence snippets support the same claim, cite the most specific one.
+8. Do not invent citations, authors, page numbers, sections, or paragraph numbers.
+9. The "Sources used" section must list evidence_id, citation_key, source_id, page, and section.
+10. Format the citations exactly as shown in the example on point number 3 of Tracebility Rules.
+11. The only place where you will show the citation format, as shown in the example, is ONLY UNDER THE "Sources used:" section. More information about this a bit lower in this document (the prompt guidance). Do not include the citation anywhere else in the answer.
+12. Never copy citation_key values from the example. Always use the citation_key value from the evidence object being cited.
+13. The final answer must always end with exactly this heading: "Sources used:"
+14. If retrieved evidence exists, list at least one evidence item under "Sources used:".
+15. Do not replace "Sources used:" with "Citations:", "References:", or "Traceability:".
+
+Sources heading rule:
+- The final answer must end with exactly the heading:
+  Sources used:
+- Never use "Sources:", "Citations:", "References:", or "Rationale:" as replacements.
+- Each item under "Sources used:" must begin with an evidence_id.
+- Do not include a separate "Rationale" section unless the user asks why.
+- If explanation is needed, keep it in the main answer and support it using the "Sources used:" section.
+
+Granularity rule:
+- If the context supports a general practice but not detailed implementation steps, say so clearly.
+- Do not infer detailed procedural advice from a general practice name.
+- Example: if the context only says "check sender email domain", you may recommend checking the sender domain, but you may not explain suspicious-domain patterns unless those details appear in the context.
+- Do not invent examples such as fake domains, fake subject lines, sender IP checks, domain alignment checks, or malware behavior unless those details appear explicitly in the graph context.
+- If the context only says to check a sender domain, say "check the sender domain"; do not explain suspicious-domain patterns unless supported by evidence.
+- If the user describes cryptocurrency demands, extortion, blackmail, or payment requests, mention only that the current knowledge base supports email hygiene checks; do not provide specific cryptocurrency-scam guidance unless retrieved evidence supports it.
+
+Evidence selection rule:
+- Prefer evidence snippets with support_type "direct".
+- Prefer evidence that exactly supports the sentence being written.
+- Do not cite broad conceptual evidence for a specific practical recommendation if more specific practice evidence is available.
+
+Answer structure:
+- Start with a direct answer.
+- Then give recommended actions or explanation if supported.
+- End with a short "Sources used" section listing the sources and evidence IDs used.
+
+Scope rule:
+- Answer only the user's exact question.
+- Do not explain broader cyber hygiene theory unless the user asks for it.
+
+Scenario rule:
+- If the user describes a concrete situation, answer the situation directly.
+- Do not summarize all retrieved knowledge units.
+- Prefer the most relevant practical recommendations from the retrieved context.
+- If the context contains broad conceptual KUs and practical KUs, prioritize practical KUs.
+- Mention limitations clearly if the retrieved context does not support detailed procedural advice.
+
+Scenario grounding rule:
+- If the user provides a concrete scenario, do not change names, domains, amounts, or details from the scenario.
+- Do not invent new example domains, companies, URLs, tools, or verification methods.
+- You may refer to the user's provided details only as provided.
+- If the graph context does not support a specific action such as WHOIS lookup, hovering over links, contacting a company, reporting an email, blocking a sender, or paying/not paying money, do not recommend it.
+- If the user asks what to do and the context only supports general email hygiene checks, say that the knowledge base supports those checks but does not contain specific evidence about the payment/extortion demand.
+
+Example scenario:
+"I received this weird email lately. It has a strange email domain like "prince_abdul@scam.com" and he is asking me to send him 500 Euro through cryptocurrency otherwise he will hack my computer. What should I do? "
+A possible answer you can give (but be wary of your own context; adapt it to the question and graph answer given to you):
+"This should be treated as a suspicious email/messaging request based on the current knowledge base. The knowledge base supports these checks:
+
+- Check the sender’s email domain.
+- Check the email header.
+- Be cautious with hyperlinks or attachments from unknown senders.
+- Check for grammatical or typographical errors.
+- Remain cautious with unexpected email requests.
+
+The current knowledge base supports email hygiene practices related to phishing, e-fraud, and social engineering, but it does not contain specific evidence about cryptocurrency payment demands or extortion threats.
+
+Sources used:
+- EVID-KARAYEL-EMAIL-MESSAGING-001 - (...)
+- EVID-VISHWANATH-EMAIL-MESSAGING-001 - (...)"
+
+Answer style rule:
+- If any retrieved answer_guidance has answer_style "practical_advice", prioritize practical advice.
+- If the user asks "what should I do", "how do I", or describes a concrete incident, use practical advice style.
+- Do not provide a conceptual explanation unless the user asks "why", "what is", or "explain".
+
+The final answer must always end with exactly this heading:
+Sources used:
+
+If the graph context contains evidence, list at least one evidence item.
+Do not replace "Sources used:" with "Citations:", "References:", or "Traceability:".
+Do not cite validity facts as sources.
+
+ENSURE THAT ALL ANSWERS FOLLOW THE EXAMPLES AND TEMPLATES PROVIDED HERE!
+
+User question:
+What basic cyber hygiene practices protect personal information?
+
+Retrieved graph context:
+[
+  {
+    "retrieval_rank": 0,
+    "ku_id": "KU-ROUTINE-CYBER-HYGIENE-PRACTICES-001",
+    "ku_title": "Routine cyber hygiene practices include password, antivirus, storage, and security scanning behaviors",
+    "knowledge_units": [
+      {
+        "recommended_actions": [
+          "Check computers and devices for cyber threats or attack attempts.",
+          "Use strong passwords.",
+          "Change passwords regularly where appropriate.",
+          "Avoid reusing passwords across accounts.",
+          "Keep antivirus software up to date.",
+          "Securely store online information.",
+          "Conduct appropriate security scans."
+        ],
+        "evidence_strength": "high",
+        "claim": "Routine cyber hygiene practices include checking devices for cyber threats, using strong passwords, changing passwords regularly, avoiding password reuse, updating antivirus software, securely storing online information, and conducting security scans.",
+        "id": "KU-ROUTINE-CYBER-HYGIENE-PRACTICES-001",
+        "explanation": "These practices represent recurring security habits that help users protect personal information, devices, and accounts from cyber threats. They complement the five cyber hygiene categories by providing concrete examples of day-to-day protective behavior.",
+        "title": "Routine cyber hygiene practices include password, antivirus, storage, and security scanning behaviors"
+      }
+    ],
+    "categories": [
+      {
+        "name": "General cyber hygiene",
+        "definition": "General concepts and foundational definitions related to cyber hygiene.",
+        "id": "CAT-GENERAL-CYBER-HYGIENE"
+      }
+    ],
+    "threats": [
+      {
+        "support_status": "directly_supported",
+        "name": "Privacy exposure",
+        "definition": "Risk of unintended disclosure of personal information due to weak privacy settings or unsafe online behavior.",
+        "id": "THR-PRIVACY-EXPOSURE",
+        "support_notes": "Karayel et al. directly include managing privacy settings within social media hygiene."
+      },
+      {
+        "support_status": "inferred_from_practice",
+        "name": "Malware infection",
+        "definition": "A compromise in which malicious software infects a device or storage medium.",
+        "id": "THR-MALWARE-INFECTION",
+        "support_notes": "Inferred from storage and device hygiene practices such as virus scans and keeping protection software up to date. Requires an additional source for a direct malware definition."
+      },
+      {
+        "support_status": "directly_supported",
+        "name": "Credential targeting",
+        "definition": "Attempts by attackers to target user information, usernames, passwords, or authentication mechanisms.",
+        "id": "THR-CREDENTIAL-TARGETING",
+        "support_notes": "Karayel et al. discuss authentication and credential hygiene and state that user information and passwords are frequently targeted by hackers."
+      },
+      {
+        "support_status": "partially_supported",
+        "name": "Data loss",
+        "definition": "Loss of access to important files or information due to device failure, accidental deletion, malware, or other incidents.",
+        "id": "THR-DATA-LOSS",
+        "support_notes": "Karayel et al. directly mention backing up important files and secure data storage, but additional sources may be used to strengthen the broader data loss definition."
+      }
+    ],
+    "practices": [
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024"
+        ],
+        "name": "Conduct appropriate security scans",
+        "description": "Users should conduct appropriate security scans to detect cyber threats or attack attempts.",
+        "id": "PRA-CONDUCT-SECURITY-SCANS"
+      },
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024"
+        ],
+        "name": "Use strong passwords",
+        "description": "Users should use strong passwords as part of routine cyber hygiene behavior.",
+        "id": "PRA-USE-STRONG-PASSWORDS"
+      },
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024"
+        ],
+        "name": "Securely store online information",
+        "description": "Users should securely store online information to protect personal and sensitive data.",
+        "id": "PRA-SECURELY-STORE-INFORMATION"
+      },
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024",
+          "SRC-VISHWANATH-2020"
+        ],
+        "name": "Update antivirus software",
+        "description": "Users should keep antivirus software up to date to reduce exposure to cyber threats.",
+        "id": "PRA-UPDATE-ANTIVIRUS"
+      },
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024"
+        ],
+        "name": "Avoid password reuse",
+        "description": "Users should avoid reusing passwords across accounts to reduce credential-related risk.",
+        "id": "PRA-AVOID-PASSWORD-REUSE"
+      },
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024"
+        ],
+        "name": "Change passwords regularly",
+        "description": "Users should change passwords regularly as part of maintaining cyber hygiene.",
+        "id": "PRA-CHANGE-PASSWORDS-REGULARLY"
+      }
+    ],
+    "evidence": [
+      {
+        "paragraph": "4",
+        "year": 2024,
+        "citation_key": "karayel_human_2024",
+        "section": "2.1 Cyber hygiene",
+        "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001",
+        "page": 3,
+        "source_id": "SRC-KARAYEL-2024",
+        "support_type": "direct",
+        "text": "Examples include routinely checking computers for cyber threats or attack attempts, using strong passwords, changing passwords regularly and avoiding password reuse, updating antivirus software, securely storing online information and conducting appropriate security scans.",
+        "source_title": "Human factors in remote work: examining cyber hygiene practices"
+      }
+    ],
+    "validity_facts": [
+      {
+        "fact": "Routine cyber hygiene includes updating antivirus software.",
+        "fact_id": "VF-ROUTINE-PRACTICES-005",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+      },
+      {
+        "fact": "Routine cyber hygiene includes changing passwords regularly.",
+        "fact_id": "VF-ROUTINE-PRACTICES-003",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+      },
+      {
+        "fact": "Routine cyber hygiene includes checking computers for cyber threats or attack attempts.",
+        "fact_id": "VF-ROUTINE-PRACTICES-001",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+      },
+      {
+        "fact": "Routine cyber hygiene includes avoiding password reuse.",
+        "fact_id": "VF-ROUTINE-PRACTICES-004",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+      },
+      {
+        "fact": "Routine cyber hygiene includes securely storing online information.",
+        "fact_id": "VF-ROUTINE-PRACTICES-006",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+      },
+      {
+        "fact": "Routine cyber hygiene includes using strong passwords.",
+        "fact_id": "VF-ROUTINE-PRACTICES-002",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+      },
+      {
+        "fact": "Routine cyber hygiene includes conducting appropriate security scans.",
+        "fact_id": "VF-ROUTINE-PRACTICES-007",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+      }
+    ],
+    "traceability": [
+      {
+        "citation_granularity": "section_or_paragraph",
+        "acceptable_sources": [
+          "SRC-KARAYEL-2024"
+        ],
+        "requires_citation": true,
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 and should be traceable to Section 2.1, Cyber hygiene, where routine cyber hygiene examples are listed."
+      }
+    ],
+    "answer_guidance": [
+      {
+        "must_include": [
+          "checking computers for cyber threats",
+          "strong passwords",
+          "changing passwords regularly",
+          "avoiding password reuse",
+          "updating antivirus software",
+          "securely storing online information",
+          "security scans"
+        ],
+        "answer_style": "practical_advice",
+        "avoid_claims": [
+          "Only technical tools are needed for cyber hygiene",
+          "Antivirus software alone is enough for good cyber hygiene",
+          "Password reuse is safe if the password is strong",
+          "Cyber hygiene completely eliminates all cyber risk"
+        ]
+      }
+    ]
+  },
+  {
+    "retrieval_rank": 1,
+    "ku_id": "KU-STORAGE-DEVICE-001",
+    "ku_title": "Storage and device hygiene includes backups, antivirus updates, secure storage, and virus scans",
+    "knowledge_units": [
+      {
+        "recommended_actions": [
+          "Conduct virus scans or security scans on storage devices.",
+          "Back up important files.",
+          "Keep antivirus, virus protection, and device software up to date.",
+          "Check whether devices have the latest operating system, software update, or patch.",
+          "Enable firewalls on computing devices.",
+          "Monitor device processes such as CPU, power, and network usage.",
+          "Securely store data, including physical and cloud-based information."
+        ],
+        "evidence_strength": "high",
+        "claim": "Storage and device hygiene involves conducting virus scans, backing up important files, keeping virus protection and device software up to date, enabling firewalls, checking device updates, monitoring device usage, and securely storing data.",
+        "id": "KU-STORAGE-DEVICE-001",
+        "explanation": "Karayel et al. describe storage and device hygiene as cyber hygiene behavior related to the configuration and security of digital devices. This includes scanning devices for viruses, backing up important files, keeping protection software updated, and securely storing data. Vishwanath et al.'s Cyber Hygiene Inventory additionally includes enabling firewalls, checking for operating system or software updates, keeping virus protection updated, and monitoring CPU, power, or network usage.",
+        "title": "Storage and device hygiene includes backups, antivirus updates, secure storage, and virus scans"
+      }
+    ],
+    "categories": [
+      {
+        "name": "Storage and device hygiene",
+        "definition": "Security measures and behaviors related to the configuration settings of digital devices.",
+        "id": "CAT-STORAGE-DEVICE"
+      }
+    ],
+    "threats": [
+      {
+        "support_status": "partially_supported",
+        "name": "Unpatched software",
+        "definition": "Risk arising from outdated software that may contain unresolved security vulnerabilities.",
+        "id": "THR-UNPATCHED-SOFTWARE",
+        "support_notes": "Karayel et al. directly mention keeping device software up to date, but an additional source should support the specific vulnerability-risk framing."
+      },
+      {
+        "support_status": "inferred_from_practice",
+        "name": "Malware infection",
+        "definition": "A compromise in which malicious software infects a device or storage medium.",
+        "id": "THR-MALWARE-INFECTION",
+        "support_notes": "Inferred from storage and device hygiene practices such as virus scans and keeping protection software up to date. Requires an additional source for a direct malware definition."
+      },
+      {
+        "support_status": "partially_supported",
+        "name": "Data loss",
+        "definition": "Loss of access to important files or information due to device failure, accidental deletion, malware, or other incidents.",
+        "id": "THR-DATA-LOSS",
+        "support_notes": "Karayel et al. directly mention backing up important files and secure data storage, but additional sources may be used to strengthen the broader data loss definition."
+      }
+    ],
+    "practices": [
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024"
+        ],
+        "name": "Keep protection software up to date",
+        "description": "Users should keep antivirus protection and device software up to date.",
+        "id": "PRA-UPDATE-PROTECTION-SOFTWARE"
+      },
+      {
+        "source_ids": [
+          "SRC-VISHWANATH-2020"
+        ],
+        "name": "Monitor device resource and network usage",
+        "description": "Users should monitor device processes such as CPU, power, and network usage.",
+        "id": "PRA-MONITOR-DEVICE-USAGE"
+      },
+      {
+        "source_ids": [
+          "SRC-VISHWANATH-2020"
+        ],
+        "name": "Check device operating system and software updates",
+        "description": "Users should check whether their device has the latest operating system, software update, or patch.",
+        "id": "PRA-CHECK-DEVICE-UPDATES"
+      },
+      {
+        "source_ids": [
+          "SRC-VISHWANATH-2020"
+        ],
+        "name": "Enable firewalls",
+        "description": "Users should enable firewalls on computing devices as part of storage and device hygiene.",
+        "id": "PRA-ENABLE-FIREWALLS"
+      },
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024",
+          "SRC-VISHWANATH-2020"
+        ],
+        "name": "Back up important files",
+        "description": "Users should back up important files to reduce the impact of data loss, malware, or device failure.",
+        "id": "PRA-BACKUP-FILES"
+      },
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024"
+        ],
+        "name": "Securely store online information",
+        "description": "Users should securely store online information to protect personal and sensitive data.",
+        "id": "PRA-SECURELY-STORE-INFORMATION"
+      },
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024",
+          "SRC-VISHWANATH-2020"
+        ],
+        "name": "Conduct virus scans on storage devices",
+        "description": "Users should conduct virus scans on storage devices to detect potentially malicious or infected files.",
+        "id": "PRA-VIRUS-SCAN-STORAGE"
+      },
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024",
+          "SRC-VISHWANATH-2020"
+        ],
+        "name": "Update antivirus software",
+        "description": "Users should keep antivirus software up to date to reduce exposure to cyber threats.",
+        "id": "PRA-UPDATE-ANTIVIRUS"
+      },
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024"
+        ],
+        "name": "Conduct appropriate security scans",
+        "description": "Users should conduct appropriate security scans to detect cyber threats or attack attempts.",
+        "id": "PRA-CONDUCT-SECURITY-SCANS"
+      }
+    ],
+    "evidence": [
+      {
+        "paragraph": "table row 23",
+        "year": 2020,
+        "citation_key": "vishwanath_cyber_2020",
+        "section": "Table 1. Final CHI items, and the original items",
+        "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-005",
+        "page": 6,
+        "source_id": "SRC-VISHWANATH-2020",
+        "support_type": "direct",
+        "text": "Monitoring different processes such as CPU, power, or network usage on your device",
+        "source_title": "Cyber hygiene: The concept, its measure, and its initial tests"
+      },
+      {
+        "paragraph": "table row 14",
+        "year": 2020,
+        "citation_key": "vishwanath_cyber_2020",
+        "section": "Table 1. Final CHI items, and the original items",
+        "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-002",
+        "page": 6,
+        "source_id": "SRC-VISHWANATH-2020",
+        "support_type": "direct",
+        "text": "Backup important files.",
+        "source_title": "Cyber hygiene: The concept, its measure, and its initial tests"
+      },
+      {
+        "paragraph": "table row 21",
+        "year": 2020,
+        "citation_key": "vishwanath_cyber_2020",
+        "section": "Table 1. Final CHI items, and the original items",
+        "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-004",
+        "page": 6,
+        "source_id": "SRC-VISHWANATH-2020",
+        "support_type": "direct",
+        "text": "Checking your device to ensure it has the latest OS, software update, or patch",
+        "source_title": "Cyber hygiene: The concept, its measure, and its initial tests"
+      },
+      {
+        "paragraph": "table row 13",
+        "year": 2020,
+        "citation_key": "vishwanath_cyber_2020",
+        "section": "Table 1. Final CHI items, and the original items",
+        "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-001",
+        "page": 6,
+        "source_id": "SRC-VISHWANATH-2020",
+        "support_type": "direct",
+        "text": "Run a virus scan on new USB or external storage devices.",
+        "source_title": "Cyber hygiene: The concept, its measure, and its initial tests"
+      },
+      {
+        "paragraph": "table row 6",
+        "year": 2020,
+        "citation_key": "vishwanath_cyber_2020",
+        "section": "Table 1. Final CHI items, and the original items",
+        "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-003",
+        "page": 6,
+        "source_id": "SRC-VISHWANATH-2020",
+        "support_type": "direct",
+        "text": "Enabling firewalls on your computing devices",
+        "source_title": "Cyber hygiene: The concept, its measure, and its initial tests"
+      },
+      {
+        "paragraph": "table row 26",
+        "year": 2020,
+        "citation_key": "vishwanath_cyber_2020",
+        "section": "Table 1. Final CHI items, and the original items",
+        "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-006",
+        "page": 6,
+        "source_id": "SRC-VISHWANATH-2020",
+        "support_type": "direct",
+        "text": "Keeping virus protection updated",
+        "source_title": "Cyber hygiene: The concept, its measure, and its initial tests"
+      },
+      {
+        "paragraph": "7",
+        "year": 2024,
+        "citation_key": "karayel_human_2024",
+        "section": "4. Results and discussion, RQ4 explanation",
+        "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-002",
+        "page": 13,
+        "source_id": "SRC-KARAYEL-2024",
+        "support_type": "direct",
+        "text": "Storage and device hygiene, encompassing secure data storage (both physical and cloud-based), up-to-date antivirus software and regular virus scans",
+        "source_title": "Human factors in remote work: examining cyber hygiene practices"
+      },
+      {
+        "paragraph": "Third column, first row of the table",
+        "year": 2024,
+        "citation_key": "karayel_human_2024",
+        "section": "Table 2. Cyber hygiene categories",
+        "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-001",
+        "page": 7,
+        "source_id": "SRC-KARAYEL-2024",
+        "support_type": "direct",
+        "text": "Conducting virus scans on any storage device, backing up important files and keeping the device’s virus protection and device software up to date",
+        "source_title": "Human factors in remote work: examining cyber hygiene practices"
+      }
+    ],
+    "validity_facts": [
+      {
+        "fact": "Storage and device hygiene includes up-to-date antivirus software.",
+        "fact_id": "VF-STORAGE-DEVICE-005",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-002"
+      },
+      {
+        "fact": "Storage and device hygiene includes conducting virus scans on storage devices.",
+        "fact_id": "VF-STORAGE-DEVICE-001",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-001"
+      },
+      {
+        "fact": "Storage and device hygiene includes backing up important files.",
+        "fact_id": "VF-STORAGE-DEVICE-002",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-001"
+      },
+      {
+        "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes running a virus scan on new USB or external storage devices.",
+        "fact_id": "VF-STORAGE-DEVICE-007",
+        "source_id": "SRC-VISHWANATH-2020",
+        "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-001"
+      },
+      {
+        "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes backing up important files.",
+        "fact_id": "VF-STORAGE-DEVICE-008",
+        "source_id": "SRC-VISHWANATH-2020",
+        "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-002"
+      },
+      {
+        "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes enabling firewalls on computing devices.",
+        "fact_id": "VF-STORAGE-DEVICE-009",
+        "source_id": "SRC-VISHWANATH-2020",
+        "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-003"
+      },
+      {
+        "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes monitoring device processes such as CPU, power, or network usage.",
+        "fact_id": "VF-STORAGE-DEVICE-011",
+        "source_id": "SRC-VISHWANATH-2020",
+        "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-005"
+      },
+      {
+        "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes checking whether a device has the latest operating system, software update, or patch.",
+        "fact_id": "VF-STORAGE-DEVICE-010",
+        "source_id": "SRC-VISHWANATH-2020",
+        "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-004"
+      },
+      {
+        "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes keeping virus protection updated.",
+        "fact_id": "VF-STORAGE-DEVICE-012",
+        "source_id": "SRC-VISHWANATH-2020",
+        "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-006"
+      },
+      {
+        "fact": "Storage and device hygiene includes regular virus scans.",
+        "fact_id": "VF-STORAGE-DEVICE-006",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-002"
+      },
+      {
+        "fact": "Storage and device hygiene includes secure data storage, including physical and cloud-based storage.",
+        "fact_id": "VF-STORAGE-DEVICE-004",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-002"
+      },
+      {
+        "fact": "Storage and device hygiene includes keeping virus protection and device software up to date.",
+        "fact_id": "VF-STORAGE-DEVICE-003",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-001"
+      }
+    ],
+    "traceability": [
+      {
+        "citation_granularity": "table_or_section",
+        "acceptable_sources": [
+          "SRC-KARAYEL-2024",
+          "SRC-VISHWANATH-2020"
+        ],
+        "requires_citation": true,
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020 and should be traceable to Karayel et al.'s Table 2/RQ4 discussion or Vishwanath et al.'s Table 1, where storage and device hygiene practices such as virus scans, backups, firewalls, operating system or software updates, virus protection updates, device software updates, secure data storage, and device usage monitoring are listed."
+      }
+    ],
+    "answer_guidance": [
+      {
+        "must_include": [
+          "virus scans",
+          "backing up important files",
+          "keeping virus protection and device software up to date",
+          "checking operating system, software update, or patch status",
+          "enabling firewalls",
+          "monitoring CPU, power, or network usage",
+          "secure data storage",
+          "up-to-date antivirus software",
+          "regular virus scans"
+        ],
+        "answer_style": "practical_advice",
+        "avoid_claims": [
+          "Antivirus software alone is enough for storage and device hygiene",
+          "Backups prevent all malware damage",
+          "Cloud storage is automatically secure",
+          "Virus scans eliminate all device security risk",
+          "Firewalls eliminate all device security risk",
+          "Monitoring CPU, power, or network usage proves a device is infected",
+          "Vishwanath et al. directly state that device monitoring prevents malware"
+        ]
+      }
+    ]
+  },
+  {
+    "retrieval_rank": 2,
+    "ku_id": "KU-TRANSMISSION-002",
+    "ku_title": "Transmission hygiene also includes VPN use, encrypted password vaults, and personal-information alerts",
+    "knowledge_units": [
+      {
+        "recommended_actions": [
+          "Use a VPN when using free or public Wi-Fi.",
+          "Store logins and passwords in encrypted online password vaults.",
+          "Place online alerts for your name or personal information."
+        ],
+        "evidence_strength": "high",
+        "claim": "Vishwanath et al.'s Cyber Hygiene Inventory includes additional transmission and browsing hygiene practices such as using a VPN on free or public Wi-Fi, storing logins and passwords in encrypted online password vaults, and placing online alerts for one's name or personal information.",
+        "id": "KU-TRANSMISSION-002",
+        "explanation": "In the Cyber Hygiene Inventory, Vishwanath et al. include several practices under transmission and browsing hygiene beyond checking SSL indicators. These include VPN use on free or public Wi-Fi, encrypted online password vault use, and online alerts for personal information. These items should be treated as source-listed CHI practices, while their detailed threat mappings may require additional sources.",
+        "title": "Transmission hygiene also includes VPN use, encrypted password vaults, and personal-information alerts"
+      }
+    ],
+    "categories": [
+      {
+        "name": "Transmission hygiene",
+        "definition": "Computer security behaviors when connecting to unknown or insecure wireless networks.",
+        "id": "CAT-TRANSMISSION"
+      }
+    ],
+    "threats": [
+      {
+        "support_status": "directly_supported",
+        "name": "Insecure connection",
+        "definition": "A network or website connection that does not provide sufficient protection for transmitted information.",
+        "id": "THR-INSECURE-CONNECTION",
+        "support_notes": "Karayel et al. directly link transmission hygiene to unknown or insecure wireless networks and websites without SSL security certificates."
+      }
+    ],
+    "practices": [
+      {
+        "source_ids": [
+          "SRC-VISHWANATH-2020"
+        ],
+        "name": "Set online alerts for personal information",
+        "description": "Users should place online alerts for their name or personal information.",
+        "id": "PRA-SET-PERSONAL-INFO-ALERTS"
+      },
+      {
+        "source_ids": [
+          "SRC-VISHWANATH-2020"
+        ],
+        "name": "Use a VPN on free or public Wi-Fi",
+        "description": "Users should use a VPN when using free or public Wi-Fi.",
+        "id": "PRA-USE-VPN-PUBLIC-WIFI"
+      },
+      {
+        "source_ids": [
+          "SRC-VISHWANATH-2020"
+        ],
+        "name": "Store logins and passwords in an encrypted online password vault",
+        "description": "Users should store logins and passwords in encrypted online password vaults.",
+        "id": "PRA-USE-PASSWORD-VAULT"
+      }
+    ],
+    "evidence": [
+      {
+        "paragraph": "table row 31",
+        "year": 2020,
+        "citation_key": "vishwanath_cyber_2020",
+        "section": "Table 1. Final CHI items, and the original items",
+        "evidence_id": "EVID-VISHWANATH-TRANSMISSION-002-002",
+        "page": 6,
+        "source_id": "SRC-VISHWANATH-2020",
+        "support_type": "direct",
+        "text": "Storing logins and passwords on encrypted online password vaults.",
+        "source_title": "Cyber hygiene: The concept, its measure, and its initial tests"
+      },
+      {
+        "paragraph": "table row 1",
+        "year": 2020,
+        "citation_key": "vishwanath_cyber_2020",
+        "section": "Table 1. Final CHI items, and the original items",
+        "evidence_id": "EVID-VISHWANATH-TRANSMISSION-002-001",
+        "page": 6,
+        "source_id": "SRC-VISHWANATH-2020",
+        "support_type": "direct",
+        "text": "Using a VPN when using free/public wifi.",
+        "source_title": "Cyber hygiene: The concept, its measure, and its initial tests"
+      },
+      {
+        "paragraph": "table row 34",
+        "year": 2020,
+        "citation_key": "vishwanath_cyber_2020",
+        "section": "Table 1. Final CHI items, and the original items",
+        "evidence_id": "EVID-VISHWANATH-TRANSMISSION-002-003",
+        "page": 6,
+        "source_id": "SRC-VISHWANATH-2020",
+        "support_type": "direct",
+        "text": "Placing online alerts for your name or personal information.",
+        "source_title": "Cyber hygiene: The concept, its measure, and its initial tests"
+      }
+    ],
+    "validity_facts": [
+      {
+        "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes placing online alerts for one's name or personal information.",
+        "fact_id": "VF-TRANSMISSION-VISHWANATH-002-003",
+        "source_id": "SRC-VISHWANATH-2020",
+        "evidence_id": "EVID-VISHWANATH-TRANSMISSION-002-003"
+      },
+      {
+        "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes using a VPN when using free or public Wi-Fi.",
+        "fact_id": "VF-TRANSMISSION-VISHWANATH-002-001",
+        "source_id": "SRC-VISHWANATH-2020",
+        "evidence_id": "EVID-VISHWANATH-TRANSMISSION-002-001"
+      },
+      {
+        "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes storing logins and passwords on encrypted online password vaults.",
+        "fact_id": "VF-TRANSMISSION-VISHWANATH-002-002",
+        "source_id": "SRC-VISHWANATH-2020",
+        "evidence_id": "EVID-VISHWANATH-TRANSMISSION-002-002"
+      }
+    ],
+    "traceability": [
+      {
+        "citation_granularity": "table_row",
+        "acceptable_sources": [
+          "SRC-VISHWANATH-2020"
+        ],
+        "requires_citation": true,
+        "minimum_traceability_requirement": "The answer should cite Vishwanath et al. 2020 and should be traceable to Table 1, where VPN use on free/public Wi-Fi, encrypted online password vaults, and online alerts for personal information are listed under transmission and browsing hygiene."
+      }
+    ],
+    "answer_guidance": [
+      {
+        "must_include": [
+          "VPN on free or public Wi-Fi",
+          "encrypted online password vaults",
+          "online alerts for name or personal information",
+          "listed in the Cyber Hygiene Inventory"
+        ],
+        "answer_style": "practical_advice_with_traceability_note",
+        "avoid_claims": [
+          "VPN use makes public Wi-Fi completely safe",
+          "Password vaults eliminate all credential risk",
+          "Personal-information alerts prevent identity theft",
+          "These practices are proven by Vishwanath et al. to mitigate specific named attacks",
+          "All transmission hygiene practices are only about SSL certificates"
+        ]
+      }
+    ]
+  },
+  {
+    "retrieval_rank": 3,
+    "ku_id": "KU-CYBER-HYGIENE-DEFINITION-001",
+    "ku_title": "Cyber hygiene as routine security behavior for protecting personal information",
+    "knowledge_units": [
+      {
+        "recommended_actions": [
+          "Adopt routine security habits when using internet-connected devices.",
+          "Protect personal, financial, and social information during online activity.",
+          "Follow security guidelines that reduce exposure to cyber threats.",
+          "Maintain secure behavior across devices, accounts, networks, and online communication."
+        ],
+        "evidence_strength": "high",
+        "claim": "Cyber hygiene refers to routine cybersecurity practices that online users adopt to protect the security and integrity of their personal information on internet-connected devices against cyber threats.",
+        "id": "KU-CYBER-HYGIENE-DEFINITION-001",
+        "explanation": "Cyber hygiene consists of regular security behaviors and habits that help protect internet-enabled devices and the safety and integrity of personal information from cyber threats.",
+        "title": "Cyber hygiene as routine security behavior for protecting personal information"
+      }
+    ],
+    "categories": [
+      {
+        "name": "General cyber hygiene",
+        "definition": "General concepts and foundational definitions related to cyber hygiene.",
+        "id": "CAT-GENERAL-CYBER-HYGIENE"
+      }
+    ],
+    "threats": [
+      {
+        "support_status": null,
+        "name": null,
+        "definition": null,
+        "id": null,
+        "support_notes": null
+      }
+    ],
+    "practices": [
+      {
+        "source_ids": null,
+        "name": null,
+        "description": null,
+        "id": null
+      }
+    ],
+    "evidence": [
+      {
+        "paragraph": "12",
+        "year": 2020,
+        "citation_key": "vishwanath_cyber_2020",
+        "section": "1. Defining cyber hygiene",
+        "evidence_id": "EVID-VISHWANATH-CYBER-HYGIENE-DEF-001",
+        "page": 2,
+        "source_id": "SRC-VISHWANATH-2020",
+        "support_type": "direct",
+        "text": "the cyber security practices that online consumers should engage in to protect the safety and integrity of their personal information on their Internet enabled devices from being compromised in a cyber-attack",
+        "source_title": "Cyber hygiene: The concept, its measure, and its initial tests"
+      },
+      {
+        "paragraph": "1",
+        "year": 2024,
+        "citation_key": "karayel_human_2024",
+        "section": "2.1 Cyber hygiene",
+        "evidence_id": "EVID-KARAYEL-CYBER-HYGIENE-DEF-002",
+        "page": 3,
+        "source_id": "SRC-KARAYEL-2024",
+        "support_type": "direct",
+        "text": "As a fundamental principle of information security, cyber hygiene comprises simple, routine measures that mitigate the risk of cyber threats.",
+        "source_title": "Human factors in remote work: examining cyber hygiene practices"
+      },
+      {
+        "paragraph": "1",
+        "year": 2024,
+        "citation_key": "karayel_human_2024",
+        "section": "2.1 Cyber hygiene",
+        "evidence_id": "EVID-KARAYEL-CYBER-HYGIENE-DEF-001",
+        "page": 3,
+        "source_id": "SRC-KARAYEL-2024",
+        "support_type": "direct",
+        "text": "Cyber hygiene refers to a set of cybersecurity practices that online users should adopt to safeguard the security and integrity of their personal information on internet-connected devices against potential cyber threats.",
+        "source_title": "Human factors in remote work: examining cyber hygiene practices"
+      }
+    ],
+    "validity_facts": [
+      {
+        "fact": "Cyber hygiene protects the safety and integrity of personal information on internet-enabled devices.",
+        "fact_id": "VF-CYBER-HYGIENE-DEF-006",
+        "source_id": "SRC-VISHWANATH-2020",
+        "evidence_id": "EVID-VISHWANATH-CYBER-HYGIENE-DEF-001"
+      },
+      {
+        "fact": "Vishwanath et al. define cyber hygiene as cybersecurity practices online consumers should engage in.",
+        "fact_id": "VF-CYBER-HYGIENE-DEF-005",
+        "source_id": "SRC-VISHWANATH-2020",
+        "evidence_id": "EVID-VISHWANATH-CYBER-HYGIENE-DEF-001"
+      },
+      {
+        "fact": "Cyber hygiene aims to protect the security and integrity of personal information.",
+        "fact_id": "VF-CYBER-HYGIENE-DEF-002",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-CYBER-HYGIENE-DEF-001"
+      },
+      {
+        "fact": "Cyber hygiene aims to prevent personal information from being compromised in a cyber-attack.",
+        "fact_id": "VF-CYBER-HYGIENE-DEF-007",
+        "source_id": "SRC-VISHWANATH-2020",
+        "evidence_id": "EVID-VISHWANATH-CYBER-HYGIENE-DEF-001"
+      },
+      {
+        "fact": "Cyber hygiene consists of simple, routine measures that reduce cyber threat risk.",
+        "fact_id": "VF-CYBER-HYGIENE-DEF-004",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-CYBER-HYGIENE-DEF-002"
+      },
+      {
+        "fact": "Cyber hygiene applies to internet-connected devices.",
+        "fact_id": "VF-CYBER-HYGIENE-DEF-003",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-CYBER-HYGIENE-DEF-001"
+      },
+      {
+        "fact": "Cyber hygiene refers to cybersecurity practices adopted by online users.",
+        "fact_id": "VF-CYBER-HYGIENE-DEF-001",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-CYBER-HYGIENE-DEF-001"
+      }
+    ],
+    "traceability": [
+      {
+        "citation_granularity": "section_or_paragraph",
+        "acceptable_sources": [
+          "SRC-KARAYEL-2024",
+          "SRC-VISHWANATH-2020"
+        ],
+        "requires_citation": true,
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020 and should be traceable to Karayel et al.'s Section 2.1, Cyber hygiene, or Vishwanath et al.'s Section 1, Defining cyber hygiene."
+      }
+    ],
+    "answer_guidance": [
+      {
+        "must_include": [
+          "cybersecurity practices",
+          "protect personal information",
+          "internet-connected devices",
+          "routine measures",
+          "reduce cyber threats"
+        ],
+        "answer_style": "definition_with_brief_explanation",
+        "avoid_claims": [
+          "Cyber hygiene is only about antivirus software",
+          "Cyber hygiene is only relevant to organizations",
+          "Cyber hygiene completely eliminates cybersecurity risk"
+        ]
+      }
+    ]
+  },
+  {
+    "retrieval_rank": 4,
+    "ku_id": "KU-ORG-MEASURES-INFLUENCE-001",
+    "ku_title": "Organizational cybersecurity measures are associated with employee cyber hygiene practices",
+    "knowledge_units": [
+      {
+        "recommended_actions": [
+          "Strengthen organizational cybersecurity measures that support employees' cyber hygiene practices.",
+          "Consider organizational cybersecurity measures when trying to improve employees' cyber hygiene.",
+          "Treat employee cyber hygiene as connected to the broader organizational security environment."
+        ],
+        "evidence_strength": "high",
+        "claim": "Stronger organizational cybersecurity measures are associated with improved cyber hygiene practices among remote employees.",
+        "id": "KU-ORG-MEASURES-INFLUENCE-001",
+        "explanation": "Karayel et al. found a statistically significant positive relationship between the cybersecurity measures adopted by organizations and employees' cyber hygiene practices. This suggests that individual cyber hygiene should be understood not only as a personal behavior issue, but also as something influenced by the organizational security environment.",
+        "title": "Organizational cybersecurity measures are associated with employee cyber hygiene practices"
+      }
+    ],
+    "categories": [
+      {
+        "name": "General cyber hygiene",
+        "definition": "General concepts and foundational definitions related to cyber hygiene.",
+        "id": "CAT-GENERAL-CYBER-HYGIENE"
+      }
+    ],
+    "threats": [
+      {
+        "support_status": "directly_supported",
+        "name": "User noncompliance with security practices",
+        "definition": "A behavioral cybersecurity risk in which users fail to follow recommended or required security practices, increasing the likelihood of security incidents.",
+        "id": "THR-USER-NONCOMPLIANCE",
+        "support_notes": "Karayel et al. discuss human factors as a weak link in security systems and state that noncompliance with security practices is a primary cause of security breaches."
+      },
+      {
+        "support_status": "directly_supported",
+        "name": "Insufficient organizational cybersecurity measures",
+        "definition": "A contextual cybersecurity risk in which weak or insufficient organizational security measures may be associated with poorer employee cyber hygiene practices.",
+        "id": "THR-INSUFFICIENT-ORG-SECURITY-MEASURES",
+        "support_notes": "Karayel et al. report a statistically significant positive relationship between organizational cybersecurity measures and employees' cyber hygiene practices."
+      }
+    ],
+    "practices": [
+      {
+        "source_ids": [
+          "SRC-KARAYEL-2024"
+        ],
+        "name": "Strengthen organizational cybersecurity measures",
+        "description": "Organizations should strengthen cybersecurity measures that support employees' cyber hygiene practices.",
+        "id": "PRA-STRENGTHEN-ORG-CYBERSECURITY-MEASURES"
+      }
+    ],
+    "evidence": [
+      {
+        "paragraph": "4",
+        "year": 2024,
+        "citation_key": "karayel_human_2024",
+        "section": "4.3 Research subquestions, RQ2 discussion",
+        "evidence_id": "EVID-KARAYEL-ORG-MEASURES-002",
+        "page": 10,
+        "source_id": "SRC-KARAYEL-2024",
+        "support_type": "direct",
+        "text": "The research revealed a statistically significant positive relationship between companies’ cybersecurity measures and individual cyber hygiene behaviour.",
+        "source_title": "Human factors in remote work: examining cyber hygiene practices"
+      },
+      {
+        "paragraph": "Findings",
+        "year": 2024,
+        "citation_key": "karayel_human_2024",
+        "section": "Abstract",
+        "evidence_id": "EVID-KARAYEL-ORG-MEASURES-001",
+        "page": 1,
+        "source_id": "SRC-KARAYEL-2024",
+        "support_type": "direct",
+        "text": "The findings indicate a significant correlation between the security measures implemented by companies and their employees’ cyber hygiene practices.",
+        "source_title": "Human factors in remote work: examining cyber hygiene practices"
+      }
+    ],
+    "validity_facts": [
+      {
+        "fact": "Employee cyber hygiene is influenced by the organizational cybersecurity environment, not only by individual behavior.",
+        "fact_id": "VF-ORG-MEASURES-003",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ORG-MEASURES-002"
+      },
+      {
+        "fact": "Karayel et al. found a statistically significant relationship between individual cyber hygiene behavior and cybersecurity measures implemented by companies.",
+        "fact_id": "VF-ORG-MEASURES-002",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ORG-MEASURES-002"
+      },
+      {
+        "fact": "Karayel et al. found a significant correlation between company cybersecurity measures and employees' cyber hygiene practices.",
+        "fact_id": "VF-ORG-MEASURES-001",
+        "source_id": "SRC-KARAYEL-2024",
+        "evidence_id": "EVID-KARAYEL-ORG-MEASURES-001"
+      }
+    ],
+    "traceability": [
+      {
+        "citation_granularity": "section_or_paragraph",
+        "acceptable_sources": [
+          "SRC-KARAYEL-2024"
+        ],
+        "requires_citation": true,
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 and should be traceable to the abstract findings and the RQ2 discussion in Section 4.3 regarding the statistically significant relationship between organizational cybersecurity measures and employee cyber hygiene behavior."
+      }
+    ],
+    "answer_guidance": [
+      {
+        "must_include": [
+          "significant correlation",
+          "organizational cybersecurity measures",
+          "employees' cyber hygiene practices",
+          "positive relationship",
+          "not only individual responsibility"
+        ],
+        "answer_style": "explanatory_guidance",
+        "avoid_claims": [
+          "Organizational cybersecurity measures guarantee good employee cyber hygiene",
+          "Employee cyber hygiene depends only on individual behavior",
+          "The study proves strict causation between company measures and employee behavior",
+          "Technical controls alone are sufficient to improve cyber hygiene"
+        ]
+      }
+    ]
+  }
+]
+
+Final answer:
+
+====================================================================================================
+END LLM PROMPT
+====================================================================================================

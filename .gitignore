@@ -6,3 +6,8 @@ __pycache__/
 .venv/
 venv/
 .env.local
+.vscode/
+__pycache__/
+*.pyc
+.venv/
+debug/
