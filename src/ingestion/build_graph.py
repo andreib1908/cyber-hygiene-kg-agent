@@ -31,9 +31,13 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.schema.graph_schema import (
+    EMBEDDING_DIMENSIONS,
+    EMBEDDING_SIMILARITY,
+    KNOWLEDGE_UNIT_VECTOR_INDEX,
     SEARCH_INDEXES,
     UNIQUE_CONSTRAINTS,
 )
+from src.retrieval.embeddings import build_ku_document, embed_documents
 
 # Paths
 
@@ -139,6 +143,39 @@ def create_indexes(tx) -> None:
             ON (n.{prop})
             """
         )
+
+def create_vector_index(tx) -> None:
+    """Create the native vector index over KnowledgeUnit embeddings."""
+    tx.run(
+        f"""
+        CREATE VECTOR INDEX {KNOWLEDGE_UNIT_VECTOR_INDEX} IF NOT EXISTS
+        FOR (ku:KnowledgeUnit)
+        ON (ku.embedding)
+        OPTIONS {{ indexConfig: {{
+            `vector.dimensions`: {EMBEDDING_DIMENSIONS},
+            `vector.similarity_function`: '{EMBEDDING_SIMILARITY}'
+        }} }}
+        """
+    )
+
+
+def set_ku_embedding(tx, ku_id: str, embedding: list[float]) -> None:
+    tx.run(
+        "MATCH (ku:KnowledgeUnit {id: $id}) SET ku.embedding = $embedding",
+        id=ku_id,
+        embedding=embedding,
+    )
+
+
+def embed_and_store_knowledge_units(session, knowledge_units: list[dict[str, Any]]) -> None:
+    """Embed each KnowledgeUnit document and store the vector on its node."""
+    documents = [build_ku_document(ku) for ku in knowledge_units]
+    vectors = embed_documents(documents)
+
+    for ku, vector in zip(knowledge_units, vectors):
+        ku_id = ku.get("id")
+        if ku_id:
+            session.execute_write(set_ku_embedding, ku_id, vector)
 
 def create_source(tx, source: dict[str, Any]) -> None:
     tx.run(
@@ -498,10 +535,10 @@ def main(clear_existing: bool = True) -> None:
                 print(f"{ORANGE}Clearing existing graph...{RESET}")
                 session.execute_write(clear_graph)
 
-            print("Creating constraints and indexes...")
+            print("Creating constraints, indexes, and vector index...")
             session.execute_write(create_constraints)
             session.execute_write(create_indexes)
-            session.execute_write(create_fulltext_indexes)
+            session.execute_write(create_vector_index)
 
             print(f"Importing {len(sources)} sources...")
             for source in sources:
@@ -527,6 +564,9 @@ def main(clear_existing: bool = True) -> None:
             for ku in knowledge_units:
                 session.execute_write(create_knowledge_unit_details, ku)
 
+            print("Embedding knowledge units and storing vectors...")
+            embed_and_store_knowledge_units(session, knowledge_units)
+            
             counts = session.run(
                 """
                 MATCH (n)

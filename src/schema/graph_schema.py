@@ -157,6 +157,14 @@ SEARCH_INDEXES: dict[str, tuple[str, str]] = {
     "question_template_text": (QUESTION_TEMPLATE, "text"),
 }
 
+# Vector index (KnowledgeUnit embeddings)
+
+# Format: index_name used by build_graph (creation) and retriever (query)
+KNOWLEDGE_UNIT_VECTOR_INDEX = "ku_embedding"
+EMBEDDING_PROPERTY = "embedding"
+EMBEDDING_DIMENSIONS = 768          # nomic-embed-text output size
+EMBEDDING_SIMILARITY = "cosine"
+
 
 # Helper text for Cypher prompts / documentation
 

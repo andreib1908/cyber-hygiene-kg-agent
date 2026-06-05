@@ -96,3 +96,10 @@ RETURN
 ORDER BY retrieval_rank
 LIMIT $limit
 """
+
+VECTOR_SEARCH_KNOWLEDGE_UNITS = """
+CALL db.index.vector.queryNodes($index_name, $top_k, $query_vector)
+YIELD node, score
+RETURN node.id AS ku_id, node.title AS title, score
+ORDER BY score DESC
+"""

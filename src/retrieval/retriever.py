@@ -1,6 +1,11 @@
 """Retrieval layer for Neo.
 
-This module runs safe predefined Cypher templates against Neo4j.
+Retrieval is vector-first and graph-grounded:
+  1. embed the user question with the local Ollama model,
+  2. find the nearest KnowledgeUnits via the Neo4j native vector index,
+  3. hydrate each KU's full graph context (evidence, sources, practices,
+     threats, guidance, traceability) with a safe predefined Cypher template.
+
 It does not ask the LLM to generate Cypher.
 """
 
@@ -12,18 +17,16 @@ from typing import Any
 from dotenv import load_dotenv
 from neo4j import GraphDatabase
 
+from src.retrieval.embeddings import embed_query
 from src.retrieval.templates import (
-    FULLTEXT_SEARCH_KNOWLEDGE_UNITS,
-    FULLTEXT_SEARCH_PRACTICES,
-    FULLTEXT_SEARCH_QUESTION_TEMPLATES,
-    FULLTEXT_SEARCH_THREATS,
-    RETRIEVE_BY_CATEGORY,
     RETRIEVE_BY_KU_IDS,
-    RETRIEVE_BY_PRACTICE,
-    RETRIEVE_BY_QUESTION_TEMPLATE,
-    RETRIEVE_BY_THREAT,
-    RETRIEVE_GENERAL_DEFINITION,
+    VECTOR_SEARCH_KNOWLEDGE_UNITS,
 )
+from src.schema.graph_schema import KNOWLEDGE_UNIT_VECTOR_INDEX
+
+DEFAULT_TOP_K = 5
+DEFAULT_SIMILARITY_FLOOR = 0.0
+
 
 def get_driver():
     load_dotenv()
@@ -53,40 +56,53 @@ def run_query(query: str, parameters: dict[str, Any] | None = None) -> list[dict
         driver.close()
 
 
-def retrieve_by_ku_ids(ku_ids: list[str], limit: int = 5) -> list[dict[str, Any]]:
+def retrieve_by_ku_ids(ku_ids: list[str], limit: int = DEFAULT_TOP_K) -> list[dict[str, Any]]:
+    """Hydrate full graph context for the given KU ids, preserving their order."""
     return run_query(RETRIEVE_BY_KU_IDS, {"ku_ids": ku_ids, "limit": limit})
 
-def retrieve_context(question: str, limit: int = 5) -> list[dict[str, Any]]:
-    """Retrieve context for a user question.
 
-    Supports simple compound questions by retrieving context per subquestion.
+def vector_search_ku_ids(question: str, top_k: int, floor: float) -> list[str]:
+    """Return KU ids whose embeddings are nearest the question, above the floor.
+
+    Results stay in similarity order (closest first).
     """
-    subquestions = split_into_subquestions(question)
+    query_vector = embed_query(question)
 
-    all_context: list[dict[str, Any]] = []
-    seen_ku_ids: set[str] = set()
+    hits = run_query(
+        VECTOR_SEARCH_KNOWLEDGE_UNITS,
+        {
+            "index_name": KNOWLEDGE_UNIT_VECTOR_INDEX,
+            "top_k": top_k,
+            "query_vector": query_vector,
+        },
+    )
 
-    for subquestion in subquestions:
-        sub_context = retrieve_context_for_single_question(subquestion, limit=1)
+    ku_ids: list[str] = []
+    for hit in hits:
+        ku_id = hit.get("ku_id")
+        score = hit.get("score") or 0.0
 
-        for record in sub_context:
-            ku_id = record.get("ku_id")
+        if ku_id and score >= floor:
+            ku_ids.append(ku_id)
 
-            if not ku_id:
-                knowledge_units = record.get("knowledge_units", [])
-                if knowledge_units:
-                    ku_id = knowledge_units[0].get("id")
+    return ku_ids
 
-            if not ku_id or ku_id in seen_ku_ids:
-                continue
 
-            seen_ku_ids.add(ku_id)
-            all_context.append(record)
+def retrieve_context(question: str, limit: int = DEFAULT_TOP_K) -> list[dict[str, Any]]:
+    """Retrieve graph context for a user question via vector search.
 
-            if len(all_context) >= limit:
-                break
+    Embeds the question, finds the nearest KnowledgeUnits through the vector
+    index, then hydrates their full graph context. Returns an empty list when
+    nothing clears the similarity floor, which lets Neo decline gracefully.
+    """
+    load_dotenv()
 
-        if len(all_context) >= limit:
-            break
+    top_k = int(os.getenv("RETRIEVAL_TOP_K", limit))
+    floor = float(os.getenv("RETRIEVAL_SIMILARITY_FLOOR", DEFAULT_SIMILARITY_FLOOR))
 
-    return all_context
+    ku_ids = vector_search_ku_ids(question, top_k=top_k, floor=floor)
+
+    if not ku_ids:
+        return []
+
+    return retrieve_by_ku_ids(ku_ids, limit=top_k)
