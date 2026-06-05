@@ -16,6 +16,12 @@ from dotenv import load_dotenv
 from langchain_ollama import ChatOllama
 from datetime import datetime
 
+from src.agent.answer_package import (
+    append_sources_used,
+    build_answer_package,
+    format_sources_used,
+)
+
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 ANSWER_PROMPT_PATH = PROJECT_ROOT / "src" / "prompts" / "answer_prompt.txt"
 CONVERSATION_PROMPT_PATH = PROJECT_ROOT / "src" / "prompts" / "conversation_prompt.txt"
@@ -171,16 +177,24 @@ def debug_llm_prompt(prompt: str, mode: str) -> None:
 
 
 def answer_from_context(question: str, context: list[dict[str, Any]]) -> str:
-    """Generate a source-grounded answer from retrieved context."""
+    """Generate a source-grounded answer from a compact answer package."""
     if not context:
         return "The knowledge base does not contain enough evidence to answer this."
 
     prompt_template = load_answer_prompt()
-    formatted_context = format_context_for_llm(context)
+
+    answer_package = build_answer_package(question, context)
+    sources_text = format_sources_used(context)
+
+    formatted_answer_package = json.dumps(
+        answer_package,
+        indent=2,
+        ensure_ascii=False,
+    )
 
     prompt = prompt_template.format(
         question=question,
-        context=formatted_context,
+        answer_package=formatted_answer_package,
     )
 
     debug_llm_prompt(prompt, mode="graph_answer")
@@ -189,7 +203,9 @@ def answer_from_context(question: str, context: list[dict[str, Any]]) -> str:
     response = llm.invoke(prompt)
 
     raw_output = extract_model_output(response)
-    return finalize_model_output(raw_output)
+    model_answer = finalize_model_output(raw_output)
+
+    return append_sources_used(model_answer, sources_text)
 
 
 def answer_conversationally(question: str) -> str:

@@ -782,12 +782,12 @@
         "PRA-ADDRESS-USER-BEHAVIOR"
       ],
       "claim": "Cyber hygiene guidance should address individual user behavior, because technical cybersecurity measures alone are insufficient for effective cybersecurity.",
-      "explanation": "Karayel et al. emphasize that cybersecurity depends not only on organizational or technical measures, but also on individual behavior. Users who do not comply with security practices can weaken otherwise secure systems, making behavioral guidance an important part of cyber hygiene.",
+      "explanation": "Karayel et al. emphasize that noncompliance with security practices is identified as a relevant human-factor concern.",
       "recommended_actions": [
         "Address user behavior when designing cyber hygiene guidance.",
-        "Encourage users to follow recommended security practices consistently.",
-        "Combine technical cybersecurity measures with awareness of individual security behavior.",
-        "Recognize that noncompliance with security practices can increase security risk."
+        "Address noncompliance with security practices as part of cyber hygiene guidance.",
+        "Combine technical cybersecurity measures with attention to individual security behavior.",
+        "Recognize noncompliance with security practices as a cyber hygiene concern."
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -845,31 +845,25 @@
         }
       ],
       "validity_facts": [
-        {
-          "fact_id": "VF-HUMAN-FACTORS-001",
-          "fact": "Technical cybersecurity measures alone are insufficient for effective cybersecurity.",
-          "source_id": "SRC-KARAYEL-2024",
-          "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-001"
-        },
-        {
-          "fact_id": "VF-HUMAN-FACTORS-002",
-          "fact": "Cybersecurity also requires attention to individual user behavior.",
-          "source_id": "SRC-KARAYEL-2024",
-          "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-001"
-        },
-        {
-          "fact_id": "VF-HUMAN-FACTORS-003",
-          "fact": "Human factors can weaken security systems.",
-          "source_id": "SRC-KARAYEL-2024",
-          "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-002"
-        },
-        {
-          "fact_id": "VF-HUMAN-FACTORS-004",
-          "fact": "Noncompliance with security practices is an important cause of security breaches.",
-          "source_id": "SRC-KARAYEL-2024",
-          "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-003"
-        }
-      ],
+          {
+            "fact_id": "VF-HUMAN-FACTORS-001",
+            "fact": "Cybersecurity investments and measures alone are insufficient.",
+            "source_id": "SRC-KARAYEL-2024",
+            "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-001"
+          },
+          {
+            "fact_id": "VF-HUMAN-FACTORS-002",
+            "fact": "Human factors often constitute the weakest link in cybersecurity.",
+            "source_id": "SRC-KARAYEL-2024",
+            "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-002"
+          },
+          {
+            "fact_id": "VF-HUMAN-FACTORS-003",
+            "fact": "Noncompliance with security practices is identified as a human-factor concern.",
+            "source_id": "SRC-KARAYEL-2024",
+            "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-003"
+          }
+        ],
       "traceability": {
         "requires_citation": true,
         "acceptable_sources": [
@@ -881,10 +875,10 @@
       "agent_answer_guidance": {
         "answer_style": "explanatory_guidance",
         "must_include": [
-          "technical measures alone are insufficient",
+          "technical cybersecurity measures alone are insufficient",
           "individual user behavior matters",
-          "human factors can weaken security",
-          "noncompliance with security practices increases risk"
+          "human factors can weaken cybersecurity",
+          "noncompliance with security practices is relevant"
         ],
         "avoid_claims": [
           "Cybersecurity is only a technical problem",

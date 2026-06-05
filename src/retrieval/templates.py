@@ -392,6 +392,7 @@ OPTIONAL MATCH (ku)-[:HAS_EVIDENCE]->(e:Evidence)-[:FROM_SOURCE]->(s:Source)
 OPTIONAL MATCH (ku)-[:HAS_VALIDITY_FACT]->(vf:ValidityFact)
 OPTIONAL MATCH (ku)-[:HAS_TRACEABILITY_REQUIREMENT]->(tr:TraceabilityRequirement)
 OPTIONAL MATCH (ku)-[:HAS_ANSWER_GUIDANCE]->(g:AgentAnswerGuidance)
+OPTIONAL MATCH (ku)-[:HAS_QUESTION_TEMPLATE]->(qt:QuestionTemplate)
 
 RETURN
   idx AS retrieval_rank,
@@ -406,6 +407,8 @@ RETURN
     recommended_actions: ku.recommended_actions,
     evidence_strength: ku.evidence_strength
   }) AS knowledge_units,
+
+  collect(DISTINCT qt.text) AS question_templates,
 
   collect(DISTINCT {
     id: c.id,

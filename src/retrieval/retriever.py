@@ -311,43 +311,26 @@ def filter_by_detected_category(
 
     return context
 
-def retrieve_by_fulltext(question: str, limit: int = 5) -> list[dict[str, Any]]:
-    """Retrieve graph context using full-text search and practical filtering.
+def split_into_subquestions(question: str) -> list[str]:
+    """Split obvious compound questions into smaller retrieval units."""
+    normalized = question.replace("\n", " ").strip()
 
-    If a curated QuestionTemplate matches, trust the best matching template first.
-    This prevents broad KUs from polluting specific benchmark-style questions.
-    """
-    candidates = fulltext_search_ku_candidates(question, limit=limit)
+    # First split on question marks, while preserving meaningful fragments.
+    parts = [part.strip() for part in normalized.split("?") if part.strip()]
 
-    if not candidates:
-        return []
+    # If there was only one part, keep it as-is.
+    if len(parts) <= 1:
+        return [question.strip()]
 
-    # If a curated question template matched, prefer the single best template match.
-    question_template_candidates = [
-        candidate
-        for candidate in candidates
-        if candidate.get("match_type") == "QuestionTemplate"
-    ]
+    return [part + "?" for part in parts]
 
-    if question_template_candidates:
-        best = question_template_candidates[0]
-        return retrieve_by_ku_ids([best["ku_id"]], limit=1)
-
-    # Otherwise use top candidates, then filter.
-    ku_ids = [candidate["ku_id"] for candidate in candidates if candidate.get("ku_id")]
-
-    if not ku_ids:
-        return []
-
-    context = retrieve_by_ku_ids(ku_ids, limit=limit)
-    return filter_practical_context(question, context, limit=min(limit, 2))
-
-
-
-def retrieve_context(question: str, limit: int = 5) -> list[dict[str, Any]]:
+def retrieve_context_for_single_question(
+    question: str,
+    limit: int = 2,
+) -> list[dict[str, Any]]:
+    """Retrieve context for one question or subquestion."""
     q = question.lower()
 
-    # 1. Very high-confidence direct routes.
     if "what is cyber hygiene" in q or "define cyber hygiene" in q:
         return retrieve_general_definition(limit=limit)
 
@@ -379,11 +362,87 @@ def retrieve_context(question: str, limit: int = 5) -> list[dict[str, Any]]:
             limit=limit,
         )
 
-    # 2. Dynamic full-text search.
-    fulltext_context = retrieve_by_fulltext(question, limit=limit)
-    if fulltext_context:
-        return fulltext_context
+    return retrieve_by_fulltext(question, limit=limit)
 
-    # 3. Nothing found.
-    return []
+def retrieve_by_fulltext(question: str, limit: int = 5) -> list[dict[str, Any]]:
+    """Retrieve graph context using full-text search, category focus, and practical filtering.
 
+    Important:
+    - Search more candidates than we finally return.
+    - Apply category focus before trusting question-template matches.
+    - This prevents broad or wrong-category KUs from winning just because one term matched strongly.
+    """
+    search_limit = max(limit, 8)
+    candidates = fulltext_search_ku_candidates(question, limit=search_limit)
+
+    if not candidates:
+        return []
+
+    ku_ids = [candidate["ku_id"] for candidate in candidates if candidate.get("ku_id")]
+
+    if not ku_ids:
+        return []
+
+    context = retrieve_by_ku_ids(ku_ids, limit=search_limit)
+
+    # 1. If the question clearly belongs to a category, prefer that category first.
+    detected_categories = detect_relevant_categories(question)
+    if detected_categories:
+        category_context = filter_by_detected_category(question, context)
+
+        if category_context:
+            return filter_practical_context(
+                question,
+                category_context,
+                limit=limit,
+            )
+
+    # 2. If no category focus exists, curated QuestionTemplate matches are strongest.
+    question_template_candidates = [
+        candidate
+        for candidate in candidates
+        if candidate.get("match_type") == "QuestionTemplate"
+    ]
+
+    if question_template_candidates:
+        best = question_template_candidates[0]
+        return retrieve_by_ku_ids([best["ku_id"]], limit=1)
+
+    # 3. Otherwise, use practical filtering over the retrieved context.
+    return filter_practical_context(question, context, limit=limit)
+
+
+def retrieve_context(question: str, limit: int = 5) -> list[dict[str, Any]]:
+    """Retrieve context for a user question.
+
+    Supports simple compound questions by retrieving context per subquestion.
+    """
+    subquestions = split_into_subquestions(question)
+
+    all_context: list[dict[str, Any]] = []
+    seen_ku_ids: set[str] = set()
+
+    for subquestion in subquestions:
+        sub_context = retrieve_context_for_single_question(subquestion, limit=1)
+
+        for record in sub_context:
+            ku_id = record.get("ku_id")
+
+            if not ku_id:
+                knowledge_units = record.get("knowledge_units", [])
+                if knowledge_units:
+                    ku_id = knowledge_units[0].get("id")
+
+            if not ku_id or ku_id in seen_ku_ids:
+                continue
+
+            seen_ku_ids.add(ku_id)
+            all_context.append(record)
+
+            if len(all_context) >= limit:
+                break
+
+        if len(all_context) >= limit:
+            break
+
+    return all_context
