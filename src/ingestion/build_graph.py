@@ -140,50 +140,6 @@ def create_indexes(tx) -> None:
             """
         )
 
-def create_fulltext_indexes(tx) -> None:
-    """Create Neo4j full-text indexes for dynamic retrieval."""
-
-    tx.run(
-        """
-        CREATE FULLTEXT INDEX question_template_fulltext IF NOT EXISTS
-        FOR (qt:QuestionTemplate)
-        ON EACH [qt.text]
-        """
-    )
-
-    tx.run(
-        """
-        CREATE FULLTEXT INDEX knowledge_unit_fulltext IF NOT EXISTS
-        FOR (ku:KnowledgeUnit)
-        ON EACH [ku.title, ku.claim, ku.explanation]
-        """
-    )
-
-    tx.run(
-        """
-        CREATE FULLTEXT INDEX practice_fulltext IF NOT EXISTS
-        FOR (p:Practice)
-        ON EACH [p.name, p.description]
-        """
-    )
-
-    tx.run(
-        """
-        CREATE FULLTEXT INDEX threat_fulltext IF NOT EXISTS
-        FOR (t:Threat)
-        ON EACH [t.name, t.definition]
-        """
-    )
-
-    tx.run(
-        """
-        CREATE FULLTEXT INDEX category_fulltext IF NOT EXISTS
-        FOR (c:CyberHygieneCategory)
-        ON EACH [c.name, c.definition]
-        """
-    )
-# Node creators
-
 def create_source(tx, source: dict[str, Any]) -> None:
     tx.run(
         """

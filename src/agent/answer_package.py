@@ -58,52 +58,6 @@ def _dedupe_preserve_order(values: list[Any]) -> list[Any]:
     return result
 
 
-def _detect_limitations(question: str, selected_record: dict[str, Any]) -> list[str]:
-    """Detect obvious unsupported details from the user question.
-
-    This is intentionally conservative. It does not answer unsupported details;
-    it only tells the LLM to mention that the current KB does not cover them.
-    """
-    q = question.lower()
-    limitations: list[str] = []
-
-    payment_markers = [
-        "cryptocurrency",
-        "crypto",
-        "bitcoin",
-        "money",
-        "euro",
-        "eur",
-        "pay",
-        "payment",
-        "send him",
-        "send her",
-        "send them",
-    ]
-
-    extortion_markers = [
-        "otherwise",
-        "blackmail",
-        "extortion",
-        "threaten",
-        "threatened",
-        "hack my computer",
-        "hack me",
-    ]
-
-    has_payment = any(marker in q for marker in payment_markers)
-    has_extortion = any(marker in q for marker in extortion_markers)
-
-    if has_payment or has_extortion:
-        limitations.append(
-            "The retrieved knowledge base supports email and messaging hygiene checks, "
-            "but it does not provide specific evidence about cryptocurrency payment "
-            "demands, blackmail, or extortion threats."
-        )
-
-    return limitations
-
-
 def _build_ku_package(record: dict[str, Any]) -> dict[str, Any]:
     """Build a compact package for one retrieved KnowledgeUnit."""
     ku = _first_item(record.get("knowledge_units"))
@@ -156,80 +110,51 @@ def build_answer_package(
 
     return {
         "question": question,
-        "selected_knowledge_units": selected_kus,
-        "global_limitations": _detect_limitations(question, context[0]),
+        "selected_knowledge_units": selected_kus
     }
 
-def _format_source_line(evidence: dict[str, Any]) -> str | None:
-    """Format one evidence item into Neo's required source format."""
-    evidence_id = evidence.get("evidence_id")
-    citation_key = evidence.get("citation_key")
-    source_id = evidence.get("source_id")
-    page = evidence.get("page")
-    section = evidence.get("section")
-    paragraph = evidence.get("paragraph")
-    year = evidence.get("year")
+# def _format_source_line(evidence: dict[str, Any]) -> str | None:
+#     """Format one evidence item into Neo's required source format."""
+#     evidence_id = evidence.get("evidence_id")
+#     citation_key = evidence.get("citation_key")
+#     source_id = evidence.get("source_id")
+#     page = evidence.get("page")
+#     section = evidence.get("section")
+#     paragraph = evidence.get("paragraph")
+#     year = evidence.get("year")
 
-    if not evidence_id:
-        return None
+#     if not evidence_id:
+#         return None
 
-    # We do not always have a clean academic citation string in the retrieved
-    # context yet, so use source_id/citation_key as fallback.
-    source_title = evidence.get("source_title") or ""
+#     # We do not always have a clean academic citation string in the retrieved
+#     # context yet, so use source_id/citation_key as fallback.
+#     source_title = evidence.get("source_title") or ""
 
-    academic_citation = _infer_academic_citation(
-        citation_key=citation_key,
-        source_id=source_id,
-        year=year,
-        source_title=source_title,
-    )
+#     academic_citation = _infer_academic_citation(
+#         citation_key=citation_key,
+#         source_id=source_id,
+#         year=year,
+#         source_title=source_title,
+#     )
 
-    parts = [
-        academic_citation,
-        citation_key,
-        source_id,
-    ]
+#     parts = [
+#         academic_citation,
+#         citation_key,
+#         source_id,
+#     ]
 
-    if page not in (None, ""):
-        parts.append(f"page {page}")
+#     if page not in (None, ""):
+#         parts.append(f"page {page}")
 
-    if section:
-        parts.append(f'section "{section}"')
+#     if section:
+#         parts.append(f'section "{section}"')
 
-    if not _is_empty_or_todo(paragraph):
-        parts.append(f'paragraph "{paragraph}"')
+#     if not _is_empty_or_todo(paragraph):
+#         parts.append(f'paragraph "{paragraph}"')
 
-    safe_parts = [str(part) for part in parts if part not in (None, "")]
+#     safe_parts = [str(part) for part in parts if part not in (None, "")]
 
-    return f"- {evidence_id} - ({', '.join(safe_parts)})"
-
-
-def _infer_academic_citation(
-    citation_key: str | None,
-    source_id: str | None,
-    year: Any,
-    source_title: str = "",
-) -> str:
-    """Infer a readable academic citation from available source metadata.
-
-    This is a fallback until Source nodes expose authors directly in retrieval.
-    """
-    key = (citation_key or "").lower()
-    sid = (source_id or "").upper()
-
-    if "karayel" in key or "KARAYEL" in sid:
-        return "Karayel et al. (2024)"
-
-    if "vishwanath" in key or "VISHWANATH" in sid:
-        return "Vishwanath et al. (2020)"
-
-    if year:
-        return f"Unknown source ({year})"
-
-    if source_title:
-        return source_title
-
-    return "Unknown source"
+#     return f"- {evidence_id} - ({', '.join(safe_parts)})"
 
 
 def format_sources_used(
