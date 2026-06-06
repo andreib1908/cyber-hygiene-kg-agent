@@ -89,10 +89,7 @@ def build_answer_package(
     if not context:
         return {
             "question": question,
-            "selected_knowledge_units": [],
-            "global_limitations": [
-                "The knowledge base does not contain enough evidence to answer this."
-            ],
+            "selected_knowledge_units": []
         }
 
     selected_kus = []
@@ -113,48 +110,50 @@ def build_answer_package(
         "selected_knowledge_units": selected_kus
     }
 
-# def _format_source_line(evidence: dict[str, Any]) -> str | None:
-#     """Format one evidence item into Neo's required source format."""
-#     evidence_id = evidence.get("evidence_id")
-#     citation_key = evidence.get("citation_key")
-#     source_id = evidence.get("source_id")
-#     page = evidence.get("page")
-#     section = evidence.get("section")
-#     paragraph = evidence.get("paragraph")
-#     year = evidence.get("year")
+def _format_authors(authors: list[str] | None, year: Any) -> str | None:
+    """Build a readable academic citation from the source's author list.
 
-#     if not evidence_id:
-#         return None
+    Uses the first author's surname for the 'et al.' form. Replaces the old
+    hardcoded author map, so it works for any source in the graph.
+    """
+    surnames = []
+    for author in authors or []:
+        author = str(author).strip()
+        if author:
+            surnames.append(author.split()[-1])
 
-#     # We do not always have a clean academic citation string in the retrieved
-#     # context yet, so use source_id/citation_key as fallback.
-#     source_title = evidence.get("source_title") or ""
+    if not surnames:
+        return None
 
-#     academic_citation = _infer_academic_citation(
-#         citation_key=citation_key,
-#         source_id=source_id,
-#         year=year,
-#         source_title=source_title,
-#     )
+    lead = surnames[0] if len(surnames) == 1 else f"{surnames[0]} et al."
+    return f"{lead} ({year})" if year else lead
 
-#     parts = [
-#         academic_citation,
-#         citation_key,
-#         source_id,
-#     ]
 
-#     if page not in (None, ""):
-#         parts.append(f"page {page}")
+def _format_source_line(evidence: dict[str, Any]) -> str | None:
+    """Format one evidence item into Neo's required source format."""
+    evidence_id = evidence.get("evidence_id")
+    if not evidence_id:
+        return None
 
-#     if section:
-#         parts.append(f'section "{section}"')
+    parts = [
+        _format_authors(evidence.get("authors"), evidence.get("year")),
+        evidence.get("citation_key"),
+        evidence.get("source_id"),
+    ]
 
-#     if not _is_empty_or_todo(paragraph):
-#         parts.append(f'paragraph "{paragraph}"')
+    page = evidence.get("page")
+    section = evidence.get("section")
+    paragraph = evidence.get("paragraph")
 
-#     safe_parts = [str(part) for part in parts if part not in (None, "")]
+    if page not in (None, ""):
+        parts.append(f"page {page}")
+    if section:
+        parts.append(f'section "{section}"')
+    if not _is_empty_or_todo(paragraph):
+        parts.append(f'paragraph "{paragraph}"')
 
-#     return f"- {evidence_id} - ({', '.join(safe_parts)})"
+    safe_parts = [str(part) for part in parts if part not in (None, "")]
+    return f"- {evidence_id} - ({', '.join(safe_parts)})"
 
 
 def format_sources_used(

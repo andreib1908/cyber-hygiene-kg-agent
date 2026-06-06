@@ -30,7 +30,6 @@ How to use the answer package:
     - question_templates show the intended question scope.
 16. If multiple knowledge units are provided, answer each part of the user's question using the relevant knowledge unit.
 17. Do not merge unrelated knowledge units into a broad essay unless the user asks for synthesis.
-18. global_limitations identify details that are not supported by the retrieved knowledge base.
 
 User question:
 {question}

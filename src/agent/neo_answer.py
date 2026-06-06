@@ -50,16 +50,23 @@ def get_llm() -> ChatOllama:
     model = os.getenv("OLLAMA_MODEL", "qwen3:8b")
     base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 
-    common_kwargs = {
+    # Reasoning is OFF by default. Neo's job is faithful extraction from the
+    # answer package, not open-ended reasoning. Left on, a small model can spend
+    # the whole context window thinking and emit no final answer.
+    enable_reasoning = os.getenv("ENABLE_MODEL_REASONING", "false").lower() == "true"
+
+    # Generous context so prompt + (optional) reasoning + answer all fit.
+    num_ctx = int(os.getenv("OLLAMA_NUM_CTX", "8192"))
+
+    common_kwargs: dict[str, Any] = {
         "model": model,
         "base_url": base_url,
         "temperature": 0,
         "keep_alive": "30m",
+        "num_ctx": num_ctx,
     }
 
-    # Only some models support reasoning/thinking output.
-    # Qwen3 supports it; Llama 3.1 does not.
-    if model.startswith("qwen3"):
+    if enable_reasoning and model.startswith("qwen3"):
         common_kwargs["reasoning"] = True
 
     return ChatOllama(**common_kwargs)

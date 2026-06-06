@@ -70,6 +70,7 @@ RETURN
     citation_key: s.citation_key,
     source_id: s.id,
     source_title: s.title,
+    authors: s.authors,
     year: s.year
   }) AS evidence,
 
