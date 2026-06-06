@@ -20,12 +20,36 @@ from src.agent.answer_package import (
     append_sources_used,
     build_answer_package,
     format_sources_used,
+    ku_ids_in_context,
 )
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 ANSWER_PROMPT_PATH = PROJECT_ROOT / "src" / "prompts" / "answer_prompt.txt"
 CONVERSATION_PROMPT_PATH = PROJECT_ROOT / "src" / "prompts" / "conversation_prompt.txt"
 DEBUG_DIR = PROJECT_ROOT / "debug"
+
+USED_KUS_PATTERN = re.compile(r"<used_kus>(.*?)</used_kus>", re.IGNORECASE | re.DOTALL)
+
+
+def extract_used_ku_ids(text: str, available_ku_ids: list[str]) -> list[str] | None:
+    """Parse the <used_kus> tag, keeping only ids that were actually retrieved.
+
+    Returns None when the model declares nothing usable, signalling the caller
+    to fall back to citing all retrieved KUs.
+    """
+    matches = USED_KUS_PATTERN.findall(text)
+    if not matches:
+        return None
+
+    declared = [token.strip() for token in re.split(r"[,\s]+", matches[-1]) if token.strip()]
+    available = set(available_ku_ids)
+    used = [ku_id for ku_id in declared if ku_id in available]
+    return used or None
+
+
+def strip_used_kus_tag(text: str) -> str:
+    """Remove the <used_kus> tag(s) so the user never sees internal ids."""
+    return USED_KUS_PATTERN.sub("", text).strip()
 
 def load_answer_prompt() -> str:
     """Load the answer prompt template from disk."""
@@ -66,8 +90,11 @@ def get_llm() -> ChatOllama:
         "num_ctx": num_ctx,
     }
 
-    if enable_reasoning and model.startswith("qwen3"):
-        common_kwargs["reasoning"] = True
+    # Qwen3 thinks by default, so we must pass reasoning EXPLICITLY to turn it
+    # off. Omitting it (the old code) left Ollama on its default — thinking ON —
+    # which silently fills the context window and truncates the real answer.
+    if model.startswith("qwen3") or model.startswith("qwen3.5"):
+        common_kwargs["reasoning"] = enable_reasoning
 
     return ChatOllama(**common_kwargs)
 
@@ -184,26 +211,18 @@ def debug_llm_prompt(prompt: str, mode: str) -> None:
 
 
 def answer_from_context(question: str, context: list[dict[str, Any]]) -> str:
-    """Generate a source-grounded answer from a compact answer package."""
+    """Generate a source-grounded answer, citing only the KUs the model used."""
     if not context:
         return "The knowledge base does not contain enough evidence to answer this."
 
     prompt_template = load_answer_prompt()
-
     answer_package = build_answer_package(question, context)
-    sources_text = format_sources_used(context)
-
-    formatted_answer_package = json.dumps(
-        answer_package,
-        indent=2,
-        ensure_ascii=False,
-    )
+    formatted_answer_package = json.dumps(answer_package, indent=2, ensure_ascii=False)
 
     prompt = prompt_template.format(
         question=question,
         answer_package=formatted_answer_package,
     )
-
     debug_llm_prompt(prompt, mode="graph_answer")
 
     llm = get_llm()
@@ -211,6 +230,11 @@ def answer_from_context(question: str, context: list[dict[str, Any]]) -> str:
 
     raw_output = extract_model_output(response)
     model_answer = finalize_model_output(raw_output)
+
+    # Cite only the knowledge units the model declared it used.
+    used_ku_ids = extract_used_ku_ids(model_answer, ku_ids_in_context(context))
+    model_answer = strip_used_kus_tag(model_answer)
+    sources_text = format_sources_used(context, used_ku_ids=used_ku_ids)
 
     return append_sources_used(model_answer, sources_text)
 

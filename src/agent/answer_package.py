@@ -12,7 +12,7 @@ from __future__ import annotations
 from typing import Any
 
 
-MAX_SOURCE_ITEMS = 4
+MAX_EVIDENCE_PER_KU = 3
 
 
 def _first_item(items: list[dict[str, Any]] | None) -> dict[str, Any]:
@@ -80,6 +80,23 @@ def _build_ku_package(record: dict[str, Any]) -> dict[str, Any]:
         "question_templates": _dedupe_preserve_order(question_templates),
     }
 
+def _record_ku_id(record: dict[str, Any]) -> str | None:
+    """Return the KU id for a retrieved context record."""
+    ku_id = record.get("ku_id")
+    if ku_id:
+        return ku_id
+    kus = record.get("knowledge_units") or []
+    return kus[0].get("id") if kus else None
+
+
+def ku_ids_in_context(context: list[dict[str, Any]]) -> list[str]:
+    """List the KU ids present in retrieved context, in order, de-duplicated."""
+    ids: list[str] = []
+    for record in context:
+        ku_id = _record_ku_id(record)
+        if ku_id and ku_id not in ids:
+            ids.append(ku_id)
+    return ids
 
 def build_answer_package(
     question: str,
@@ -158,24 +175,35 @@ def _format_source_line(evidence: dict[str, Any]) -> str | None:
 
 def format_sources_used(
     context: list[dict[str, Any]],
-    max_items: int = MAX_SOURCE_ITEMS,
+    used_ku_ids: list[str] | None = None,
+    max_per_ku: int = MAX_EVIDENCE_PER_KU,
 ) -> str:
-    """Format the deterministic Sources used section from retrieved evidence."""
+    """Format the deterministic Sources used section from retrieved evidence.
+
+    If used_ku_ids is given, cite only the evidence belonging to those KUs (the
+    ones the model declared it used). Falls back to all retrieved KUs if the
+    filter matches nothing, so citations never disappear entirely.
+    """
     if not context:
         return ""
+
+    records = context
+    if used_ku_ids:
+        used = set(used_ku_ids)
+        filtered = [record for record in context if _record_ku_id(record) in used]
+        records = filtered or context
 
     source_lines: list[str] = []
     seen_evidence_ids: set[str] = set()
 
-    for record in context:
-        evidence_items = _as_list(record.get("evidence"))
-
+    for record in records:
         # Prefer direct evidence first.
         evidence_items = sorted(
-            evidence_items,
+            _as_list(record.get("evidence")),
             key=lambda item: 0 if item.get("support_type") == "direct" else 1,
         )
 
+        count = 0
         for evidence in evidence_items:
             evidence_id = evidence.get("evidence_id")
             if not evidence_id or evidence_id in seen_evidence_ids:
@@ -187,18 +215,14 @@ def format_sources_used(
 
             seen_evidence_ids.add(evidence_id)
             source_lines.append(line)
-
-            if len(source_lines) >= max_items:
+            count += 1
+            if count >= max_per_ku:
                 break
-
-        if len(source_lines) >= max_items:
-            break
 
     if not source_lines:
         return ""
 
     return "Sources used:\n" + "\n".join(source_lines)
-
 
 def append_sources_used(answer: str, sources_text: str) -> str:
     """Append deterministic sources to the model-generated answer."""

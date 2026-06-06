@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Cyber Hygiene Assistant Knowledge Base",
-    "version": "1.0",
+    "version": "1.1",
     "created_by": "Andrei Badea, s3012115",
     "description": "A curated knowledge base on cyber hygiene practices, threats, and source-grounded recommendations. The knowledge base supports a knowledge graph-grounded conversational agent and enables evaluation across validity, traceability, and stability.",
     "curation_notes": [
@@ -52,6 +52,25 @@
       "doi": "10.1016/j.dss.2019.113160",
       "url": "https://doi.org/10.1016/j.dss.2019.113160",
       "notes": "Original source for the Cyber Hygiene Inventory and its five cyber hygiene dimensions."
+    },
+    {
+      "id": "SRC-CAIN-2018",
+      "citation_key": "cain_exploratory_2018",
+      "authors": [
+        "Cain A. Asheley",
+        "Morgan E. Edwards",
+        "Jeremiah D. Still"
+      ],
+      "year": 2018,
+      "title": "An exploratory study of cyber hygiene behaviors and knowledge",
+      "venue": "Journal of Information Security and Applications",
+      "volume": "42",
+      "number": "",
+      "pages": "36--45",
+      "peer_reviewed": true,
+      "doi": "10.1016/j.jisa.2018.08.002",
+      "url": "https://doi.org/10.1016/j.jisa.2018.08.002",
+      "notes": "Survey and literature review that highlights user behavior in cyber hygiene and also defines threats such as phishing. They also talk about best practices."
     }
   ],
 
@@ -130,9 +149,9 @@
       "name": "Malware infection",
       "definition": "A compromise in which malicious software infects a device or storage medium.",
       "related_categories": ["CAT-STORAGE-DEVICE"],
-      "source_ids": [],
-      "support_status": "inferred_from_practice",
-      "support_notes": "Inferred from storage and device hygiene practices such as virus scans and keeping protection software up to date. Requires an additional source for a direct malware definition."
+      "source_ids": ["SRC-CAIN-2018"],
+      "support_status": "mentioned_in_source",
+      "support_notes": "Cain et al. (2018) mentioned malware as a common cyber-crime, but the specific infection framing should be supported by an additional source."
     },
     {
       "id": "THR-DATA-LOSS",
@@ -200,11 +219,11 @@
     {
       "id": "THR-OVERSHARING",
       "name": "Oversharing personal information",
-      "definition": "Exposure of personal or sensitive information through excessive or poorly controlled sharing.",
+      "definition": "Exposure of personal or sensitive information through excessive or poorly controlled sharing. Users may freely share passwords or private information over social networks.",
       "related_categories": ["CAT-SOCIAL-MEDIA"],
-      "source_ids": ["SRC-KARAYEL-2024"],
-      "support_status": "partially_supported",
-      "support_notes": "Supported by Karayel et al.'s social media hygiene examples, including awareness of who users are friends with and managing privacy settings."
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"],
+      "support_status": "directly_supported",
+      "support_notes": "Supported by Karayel et al.'s social media hygiene examples, including awareness of who users are friends with and managing privacy settings. Cain et al. (2018) note that users may freely share passwords or private information on social networks, as attackers focus on stealing that information."
     },
     {
       "id": "THR-PRIVACY-EXPOSURE",
@@ -256,9 +275,9 @@
       "name": "Phishing",
       "definition": "A deceptive attack in which users are tricked into revealing information, clicking malicious links, opening harmful attachments, or performing unsafe actions.",
       "related_categories": ["CAT-EMAIL-MESSAGING", "CAT-AUTH-CREDENTIAL"],
-      "source_ids": ["SRC-KARAYEL-2024"],
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"],
       "support_status": "directly_supported",
-      "support_notes": "Karayel et al. explicitly mention phishing attacks in relation to email and messaging hygiene."
+      "support_notes": "Karayel et al. explicitly mention phishing attacks in relation to email and messaging hygiene. Cain et al. (2018) also mention phishing as a common cyber-crime."
     },
     {
       "id": "THR-EMAIL-SCAM",
@@ -286,6 +305,46 @@
       "source_ids": ["SRC-KARAYEL-2024"],
       "support_status": "directly_supported",
       "support_notes": "Karayel et al. report a statistically significant positive relationship between organizational cybersecurity measures and employees' cyber hygiene practices."
+    },
+    {
+      "id": "THR-WEB-BASED-ATTACK",
+      "name": "Web-based attack",
+      "definition": "A cyberattack category reported by Cain et al. through the cited Ponemon cybercrime cost study.",
+      "related_categories": [
+        "CAT-TRANSMISSION",
+        "CAT-GENERAL-CYBER-HYGIENE"
+      ],
+      "source_ids": [
+        "SRC-CAIN-2018"
+      ],
+      "support_status": "mentioned_in_source",
+      "support_notes": "Cain et al. mention web-based attacks as one attack category experienced by organizations in the cited Ponemon report."
+    },
+    {
+      "id": "THR-DENIAL-OF-SERVICE",
+      "name": "Denial-of-service attack",
+      "definition": "A cyberattack category reported by Cain et al. through the cited Ponemon cybercrime cost study.",
+      "related_categories": [
+        "CAT-GENERAL-CYBER-HYGIENE"
+      ],
+      "source_ids": [
+        "SRC-CAIN-2018"
+      ],
+      "support_status": "mentioned_in_source",
+      "support_notes": "Cain et al. mention denial-of-service attacks as one attack category experienced by organizations in the cited Ponemon report."
+    },
+    {
+      "id": "THR-MALICIOUS-INSIDER",
+      "name": "Malicious insider",
+      "definition": "A cyberattack category involving harmful actions from insiders, mentioned by Cain et al. through the cited Ponemon cybercrime cost study.",
+      "related_categories": [
+        "CAT-GENERAL-CYBER-HYGIENE"
+      ],
+      "source_ids": [
+        "SRC-CAIN-2018"
+      ],
+      "support_status": "mentioned_in_source",
+      "support_notes": "Cain et al. mention malicious insiders as one attack category experienced by organizations in the cited Ponemon report."
     }
   ],
 
@@ -781,13 +840,14 @@
       "practice_ids": [
         "PRA-ADDRESS-USER-BEHAVIOR"
       ],
-      "claim": "Cyber hygiene guidance should address individual user behavior, because technical cybersecurity measures alone are insufficient for effective cybersecurity.",
-      "explanation": "Karayel et al. emphasize that noncompliance with security practices is identified as a relevant human-factor concern.",
+      "claim": "Cyber hygiene guidance should address individual user behavior, because technical cybersecurity measures alone are insufficient for effective cybersecurity. Individuals who present good cyber hygiene follow best practices in security and protect their personal information.",
+      "explanation": "Karayel et al. emphasize that noncompliance with security practices is identified as a relevant human-factor concern. Cain et al. (2018) note that individuals with good cyber hygiene are more likely to protect their personal information.",
       "recommended_actions": [
         "Address user behavior when designing cyber hygiene guidance.",
         "Address noncompliance with security practices as part of cyber hygiene guidance.",
         "Combine technical cybersecurity measures with attention to individual security behavior.",
-        "Recognize noncompliance with security practices as a cyber hygiene concern."
+        "Recognize noncompliance with security practices as a cyber hygiene concern.",
+        "Encourage individuals to adopt good cyber hygiene practices to protect their personal information."
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -842,6 +902,21 @@
             "section": "1. Introduction",
             "paragraph": "3"
           }
+        },
+        {
+          "evidence_id": "EVID-CAIN-HUMAN-FACTORS-001",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Those individuals with good cyber hygiene follow best practices for security and protect their personal information.",
+          "page": 1,
+          "section": "Abstract",
+          "paragraph": "",
+          "claim_location": {
+            "page": 1,
+            "section": "Abstract",
+            "paragraph": ""
+          }
         }
       ],
       "validity_facts": [
@@ -862,15 +937,22 @@
             "fact": "Noncompliance with security practices is identified as a human-factor concern.",
             "source_id": "SRC-KARAYEL-2024",
             "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-003"
+          },
+          {
+            "fact_id": "VF-HUMAN-FACTORS-004",
+            "fact": "Individuals who incorporate good cyber hygiene follow best practices for security as well, and therfore protect their personal information.",
+            "source_id": "SRC-CAIN-2018",
+            "evidence_id": "EVID-CAIN-HUMAN-FACTORS-001"
           }
         ],
       "traceability": {
         "requires_citation": true,
         "acceptable_sources": [
-          "SRC-KARAYEL-2024"
+          "SRC-KARAYEL-2024",
+          "SRC-CAIN-2018"
         ],
         "citation_granularity": "section_or_paragraph",
-        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 and should be traceable to the Introduction section discussing technical measures, individual behavior, and human factors."
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. (2024) or Cain et al. (2018) and should be traceable to the Introduction section discussing technical measures, individual behavior, and human factors."
       },
       "agent_answer_guidance": {
         "answer_style": "explanatory_guidance",
@@ -878,7 +960,8 @@
           "technical cybersecurity measures alone are insufficient",
           "individual user behavior matters",
           "human factors can weaken cybersecurity",
-          "noncompliance with security practices is relevant"
+          "noncompliance with security practices is relevant",
+          "individuals with good cyber hygiene follow security best practices and are more likely to protect their personal information"
         ],
         "avoid_claims": [
           "Cybersecurity is only a technical problem",
@@ -3132,6 +3215,236 @@
           "Neo solves all cyber hygiene confusion",
           "Vishwanath et al. directly evaluate LLM-based cyber hygiene assistants",
           "Conceptual clarity alone guarantees secure behavior"
+        ]
+      }
+    },
+    {
+      "id": "KU-CAIN-CYBERCRIME-IMPACT-001",
+      "title": "Weak cybersecurity is associated with substantial organizational and individual cybercrime losses",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "threat_ids": [
+        "THR-MALWARE-INFECTION",
+        "THR-PHISHING",
+        "THR-SOCIAL-ENGINEERING",
+        "THR-WEB-BASED-ATTACK",
+        "THR-MALICIOUS-CODE",
+        "THR-BOTNET",
+        "THR-STOLEN-DEVICE",
+        "THR-DENIAL-OF-SERVICE",
+        "THR-MALICIOUS-INSIDER"
+      ],
+      "practice_ids": [],
+      "claim": "Cain et al. frame weak cybersecurity as socially and economically costly, citing organizational cybercrime costs and individual cybercrime losses as motivation for improving cyber hygiene.",
+      "explanation": "The introduction reports that US organizations had a higher average cost of cybercrimes than several comparison countries in the cited Ponemon report, and that American individuals reported substantial cybercrime losses through the FBI IC3 in 2015. Cain et al. use these figures to motivate the need for better user cyber hygiene knowledge and behavior rather than to define a single specific attack type.",
+      "recommended_actions": [],
+      "evidence_strength": "contextual",
+      "question_templates": [
+        "Why does cyber hygiene matter?",
+        "Why is weak cybersecurity costly?",
+        "How do cybercrimes affect organizations and individuals?",
+        "What evidence shows that cybersecurity breaches can cause financial losses?",
+        "Why should users improve their cyber hygiene?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-CAIN-CYBERCRIME-IMPACT-001",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "contextual",
+          "exact_supporting_text": "There is no doubt that weak cybersecurity is costing society.",
+          "page": 1,
+          "section": "1.1 Statement of the problem",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 1,
+            "section": "1.1 Statement of the problem",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-CYBERCRIME-IMPACT-002",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "US organizations’ average cost of cybercrimes ($17.36 million) is higher than that of Japan ($8.39 million), Germany ($7.84 million), the United Kingdom ($7.21 million), Brazil ($5.27 million), and Australia ($4.3 million).",
+          "page": 1,
+          "section": "1.1 Statement of the problem",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 1,
+            "section": "1.1 Statement of the problem",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-CYBERCRIME-IMPACT-003",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "During the year 2015, the FBI received 288,012 complaints of cybercrimes, and over 40% of those complaints resulted in monetary losses.",
+          "page": 1,
+          "section": "1.1 Statement of the problem",
+          "paragraph": "4",
+          "claim_location": {
+            "page": 1,
+            "section": "1.1 Statement of the problem",
+            "paragraph": "4"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-CAIN-CYBERCRIME-IMPACT-001",
+          "fact": "Cain et al. state that weak cybersecurity is costing society.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-CYBERCRIME-IMPACT-001"
+        },
+        {
+          "fact_id": "VF-CAIN-CYBERCRIME-IMPACT-002",
+          "fact": "Cain et al. cite a Ponemon report stating that US organizations had an average cybercrime cost of $17.36 million.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-CYBERCRIME-IMPACT-002"
+        },
+        {
+          "fact_id": "VF-CAIN-CYBERCRIME-IMPACT-003",
+          "fact": "Cain et al. cite FBI IC3 data reporting 288,012 cybercrime complaints in 2015, with over 40% resulting in monetary losses.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-CYBERCRIME-IMPACT-003"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-CAIN-2018"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 1, Section 1.1, where cybercrime costs and individual monetary losses are discussed."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "contextual_explanation",
+        "must_include": [
+          "weak cybersecurity is costly",
+          "organizational cybercrime costs",
+          "individual cybercrime losses",
+          "used as motivation for improving cyber hygiene"
+        ],
+        "avoid_claims": [
+          "Cain et al. independently measured global cybercrime costs",
+          "The cost figures prove that one specific cyber hygiene practice prevents financial loss",
+          "Cyber hygiene completely eliminates financial harm from cybercrime"
+        ]
+      }
+    },
+    {
+      "id": "KU-CAIN-CYBER-HYGIENE-BEHAVIOR-KNOWLEDGE-001",
+      "title": "Cyber hygiene involves both security knowledge and protective behavior",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "threat_ids": [
+      ],
+      "practice_ids": [
+      ],
+      "claim": "Cain et al. describe cyber hygiene as involving both what users know about cybersecurity and how they behave to protect personal information.",
+      "explanation": "The study frames cyber hygiene as a user-centered issue: end users' cyber hygiene plays a role in cybersecurity breaches, and users with good cyber hygiene follow security best practices and protect personal information. Cain et al. therefore treat cyber hygiene as both a knowledge problem and a behavioral problem.",
+      "recommended_actions": [
+        "Treat cyber hygiene guidance as both a knowledge issue and a behavior issue.",
+        "Help users understand cybersecurity concepts, threats, and protective behaviors.",
+        "Encourage users to follow security best practices that protect personal information."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "Is cyber hygiene about knowledge or behavior?",
+        "Why does cyber hygiene involve both knowledge and behavior?",
+        "How do Cain et al. describe good cyber hygiene?",
+        "What does good cyber hygiene involve according to Cain et al.?",
+        "Why should cyber hygiene guidance address user knowledge and behavior?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-CAIN-KNOWLEDGE-BEHAVIOR-001",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "End users’ cyber hygiene often plays a large role in cybersecurity breaches.",
+          "page": 1,
+          "section": "Abstract",
+          "paragraph": "",
+          "claim_location": {
+            "page": 1,
+            "section": "Abstract",
+            "paragraph": ""
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-KNOWLEDGE-BEHAVIOR-002",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Those individuals with good cyber hygiene follow best practices for security and protect their personal information.",
+          "page": 1,
+          "section": "Abstract",
+          "paragraph": "",
+          "claim_location": {
+            "page": 1,
+            "section": "Abstract",
+            "paragraph": ""
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-KNOWLEDGE-BEHAVIOR-003",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "We surveyed 268 participants about their knowledge of concepts, their knowledge of threats, and their behaviors related to cyber hygiene.",
+          "page": 1,
+          "section": "Abstract",
+          "paragraph": "",
+          "claim_location": {
+            "page": 1,
+            "section": "Abstract",
+            "paragraph": ""
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-CAIN-KNOWLEDGE-BEHAVIOR-001",
+          "fact": "Cain et al. state that end users' cyber hygiene often plays a large role in cybersecurity breaches.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-KNOWLEDGE-BEHAVIOR-001"
+        },
+        {
+          "fact_id": "VF-CAIN-KNOWLEDGE-BEHAVIOR-002",
+          "fact": "Cain et al. state that individuals with good cyber hygiene follow best practices for security and protect their personal information.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-KNOWLEDGE-BEHAVIOR-002"
+        },
+        {
+          "fact_id": "VF-CAIN-KNOWLEDGE-BEHAVIOR-003",
+          "fact": "Cain et al. surveyed participants about cyber hygiene knowledge of concepts, knowledge of threats, and behaviors.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-KNOWLEDGE-BEHAVIOR-003"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-CAIN-2018"
+        ],
+        "citation_granularity": "section",
+        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 1, Abstract, where cyber hygiene is framed through user knowledge, behavior, best practices, and personal information protection."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "conceptual_explanation",
+        "must_include": [
+          "cyber hygiene involves user knowledge",
+          "cyber hygiene involves user behavior",
+          "good cyber hygiene includes following security best practices",
+          "good cyber hygiene protects personal information"
+        ],
+        "avoid_claims": [
+          "Cyber hygiene is only technical software configuration",
+          "Knowledge alone guarantees good cyber hygiene behavior",
+          "Cain et al. provide a complete list of all cyber hygiene practices on page 1"
         ]
       }
     }

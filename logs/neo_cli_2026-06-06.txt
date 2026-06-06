@@ -175,3 +175,126 @@ Sources used:
 Duration: 53.16s
 ------------------------------------------------------------------------------
 
+[2026-06-06 21:19:55]
+Q: My boss keeps the admin password as 'admin' on all systems. Is this bad?
+Context records: 3
+A: Using 'admin' as an admin password is risky because authentication hygiene involves changing default usernames and passwords immediately. User information and passwords are frequently targeted by attackers who exploit these defaults to gain unauthorized access. To improve security on your systems, you should implement the following credential management practices:
+
+*   Change default usernames and passwords to unique credentials for each account.
+*   Create complex or strong logins rather than simple text strings like 'admin'.
+*   Manage any browser-stored passwords securely using encrypted vaults where possible.
+*   Enable two-factor authentication wherever available on systems.
+
+Routine cyber hygiene also supports these habits by checking computers for threats, avoiding password reuse across accounts, and keeping antivirus software up to date. These behaviors help reduce the risk of credential compromise during daily operations.
+
+Sources used:
+- EVID-KARAYEL-ROUTINE-PRACTICES-001 - (Karayel et al. (2024), karayel_human_2024, SRC-KARAYEL-2024, page 3, section "2.1 Cyber hygiene", paragraph "4")
+Duration: 60.77s
+------------------------------------------------------------------------------
+
+[2026-06-06 21:28:51]
+Q: My boss keeps the admin password as 'admin' on all systems. Is this bad?
+Context records: 3
+A: Using default credentials like 'admin' contradicts authentication and credential hygiene principles (KU-AUTH-CREDENTIAL-001). Authentication practices involve changing default usernames and passwords because user information and passwords are frequently targeted by attackers seeking unauthorized access to administrative functions or personal data. Relying on standard defaults increases security risk significantly.
+
+To improve your system's protection, you should implement the following recommended measures:
+*   Change default usernames and passwords on all systems.
+*   Create complex or unique credentials for each account.
+*   Manage browser-stored passwords securely to avoid credential risks.
+*   Enable two-factor or multifactor authentication where possible.
+
+Adhering to these practices helps protect systems from unauthorized access attempts and ensures credentials are not easily guessable by attackers seeking administrative control over your devices or data.
+
+Sources used:
+- EVID-VISHWANATH-AUTH-004 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 6, section "Table 1. Final CHI items, and the original items", paragraph "table row 27")
+- EVID-KARAYEL-AUTH-001 - (Karayel et al. (2024), karayel_human_2024, SRC-KARAYEL-2024, page 7, section "Table 2. Cyber hygiene categories")
+- EVID-VISHWANATH-AUTH-001 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 6, section "Table 1. Final CHI items, and the original items", paragraph "table row 24")
+Duration: 119.14s
+------------------------------------------------------------------------------
+
+[2026-06-06 21:33:58]
+Q: Why does cyber hygiene depend on user behavior? Also, How do Cain et al. describe good cyber hygiene?
+Context records: 3
+A: According to Cain et al., cyber hygiene is fundamentally a user-centered issue that involves both what users know about cybersecurity and how they behave to protect personal information. They treat it as dual problem: one of knowledge and another of behavior, where end users' practices play a significant role in cybersecurity breaches. Good cyber hygiene includes following security best practices designed specifically to protect personal information.
+
+This dependence on user behavior exists because technical cybersecurity measures alone are insufficient for effective cybersecurity (Karayel et al.). Human factors can weaken overall security posture, making individual compliance critical. Noncompliance with security practices is identified as a relevant human-factor concern that cannot be solved by technology in isolation. Individuals who present good cyber hygiene follow best practices and are more likely to protect their personal information compared to those without such habits.
+
+Furthermore, cyber hygiene matters because it significantly predicts multiple cyber safety-related aspects of human interaction. It relates to self-beliefs about technology, systematic processing of online information, and actual online behavior (such as banking). This supports treating cyber hygiene not merely as a checklist but as something linked to how users think, evaluate risks, and act in digital spaces. Guidance should address user knowledge alongside behavioral issues rather than focusing solely on technical configurations or assuming that knowing the concepts guarantees good habits. Cain et al. suggest guidance must treat cyber hygiene as both a knowledge issue and a behavior issue simultaneously.
+
+To ensure effective protection strategies are implemented, it is important to recognize noncompliance with security practices as part of any broader cyber hygiene concern (Karayel et al.). Cyber safety-related outcomes depend on how users process information online rather than just the presence of software tools. Therefore, understanding these cognitive and behavioral elements helps explain why user behavior dictates the success or failure of cybersecurity measures in real-world scenarios involving personal data protection.
+
+Sources used:
+- EVID-CAIN-KNOWLEDGE-BEHAVIOR-001 - (Asheley et al. (2018), cain_exploratory_2018, SRC-CAIN-2018, page 1, section "Abstract")
+- EVID-CAIN-KNOWLEDGE-BEHAVIOR-002 - (Asheley et al. (2018), cain_exploratory_2018, SRC-CAIN-2018, page 1, section "Abstract")
+- EVID-CAIN-KNOWLEDGE-BEHAVIOR-003 - (Asheley et al. (2018), cain_exploratory_2018, SRC-CAIN-2018, page 1, section "Abstract")
+- EVID-KARAYEL-HUMAN-FACTORS-002 - (Karayel et al. (2024), karayel_human_2024, SRC-KARAYEL-2024, page 2, section "1. Introduction", paragraph "3")
+- EVID-CAIN-HUMAN-FACTORS-001 - (Asheley et al. (2018), cain_exploratory_2018, SRC-CAIN-2018, page 1, section "Abstract")
+- EVID-KARAYEL-HUMAN-FACTORS-003 - (Karayel et al. (2024), karayel_human_2024, SRC-KARAYEL-2024, page 2, section "1. Introduction", paragraph "3")
+- EVID-VISHWANATH-CYBER-HYGIENE-MATTERS-001 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 1, section "Abstract")
+- EVID-VISHWANATH-CYBER-HYGIENE-MATTERS-002 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 8, section "3.8 Why does cyber hygiene matter?", paragraph "7")
+- EVID-VISHWANATH-CYBER-HYGIENE-MATTERS-003 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 10, section "Table 6", paragraph "table")
+Duration: 116.64s
+------------------------------------------------------------------------------
+
+[2026-06-06 21:38:10]
+Q: What is phishing and how do I protect myself against it?
+Context records: 3
+A: Sources used:
+- EVID-VISHWANATH-EMAIL-MESSAGING-003 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 6, section "Table 1. Final CHI items, and the original items", paragraph "table row 19")
+- EVID-VISHWANATH-EMAIL-MESSAGING-002 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 6, section "Table 1. Final CHI items, and the original items", paragraph "table row 17")
+- EVID-KARAYEL-EMAIL-MESSAGING-001 - (Karayel et al. (2024), karayel_human_2024, SRC-KARAYEL-2024, page 7, section "Table 2. Cyber hygiene categories")
+- EVID-KARAYEL-ROUTINE-PRACTICES-001 - (Karayel et al. (2024), karayel_human_2024, SRC-KARAYEL-2024, page 3, section "2.1 Cyber hygiene", paragraph "4")
+- EVID-VISHWANATH-TRANSMISSION-002-003 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 6, section "Table 1. Final CHI items, and the original items", paragraph "table row 34")
+- EVID-VISHWANATH-TRANSMISSION-002-002 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 6, section "Table 1. Final CHI items, and the original items", paragraph "table row 31")
+- EVID-VISHWANATH-TRANSMISSION-002-001 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 6, section "Table 1. Final CHI items, and the original items", paragraph "table row 1")
+Duration: 52.97s
+------------------------------------------------------------------------------
+
+[2026-06-06 21:40:55]
+Q: What is phishing and how do I protect myself against it?
+Context records: 3
+A: Phishing involves e-fraud and social engineering attempts often found in email or messaging platforms used by remote workers for communication. To protect yourself against these threats, apply cyber hygiene practices:
+
+*   Check the subject of incoming emails for suspicious requests. Inspect headers, sender domains, hyperlinks/attachments from unknown senders. Look for grammatical errors and remain cautious with unexpected messages.
+    
+General protection includes checking computers for threats regularly. Use strong passwords changed frequently without reuse across accounts. Keep antivirus software updated and securely store online information. Conduct security scans on your devices. Additionally, use a VPN when connecting to free or public Wi-Fi networks. Store logins in encrypted password vaults and place alerts for personal name or information exposure.
+
+Sources used:
+- EVID-VISHWANATH-EMAIL-MESSAGING-003 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 6, section "Table 1. Final CHI items, and the original items", paragraph "table row 19")
+- EVID-VISHWANATH-EMAIL-MESSAGING-002 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 6, section "Table 1. Final CHI items, and the original items", paragraph "table row 17")
+- EVID-KARAYEL-EMAIL-MESSAGING-001 - (Karayel et al. (2024), karayel_human_2024, SRC-KARAYEL-2024, page 7, section "Table 2. Cyber hygiene categories")
+- EVID-KARAYEL-ROUTINE-PRACTICES-001 - (Karayel et al. (2024), karayel_human_2024, SRC-KARAYEL-2024, page 3, section "2.1 Cyber hygiene", paragraph "4")
+- EVID-VISHWANATH-TRANSMISSION-002-003 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 6, section "Table 1. Final CHI items, and the original items", paragraph "table row 34")
+- EVID-VISHWANATH-TRANSMISSION-002-002 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 6, section "Table 1. Final CHI items, and the original items", paragraph "table row 31")
+- EVID-VISHWANATH-TRANSMISSION-002-001 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 6, section "Table 1. Final CHI items, and the original items", paragraph "table row 1")
+Duration: 125.85s
+------------------------------------------------------------------------------
+
+[2026-06-06 22:25:23]
+Q: Why is cyber hygiene important?
+Context records: 3
+A: Cyber hygiene is fundamentally important because it directly influences how users think, evaluate information, and behave online. Research indicates that cyber hygiene significantly predicts multiple aspects of cyber safety-related outcomes, including self-beliefs about technology, systematic processing of online information, and specific behaviors like online banking. It matters more than just a checklist; it shapes the cognitive processes behind user decisions regarding their digital security.
+
+Cyber hygiene refers to routine cybersecurity practices adopted by individuals to protect the security and integrity of personal information on internet-connected devices against cyber threats. These are regular habits that help safeguard data across various platforms, networks, and communication channels. However, technical cybersecurity measures alone are insufficient for effective protection because human factors can weaken overall security if users do not comply with best practices.
+
+To ensure robust safety, guidance should address individual user behavior alongside technology. Individuals who present good cyber hygiene follow security best practices and are more likely to protect their personal information effectively. Addressing noncompliance with these practices is a relevant concern in designing effective strategies. By combining technical controls with attention to how people use them, we can better reduce exposure to cyber threats.
+
+*   Adopt routine security habits when using internet-connected devices
+*   Protect personal, financial, and social information during online activity
+*   Follow security guidelines that reduce exposure to cyber threats
+*   Maintain secure behavior across devices, accounts, networks, and online communication
+*   Encourage individuals to adopt good cyber hygiene practices
+
+Sources used:
+- EVID-VISHWANATH-CYBER-HYGIENE-MATTERS-001 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 1, section "Abstract")
+- EVID-VISHWANATH-CYBER-HYGIENE-MATTERS-002 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 8, section "3.8 Why does cyber hygiene matter?", paragraph "7")
+- EVID-VISHWANATH-CYBER-HYGIENE-MATTERS-003 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 10, section "Table 6", paragraph "table")
+- EVID-KARAYEL-CYBER-HYGIENE-DEF-002 - (Karayel et al. (2024), karayel_human_2024, SRC-KARAYEL-2024, page 3, section "2.1 Cyber hygiene", paragraph "1")
+- EVID-VISHWANATH-CYBER-HYGIENE-DEF-001 - (Vishwanath et al. (2020), vishwanath_cyber_2020, SRC-VISHWANATH-2020, page 2, section "1. Defining cyber hygiene", paragraph "12")
+- EVID-KARAYEL-CYBER-HYGIENE-DEF-001 - (Karayel et al. (2024), karayel_human_2024, SRC-KARAYEL-2024, page 3, section "2.1 Cyber hygiene", paragraph "1")
+- EVID-KARAYEL-HUMAN-FACTORS-002 - (Karayel et al. (2024), karayel_human_2024, SRC-KARAYEL-2024, page 2, section "1. Introduction", paragraph "3")
+- EVID-CAIN-HUMAN-FACTORS-001 - (Asheley et al. (2018), cain_exploratory_2018, SRC-CAIN-2018, page 1, section "Abstract")
+- EVID-KARAYEL-HUMAN-FACTORS-003 - (Karayel et al. (2024), karayel_human_2024, SRC-KARAYEL-2024, page 2, section "1. Introduction", paragraph "3")
+Duration: 16.12s
+------------------------------------------------------------------------------
+
