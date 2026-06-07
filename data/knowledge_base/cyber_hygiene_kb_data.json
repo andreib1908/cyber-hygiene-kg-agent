@@ -57,7 +57,7 @@
       "id": "SRC-CAIN-2018",
       "citation_key": "cain_exploratory_2018",
       "authors": [
-        "Cain A. Asheley",
+        "Ashley A. Cain",
         "Morgan E. Edwards",
         "Jeremiah D. Still"
       ],
@@ -185,10 +185,9 @@
       "name": "Insecure connection",
       "definition": "A network or website connection that does not provide sufficient protection for transmitted information.",
       "related_categories": ["CAT-TRANSMISSION"],
-      "source_ids": ["SRC-KARAYEL-2024"],
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"],
       "support_status": "directly_supported",
-      "support_notes": "Karayel et al. directly link transmission hygiene to unknown or insecure wireless networks and websites without SSL security certificates."
-    },
+      "support_notes": "Karayel et al. directly link transmission hygiene to unknown or insecure wireless networks and websites without SSL security certificates. Cain et al. also state that using unsecured Wi-Fi hotspots can compromise a network and lead to password disclosure or malware download."    },
     {
       "id": "THR-MAN-IN-THE-MIDDLE",
       "name": "Man-in-the-middle attack",
@@ -230,36 +229,35 @@
       "name": "Privacy exposure",
       "definition": "Risk of unintended disclosure of personal information due to weak privacy settings or unsafe online behavior.",
       "related_categories": ["CAT-SOCIAL-MEDIA"],
-      "source_ids": ["SRC-KARAYEL-2024"],
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"],
       "support_status": "directly_supported",
-      "support_notes": "Karayel et al. directly include managing privacy settings within social media hygiene."
+      "support_notes": "Karayel et al. directly include managing privacy settings within social media hygiene. Cain et al. report participant behavior involving real name and date-of-birth disclosure on social media sites."
     },
     {
       "id": "THR-CREDENTIAL-TARGETING",
       "name": "Credential targeting",
       "definition": "Attempts by attackers to target user information, usernames, passwords, or authentication mechanisms.",
       "related_categories": ["CAT-AUTH-CREDENTIAL", "CAT-EMAIL-MESSAGING"],
-      "source_ids": ["SRC-KARAYEL-2024"],
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"],
       "support_status": "directly_supported",
-      "support_notes": "Karayel et al. discuss authentication and credential hygiene and state that user information and passwords are frequently targeted by hackers."
+      "support_notes": "Karayel et al. discuss authentication and credential hygiene and state that user information and passwords are frequently targeted by hackers. Cain et al. state that attackers may seek user information and that phishing can release usernames and passwords."    
     },
     {
       "id": "THR-CREDENTIAL-THEFT",
       "name": "Credential theft",
       "definition": "Unauthorized acquisition or misuse of usernames, passwords, or other authentication information.",
       "related_categories": ["CAT-AUTH-CREDENTIAL", "CAT-EMAIL-MESSAGING"],
-      "source_ids": [],
-      "support_status": "inferred_from_practice",
-      "support_notes": "Closely related to credential targeting, but the specific theft framing should be supported by an additional source."
-    },
+      "source_ids": ["SRC-CAIN-2018"],
+      "support_status": "partially_supported",
+      "support_notes": "Cain et al. discuss attackers stealing user information and phishing scams releasing usernames and passwords. The specific credential-theft label is a knowledge-base mapping."    },
     {
       "id": "THR-BRUTE-FORCE",
       "name": "Brute-force credential attack",
       "definition": "An attempt to guess credentials through repeated login attempts.",
       "related_categories": ["CAT-AUTH-CREDENTIAL"],
-      "source_ids": [],
-      "support_status": "inferred_from_practice",
-      "support_notes": "Inferred from complex password practices. Requires an additional source for a direct brute-force definition."
+      "source_ids": ["SRC-CAIN-2018"],
+      "support_status": "partially_supported",
+      "support_notes": "Cain et al. state that users are advised to select strong passwords to prevent guessing attacks. The broader brute-force framing remains a terminology mapping."
     },
     {
       "id": "THR-UNAUTHORIZED-ACCESS",
@@ -309,7 +307,7 @@
     {
       "id": "THR-WEB-BASED-ATTACK",
       "name": "Web-based attack",
-      "definition": "A cyberattack category reported by Cain et al. through the cited Ponemon cybercrime cost study.",
+      "definition": "A cyberattack category involving attacks delivered through or targeting web-based systems, websites, browsers, or online services.",
       "related_categories": [
         "CAT-TRANSMISSION",
         "CAT-GENERAL-CYBER-HYGIENE"
@@ -318,12 +316,54 @@
         "SRC-CAIN-2018"
       ],
       "support_status": "mentioned_in_source",
-      "support_notes": "Cain et al. mention web-based attacks as one attack category experienced by organizations in the cited Ponemon report."
+      "support_notes": "Cain et al. (2018) mention web-based attacks as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. The source mentions the category but does not provide a detailed definition."
+    },
+    {
+      "id": "THR-MALICIOUS-CODE",
+      "name": "Malicious code",
+      "definition": "Software code intended to harm, compromise, disrupt, or gain unauthorized access to systems or data.",
+      "related_categories": [
+        "CAT-STORAGE-DEVICE",
+        "CAT-GENERAL-CYBER-HYGIENE"
+      ],
+      "source_ids": [
+        "SRC-CAIN-2018"
+      ],
+      "support_status": "mentioned_in_source",
+      "support_notes": "Cain et al. (2018) mention malicious code as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. The source mentions the category but does not provide a detailed definition."
+    },
+    {
+      "id": "THR-BOTNET",
+      "name": "Botnet",
+      "definition": "A network of compromised devices that can be controlled by an attacker to carry out malicious activity.",
+      "related_categories": [
+        "CAT-STORAGE-DEVICE",
+        "CAT-GENERAL-CYBER-HYGIENE"
+      ],
+      "source_ids": [
+        "SRC-CAIN-2018"
+      ],
+      "support_status": "mentioned_in_source",
+      "support_notes": "Cain et al. (2018) mention botnets as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. The source mentions the category but does not provide a detailed definition."
+    },
+    {
+      "id": "THR-STOLEN-DEVICE",
+      "name": "Stolen device",
+      "definition": "A physical device theft incident that can expose systems, accounts, or information stored on the device.",
+      "related_categories": [
+        "CAT-STORAGE-DEVICE",
+        "CAT-GENERAL-CYBER-HYGIENE"
+      ],
+      "source_ids": [
+        "SRC-CAIN-2018"
+      ],
+      "support_status": "mentioned_in_source",
+      "support_notes": "Cain et al. (2018) mention attacks related to stolen devices as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. The source mentions the category but does not provide a detailed definition."
     },
     {
       "id": "THR-DENIAL-OF-SERVICE",
       "name": "Denial-of-service attack",
-      "definition": "A cyberattack category reported by Cain et al. through the cited Ponemon cybercrime cost study.",
+      "definition": "An attack intended to disrupt or prevent normal access to a service, system, or network.",
       "related_categories": [
         "CAT-GENERAL-CYBER-HYGIENE"
       ],
@@ -331,12 +371,12 @@
         "SRC-CAIN-2018"
       ],
       "support_status": "mentioned_in_source",
-      "support_notes": "Cain et al. mention denial-of-service attacks as one attack category experienced by organizations in the cited Ponemon report."
+      "support_notes": "Cain et al. (2018) mention denial-of-service attacks as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. The source mentions the category but does not provide a detailed definition."
     },
     {
       "id": "THR-MALICIOUS-INSIDER",
       "name": "Malicious insider",
-      "definition": "A cyberattack category involving harmful actions from insiders, mentioned by Cain et al. through the cited Ponemon cybercrime cost study.",
+      "definition": "A threat involving harmful or unauthorized actions by someone with insider access to an organization, system, or data.",
       "related_categories": [
         "CAT-GENERAL-CYBER-HYGIENE"
       ],
@@ -344,7 +384,20 @@
         "SRC-CAIN-2018"
       ],
       "support_status": "mentioned_in_source",
-      "support_notes": "Cain et al. mention malicious insiders as one attack category experienced by organizations in the cited Ponemon report."
+      "support_notes": "Cain et al. (2018) mention malicious insiders as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. The source mentions the category but does not provide a detailed definition."
+    },
+    {
+      "id": "THR-INFECTED-USB-DRIVE",
+      "name": "Infected USB drive",
+      "definition": "A removable storage device that may carry malicious software or otherwise compromise a system or network when used.",
+      "related_categories": [
+        "CAT-STORAGE-DEVICE"
+      ],
+      "source_ids": [
+        "SRC-CAIN-2018"
+      ],
+      "support_status": "directly_supported",
+      "support_notes": "Cain et al. state that using infected USB drives can compromise a network and can lead to problems such as malware download."
     }
   ],
 
@@ -354,7 +407,7 @@
       "name": "Conduct virus scans on storage devices",
       "description": "Users should conduct virus scans on storage devices to detect potentially malicious or infected files.",
       "category_id": "CAT-STORAGE-DEVICE",
-      "mitigates": ["THR-MALWARE-INFECTION"],
+      "mitigates": ["THR-MALWARE-INFECTION", "THR-INFECTED-USB-DRIVE"],
       "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
     },
     {
@@ -371,7 +424,7 @@
       "description": "Users should keep antivirus protection and device software up to date.",
       "category_id": "CAT-STORAGE-DEVICE",
       "mitigates": ["THR-MALWARE-INFECTION", "THR-UNPATCHED-SOFTWARE"],
-      "source_ids": ["SRC-KARAYEL-2024"]
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"]
     },
     {
       "id": "PRA-CHECK-SSL-CERTIFICATE",
@@ -419,7 +472,7 @@
       "description": "Users should create complex usernames and passwords to reduce the risk of credential compromise.",
       "category_id": "CAT-AUTH-CREDENTIAL",
       "mitigates": ["THR-CREDENTIAL-THEFT", "THR-BRUTE-FORCE"],
-      "source_ids": ["SRC-KARAYEL-2024"]
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"]
     },
     {
       "id": "PRA-ENABLE-MFA",
@@ -475,7 +528,7 @@
       "description": "Users should use strong passwords as part of routine cyber hygiene behavior.",
       "category_id": "CAT-AUTH-CREDENTIAL",
       "mitigates": ["THR-CREDENTIAL-TARGETING", "THR-CREDENTIAL-THEFT", "THR-BRUTE-FORCE"],
-      "source_ids": ["SRC-KARAYEL-2024"]
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"]
     },
     {
       "id": "PRA-CHANGE-PASSWORDS-REGULARLY",
@@ -483,7 +536,7 @@
       "description": "Users should change passwords regularly as part of maintaining cyber hygiene.",
       "category_id": "CAT-AUTH-CREDENTIAL",
       "mitigates": ["THR-CREDENTIAL-TARGETING", "THR-CREDENTIAL-THEFT"],
-      "source_ids": ["SRC-KARAYEL-2024"]
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"]
     },
     {
       "id": "PRA-AVOID-PASSWORD-REUSE",
@@ -491,7 +544,7 @@
       "description": "Users should avoid reusing passwords across accounts to reduce credential-related risk.",
       "category_id": "CAT-AUTH-CREDENTIAL",
       "mitigates": ["THR-CREDENTIAL-TARGETING", "THR-CREDENTIAL-THEFT"],
-      "source_ids": ["SRC-KARAYEL-2024"]
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"]
     },
     {
       "id": "PRA-UPDATE-ANTIVIRUS",
@@ -499,7 +552,7 @@
       "description": "Users should keep antivirus software up to date to reduce exposure to cyber threats.",
       "category_id": "CAT-STORAGE-DEVICE",
       "mitigates": ["THR-MALWARE-INFECTION", "THR-UNPATCHED-SOFTWARE"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020", "SRC-CAIN-2018"]
     },
     {
       "id": "PRA-SECURELY-STORE-INFORMATION",
@@ -514,7 +567,7 @@
       "name": "Conduct appropriate security scans",
       "description": "Users should conduct appropriate security scans to detect cyber threats or attack attempts.",
       "category_id": "CAT-STORAGE-DEVICE",
-      "mitigates": ["THR-MALWARE-INFECTION"],
+      "mitigates": ["THR-MALWARE-INFECTION", "THR-INFECTED-USB-DRIVE"],
       "source_ids": ["SRC-KARAYEL-2024"]
     },
     {
@@ -611,7 +664,7 @@
         "THR-CREDENTIAL-TARGETING",
         "THR-CREDENTIAL-THEFT"
       ],
-      "source_ids": ["SRC-VISHWANATH-2020"]
+      "source_ids": ["SRC-VISHWANATH-2020", "SRC-CAIN-2018"]
     },
     {
       "id": "PRA-MANAGE-BROWSER-STORED-PASSWORDS",
@@ -661,7 +714,7 @@
       "description": "Users should enable firewalls on computing devices as part of storage and device hygiene.",
       "category_id": "CAT-STORAGE-DEVICE",
       "mitigates": [],
-      "source_ids": ["SRC-VISHWANATH-2020"]
+      "source_ids": ["SRC-VISHWANATH-2020", "SRC-CAIN-2018"]
     },
     {
       "id": "PRA-CHECK-DEVICE-UPDATES",
@@ -688,6 +741,46 @@
       "category_id": "CAT-EMAIL-MESSAGING",
       "mitigates": [],
       "source_ids": ["SRC-VISHWANATH-2020"]
+    },
+    {
+      "id": "PRA-LIMIT-SHARING-PERSONAL-INFORMATION",
+      "name": "Limit sharing personal information online",
+      "description": "Users should limit sharing private or personal information online, especially on social networks, including information such as real names, dates of birth, addresses, phone numbers, or email addresses where disclosure is unnecessary.",
+      "category_id": "CAT-SOCIAL-MEDIA",
+      "mitigates": [
+        "THR-OVERSHARING",
+        "THR-PRIVACY-EXPOSURE"
+      ],
+      "source_ids": [
+        "SRC-CAIN-2018"
+      ]
+    },
+    {
+      "id": "PRA-PASSWORD-PROTECT-MOBILE-DEVICE",
+      "name": "Password protect mobile devices",
+      "description": "Users should protect mobile devices with authentication, such as a PIN password, as part of cyber hygiene.",
+      "category_id": "CAT-AUTH-CREDENTIAL",
+      "mitigates": [
+        "THR-STOLEN-DEVICE",
+        "THR-UNAUTHORIZED-ACCESS",
+        "THR-PRIVACY-EXPOSURE"
+      ],
+      "source_ids": [
+        "SRC-CAIN-2018"
+      ]
+    },
+    {
+      "id": "PRA-SECURE-WIRELESS-NETWORK",
+      "name": "Secure wireless networks",
+      "description": "Users should secure their wireless networks, including password-protecting Wi-Fi, as part of cyber hygiene.",
+      "category_id": "CAT-TRANSMISSION",
+      "mitigates": [
+        "THR-INSECURE-CONNECTION",
+        "THR-UNAUTHORIZED-ACCESS"
+      ],
+      "source_ids": [
+        "SRC-CAIN-2018"
+      ]
     }
   ],
 
@@ -840,8 +933,8 @@
       "practice_ids": [
         "PRA-ADDRESS-USER-BEHAVIOR"
       ],
-      "claim": "Cyber hygiene guidance should address individual user behavior, because technical cybersecurity measures alone are insufficient for effective cybersecurity. Individuals who present good cyber hygiene follow best practices in security and protect their personal information.",
-      "explanation": "Karayel et al. emphasize that noncompliance with security practices is identified as a relevant human-factor concern. Cain et al. (2018) note that individuals with good cyber hygiene are more likely to protect their personal information.",
+      "claim": "Cyber hygiene guidance should address individual user behavior, because technical cybersecurity measures alone are insufficient for effective cybersecurity. Individuals with good cyber hygiene follow security best practices and protect their personal information.",
+      "explanation": "Karayel et al. emphasize that noncompliance with security practices is identified as a relevant human-factor concern. Cain et al. (2018) state that individuals with good cyber hygiene follow security best practices and protect their personal information.",
       "recommended_actions": [
         "Address user behavior when designing cyber hygiene guidance.",
         "Address noncompliance with security practices as part of cyber hygiene guidance.",
@@ -917,6 +1010,21 @@
             "section": "Abstract",
             "paragraph": ""
           }
+        },
+        {
+          "evidence_id": "EVID-CAIN-HUMAN-FACTORS-002",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Users often lack understanding of the necessary cybersecurity actions and this can underlie inappropriate attitudes and behaviors.",
+          "page": 2,
+          "section": "1.1 Statement of the problem",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 2,
+            "section": "1.1 Statement of the problem",
+            "paragraph": "2"
+          }
         }
       ],
       "validity_facts": [
@@ -940,9 +1048,15 @@
           },
           {
             "fact_id": "VF-HUMAN-FACTORS-004",
-            "fact": "Individuals who incorporate good cyber hygiene follow best practices for security as well, and therfore protect their personal information.",
+            "fact": "Individuals with good cyber hygiene follow security best practices and protect their personal information.",
             "source_id": "SRC-CAIN-2018",
             "evidence_id": "EVID-CAIN-HUMAN-FACTORS-001"
+          },
+          {
+            "fact_id": "VF-HUMAN-FACTORS-005",
+            "fact": "Cain et al. state that users often lack understanding of necessary cybersecurity actions, which can underlie inappropriate attitudes and behaviors.",
+            "source_id": "SRC-CAIN-2018",
+            "evidence_id": "EVID-CAIN-HUMAN-FACTORS-002"
           }
         ],
       "traceability": {
@@ -961,7 +1075,7 @@
           "individual user behavior matters",
           "human factors can weaken cybersecurity",
           "noncompliance with security practices is relevant",
-          "individuals with good cyber hygiene follow security best practices and are more likely to protect their personal information"
+          "individuals with good cyber hygiene follow security best practices and protect their personal information"
         ],
         "avoid_claims": [
           "Cybersecurity is only a technical problem",
@@ -1334,14 +1448,17 @@
         "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS"
       ],
       "claim": "Email and messaging hygiene involves checking email subjects, incoming email headers, sender domains, hyperlinks or attachments from unknown senders, and the spelling and grammar of email requests. Karayel et al. link email and messaging hygiene to caution against phishing, e-fraud, and social engineering attempts.",
-      "explanation": "Remote workers rely heavily on email and messaging platforms for communication. Karayel et al. identify email and messaging hygiene as an important cyber hygiene subdimension for preventing phishing, e-fraud, and social engineering-related attacks. Vishwanath et al.'s Cyber Hygiene Inventory further lists checking incoming email headers, sender email domain names, hyperlinks or attachments from unknown senders, and grammatical or typographical errors as email and messaging hygiene items.",
+      "explanation": "Remote workers rely heavily on email and messaging platforms for communication. Karayel et al. identify email and messaging hygiene as an important cyber hygiene subdimension for preventing phishing, e-fraud, and social engineering-related attacks. Vishwanath et al.'s Cyber Hygiene Inventory further lists checking incoming email headers, sender email domain names, hyperlinks or attachments from unknown senders, and grammatical or typographical errors as email and messaging hygiene items. Cain et al. (2018) explains phishing in a bit more detail.",
       "recommended_actions": [
         "Check the subject of incoming emails for suspicious or unexpected requests.",
         "Check the header of incoming emails as part of email and messaging hygiene.",
         "Check the sender's email domain before trusting an email request.",
         "Check hyperlinks or attachments in emails from unknown senders.",
         "Inspect grammatical or typographical errors in email requests.",
-        "Remain cautious when receiving unexpected requests through email or messaging platforms."
+        "Remain cautious when receiving unexpected requests through email or messaging platforms.",
+        "Be suspicious of mismatches between the displayed sender name and sender address.",
+        "Be suspicious of messages that encourage immediate action.",
+        "Check whether link text matches the actual link address before trusting it."
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -1456,6 +1573,66 @@
             "section": "Table 1. Final CHI items, and the original items",
             "paragraph": "table row 18"
           }
+        },
+        {
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-001",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Emails from unknown sources should be approached cautiously.",
+          "page": 2,
+          "section": "1.2 Previous findings of cyber hygiene research",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 2,
+            "section": "1.2 Previous findings of cyber hygiene research",
+            "paragraph": "5"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-002",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Phishing scams can result in the downloading of malware or the release of sensitive information, such as usernames, passwords, and credit card information.",
+          "page": 2,
+          "section": "1.2 Previous findings of cyber hygiene research",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 2,
+            "section": "1.2 Previous findings of cyber hygiene research",
+            "paragraph": "5"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-003",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Users need to be suspicious of email that has a mismatched name and address in the “From” field; that have spelling mistakes, incorrect grammar, or strange spacing; that encourage immediate action; that have a mismatch between the link text and the link addresses shown by hovering the mouse; or that intuitively seems like something is not right.",
+          "page": 2,
+          "section": "1.2 Previous findings of cyber hygiene research",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 2,
+            "section": "1.2 Previous findings of cyber hygiene research",
+            "paragraph": "5"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-004",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Also, good cyber hygiene was not demonstrated for phishing attacks. 96% of users click on embedded links from unknown senders. 98% of users download attachments from unknown senders. 94% of users send sensitive information over email when a sender requests it.",
+          "page": 4,
+          "section": "3. Results",
+          "paragraph": "7",
+          "claim_location": {
+            "page": 4,
+            "section": "3. Results",
+            "paragraph": "7"
+          }
         }
       ],
       "validity_facts": [
@@ -1512,16 +1689,59 @@
           "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes checking hyperlinks or attachments in emails from unknown senders.",
           "source_id": "SRC-VISHWANATH-2020",
           "evidence_id": "EVID-VISHWANATH-EMAIL-MESSAGING-004"
+        },
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-010",
+          "fact": "Cain et al. state that emails from unknown sources should be approached cautiously.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-001"
+        },
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-011",
+          "fact": "Cain et al. state that phishing scams can result in malware downloads or release of sensitive information such as usernames, passwords, and credit card information.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-002"
+        },
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-012",
+          "fact": "Cain et al. list phishing warning signs including mismatched sender names and addresses, spelling or grammar issues, immediate-action pressure, and mismatches between link text and actual link addresses.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-003"
+        },
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-013",
+          "fact": "Cain et al. report that good cyber hygiene was not demonstrated for phishing attacks in their sample.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-004"
+        },
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-014",
+          "fact": "Cain et al. report that 96% of users clicked embedded links from unknown senders.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-004"
+        },
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-015",
+          "fact": "Cain et al. report that 98% of users downloaded attachments from unknown senders.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-004"
+        },
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-016",
+          "fact": "Cain et al. report that 94% of users sent sensitive information over email when a sender requested it.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-004"
         }
       ],
       "traceability": {
         "requires_citation": true,
         "acceptable_sources": [
           "SRC-KARAYEL-2024",
-          "SRC-VISHWANATH-2020"
+          "SRC-VISHWANATH-2020",
+          "SRC-CAIN-2018"
         ],
         "citation_granularity": "table_or_section",
-        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020. Claims linking email and messaging hygiene to phishing, e-fraud, or social engineering should be traceable to Karayel et al.'s Table 2 and Section 4.3 discussion. Claims about checking incoming email headers, sender email domain names, hyperlinks or attachments from unknown senders, and grammatical or typographical errors should be traceable to Vishwanath et al.'s Table 1."
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020. Claims linking email and messaging hygiene to phishing, e-fraud, or social engineering should be traceable to Karayel et al.'s Table 2 and Section 4.3 discussion. Claims about checking incoming email headers, sender email domain names, hyperlinks or attachments from unknown senders, and grammatical or typographical errors should be traceable to Vishwanath et al.'s Table 1. Cain et al. (2018) had also identified email cyber hygiene (look at the provided evidence)."
       },
       "agent_answer_guidance": {
         "answer_style": "practical_advice",
@@ -1533,7 +1753,8 @@
           "check grammatical or typographical errors",
           "phishing",
           "e-fraud",
-          "social engineering"
+          "social engineering",
+          "Cain et al. found poor phishing-related cyber hygiene behaviors in their sample"
         ],
         "avoid_claims": [
           "All phishing emails contain spelling mistakes",
@@ -1541,7 +1762,11 @@
           "Email security tools alone eliminate phishing risk",
           "Users can always identify phishing by appearance alone",
           "Vishwanath et al. directly state that checking email headers prevents phishing",
-          "Vishwanath et al. directly state that checking email links and attachments prevents phishing"
+          "Vishwanath et al. directly state that checking email links and attachments prevents phishing",
+          "Cain et al. prove that users can always detect phishing by hovering links",
+          "All urgent emails are phishing",
+          "Phishing always contains grammar mistakes",
+          "Do not generalize Cain et al.'s phishing percentages to all users or all populations"
         ]
       }
     },
@@ -1838,7 +2063,8 @@
       "threat_ids": [
         "THR-MALWARE-INFECTION",
         "THR-DATA-LOSS",
-        "THR-UNPATCHED-SOFTWARE"
+        "THR-UNPATCHED-SOFTWARE",
+        "THR-INFECTED-USB-DRIVE"
       ],
       "practice_ids": [
         "PRA-VIRUS-SCAN-STORAGE",
@@ -1990,6 +2216,96 @@
             "section": "Table 1. Final CHI items, and the original items",
             "paragraph": "table row 26"
           }
+        },
+        {
+          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-001",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Security software, such as antivirus, firewalls, and Intrusion Detection Systems are available to end users, and are essential factors in secure computing.",
+          "page": 2,
+          "section": "1.2 Previous findings of cyber hygiene research",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 2,
+            "section": "1.2 Previous findings of cyber hygiene research",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-002",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "It is important to update security software.",
+          "page": 2,
+          "section": "1.2 Previous findings of cyber hygiene research",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 2,
+            "section": "1.2 Previous findings of cyber hygiene research",
+            "paragraph": "1"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-003",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "source_listed_practice",
+          "exact_supporting_text": "Update your applications, software, and operating systems; Back up your data and files; Use firewalls; Use anti-virus and separate anti-spyware; Perform weekly anti-virus scans",
+          "page": 3,
+          "section": "Table 1. Tips found on government websites",
+          "paragraph": "table",
+          "claim_location": {
+            "page": 3,
+            "section": "Table 1. Tips found on government websites",
+            "paragraph": "table"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-004",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Tables 8–13 report participant behavior for antivirus updates, antivirus scans, firewall use, firewall settings, anti-spyware use, and anti-spyware scans across age groups.",
+          "page": 5,
+          "section": "3. Results, Tables 8–13",
+          "paragraph": "tables",
+          "claim_location": {
+            "page": 5,
+            "section": "3. Results, Tables 8–13",
+            "paragraph": "tables"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-005",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "We found that most users have antivirus software and update it regularly, but also that most users do not run frequent-enough scans.",
+          "page": 8,
+          "section": "4. Discussion and conclusion",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 8,
+            "section": "4. Discussion and conclusion",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-006",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Most users employ a firewall, but most users do not change the firewall settings when needed.",
+          "page": 8,
+          "section": "4. Discussion and conclusion",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 8,
+            "section": "4. Discussion and conclusion",
+            "paragraph": "3"
+          }
         }
       ],
       "validity_facts": [
@@ -2064,13 +2380,50 @@
           "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes keeping virus protection updated.",
           "source_id": "SRC-VISHWANATH-2020",
           "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-006"
+        },
+        {
+          "fact_id": "VF-STORAGE-DEVICE-013",
+          "fact": "Cain et al. state that antivirus, firewalls, and intrusion detection systems are essential factors in secure computing.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-001"
+        },
+        {
+          "fact_id": "VF-STORAGE-DEVICE-014",
+          "fact": "Cain et al. state that updating security software is important.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-002"
+        },
+        {
+          "fact_id": "VF-STORAGE-DEVICE-015",
+          "fact": "Cain et al.'s Table 1 lists updating applications/software/operating systems, backing up data/files, using firewalls, using antivirus/antispyware, and performing antivirus scans as cyber hygiene practices found on government websites.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-003"
+        },
+        {
+          "fact_id": "VF-STORAGE-DEVICE-016",
+          "fact": "Cain et al. report participant behavior for antivirus updates, antivirus scans, firewall use, firewall settings, anti-spyware use, and anti-spyware scans across age groups.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-004"
+        },
+        {
+          "fact_id": "VF-STORAGE-DEVICE-017",
+          "fact": "Cain et al. found that most users had antivirus software and updated it regularly, but did not run frequent enough scans.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-005"
+        },
+        {
+          "fact_id": "VF-STORAGE-DEVICE-018",
+          "fact": "Cain et al. found that most users used a firewall, but did not change firewall settings when needed.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-006"
         }
       ],
       "traceability": {
         "requires_citation": true,
         "acceptable_sources": [
           "SRC-KARAYEL-2024",
-          "SRC-VISHWANATH-2020"
+          "SRC-VISHWANATH-2020",
+          "SRC-CAIN-2018"
         ],
         "citation_granularity": "table_or_section",
         "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020 and should be traceable to Karayel et al.'s Table 2/RQ4 discussion or Vishwanath et al.'s Table 1, where storage and device hygiene practices such as virus scans, backups, firewalls, operating system or software updates, virus protection updates, device software updates, secure data storage, and device usage monitoring are listed."
@@ -2095,7 +2448,8 @@
           "Virus scans eliminate all device security risk",
           "Firewalls eliminate all device security risk",
           "Monitoring CPU, power, or network usage proves a device is infected",
-          "Vishwanath et al. directly state that device monitoring prevents malware"
+          "Vishwanath et al. directly state that device monitoring prevents malware",
+          "Cain et al.'s age-group percentages should not be generalized to all users without qualification"
         ]
       }
     },
@@ -3403,6 +3757,21 @@
             "section": "Abstract",
             "paragraph": ""
           }
+        },
+        {
+          "evidence_id": "EVID-CAIN-KNOWLEDGE-BEHAVIOR-005",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Cain et al. separately analyzed cyber hygiene behavior and cyber hygiene knowledge across self-identified expert status.",
+          "page": 7,
+          "section": "3.7 Expert and behavior; 3.8 Experts and knowledge",
+          "paragraph": "3-4",
+          "claim_location": {
+            "page": 7,
+            "section": "3.7 Expert and behavior; 3.8 Experts and knowledge",
+            "paragraph": "3-4"
+          }
         }
       ],
       "validity_facts": [
@@ -3445,6 +3814,1087 @@
           "Cyber hygiene is only technical software configuration",
           "Knowledge alone guarantees good cyber hygiene behavior",
           "Cain et al. provide a complete list of all cyber hygiene practices on page 1"
+        ]
+      }
+    },
+    {
+      "id": "KU-CAIN-POOR-HYGIENE-USER-VULNERABILITY-001",
+      "title": "Poor cyber hygiene can expose users through password sharing and oversharing personal information",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "threat_ids": [
+        "THR-OVERSHARING",
+        "THR-PRIVACY-EXPOSURE",
+        "THR-USER-NONCOMPLIANCE"
+      ],
+      "practice_ids": [
+        "PRA-EVALUATE-FRIEND-REQUESTS",
+        "PRA-KNOW-SOCIAL-MEDIA-CONNECTIONS",
+        "PRA-REASSESS-SOCIAL-MEDIA-CONNECTIONS",
+        "PRA-ENABLE-MFA",
+        "PRA-CHANGE-PASSWORDS-REGULARLY",
+        "PRA-SECURELY-STORE-INFORMATION",
+        "PRA-USE-PASSWORD-VAULT",
+        "PRA-SET-PERSONAL-INFO-ALERTS",
+        "PRA-AVOID-PASSWORD-REUSE",
+        "PRA-LIMIT-SHARING-PERSONAL-INFORMATION"
+      ],
+      "claim": "Cain et al. identify freely sharing passwords and quickly sharing private information over social networks as examples of poor cyber hygiene that can expose users to attacker interest in user information or technical vulnerabilities.",
+      "explanation": "The introduction contrasts ideal cyber hygiene, such as appreciating software updates and developing unique passwords, with poor cyber hygiene behaviors, including freely sharing passwords and sharing private information over social networks. In the context of Neo's knowledge base, this supports guidance around reducing oversharing, protecting personal information, and improving authentication-related behavior. The linked practices should be treated as relevant mitigation areas rather than as a complete list explicitly provided by Cain et al. on this page.",
+      "recommended_actions": [
+        "Reduce oversharing of private information on social networks.",
+        "Be cautious about social media connections and the personal information those connections can access.",
+        "Avoid password behaviors that make accounts easier to compromise, such as reusing weak credentials or sharing access carelessly.",
+        "Use authentication and credential hygiene practices, such as changing passwords regularly, avoiding password reuse, enabling multifactor authentication, and using secure password storage where appropriate.",
+        "Treat personal information and authentication behavior as part of the user-facing attack surface attackers may exploit."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "What are examples of poor cyber hygiene?",
+        "Why is sharing passwords unsafe?",
+        "Why can oversharing personal information be risky?",
+        "How can poor cyber hygiene expose users to attackers?",
+        "What user behaviors does Cain et al. identify as poor cyber hygiene?",
+        "How can users reduce risks from oversharing private information?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-001",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Ideally, users would have good cyber hygiene. They would appreciate the need for software updates and would take the time to develop unique passwords.",
+          "page": 1,
+          "section": "1.1 Statement of the problem",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 1,
+            "section": "1.1 Statement of the problem",
+            "paragraph": "1"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-002",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "However, it appears that many users have poor cyber hygiene. They freely share passwords and are quick to share private information over social networks.",
+          "page": 1,
+          "section": "1.1 Statement of the problem",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 1,
+            "section": "1.1 Statement of the problem",
+            "paragraph": "1"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-003",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Attackers know that the easiest way into a system is to steal a user’s information or find a technical vulnerability.",
+          "page": 1,
+          "section": "1.1 Statement of the problem",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 1,
+            "section": "1.1 Statement of the problem",
+            "paragraph": "1"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-004",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Personal information can also be stolen when users post this information on social networking sites. 59% of surveyed participants reported using their real name on social networking sites, 62% reported disclosing their email address, and 45% reported disclosing their date of birth and full name. 77% of users reported restricting their privacy settings",
+          "page": 2,
+          "section": "1.2 Previous findings of cyber hygiene research",
+          "paragraph": "8",
+          "claim_location": {
+            "page": 2,
+            "section": "1.2 Previous findings of cyber hygiene research",
+            "paragraph": "8"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-005",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Personal information can be used in social engineering attacks such as spear phishing, in which personal information is included in fraudulent emails to increase the chances of a response.",
+          "page": 2,
+          "section": "1.2 Previous findings of cyber hygiene research",
+          "paragraph": "8",
+          "claim_location": {
+            "page": 2,
+            "section": "1.2 Previous findings of cyber hygiene research",
+            "paragraph": "8"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-006",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Tables 15 and 16 report participant behavior for using real names and providing real dates of birth on social media sites across age groups.",
+          "page": 5,
+          "section": "3. Results, Tables 15–16",
+          "paragraph": "tables",
+          "claim_location": {
+            "page": 5,
+            "section": "3. Results, Tables 15–16",
+            "paragraph": "tables"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-007",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Tables 17–20 report participant behavior for providing address, phone number, and email address on social media sites, and for using privacy settings on social media accounts.",
+          "page": 6,
+          "section": "3. Results, Tables 17–20",
+          "paragraph": "tables",
+          "claim_location": {
+            "page": 6,
+            "section": "3. Results, Tables 17–20",
+            "paragraph": "tables"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-008",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Many older and younger users share too much personal information on social media, such as their address and their phone numbers, and most do not check their privacy settings.",
+          "page": 8,
+          "section": "4. Discussion and conclusion",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 8,
+            "section": "4. Discussion and conclusion",
+            "paragraph": "3"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-CAIN-POOR-HYGIENE-001",
+          "fact": "Cain et al. describe developing unique passwords as part of ideal good cyber hygiene.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-001"
+        },
+        {
+          "fact_id": "VF-CAIN-POOR-HYGIENE-002",
+          "fact": "Cain et al. identify freely sharing passwords as an example of poor cyber hygiene.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-002"
+        },
+        {
+          "fact_id": "VF-CAIN-POOR-HYGIENE-003",
+          "fact": "Cain et al. identify quickly sharing private information over social networks as an example of poor cyber hygiene.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-002"
+        },
+        {
+          "fact_id": "VF-CAIN-POOR-HYGIENE-004",
+          "fact": "Cain et al. state that attackers may seek to steal user information or find technical vulnerabilities.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-003"
+        },
+        {
+          "fact_id": "VF-CAIN-POOR-HYGIENE-005",
+          "fact": "Cain et al. state that personal information can be stolen when users post it on social networking sites.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-004"
+        },
+        {
+          "fact_id": "VF-CAIN-POOR-HYGIENE-006",
+          "fact": "Cain et al. state that personal information can be used in social engineering attacks such as spear phishing.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-005"
+        },
+        {
+          "fact_id": "VF-CAIN-POOR-HYGIENE-007",
+          "fact": "Cain et al. report participant behavior for using real names and providing real dates of birth on social media sites across age groups.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-006"
+        },
+        {
+          "fact_id": "VF-CAIN-POOR-HYGIENE-008",
+          "fact": "Cain et al. report participant behavior for providing address, phone number, and email address on social media sites, and for using privacy settings on social media accounts.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-007"
+        },
+        {
+          "fact_id": "VF-CAIN-POOR-HYGIENE-009",
+          "fact": "Cain et al. state that many users share too much personal information on social media, such as addresses and phone numbers, and that most do not check privacy settings.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-POOR-HYGIENE-008"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-CAIN-2018"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 1, Section 1.1, paragraph 1 for password sharing and private information sharing; page 2, Section 1.2, paragraph 8 for social networking information exposure and spear phishing; and pages 5–6, Tables 15–20, for measured social media disclosure and privacy-setting behaviors."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "practical_advice_with_explanation",
+        "must_include": [
+          "freely sharing passwords is identified as poor cyber hygiene",
+          "sharing private information over social networks is identified as poor cyber hygiene",
+          "attackers may seek user information",
+          "unique passwords are part of ideal good cyber hygiene",
+          "linked practices are relevant mitigation areas, not a complete Cain et al. checklist from page 1"
+        ],
+        "avoid_claims": [
+          "Cain et al. say social media should never be used",
+          "Password sharing always leads to compromise",
+          "Unique passwords alone are sufficient for complete security",
+          "Cain et al. explicitly list MFA, password vaults, personal information alerts, or friend-request evaluation on page 1",
+          "All linked practices are directly stated in Cain et al. page 1",
+          "Providing a real name or date of birth on social media always leads to compromise"
+        ]
+      }
+    },
+    {
+      "id": "KU-CAIN-ACTIONABLE-CYBER-HYGIENE-KNOWLEDGE-GAP-001",
+      "title": "Users may know they are at risk but still lack actionable cyber hygiene knowledge",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "threat_ids": [
+        "THR-USER-NONCOMPLIANCE"
+      ],
+      "practice_ids": [
+        "PRA-ADDRESS-USER-BEHAVIOR"
+      ],
+      "claim": "Cain et al. argue that many end users are aware cybersecurity risks exist, but still lack actionable knowledge about how to follow best practices and use available security options.",
+      "explanation": "Page 2 distinguishes general risk awareness from practical understanding. Cain et al. state that users may know they are at risk while not knowing how to protect passwords, find security options, understand those options, or use them. This supports cyber hygiene guidance that explains actions clearly rather than merely warning users that threats exist.",
+      "recommended_actions": [
+        "Explain cyber hygiene practices in actionable terms.",
+        "Help users understand how to find, understand, and use available security options.",
+        "Do not assume that general awareness of cybersecurity risk is enough for good cyber hygiene behavior."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "Why is knowing about cyber risk not enough?",
+        "Why do users need actionable cyber hygiene guidance?",
+        "Why should cyber hygiene advice explain how to follow best practices?",
+        "Do users know how to use security options?",
+        "Why can users still behave unsafely even when they know cyber risks exist?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-CAIN-ACTIONABLE-KNOWLEDGE-GAP-001",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Cyber security breaches are highly publicized, so most end users are aware that they are at risk, but they do not know how to follow best practices, such as how to protect their passwords.",
+          "page": 2,
+          "section": "1.1 Statement of the problem",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 2,
+            "section": "1.1 Statement of the problem",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-ACTIONABLE-KNOWLEDGE-GAP-002",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "There are security options available, but end users frequently do not know how to find those options, understand them, and use them.",
+          "page": 2,
+          "section": "1.1 Statement of the problem",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 2,
+            "section": "1.1 Statement of the problem",
+            "paragraph": "2"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-CAIN-ACTIONABLE-KNOWLEDGE-GAP-001",
+          "fact": "Cain et al. state that many end users are aware they are at risk but do not know how to follow best practices.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-ACTIONABLE-KNOWLEDGE-GAP-001"
+        },
+        {
+          "fact_id": "VF-CAIN-ACTIONABLE-KNOWLEDGE-GAP-002",
+          "fact": "Cain et al. state that end users frequently do not know how to find, understand, and use available security options.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-ACTIONABLE-KNOWLEDGE-GAP-002"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-CAIN-2018"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 2, Section 1.1, paragraph 2, where the paper distinguishes general risk awareness from knowing how to follow best practices and use security options."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "conceptual_explanation",
+        "must_include": [
+          "risk awareness is not enough",
+          "users may not know how to follow best practices",
+          "users may not know how to find, understand, and use security options",
+          "guidance should be actionable"
+        ],
+        "avoid_claims": [
+          "Users are careless simply because they ignore risks",
+          "Awareness automatically leads to good cyber hygiene",
+          "Cain et al. show that all users lack cyber hygiene knowledge",
+          "Security options are useless because users do not understand them"
+        ]
+      }
+    },
+    {
+      "id": "KU-CAIN-PASSWORD-HYGIENE-BEST-PRACTICES-001",
+      "title": "Password hygiene includes strength, uniqueness, memorability, regular changes, and not sharing passwords",
+      "category_id": "CAT-AUTH-CREDENTIAL",
+      "threat_ids": [
+        "THR-CREDENTIAL-TARGETING",
+        "THR-CREDENTIAL-THEFT",
+        "THR-BRUTE-FORCE",
+        "THR-UNAUTHORIZED-ACCESS"
+      ],
+      "practice_ids": [
+        "PRA-USE-STRONG-PASSWORDS",
+        "PRA-CREATE-COMPLEX-CREDENTIALS",
+        "PRA-CREATE-UNIQUE-LOGINS",
+        "PRA-AVOID-PASSWORD-REUSE",
+        "PRA-CHANGE-PASSWORDS-REGULARLY"
+      ],
+      "claim": "Cain et al. summarize prior password-hygiene guidance as selecting strong passwords, avoiding personal information or dictionary words, avoiding reuse across multiple accounts, changing passwords often, and not sharing passwords with others.",
+      "explanation": "The password section reviews prior research on authentication and password behavior. It identifies weak passwords as a major source of network vulnerability and summarizes commonly advised password practices. Cain et al. also note a usability tension: long, complex alphanumeric passwords may be hard to remember, which can lead users to workarounds.",
+      "recommended_actions": [
+        "Use strong passwords.",
+        "Avoid including personal information or dictionary words in passwords.",
+        "Avoid reusing passwords across multiple accounts.",
+        "Change passwords regularly where appropriate.",
+        "Do not share passwords with others.",
+        "Consider memorability and usability when applying password rules, because impractical password requirements can lead users to workarounds."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "What makes a password strong according to cyber hygiene research?",
+        "Why should users avoid password reuse?",
+        "Why should users not share passwords?",
+        "What password behaviors are considered poor cyber hygiene?",
+        "Why can impractical password rules cause problems?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-001",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "weak passwords are a major source of network vulnerability",
+          "page": 2,
+          "section": "1.2 Previous findings of cyber hygiene research",
+          "paragraph": "4",
+          "claim_location": {
+            "page": 2,
+            "section": "1.2 Previous findings of cyber hygiene research",
+            "paragraph": "4"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-002",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Users are advised to select strong passwords to prevent guessing attacks.",
+          "page": 2,
+          "section": "1.2 Previous findings of cyber hygiene research",
+          "paragraph": "4",
+          "claim_location": {
+            "page": 2,
+            "section": "1.2 Previous findings of cyber hygiene research",
+            "paragraph": "4"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-003",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "They should not include any personal information or dictionary words.",
+          "page": 2,
+          "section": "1.2 Previous findings of cyber hygiene research",
+          "paragraph": "4",
+          "claim_location": {
+            "page": 2,
+            "section": "1.2 Previous findings of cyber hygiene research",
+            "paragraph": "4"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-004",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "In addition to being complex, they should be memorable; they should not be used for multiple accounts; they should be changed often; and they should not be shared with others.",
+          "page": 2,
+          "section": "1.2 Previous findings of cyber hygiene research",
+          "paragraph": "4",
+          "claim_location": {
+            "page": 2,
+            "section": "1.2 Previous findings of cyber hygiene research",
+            "paragraph": "4"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-005",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Best practices for passwords are not practical, because long, complex alphanumeric passwords are not memorable, which will force users to use workarounds.",
+          "page": 2,
+          "section": "1.2 Previous findings of cyber hygiene research",
+          "paragraph": "4",
+          "claim_location": {
+            "page": 2,
+            "section": "1.2 Previous findings of cyber hygiene research",
+            "paragraph": "4"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-006",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "50% of users use the same password for multiple accounts. Only 41% of users change their passwords. Only 5% of users do not share their passwords with others.",
+          "page": 4,
+          "section": "3. Results",
+          "paragraph": "7",
+          "claim_location": {
+            "page": 4,
+            "section": "3. Results",
+            "paragraph": "7"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-CAIN-PASSWORD-HYGIENE-001",
+          "fact": "Cain et al. state that weak passwords are a major source of network vulnerability.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-001"
+        },
+        {
+          "fact_id": "VF-CAIN-PASSWORD-HYGIENE-002",
+          "fact": "Cain et al. state that users are advised to select strong passwords to prevent guessing attacks.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-002"
+        },
+        {
+          "fact_id": "VF-CAIN-PASSWORD-HYGIENE-003",
+          "fact": "Cain et al. state that passwords should not include personal information or dictionary words.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-003"
+        },
+        {
+          "fact_id": "VF-CAIN-PASSWORD-HYGIENE-004",
+          "fact": "Cain et al. state that passwords should not be used for multiple accounts, should be changed often, and should not be shared with others.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-004"
+        },
+        {
+          "fact_id": "VF-CAIN-PASSWORD-HYGIENE-005",
+          "fact": "Cain et al. state that impractical password best practices can lead users to workarounds.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-005"
+        },
+        {
+          "fact_id": "VF-CAIN-PASSWORD-HYGIENE-006",
+          "fact": "Cain et al. report that 50% of users used the same password for multiple accounts.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-006"
+        },
+        {
+          "fact_id": "VF-CAIN-PASSWORD-HYGIENE-007",
+          "fact": "Cain et al. report that only 41% of users changed their passwords.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-006"
+        },
+        {
+          "fact_id": "VF-CAIN-PASSWORD-HYGIENE-008",
+          "fact": "Cain et al. report that only 5% of users did not share their passwords with others.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-006"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-CAIN-2018"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 2, Section 1.2, paragraph 4, where password vulnerability, strong password advice, password reuse, password sharing, and password usability issues are discussed. Cain et al. found unsafe password behaviors such as password reuse, limited password changing, and password sharing."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "practical_advice_with_explanation",
+        "must_include": [
+          "weak passwords are a major source of vulnerability",
+          "strong passwords help prevent guessing attacks",
+          "avoid personal information or dictionary words",
+          "avoid password reuse",
+          "change passwords often where appropriate",
+          "do not share passwords",
+          "impractical password rules can lead users to workarounds"
+        ],
+        "avoid_claims": [
+          "Cain et al. give one universally optimal password rule",
+          "Long complex passwords are always practical for users",
+          "Password complexity alone is sufficient for account security",
+          "Users should ignore password complexity because it is inconvenient",
+          "Changing passwords often always improves security in every context",
+          "Cain et al.'s sample percentages should not be generalized to all users without qualification"
+        ]
+      }
+    },
+    {
+      "id": "KU-CAIN-USERS-REPORT-UNSAFE-PASSWORD-AND-PHISHING-BEHAVIORS-001",
+      "title": "Cain et al. found unsafe password and phishing-related behaviors in their participant sample",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "threat_ids": [
+        "THR-CREDENTIAL-TARGETING",
+        "THR-CREDENTIAL-THEFT",
+        "THR-PHISHING",
+        "THR-PRIVACY-EXPOSURE"
+      ],
+      "practice_ids": [
+        "PRA-AVOID-PASSWORD-REUSE",
+        "PRA-CHANGE-PASSWORDS-REGULARLY",
+        "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS"
+      ],
+      "claim": "Cain et al.'s results indicate that unsafe password and phishing-related behaviors were common in their participant sample.",
+      "explanation": "The study reports that many participants reused passwords, did not change passwords, shared passwords, clicked embedded links from unknown senders, downloaded attachments from unknown senders, and sent sensitive information over email when requested. These findings support the need for actionable cyber hygiene guidance around passwords and phishing.",
+      "recommended_actions": [
+        "Use Cain et al.'s findings as motivation for clearer password and phishing guidance.",
+        "Do not assume that users consistently follow password and phishing best practices.",
+        "When discussing these results, describe them as findings from Cain et al.'s participant sample."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "What did Cain et al. find about password behavior?",
+        "What did Cain et al. find about phishing behavior?",
+        "Why do users need guidance about passwords and phishing?",
+        "What unsafe cyber hygiene behaviors did Cain et al. report?",
+        "Did Cain et al. find poor cyber hygiene behavior among users?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-CAIN-UNSAFE-BEHAVIORS-001",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "50% of users use the same password for multiple accounts. Only 41% of users change their passwords. Only 5% of users do not share their passwords with others.",
+          "page": 4,
+          "section": "3. Results",
+          "paragraph": "7",
+          "claim_location": {
+            "page": 4,
+            "section": "3. Results",
+            "paragraph": "7"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-UNSAFE-BEHAVIORS-002",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Also, good cyber hygiene was not demonstrated for phishing attacks. 96% of users click on embedded links from unknown senders. 98% of users download attachments from unknown senders. 94% of users send sensitive information over email when a sender requests it.",
+          "page": 4,
+          "section": "3. Results",
+          "paragraph": "7",
+          "claim_location": {
+            "page": 4,
+            "section": "3. Results",
+            "paragraph": "7"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-CAIN-UNSAFE-BEHAVIORS-001",
+          "fact": "Cain et al. report that 50% of users used the same password for multiple accounts.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-UNSAFE-BEHAVIORS-001"
+        },
+        {
+          "fact_id": "VF-CAIN-UNSAFE-BEHAVIORS-002",
+          "fact": "Cain et al. report that only 41% of users changed their passwords.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-UNSAFE-BEHAVIORS-001"
+        },
+        {
+          "fact_id": "VF-CAIN-UNSAFE-BEHAVIORS-003",
+          "fact": "Cain et al. report that only 5% of users did not share their passwords with others.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-UNSAFE-BEHAVIORS-001"
+        },
+        {
+          "fact_id": "VF-CAIN-UNSAFE-BEHAVIORS-004",
+          "fact": "Cain et al. report that 96% of users clicked embedded links from unknown senders.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-UNSAFE-BEHAVIORS-002"
+        },
+        {
+          "fact_id": "VF-CAIN-UNSAFE-BEHAVIORS-005",
+          "fact": "Cain et al. report that 98% of users downloaded attachments from unknown senders.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-UNSAFE-BEHAVIORS-002"
+        },
+        {
+          "fact_id": "VF-CAIN-UNSAFE-BEHAVIORS-006",
+          "fact": "Cain et al. report that 94% of users sent sensitive information over email when a sender requested it.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-UNSAFE-BEHAVIORS-002"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-CAIN-2018"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 4, Section 3 Results, paragraph 7, where password and phishing behavior results are reported."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "research_finding",
+        "must_include": [
+          "unsafe password behaviors were reported",
+          "poor phishing-related behavior was reported",
+          "findings come from Cain et al.'s participant sample",
+          "these findings motivate actionable password and phishing guidance"
+        ],
+        "avoid_claims": [
+          "These percentages apply to all users globally",
+          "Cain et al. prove that every user behaves unsafely",
+          "The results alone prove one specific intervention will solve password or phishing behavior",
+          "The study shows users are hopeless or careless"
+        ]
+      }
+    },
+    {
+      "id": "KU-CAIN-EXPERTISE-KNOWLEDGE-BEHAVIOR-GAP-001",
+      "title": "Cybersecurity expertise may not translate directly into more secure cyber hygiene behavior",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "threat_ids": [
+        "THR-USER-NONCOMPLIANCE"
+      ],
+      "practice_ids": [
+        "PRA-ADDRESS-USER-BEHAVIOR"
+      ],
+      "claim": "Cain et al. found that self-identified cybersecurity experts had more cyber hygiene knowledge than non-experts, but reported less secure cyber hygiene behavior than non-experts.",
+      "explanation": "This finding supports the distinction between cyber hygiene knowledge and cyber hygiene behavior. In Cain et al.'s sample, self-identified expertise was associated with higher knowledge scores, but not with better behavior scores. This suggests that cyber hygiene guidance should not assume that knowledge or expertise alone automatically produces secure behavior.",
+      "recommended_actions": [
+        "Treat cyber hygiene as both a knowledge issue and a behavior issue.",
+        "Do not assume that cybersecurity knowledge alone guarantees secure behavior.",
+        "Design cyber hygiene guidance to support actual behavior, not only conceptual understanding."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "Does cybersecurity knowledge always lead to secure behavior?",
+        "Do cybersecurity experts always have better cyber hygiene?",
+        "Why is cyber hygiene not just a knowledge problem?",
+        "What did Cain et al. find about expertise and cyber hygiene behavior?",
+        "Why should cyber hygiene guidance focus on behavior as well as knowledge?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-CAIN-EXPERTISE-BEHAVIOR-GAP-001",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Differences were found among behaviors, t(266) = 2.37, p = .018, d = .630, such that self-identified experts had less secure behaviors than self-identified non-experts.",
+          "page": 7,
+          "section": "3.7 Expert and behavior",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 7,
+            "section": "3.7 Expert and behavior",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-EXPERTISE-KNOWLEDGE-BEHAVIOR-GAP-002",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "However, our self-described experts reported less secure behaviors and had less knowledge about cyber hygiene than did other participants.",
+          "page": 8,
+          "section": "4. Discussion and conclusion",
+          "paragraph": "7",
+          "claim_location": {
+            "page": 8,
+            "section": "4. Discussion and conclusion",
+            "paragraph": "7"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-CAIN-EXPERTISE-KNOWLEDGE-BEHAVIOR-GAP-001",
+          "fact": "Cain et al. found that self-identified cybersecurity experts had less secure cyber hygiene behaviors than self-identified non-experts.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EXPERTISE-BEHAVIOR-GAP-001"
+        },
+        {
+          "fact_id": "VF-CAIN-EXPERTISE-KNOWLEDGE-BEHAVIOR-GAP-002",
+          "fact": "Cain et al. found significant differences in cyber hygiene knowledge between self-identified experts and non-experts.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EXPERTISE-KNOWLEDGE-GAP-001"
+        },
+        {
+          "fact_id": "VF-CAIN-EXPERTISE-KNOWLEDGE-BEHAVIOR-GAP-003",
+          "fact": "Cain et al. state in the discussion that self-described experts reported less secure behaviors and had less cyber hygiene knowledge than other participants.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EXPERTISE-KNOWLEDGE-BEHAVIOR-GAP-003"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-CAIN-2018"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 7, Section 3.7 for expertise and behavior, and Section 3.8 for expertise and knowledge."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "research_finding",
+        "must_include": [
+          "self-identified experts reported less secure behavior than non-experts",
+          "self-identified experts differed from non-experts in cyber hygiene knowledge",
+          "knowledge and behavior should be treated separately",
+          "expertise alone should not be assumed to guarantee secure behavior"
+        ],
+        "avoid_claims": [
+          "All cybersecurity experts behave insecurely",
+          "Expertise is bad for cyber hygiene",
+          "Cybersecurity knowledge is useless",
+          "Cain et al. prove that training or expertise causes insecure behavior",
+          "These findings apply to all cybersecurity professionals globally"
+        ]
+      }
+    },
+    {
+      "id": "KU-CAIN-TRAINING-NO-DETECTED-IMPACT-001",
+      "title": "Cybersecurity training did not show a detected improvement in Cain et al.'s cyber hygiene behavior or knowledge results",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "threat_ids": [
+        "THR-USER-NONCOMPLIANCE"
+      ],
+      "practice_ids": [
+        "PRA-ADDRESS-USER-BEHAVIOR"
+      ],
+      "claim": "Cain et al. found no significant differences in cyber hygiene behavior or knowledge between participants who had received cybersecurity training and those who had not.",
+      "explanation": "The study tested whether training status was associated with cyber hygiene behavior and knowledge. Cain et al. reported no detected differences for either behavior or knowledge, and the discussion states that current training programs seemed to have no impact. This supports the idea that cyber hygiene guidance should not assume training alone is sufficient; training may need to be redesigned, made more explicit, or evaluated for effectiveness.",
+      "recommended_actions": [
+        "Do not assume that cybersecurity training automatically improves cyber hygiene behavior.",
+        "Evaluate whether training improves both cyber hygiene knowledge and behavior.",
+        "Design training to support actual secure behavior, not only awareness or conceptual knowledge.",
+        "Investigate why existing cyber hygiene training may not be effective."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "Does cybersecurity training improve cyber hygiene?",
+        "Is cyber hygiene training always effective?",
+        "Why might cybersecurity training not be enough?",
+        "What did Cain et al. find about training and cyber hygiene?",
+        "Should organizations assume training alone improves cyber hygiene?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-CAIN-TRAINING-NO-IMPACT-001",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "No differences were found among behaviors, t(266) = 1.51, p = .131, d = 0.229.",
+          "page": 8,
+          "section": "3.9 Trained and behavior",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 8,
+            "section": "3.9 Trained and behavior",
+            "paragraph": "1"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-TRAINING-NO-IMPACT-002",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "No differences were found among knowledge, t(266) = 0.93, p = .355, d = 0.140.",
+          "page": 8,
+          "section": "3.10 Trained and knowledge",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 8,
+            "section": "3.10 Trained and knowledge",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-TRAINING-NO-IMPACT-003",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "However, training did not increase users’ cyber hygiene behaviors or knowledge. Surprisingly, current training programs seemed to have no impact.",
+          "page": 8,
+          "section": "4. Discussion and conclusion",
+          "paragraph": "8",
+          "claim_location": {
+            "page": 8,
+            "section": "4. Discussion and conclusion",
+            "paragraph": "8"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-CAIN-TRAINING-NO-IMPACT-001",
+          "fact": "Cain et al. found no significant difference in cyber hygiene behavior between trained and untrained participants.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-TRAINING-NO-IMPACT-001"
+        },
+        {
+          "fact_id": "VF-CAIN-TRAINING-NO-IMPACT-002",
+          "fact": "Cain et al. found no significant difference in cyber hygiene knowledge between trained and untrained participants.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-TRAINING-NO-IMPACT-002"
+        },
+        {
+          "fact_id": "VF-CAIN-TRAINING-NO-IMPACT-003",
+          "fact": "Cain et al. state that training did not increase users' cyber hygiene behaviors or knowledge in their study.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-TRAINING-NO-IMPACT-003"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-CAIN-2018"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 8, Sections 3.9 and 3.10 for trained/untrained behavior and knowledge results, and page 8, Section 4, paragraph 8 for the discussion statement that training did not increase cyber hygiene behaviors or knowledge."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "research_finding_with_guidance",
+        "must_include": [
+          "no significant behavior difference between trained and untrained participants",
+          "no significant knowledge difference between trained and untrained participants",
+          "training did not increase cyber hygiene behavior or knowledge in Cain et al.'s study",
+          "training alone should not be assumed sufficient"
+        ],
+        "avoid_claims": [
+          "Cybersecurity training is useless in all contexts",
+          "Organizations should stop training users",
+          "Training causes worse cyber hygiene",
+          "Cain et al. prove that all training programs fail",
+          "The result applies to every population or organization"
+        ]
+      }
+    },
+    {
+      "id": "KU-CAIN-AGE-BEHAVIOR-KNOWLEDGE-DIFFERENCE-001",
+      "title": "Cain et al. found age differences in cyber hygiene behavior but not knowledge",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "threat_ids": [
+        "THR-USER-NONCOMPLIANCE"
+      ],
+      "practice_ids": [],
+      "claim": "Cain et al. found that older users tended to report more secure cyber hygiene behavior than younger users, while cyber hygiene knowledge did not differ among age groups.",
+      "explanation": "This finding is reported as counterintuitive because younger users are often assumed to have more technological know-how. Cain et al. did not find that younger users had higher cyber hygiene knowledge, and instead reported more secure behavior among older age groups in their sample.",
+      "recommended_actions": [],
+      "evidence_strength": "medium",
+      "question_templates": [
+        "Does age affect cyber hygiene behavior?",
+        "Do younger users have better cyber hygiene?",
+        "What did Cain et al. find about age and cyber hygiene?",
+        "Does cyber hygiene knowledge differ by age?",
+        "Are older users less secure than younger users?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-CAIN-AGE-BEHAVIOR-KNOWLEDGE-001",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Post hoc comparisons revealed that the oldest age groups, 45 to 54 and 55 and above, had more secure behaviors than the youngest age group, 18 to 24, p < .05 for both comparisons.",
+          "page": 6,
+          "section": "3.1 Age and behaviors",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 6,
+            "section": "3.1 Age and behaviors",
+            "paragraph": "1"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-AGE-BEHAVIOR-KNOWLEDGE-002",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "No differences were found among knowledge, F(5, 262) = 0.56, p = .727, partial η2 = 0.011.",
+          "page": 6,
+          "section": "3.2 Age and knowledge",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 6,
+            "section": "3.2 Age and knowledge",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-AGE-BEHAVIOR-KNOWLEDGE-003",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "However, older users tended to behave more securely than younger users.",
+          "page": 8,
+          "section": "4. Discussion and conclusion",
+          "paragraph": "4",
+          "claim_location": {
+            "page": 8,
+            "section": "4. Discussion and conclusion",
+            "paragraph": "4"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-AGE-BEHAVIOR-KNOWLEDGE-004",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Also, surprisingly, there was no difference in cyber hygiene knowledge among age groups.",
+          "page": 8,
+          "section": "4. Discussion and conclusion",
+          "paragraph": "4",
+          "claim_location": {
+            "page": 8,
+            "section": "4. Discussion and conclusion",
+            "paragraph": "4"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-CAIN-AGE-BEHAVIOR-KNOWLEDGE-001",
+          "fact": "Cain et al. found that the 45–54 and 55+ age groups had more secure behaviors than the 18–24 age group.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-AGE-BEHAVIOR-KNOWLEDGE-001"
+        },
+        {
+          "fact_id": "VF-CAIN-AGE-BEHAVIOR-KNOWLEDGE-002",
+          "fact": "Cain et al. found no significant differences in cyber hygiene knowledge among age groups.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-AGE-BEHAVIOR-KNOWLEDGE-002"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-CAIN-2018"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 6, Sections 3.1 and 3.2 for the age behavior and knowledge results, and page 8, Section 4, paragraph 4 for the discussion interpretation."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "research_finding",
+        "must_include": [
+          "older groups reported more secure behavior than the youngest group",
+          "no cyber hygiene knowledge difference was found among age groups",
+          "the result is from Cain et al.'s sample"
+        ],
+        "avoid_claims": [
+          "Older users are always more secure than younger users",
+          "Younger users are worse at cybersecurity in general",
+          "Age causes cyber hygiene behavior differences",
+          "This finding applies to all populations"
+        ]
+      }
+    },
+    {
+      "id": "KU-CAIN-EXPLICIT-CUES-BETTER-TRAINING-001",
+      "title": "Cyber hygiene support should provide explicit security cues and better training",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "threat_ids": [
+        "THR-USER-NONCOMPLIANCE"
+      ],
+      "practice_ids": [
+        "PRA-ADDRESS-USER-BEHAVIOR"
+      ],
+      "claim": "Cain et al. argue that users need explicit security cues and better training, and that future research should determine how training can better communicate the benefits and costs of secure behavior.",
+      "explanation": "In the future directions section, Cain et al. connect ineffective training findings to the need for clearer cues and better training across age groups. They also argue that research should investigate information sources and how training communicates benefits and costs, because knowledge alone is only the first step toward improving cyber hygiene attitudes and behavior.",
+      "recommended_actions": [
+        "Provide explicit security cues when users need to behave securely.",
+        "Design cyber hygiene training to communicate the benefits and costs of secure behavior.",
+        "Evaluate the reliability and effectiveness of users' information sources.",
+        "Treat knowledge as a first step, not the final goal, when improving cyber hygiene behavior."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "How should cyber hygiene training be improved?",
+        "Why are explicit security cues useful for cyber hygiene?",
+        "Why is knowledge only the first step in cyber hygiene?",
+        "How can training better support secure behavior?",
+        "What future directions did Cain et al. suggest for cyber hygiene?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-CAIN-EXPLICIT-CUES-BETTER-TRAINING-001",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Clearly, we need to provide explicit security clues and better training to all age groups equally regardless of their experience.",
+          "page": 8,
+          "section": "5. Future directions",
+          "paragraph": "10",
+          "claim_location": {
+            "page": 8,
+            "section": "5. Future directions",
+            "paragraph": "10"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-CAIN-EXPLICIT-CUES-BETTER-TRAINING-001",
+          "fact": "Cain et al. state that explicit security clues and better training are needed for all age groups regardless of experience.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EXPLICIT-CUES-BETTER-TRAINING-001"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-CAIN-2018"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 8, Section 5 Future directions, paragraph 10, where explicit security clues and better training are recommended."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "design_guidance",
+        "must_include": [
+          "explicit security cues",
+          "better training",
+          "all age groups regardless of experience",
+          "knowledge is only a first step if using page 9 evidence"
+        ],
+        "avoid_claims": [
+          "Cain et al. provide a complete design specification for cyber hygiene assistants",
+          "Explicit cues alone guarantee secure behavior",
+          "Better training automatically solves cyber hygiene behavior"
         ]
       }
     }
