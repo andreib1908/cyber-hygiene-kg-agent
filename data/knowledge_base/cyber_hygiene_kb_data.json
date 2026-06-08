@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Cyber Hygiene Assistant Knowledge Base",
-    "version": "1.1",
+    "version": "1.2",
     "created_by": "Andrei Badea, s3012115",
     "description": "A curated knowledge base on cyber hygiene practices, threats, and source-grounded recommendations. The knowledge base supports a knowledge graph-grounded conversational agent and enables evaluation across validity, traceability, and stability.",
     "curation_notes": [
@@ -71,6 +71,24 @@
       "doi": "10.1016/j.jisa.2018.08.002",
       "url": "https://doi.org/10.1016/j.jisa.2018.08.002",
       "notes": "Survey and literature review that highlights user behavior in cyber hygiene and also defines threats such as phishing. They also talk about best practices."
+    },
+    {
+      "id": "SRC-BARAKOVIC-2023",
+      "citation_key": "barakovic_cyber_2023",
+      "authors": [
+        "Sabina Baraković",
+        "Jasmina Baraković Husić"
+      ],
+      "year": 2023,
+      "title": "Cyber hygiene knowledge, awareness, and behavioral practices of university students",
+      "venue": "Information Security Journal: A Global Perspective",
+      "volume": "32",
+      "number": "5",
+      "pages": "347--370",
+      "peer_reviewed": true,
+      "doi": "10.1080/19393555.2022.2088428",
+      "url": "https://doi.org/10.1080/19393555.2022.2088428",
+      "notes": "Peer-reviewed study on cyber hygiene knowledge, awareness, and behavioral practices among university students. Useful for strengthening knowledge-awareness-behavior KUs and findings about student cyber hygiene."
     }
   ],
 
@@ -182,12 +200,14 @@
     },
     {
       "id": "THR-INSECURE-CONNECTION",
-      "name": "Insecure connection",
-      "definition": "A network or website connection that does not provide sufficient protection for transmitted information.",
-      "related_categories": ["CAT-TRANSMISSION"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-CAIN-2018",
+        "SRC-BARAKOVIC-2023"
+      ],
       "support_status": "directly_supported",
-      "support_notes": "Karayel et al. directly link transmission hygiene to unknown or insecure wireless networks and websites without SSL security certificates. Cain et al. also state that using unsecured Wi-Fi hotspots can compromise a network and lead to password disclosure or malware download."    },
+      "support_notes": "Karayel et al. directly link transmission hygiene to unknown or insecure wireless networks and websites without SSL security certificates. Cain et al. state that using unsecured Wi-Fi hotspots can compromise a network. Baraković and Baraković Husić report that many students use public Wi-Fi networks and show uncertainty about password-protected Wi-Fi safety and default Wi-Fi traffic encryption."
+    },
     {
       "id": "THR-MAN-IN-THE-MIDDLE",
       "name": "Man-in-the-middle attack",
@@ -781,6 +801,20 @@
       "source_ids": [
         "SRC-CAIN-2018"
       ]
+    },
+    {
+      "id": "PRA-USE-SAFE-DOWNLOAD-LINKS",
+      "name": "Use checked and safe download links",
+      "description": "Users should prefer checked and safe links when downloading software or applications on computers or smartphones.",
+      "category_id": "CAT-STORAGE-DEVICE",
+      "mitigates": [
+        "THR-MALWARE-INFECTION",
+        "THR-MALICIOUS-CODE",
+        "THR-UNPATCHED-SOFTWARE"
+      ],
+      "source_ids": [
+        "SRC-BARAKOVIC-2023"
+      ]
     }
   ],
 
@@ -1025,6 +1059,36 @@
             "section": "1.1 Statement of the problem",
             "paragraph": "2"
           }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-HUMAN-FACTORS-001",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "contextual",
+          "exact_supporting_text": "Cybersecurity behavior has become the focus of both academics and practitioners due to individual engagement generally and with cyber protection tools particularly.",
+          "page": 6,
+          "section": "2. Related work",
+          "paragraph": "6",
+          "claim_location": {
+            "page": 6,
+            "section": "2. Related work",
+            "paragraph": "6"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-HUMAN-FACTORS-002",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "contextual",
+          "exact_supporting_text": "The results indicate that machine features associated with human behavior were related to the number of malwares found on their host machines.",
+          "page": 6,
+          "section": "2. Related work",
+          "paragraph": "6",
+          "claim_location": {
+            "page": 6,
+            "section": "2. Related work",
+            "paragraph": "6"
+          }
         }
       ],
       "validity_facts": [
@@ -1063,7 +1127,8 @@
         "requires_citation": true,
         "acceptable_sources": [
           "SRC-KARAYEL-2024",
-          "SRC-CAIN-2018"
+          "SRC-CAIN-2018",
+          "SRC-BARAKOVIC-2023"
         ],
         "citation_granularity": "section_or_paragraph",
         "minimum_traceability_requirement": "The answer should cite Karayel et al. (2024) or Cain et al. (2018) and should be traceable to the Introduction section discussing technical measures, individual behavior, and human factors."
@@ -1221,6 +1286,66 @@
             "section": "Table 1. Final CHI items, and the original items",
             "paragraph": "table row 29"
           }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-AUTH-001",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Authentication and credential hygiene describe activities related to use of secure browsers, changing of default username and passwords, managing how browser stores passwords, etc.",
+          "page": 5,
+          "section": "2. Related work",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 5,
+            "section": "2. Related work",
+            "paragraph": "5"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-AUTH-002",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "It was found that lax security behavior included password reuse, lack of knowledge about the (in)secure passwords, sharing or writing down the passwords.",
+          "page": 5,
+          "section": "2. Related work",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 5,
+            "section": "2. Related work",
+            "paragraph": "5"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-AUTH-003",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Furthermore, Florêncio et al. (2007) found out that strong passwords did not protect the online users from password stealing attacks, such as keylogging and phishing. Weak passwords invited brute-force attack.",
+          "page": 5,
+          "section": "2. Related work",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 5,
+            "section": "2. Related work",
+            "paragraph": "5"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-AUTH-004",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Moreover, multi-factor authentication has appeared as an alternative practice to enhance security by requesting the user to provide more than one authentication factor contrary to only a password.",
+          "page": 5,
+          "section": "2. Related work",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 5,
+            "section": "2. Related work",
+            "paragraph": "5"
+          }
         }
       ],
       "validity_facts": [
@@ -1277,13 +1402,38 @@
           "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes creating new and unique logins and passwords for each account.",
           "source_id": "SRC-VISHWANATH-2020",
           "evidence_id": "EVID-VISHWANATH-AUTH-005"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-AUTH-001",
+          "fact": "Baraković and Baraković Husić describe authentication and credential hygiene as including secure browsers, changing default usernames and passwords, and managing browser-stored passwords.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-AUTH-001"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-AUTH-002",
+          "fact": "Baraković and Baraković Husić cite prior work finding that lax security behavior included password reuse, lack of knowledge about insecure passwords, sharing passwords, and writing passwords down.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-AUTH-002"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-AUTH-003",
+          "fact": "Baraković and Baraković Husić cite prior work stating that strong passwords did not protect users from password-stealing attacks such as keylogging and phishing, while weak passwords invited brute-force attack.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-AUTH-003"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-AUTH-004",
+          "fact": "Baraković and Baraković Husić describe multifactor authentication as an alternative practice that enhances security by requiring more than one authentication factor.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-AUTH-004"
         }
       ],
       "traceability": {
         "requires_citation": true,
         "acceptable_sources": [
           "SRC-KARAYEL-2024",
-          "SRC-VISHWANATH-2020"
+          "SRC-VISHWANATH-2020",
+          "SRC-BARAKOVIC-2023"
         ],
         "citation_granularity": "table_or_section",
         "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020 and should be traceable to Karayel et al.'s Table 2/Section 4.3 discussion or Vishwanath et al.'s Table 1, where changing default usernames/passwords, managing browser-stored passwords, creating new and unique logins/passwords, and enabling two-factor or multifactor authentication are listed."
@@ -1301,7 +1451,8 @@
         "avoid_claims": [
           "Vishwanath et al. retained complex usernames and passwords as a final CHI item",
           "Managing browser-stored passwords eliminates credential risk",
-          "Unique passwords alone are sufficient account protection"
+          "Unique passwords alone are sufficient account protection",
+          "Strong passwords alone protect users from all password-stealing attacks"
         ]
       }
     },
@@ -1448,7 +1599,7 @@
         "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS"
       ],
       "claim": "Email and messaging hygiene involves checking email subjects, incoming email headers, sender domains, hyperlinks or attachments from unknown senders, and the spelling and grammar of email requests. Karayel et al. link email and messaging hygiene to caution against phishing, e-fraud, and social engineering attempts.",
-      "explanation": "Remote workers rely heavily on email and messaging platforms for communication. Karayel et al. identify email and messaging hygiene as an important cyber hygiene subdimension for preventing phishing, e-fraud, and social engineering-related attacks. Vishwanath et al.'s Cyber Hygiene Inventory further lists checking incoming email headers, sender email domain names, hyperlinks or attachments from unknown senders, and grammatical or typographical errors as email and messaging hygiene items. Cain et al. (2018) explains phishing in a bit more detail.",
+      "explanation": "Email and messaging hygiene includes checking sender domains, email headers, links, attachments, and grammatical or typographical errors. Baraković and Baraković Husić also connect these practices to phishing avoidance and cite prior work suggesting that both conceptual and procedural knowledge can improve phishing threat avoidance behavior.",
       "recommended_actions": [
         "Check the subject of incoming emails for suspicious or unexpected requests.",
         "Check the header of incoming emails as part of email and messaging hygiene.",
@@ -1633,6 +1784,51 @@
             "section": "3. Results",
             "paragraph": "7"
           }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-EMAIL-MESSAGING-001",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "E-Mail and messaging hygiene includes practices such as creating a separate backup of all files on a backup disc, checking an incoming e-mail’s header, checking sender’s e-mail domain name, checking to see if e-mail requests have grammatical or typographical errors, etc.",
+          "page": 6,
+          "section": "2. Related work",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 6,
+            "section": "2. Related work",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-EMAIL-MESSAGING-002",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Some of those practices can help to avoid phishing attacks, so Dodge et al. (2007) organized phishing exercises served to give an insight into the level of awareness and concentrate to the awareness training.",
+          "page": 6,
+          "section": "2. Related work",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 6,
+            "section": "2. Related work",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-EMAIL-MESSAGING-003",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "The combination of conceptual and procedural knowledge positively impacts self-efficiency which improved phishing threat avoidance behavior.",
+          "page": 6,
+          "section": "2. Related work",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 6,
+            "section": "2. Related work",
+            "paragraph": "2"
+          }
         }
       ],
       "validity_facts": [
@@ -1731,6 +1927,24 @@
           "fact": "Cain et al. report that 94% of users sent sensitive information over email when a sender requested it.",
           "source_id": "SRC-CAIN-2018",
           "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-004"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-EMAIL-MESSAGING-001",
+          "fact": "Baraković and Baraković Husić describe email and messaging hygiene as including backups, checking email headers, checking sender domain names, and checking for grammatical or typographical errors.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-EMAIL-MESSAGING-001"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-EMAIL-MESSAGING-002",
+          "fact": "Baraković and Baraković Husić state that some email and messaging hygiene practices can help avoid phishing attacks.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-EMAIL-MESSAGING-002"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-EMAIL-MESSAGING-003",
+          "fact": "Baraković and Baraković Husić cite prior work indicating that conceptual and procedural knowledge improved phishing threat avoidance behavior.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-EMAIL-MESSAGING-003"
         }
       ],
       "traceability": {
@@ -1738,7 +1952,8 @@
         "acceptable_sources": [
           "SRC-KARAYEL-2024",
           "SRC-VISHWANATH-2020",
-          "SRC-CAIN-2018"
+          "SRC-CAIN-2018",
+          "SRC-BARAKOVIC-2023"
         ],
         "citation_granularity": "table_or_section",
         "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020. Claims linking email and messaging hygiene to phishing, e-fraud, or social engineering should be traceable to Karayel et al.'s Table 2 and Section 4.3 discussion. Claims about checking incoming email headers, sender email domain names, hyperlinks or attachments from unknown senders, and grammatical or typographical errors should be traceable to Vishwanath et al.'s Table 1. Cain et al. (2018) had also identified email cyber hygiene (look at the provided evidence)."
@@ -1754,7 +1969,11 @@
           "phishing",
           "e-fraud",
           "social engineering",
-          "Cain et al. found poor phishing-related cyber hygiene behaviors in their sample"
+          "Cain et al. found poor phishing-related cyber hygiene behaviors in their sample",
+          "checking incoming email headers",
+          "checking sender email domain names",
+          "checking grammatical or typographical errors",
+          "conceptual and procedural knowledge can support phishing avoidance"
         ],
         "avoid_claims": [
           "All phishing emails contain spelling mistakes",
@@ -1766,7 +1985,10 @@
           "Cain et al. prove that users can always detect phishing by hovering links",
           "All urgent emails are phishing",
           "Phishing always contains grammar mistakes",
-          "Do not generalize Cain et al.'s phishing percentages to all users or all populations"
+          "Do not generalize Cain et al.'s phishing percentages to all users or all populations",
+          "Email checks alone guarantee phishing avoidance",
+          "Conceptual knowledge alone is sufficient to prevent phishing",
+          "All phishing emails contain grammatical or typographical errors"
         ]
       }
     },
@@ -1781,14 +2003,17 @@
         "PRA-CHECK-SSL-CERTIFICATE",
         "PRA-CHECK-BROWSER-LOCK"
       ],
-      "claim": "Transmission hygiene involves checking SSL certificate quality and the browser lock icon to reduce risky behavior when using websites or networks that may not provide secure connections.",
-      "explanation": "Karayel et al. describe transmission hygiene as cyber hygiene behavior related to connections with unknown or insecure wireless networks. They also associate browsing and transmission hygiene with avoiding websites that lack SSL security certificates. Vishwanath et al.'s Cyber Hygiene Inventory additionally includes other transmission and browsing hygiene practices, such as VPN use on free or public Wi-Fi, encrypted online password vaults, and online alerts for personal information.",      
+      "claim": "Transmission hygiene involves checking secure website indicators such as SSL certificate quality and the browser lock icon, and being cautious with unknown, public, unsecured, or merely password-protected Wi-Fi networks, especially when performing sensitive activities.",
+      "explanation": "Karayel et al. and Vishwanath et al. associate transmission and browsing hygiene with secure website connections, SSL indicators, and risks from unknown or insecure wireless networks. Baraković and Baraković Husić add student survey evidence showing that many students use public Wi-Fi and that awareness and knowledge about Wi-Fi safety and encryption are incomplete: only about half recognized that password-required Wi-Fi networks are not safe for sensitive activities, and only 16.3% correctly answered that Wi-Fi traffic is not encrypted by default on all wireless routers.",
       "recommended_actions": [
         "Check whether a website has a valid SSL certificate before entering sensitive information.",
         "Check for the browser lock icon when assessing whether a website connection appears secured.",
         "Be cautious when connecting to unknown or insecure wireless networks.",
-        "Avoid entering sensitive information on websites that lack SSL security indicators."
-      ],
+        "Avoid entering sensitive information on websites that lack SSL security indicators.",
+        "Be cautious when using public or free Wi-Fi networks.",
+        "Do not assume a Wi-Fi network is safe for sensitive activities just because it requires a password.",
+        "Do not assume all Wi-Fi traffic is encrypted by default on wireless routers."
+        ],
       "evidence_strength": "high",
       "question_templates": [
         "What is transmission hygiene?",
@@ -1872,6 +2097,81 @@
             "section": "Table 1. Final CHI items, and the original items",
             "paragraph": "table row 3"
           }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-TRANSMISSION-001",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Transmission and browsing hygiene is associated with internet connections, since users are unaware of the risks related to connecting to an unknown or unsecure wireless-fidelity (Wi-Fi) network or leaving Wi-Fi turned on the whole time.",
+          "page": 5,
+          "section": "2. Related work",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 5,
+            "section": "2. Related work",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-TRANSMISSION-002",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Good practices include using virtual private network (VPN) while using a public Wi-Fi network, checking the quality of the secure socket layer (SSL) certificate, and checking the lock icon on the web browser.",
+          "page": 5,
+          "section": "2. Related work",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 5,
+            "section": "2. Related work",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-TRANSMISSION-BEHAVIOR-001",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Results show that 60.3% of participants use public Wi-Fi networks that are available and free, 49.1% use password protected public Wi-Fi networks, and 37.7% use Wi-Fi networks that are familiar to them.",
+          "page": 14,
+          "section": "4. Results",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 14,
+            "section": "4. Results",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-TRANSMISSION-AWARENESS-001",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "In terms of security awareness, it is concerning that only half of participants stated that it is not safe to use Wi-Fi networks which require access password for sensitive activities (Q15). The big issue is that almost 41% of participants are not sure.",
+          "page": 14,
+          "section": "4. Results",
+          "paragraph": "4",
+          "claim_location": {
+            "page": 14,
+            "section": "4. Results",
+            "paragraph": "4"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-TRANSMISSION-KNOWLEDGE-001",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Namely, two thirds of participants stated that they are not sure (59.3%) whether all Wi-Fi traffic is encrypted by default on all wireless routers (Q16) and that it is (24.4%). Only 16.3% answered correctly, that it is not encrypted.",
+          "page": 14,
+          "section": "4. Results",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 14,
+            "section": "4. Results",
+            "paragraph": "5"
+          }
         }
       ],
       "validity_facts": [
@@ -1910,16 +2210,47 @@
           "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes checking the lock icon.",
           "source_id": "SRC-VISHWANATH-2020",
           "evidence_id": "EVID-VISHWANATH-TRANSMISSION-002"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-TRANSMISSION-001",
+          "fact": "Baraković and Baraković Husić associate transmission and browsing hygiene with risks from unknown or unsecured Wi-Fi networks and leaving Wi-Fi turned on.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-TRANSMISSION-001"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-TRANSMISSION-002",
+          "fact": "Baraković and Baraković Husić list VPN use on public Wi-Fi, checking SSL certificate quality, and checking the browser lock icon as good transmission and browsing hygiene practices.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-TRANSMISSION-002"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-TRANSMISSION-BEHAVIOR-001",
+          "fact": "Baraković and Baraković Husić report that 60.3% of participants used free available public Wi-Fi networks, 49.1% used password-protected public Wi-Fi networks, and 37.7% used familiar Wi-Fi networks.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-TRANSMISSION-BEHAVIOR-001"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-TRANSMISSION-AWARENESS-001",
+          "fact": "Baraković and Baraković Husić report that only about half of participants stated that password-required Wi-Fi networks are not safe for sensitive activities, while almost 41% were unsure.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-TRANSMISSION-AWARENESS-001"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-TRANSMISSION-KNOWLEDGE-001",
+          "fact": "Baraković and Baraković Husić report that only 16.3% of participants correctly answered that Wi-Fi traffic is not encrypted by default on all wireless routers.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-TRANSMISSION-KNOWLEDGE-001"
         }
       ],
       "traceability": {
         "requires_citation": true,
         "acceptable_sources": [
           "SRC-KARAYEL-2024",
-          "SRC-VISHWANATH-2020"
+          "SRC-VISHWANATH-2020",
+          "SRC-BARAKOVIC-2023"
         ],
         "citation_granularity": "table_or_section",
-        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020 and should be traceable to Karayel et al.'s Table 2/Section 4.3 discussion or Vishwanath et al.'s Table 1, where SSL certificate and browser lock icon practices are listed."
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020 and should be traceable to Karayel et al.'s Table 2/Section 4.3 discussion or Vishwanath et al.'s Table 1, where SSL certificate and browser lock icon practices are listed. Vishwanath and Barakovic are also utilized in evidence."
       },
       "agent_answer_guidance": {
         "answer_style": "practical_advice",
@@ -1927,13 +2258,23 @@
           "check SSL certificate quality",
           "check browser lock icon",
           "unknown or insecure wireless networks",
-          "websites without SSL security certificates"
+          "websites without SSL security certificates",
+          "public Wi-Fi use",
+          "password-protected Wi-Fi does not automatically mean safe for sensitive activities",
+          "Wi-Fi traffic is not encrypted by default on all wireless routers",
+          "SSL certificate quality",
+          "browser lock icon"
         ],
         "avoid_claims": [
           "The browser lock icon guarantees that a website is safe",
           "SSL certificates eliminate all transmission risk",
           "Transmission hygiene only applies to public Wi-Fi",
-          "Checking SSL certificates alone is sufficient for secure browsing"
+          "Checking SSL certificates alone is sufficient for secure browsing",
+          "Password-protected Wi-Fi is always safe for banking or sensitive activities",
+          "All Wi-Fi traffic is encrypted by default",
+          "Public Wi-Fi is always unsafe for every activity",
+          "Using a familiar Wi-Fi network eliminates transmission risk",
+          "Survey percentages from Baraković and Baraković Husić apply to all students globally"
         ]
       }
     },
@@ -1950,7 +2291,7 @@
         "PRA-SET-PERSONAL-INFO-ALERTS"
       ],
       "claim": "Vishwanath et al.'s Cyber Hygiene Inventory includes additional transmission and browsing hygiene practices such as using a VPN on free or public Wi-Fi, storing logins and passwords in encrypted online password vaults, and placing online alerts for one's name or personal information.",
-      "explanation": "In the Cyber Hygiene Inventory, Vishwanath et al. include several practices under transmission and browsing hygiene beyond checking SSL indicators. These include VPN use on free or public Wi-Fi, encrypted online password vault use, and online alerts for personal information. These items should be treated as source-listed CHI practices, while their detailed threat mappings may require additional sources.",
+      "explanation": "In the Cyber Hygiene Inventory, Vishwanath et al. include several practices under transmission and browsing hygiene beyond checking SSL indicators. These include VPN use on free or public Wi-Fi, encrypted online password vault use, and online alerts for personal information. These items should be treated as source-listed CHI practices, while their detailed threat mappings may require additional sources. Baraković and Baraković Husić's results also suggest that users may misunderstand Wi-Fi encryption and the safety of password-required Wi-Fi networks, which provides context for VPN guidance on public Wi-Fi.",
       "recommended_actions": [
         "Use a VPN when using free or public Wi-Fi.",
         "Store logins and passwords in encrypted online password vaults.",
@@ -2077,8 +2418,8 @@
         "PRA-CHECK-DEVICE-UPDATES",
         "PRA-MONITOR-DEVICE-USAGE"
       ],
-      "claim": "Storage and device hygiene involves conducting virus scans, backing up important files, keeping virus protection and device software up to date, enabling firewalls, checking device updates, monitoring device usage, and securely storing data.",
-      "explanation": "Karayel et al. describe storage and device hygiene as cyber hygiene behavior related to the configuration and security of digital devices. This includes scanning devices for viruses, backing up important files, keeping protection software updated, and securely storing data. Vishwanath et al.'s Cyber Hygiene Inventory additionally includes enabling firewalls, checking for operating system or software updates, keeping virus protection updated, and monitoring CPU, power, or network usage.",
+      "claim": "Storage and device hygiene involves conducting virus scans, backing up important files, keeping virus protection and device software up to date, enabling firewalls, checking device updates, monitoring device usage, securely storing data, and using checked or safe download links for software and applications.",
+      "explanation": "Karayel et al. describe storage and device hygiene as cyber hygiene behavior related to the configuration and security of digital devices, including scanning storage devices, backing up important files, keeping protection software updated, and securely storing data. Vishwanath et al.'s Cyber Hygiene Inventory additionally includes enabling firewalls, checking for operating system or software updates, keeping virus protection updated, and monitoring CPU, power, or network usage. Baraković and Baraković Husić add student-behavior evidence showing that scanning downloaded files and used devices is common among surveyed students, while backup behavior and download-link safety remain concerning.",
       "recommended_actions": [
         "Conduct virus scans or security scans on storage devices.",
         "Back up important files.",
@@ -2086,7 +2427,10 @@
         "Check whether devices have the latest operating system, software update, or patch.",
         "Enable firewalls on computing devices.",
         "Monitor device processes such as CPU, power, and network usage.",
-        "Securely store data, including physical and cloud-based information."
+        "Securely store data, including physical and cloud-based information.",
+        "Run antivirus scans on storage devices",
+        "Use checked and safe links when downloading software or applications.",
+        "Do not rely only on occasional backups; maintain a regular backup routine."
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -2306,6 +2650,96 @@
             "section": "4. Discussion and conclusion",
             "paragraph": "3"
           }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-001",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Examples of good hygiene involve running virus scan on any storage device, maintaining a backup of all important files, ensuring that device has latest operating system, and keeping the virus protection and software updated.",
+          "page": 5,
+          "section": "2. Related work",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 5,
+            "section": "2. Related work",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-002",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "contextual",
+          "exact_supporting_text": "Users are familiar with general threats, whereas they have poor knowledge of complex threats. The same is true for the use of security features.",
+          "page": 5,
+          "section": "2. Related work",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 5,
+            "section": "2. Related work",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-001",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "The results show that most users (regardless of being male or female, or BSc or MSc students) use desktop or laptop computers (96.3%) and smartphones (96.1%) to access the Internet.",
+          "page": 9,
+          "section": "4. Results",
+          "paragraph": "4",
+          "claim_location": {
+            "page": 9,
+            "section": "4. Results",
+            "paragraph": "4"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-002",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Furthermore, most of participants are aware of the dangers posed by downloaded files and used devices since 59% of them scan both, while 9.6% scan files only and 5.6% scan devices only.",
+          "page": 13,
+          "section": "4. Results",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 13,
+            "section": "4. Results",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-003",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Results regarding data backups are concerning, since almost one third of participants never perform backups, while only one third of participants perform them once a month.",
+          "page": 13,
+          "section": "4. Results",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 13,
+            "section": "4. Results",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-004",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "The same situation is with links used for software and application download on computers and smartphones.",
+          "page": 13,
+          "section": "4. Results",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 13,
+            "section": "4. Results",
+            "paragraph": "3"
+          }
         }
       ],
       "validity_facts": [
@@ -2416,6 +2850,42 @@
           "fact": "Cain et al. found that most users used a firewall, but did not change firewall settings when needed.",
           "source_id": "SRC-CAIN-2018",
           "evidence_id": "EVID-CAIN-STORAGE-DEVICE-006"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-STORAGE-DEVICE-001",
+          "fact": "Baraković and Baraković Husić describe storage and device hygiene examples including virus scans, backups, latest operating systems, and updated virus protection/software.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-001"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-STORAGE-DEVICE-002",
+          "fact": "Baraković and Baraković Husić note that users may know general threats while having poor knowledge of complex threats and security features.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-002"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-001",
+          "fact": "Baraković and Baraković Husić report that most surveyed students used desktop or laptop computers and smartphones to access the Internet.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-001"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-002",
+          "fact": "Baraković and Baraković Husić report that 59% of participants scanned both downloaded files and used devices.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-002"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-003",
+          "fact": "Baraković and Baraković Husić report that almost one third of participants never performed backups, while only one third performed backups once a month.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-003"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-004",
+          "fact": "Baraković and Baraković Husić report concerning results for links used for software and application downloads on computers and smartphones.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-004"
         }
       ],
       "traceability": {
@@ -2423,10 +2893,11 @@
         "acceptable_sources": [
           "SRC-KARAYEL-2024",
           "SRC-VISHWANATH-2020",
-          "SRC-CAIN-2018"
+          "SRC-CAIN-2018",
+          "SRC-BARAKOVIC-2023"
         ],
         "citation_granularity": "table_or_section",
-        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020 and should be traceable to Karayel et al.'s Table 2/RQ4 discussion or Vishwanath et al.'s Table 1, where storage and device hygiene practices such as virus scans, backups, firewalls, operating system or software updates, virus protection updates, device software updates, secure data storage, and device usage monitoring are listed."
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020 and should be traceable to Karayel et al.'s Table 2/RQ4 discussion or Vishwanath et al.'s Table 1, where storage and device hygiene practices such as virus scans, backups, firewalls, operating system or software updates, virus protection updates, device software updates, secure data storage, and device usage monitoring are listed. Barakovic et al. (2023) also support this claim."
       },
       "agent_answer_guidance": {
         "answer_style": "practical_advice",
@@ -2439,7 +2910,10 @@
           "monitoring CPU, power, or network usage",
           "secure data storage",
           "up-to-date antivirus software",
-          "regular virus scans"
+          "regular virus scans",
+          "scanning downloaded files and used devices",
+          "regular backups",
+          "checked and safe software or application download links"
         ],
         "avoid_claims": [
           "Antivirus software alone is enough for storage and device hygiene",
@@ -2449,7 +2923,10 @@
           "Firewalls eliminate all device security risk",
           "Monitoring CPU, power, or network usage proves a device is infected",
           "Vishwanath et al. directly state that device monitoring prevents malware",
-          "Cain et al.'s age-group percentages should not be generalized to all users without qualification"
+          "Cain et al.'s age-group percentages should not be generalized to all users without qualification",
+          "Baraković and Baraković Husić prove that monthly backups are sufficient",
+          "Using checked download links eliminates malware risk",
+          "Survey percentages from Baraković and Baraković Husić apply to all university students globally"
         ]
       }
     },
@@ -3157,6 +3634,36 @@
             "section": "Table 1. Final CHI items, and the original items",
             "paragraph": "table row 39"
           }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-SOCIAL-MEDIA-001",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Some examples include assessing the authenticity of social media friend/information requests, knowing who you are connected to on social media, reassessing social/media friends/connection, managing privacy settings on social media platforms, ensuring the location information is not leaked in posts, etc.",
+          "page": 5,
+          "section": "2. Related work",
+          "paragraph": "4",
+          "claim_location": {
+            "page": 5,
+            "section": "2. Related work",
+            "paragraph": "4"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-SOCIAL-MEDIA-002",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "contextual",
+          "exact_supporting_text": "Modification of user behavior is demanding and requires embedded trainings which must consider perception of security support, preferential notification, information load, etc.",
+          "page": 5,
+          "section": "2. Related work",
+          "paragraph": "4",
+          "claim_location": {
+            "page": 5,
+            "section": "2. Related work",
+            "paragraph": "4"
+          }
         }
       ],
       "validity_facts": [
@@ -3189,15 +3696,28 @@
           "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes making sure location information is not leaked in social media posts.",
           "source_id": "SRC-VISHWANATH-2020",
           "evidence_id": "EVID-VISHWANATH-SOCIAL-MEDIA-005"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-SOCIAL-MEDIA-001",
+          "fact": "Baraković and Baraković Husić list social media hygiene examples including evaluating friend or information requests, knowing and reassessing social media connections, managing privacy settings, and preventing location leakage in posts.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-SOCIAL-MEDIA-001"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-SOCIAL-MEDIA-002",
+          "fact": "Baraković and Baraković Husić note that modifying user behavior is demanding and may require embedded training that considers security support, notification preferences, and information load.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-SOCIAL-MEDIA-002"
         }
       ],
       "traceability": {
         "requires_citation": true,
         "acceptable_sources": [
-          "SRC-VISHWANATH-2020"
+          "SRC-VISHWANATH-2020",
+          "SRC-BARAKOVIC-2023"
         ],
         "citation_granularity": "table_row",
-        "minimum_traceability_requirement": "The answer should cite Vishwanath et al. 2020 and should be traceable to Table 1, where social media hygiene practices such as assessing request authenticity, knowing and reassessing connections, managing privacy settings, and preventing location leaks are listed."
+        "minimum_traceability_requirement": "The answer should cite Vishwanath et al. 2020 and should be traceable to Table 1, where social media hygiene practices such as assessing request authenticity, knowing and reassessing connections, managing privacy settings, and preventing location leaks are listed. Barakovic et al. (2023) is also mentionting social media cyber security."
       },
       "agent_answer_guidance": {
         "answer_style": "practical_advice",
@@ -3772,6 +4292,21 @@
             "section": "3.7 Expert and behavior; 3.8 Experts and knowledge",
             "paragraph": "3-4"
           }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-CYBER-HYGIENE-MATTERS-001",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Personal data is valuable and vulnerable to individuals who have wrong intentions as any other possessions. This can be mitigated by good cyber hygiene habits.",
+          "page": 2,
+          "section": "Abstract",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 2,
+            "section": "Abstract",
+            "paragraph": "1"
+          }
         }
       ],
       "validity_facts": [
@@ -3792,6 +4327,12 @@
           "fact": "Cain et al. surveyed participants about cyber hygiene knowledge of concepts, knowledge of threats, and behaviors.",
           "source_id": "SRC-CAIN-2018",
           "evidence_id": "EVID-CAIN-KNOWLEDGE-BEHAVIOR-003"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-CYBER-HYGIENE-MATTERS-001",
+          "fact": "Baraković and Baraković Husić state that personal data is valuable and vulnerable, and that good cyber hygiene habits can mitigate this vulnerability.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-CYBER-HYGIENE-MATTERS-001"
         }
       ],
       "traceability": {
@@ -4895,6 +5436,525 @@
           "Cain et al. provide a complete design specification for cyber hygiene assistants",
           "Explicit cues alone guarantee secure behavior",
           "Better training automatically solves cyber hygiene behavior"
+        ]
+      }
+    },
+    {
+      "id": "KU-BARAKOVIC-STUDENT-KNOWLEDGE-AWARENESS-BEHAVIOR-001",
+      "title": "University students may show acceptable cyber hygiene behavior while having low awareness and knowledge",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "threat_ids": [
+        "THR-USER-NONCOMPLIANCE",
+        "THR-PRIVACY-EXPOSURE"
+      ],
+      "practice_ids": [
+        "PRA-ADDRESS-USER-BEHAVIOR"
+      ],
+      "claim": "Baraković and Baraković Husić frame cyber hygiene through knowledge, awareness, and behavioral practices, and found that these outcomes are related only in some cases rather than uniformly across all cyber hygiene topics.",
+      "explanation": "The study treats cyber hygiene knowledge, awareness, and behavior as separate but related outcomes. Baraković and Baraković Husić found partial relations among them: some behavior-awareness, behavior-knowledge, and awareness-knowledge associations were statistically significant, while others were not. This supports evaluating these outcomes separately instead of assuming that knowledge, awareness, and behavior always move together.",      
+      "recommended_actions": [
+        "Assess cyber hygiene knowledge, awareness, and behavior separately.",
+        "Do not assume acceptable cyber hygiene behavior means users have satisfactory awareness or knowledge.",
+        "Use cyber hygiene guidance to explain both what should be done and why it matters.",
+        "Support users in turning knowledge and awareness into consistent behavioral practice.",
+        "Assess cyber hygiene knowledge, awareness, and behavior separately.",
+        "Do not assume that cyber hygiene knowledge automatically produces secure behavior.",
+        "Do not assume that cyber hygiene awareness is uniformly associated with every behavior.",
+        "Use cyber hygiene guidance to connect what users know, what they recognize as risky, and what they actually do.",
+        "Treat observed relations between knowledge, awareness, and behavior as topic-specific rather than universal.",
+        "Use cyber hygiene guidance to help convert cybersecurity awareness into behavioral practices."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "Can users have acceptable cyber hygiene behavior but low knowledge?",
+        "Why should cyber hygiene measure knowledge, awareness, and behavior separately?",
+        "What did Baraković and Baraković Husić find about university students' cyber hygiene?",
+        "Are cyber hygiene knowledge and behavior the same thing?",
+        "Why is cyber hygiene awareness important?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-001",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "The main aim of this paper is to evaluate, analyze, and understand the level of cyber hygiene knowledge, awareness, and behavioral practices of university students and their mutual relations.",
+          "page": 2,
+          "section": "Abstract",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 2,
+            "section": "Abstract",
+            "paragraph": "1"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-002",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Results show that students have acceptable cyber hygiene behavior, but their awareness is not satisfactory, and their knowledge is quite low.",
+          "page": 2,
+          "section": "Abstract",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 2,
+            "section": "Abstract",
+            "paragraph": "1"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-003",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Also, the study shows the existence of some relations between gender and current education level and cyber hygiene knowledge, awareness, and behavior, as well as mutual interplay and relations between those cyber hygiene outcomes.",
+          "page": 2,
+          "section": "Abstract",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 2,
+            "section": "Abstract",
+            "paragraph": "1"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-004",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "It is common view that user cyber hygiene can be measured by three user-oriented factors, i.e., knowledge, awareness, and behavior.",
+          "page": 6,
+          "section": "2. Related work",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 6,
+            "section": "2. Related work",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-005",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Knowledge and awareness refer to cognitive factors of knowledge and understanding, respectively, whereas behavioral practices are related to factor of use.",
+          "page": 6,
+          "section": "2. Related work",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 6,
+            "section": "2. Related work",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-006",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Good cyber hygiene is based on these three factors: when educated users are aware of what must be done, they implement it when necessary.",
+          "page": 6,
+          "section": "2. Related work",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 6,
+            "section": "2. Related work",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-007",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Tables 5–7 show the summaries of Chi-square test results related to relations of gender and current education level and cyber hygiene knowledge, awareness, and behavior organized by cyber hygiene dimensions.",
+          "page": 9,
+          "section": "4. Results",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 9,
+            "section": "4. Results",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-008",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Tables 8–10 cover results related to mutual interplay and relations between cyber hygiene knowledge, awareness, and behavioral practices obtained by conducting Chi-square test as well.",
+          "page": 9,
+          "section": "4. Results",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 9,
+            "section": "4. Results",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-009",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Research results show that university students in Bosnia and Herzegovina have relatively acceptable cyber hygiene behavior, but their awareness of cyber hygiene is not satisfactory, as well as their knowledge, which is quite low.",
+          "page": 22,
+          "section": "6. Conclusion",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 22,
+            "section": "6. Conclusion",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-KAB-RELATIONS-001",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "The results of Chi-square test are given in Table 8. The results show the statistically significant association between computer sharing behavioral practices and awareness to enable security software on those devices and to use safe links on smartphones. Smartphone usage habits have statistically significant relation to awareness of smartphone software updating. Wi-Fi usage habits have statistically significant association with awareness on using Wi-Fi for mobile banking.",
+          "page": 17,
+          "section": "4. Results",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 17,
+            "section": "4. Results",
+            "paragraph": "1"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-KAB-RELATIONS-002",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Similar conclusion can be made regarding the relation between cyber hygiene behavioral practices and knowledge. This relation exists in some cases, but it needs to be examined in more detail in a focused study.",
+          "page": 17,
+          "section": "4. Results",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 17,
+            "section": "4. Results",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-KAB-RELATIONS-003",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Data collected under items Q3, Q6, and Q12 has not been analyzed due to the same reasons stated above. We have analyzed the existence of relation between computer (Q4) and smartphone (Q5) sharing habits and cyber hygiene knowledge items (Q11, Q16-Q19, Q21-26). Then, we have analyzed the relation between password creation and management behavior (Q9 and Q10) and relevant knowledge data (Q11), and Wi-Fi usage data (Q13 and Q14) and relevant knowledge data (Q16).",
+          "page": 17,
+          "section": "4. Results",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 17,
+            "section": "4. Results",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-KAB-RELATIONS-004",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Similar, after the analysis conducted by using Chi-square test with cyber hygiene awareness and knowledge items, one can conclude that the results indicate the partial existence of the relation.",
+          "page": 17,
+          "section": "4. Results",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 17,
+            "section": "4. Results",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-KAB-RELATIONS-005",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "There are statistically significant associations between awareness on Wi-Fi safety and correct answer on Q16-Q19 and Q23-24. Also, there are statistically significant associations between awareness on device and file checking and correct answer on Q11 and Q22.",
+          "page": 17,
+          "section": "4. Results",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 17,
+            "section": "4. Results",
+            "paragraph": "3"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-BARAKOVIC-STUDENT-KAB-001",
+          "fact": "Baraković and Baraković Husić studied cyber hygiene knowledge, awareness, and behavioral practices of university students and their mutual relations.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-001"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-STUDENT-KAB-002",
+          "fact": "Baraković and Baraković Husić report that students had acceptable cyber hygiene behavior, but awareness was not satisfactory and knowledge was quite low.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-002"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-STUDENT-KAB-003",
+          "fact": "Baraković and Baraković Husić report some relations between gender, education level, and cyber hygiene knowledge, awareness, and behavior.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-003"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-STUDENT-KAB-004",
+          "fact": "Baraković and Baraković Husić state that user cyber hygiene can be measured by knowledge, awareness, and behavior.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-004"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-STUDENT-KAB-005",
+          "fact": "Baraković and Baraković Husić describe knowledge and awareness as cognitive factors, while behavioral practices are related to use.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-005"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-STUDENT-KAB-006",
+          "fact": "Baraković and Baraković Husić state that good cyber hygiene is based on knowledge, awareness, and implementation when necessary.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-006"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-STUDENT-KAB-007",
+          "fact": "Baraković and Baraković Husić organize their results around cyber hygiene knowledge, awareness, and behavior across cyber hygiene dimensions.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-007"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-STUDENT-KAB-008",
+          "fact": "Baraković and Baraković Husić examine mutual interplay and relations between cyber hygiene knowledge, awareness, and behavioral practices.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-008"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-STUDENT-KAB-009",
+          "fact": "Baraković and Baraković Husić conclude that university students in Bosnia and Herzegovina had relatively acceptable cyber hygiene behavior, but unsatisfactory awareness and quite low knowledge.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-STUDENT-KAB-009"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-KAB-RELATIONS-001",
+          "fact": "Baraković and Baraković Husić found statistically significant associations between some cyber hygiene behavioral practices and awareness items.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-KAB-RELATIONS-001"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-KAB-RELATIONS-002",
+          "fact": "Baraković and Baraković Husić state that the relation between cyber hygiene behavioral practices and knowledge exists in some cases, but should be examined in more detail in a focused study.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-KAB-RELATIONS-002"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-KAB-RELATIONS-003",
+          "fact": "Baraković and Baraković Husić found partial existence of relations between cyber hygiene awareness and knowledge items.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-KAB-RELATIONS-004"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-KAB-RELATIONS-004",
+          "fact": "Baraković and Baraković Husić found statistically significant associations between Wi-Fi safety awareness and several cyber hygiene knowledge items.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-KAB-RELATIONS-005"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-KAB-RELATIONS-005",
+          "fact": "Baraković and Baraković Husić found statistically significant associations between device/file checking awareness and knowledge about secure passwords and two-factor authentication.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-KAB-RELATIONS-005"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-BARAKOVIC-2023"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite Baraković and Baraković Husić (2023), page 2, Abstract, paragraph 1, where the study aim and main results on student cyber hygiene knowledge, awareness, and behavior are stated."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "research_finding",
+        "must_include": [
+          "knowledge, awareness, and behavior are separate cyber hygiene outcomes",
+          "relations exist only in some cases",
+          "behavior-awareness relations were found for some topics",
+          "behavior-knowledge relations were found for some topics",
+          "awareness-knowledge relations were found for some topics",
+          "topic-specific relations should not be generalized to all cyber hygiene behavior"
+        ],
+        "avoid_claims": [
+          "Cyber hygiene knowledge always leads to secure behavior",
+          "Cyber hygiene awareness always leads to secure behavior",
+          "Cyber hygiene behavior always proves cyber hygiene knowledge",
+          "The relations found by Baraković and Baraković Husić apply equally to all cyber hygiene topics",
+          "The findings apply to all student populations globally"
+        ]
+      }
+    },
+    {
+      "id": "KU-BARAKOVIC-CYBER-HYGIENE-PROGRAM-RECOMMENDATIONS-001",
+      "title": "Cyber hygiene programs should combine proactive security practices with education and awareness development",
+      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+      "threat_ids": [
+        "THR-MALWARE-INFECTION",
+        "THR-PHISHING",
+        "THR-USER-NONCOMPLIANCE",
+        "THR-UNAUTHORIZED-ACCESS",
+        "THR-PRIVACY-EXPOSURE"
+      ],
+      "practice_ids": [
+        "PRA-UPDATE-PROTECTION-SOFTWARE",
+        "PRA-UPDATE-ANTIVIRUS",
+        "PRA-USE-STRONG-PASSWORDS",
+        "PRA-CREATE-COMPLEX-CREDENTIALS",
+        "PRA-ENABLE-MFA",
+        "PRA-BACKUP-FILES",
+        "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS",
+        "PRA-AVOID-SUSPICIOUS-SITES",
+        "PRA-ADDRESS-USER-BEHAVIOR"
+      ],
+      "claim": "Baraković and Baraković Husić recommend that cyber hygiene programs combine proactive technical and behavioral practices with education and training that improve knowledge, attitudes, awareness, and routine behavior.",
+      "explanation": "In the conclusion, Baraković and Baraković Husić describe practical implications for developing a cyber hygiene program and guidelines for both organizations and individuals. Their recommendations include limiting access to hardware or software, regular updates, antivirus or antimalware tools, complex password management, multifactor authentication, regular backups, avoiding suspicious sites and email attachments, and making cyber hygiene routine. They also emphasize educational programs that increase cyber hygiene knowledge, develop attitudes toward cybersecurity threats, convert awareness into behavioral practices, and share good cyber hygiene practices.",
+      "recommended_actions": [
+        "Update hardware and software regularly.",
+        "Use antivirus or antimalware tools.",
+        "Manage complex passwords.",
+        "Use multifactor authentication.",
+        "Back up data regularly.",
+        "Avoid suspicious sites and email attachments.",
+        "Make cyber hygiene part of routine behavior.",
+        "Use education and training to increase knowledge, develop threat-aware attitudes, and convert awareness into behavioral practice."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "What should a cyber hygiene program include?",
+        "How can organizations and individuals improve cyber hygiene?",
+        "What proactive measures support cyber hygiene?",
+        "How can cyber hygiene awareness be converted into behavior?",
+        "What practical recommendations do Baraković and Baraković Husić give for cyber hygiene programs?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-001",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "On the other hand, practical implications of this study are to apply them for development of cyber hygiene program in Bosnia and Herzegovina and provide guidelines both for organizations and individuals to protect themselves from cyber threats.",
+          "page": 22,
+          "section": "6. Conclusion",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 22,
+            "section": "6. Conclusion",
+            "paragraph": "5"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-002",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "In this term, they focus on proactive measures to improve user experience and security, such as: (i) limit user access to hardware/software, (ii) update hardware/software regularly, (iii) use antivirus/anti-malware tools, (iv) manage complex passwords, (v) use multi-factor authentication, (vi) backup regularly, (vii) avoid suspicious sites and e-mail attachments, (viii) make cyber hygiene part of routine.",
+          "page": 22,
+          "section": "6. Conclusion",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 22,
+            "section": "6. Conclusion",
+            "paragraph": "5"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-003",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "Furthermore, practical implications refer to development of specific educational trainings and programs with the purpose to: (i) increase the knowledge regarding cyber hygiene concepts and issues, (ii) develop new attitudes toward cybersecurity threats, (iii) convert cybersecurity awareness into behavioral practices, (iv) build new rules sharing good practices for cyber hygiene.",
+          "page": 22,
+          "section": "6. Conclusion",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 22,
+            "section": "6. Conclusion",
+            "paragraph": "5"
+          }
+        },
+        {
+          "evidence_id": "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-004",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "citation_key": "barakovic_cyber_2023",
+          "support_type": "direct",
+          "exact_supporting_text": "In addition, cyber hygiene programs need to be gender-aware to provide the opportunity for both sexes to gain the same knowledge and awareness levels in terms of cybersecurity.",
+          "page": 22,
+          "section": "6. Conclusion",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 22,
+            "section": "6. Conclusion",
+            "paragraph": "5"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-BARAKOVIC-PROGRAM-RECOMMENDATIONS-001",
+          "fact": "Baraković and Baraković Husić recommend using their study to develop a cyber hygiene program and guidelines for organizations and individuals.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-001"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-PROGRAM-RECOMMENDATIONS-002",
+          "fact": "Baraković and Baraković Husić list proactive cyber hygiene measures including limiting hardware/software access, regular updates, antivirus/anti-malware tools, complex password management, multifactor authentication, regular backups, avoiding suspicious sites and email attachments, and making cyber hygiene routine.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-002"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-PROGRAM-RECOMMENDATIONS-003",
+          "fact": "Baraković and Baraković Husić recommend educational training and programs to increase cyber hygiene knowledge, develop attitudes toward cybersecurity threats, convert awareness into behavioral practices, and share good practices.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-003"
+        },
+        {
+          "fact_id": "VF-BARAKOVIC-PROGRAM-RECOMMENDATIONS-004",
+          "fact": "Baraković and Baraković Husić state that cyber hygiene programs need to be gender-aware so both sexes can gain the same knowledge and awareness levels.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-004"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-BARAKOVIC-2023"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite Baraković and Baraković Husić (2023), page 22, Section 6 Conclusion, paragraph 5, where practical implications and cyber hygiene program recommendations are listed."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "program_guidance",
+        "must_include": [
+          "guidelines for organizations and individuals",
+          "proactive measures",
+          "regular hardware/software updates",
+          "antivirus or anti-malware tools",
+          "complex password management",
+          "multifactor authentication",
+          "regular backups",
+          "avoid suspicious sites and email attachments",
+          "make cyber hygiene part of routine",
+          "education and training should convert awareness into behavioral practices"
+        ],
+        "avoid_claims": [
+          "Baraković and Baraković Husić provide a complete universal cyber hygiene program",
+          "These recommendations alone eliminate cyber threats",
+          "Gender-aware programs mean different security standards for men and women",
+          "Awareness automatically converts into behavior without training or support",
+          "The recommendations are validated for all populations globally"
         ]
       }
     }
