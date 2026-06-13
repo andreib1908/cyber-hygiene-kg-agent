@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Cyber Hygiene Assistant Knowledge Base",
-    "version": "1.2",
+    "version": "1.3",
     "created_by": "Andrei Badea, s3012115",
     "description": "A curated knowledge base on cyber hygiene practices, threats, and source-grounded recommendations. The knowledge base supports a knowledge graph-grounded conversational agent and enables evaluation across validity, traceability, and stability.",
     "curation_notes": [
@@ -89,6 +89,26 @@
       "doi": "10.1080/19393555.2022.2088428",
       "url": "https://doi.org/10.1080/19393555.2022.2088428",
       "notes": "Peer-reviewed study on cyber hygiene knowledge, awareness, and behavioral practices among university students. Useful for strengthening knowledge-awareness-behavior KUs and findings about student cyber hygiene."
+    },
+    {
+      "id": "SRC-OZ-2022",
+      "citation_key": "oz_survey_2022",
+      "authors": [
+        "Harun Oz",
+        "Ahmet Aris",
+        "Albert Levi",
+        "A. Selcuk Uluagac"
+      ],
+      "year": 2022,
+      "title": "A Survey on Ransomware: Evolution, Taxonomy, and Defense Solutions",
+      "venue": "ACM Computing Surveys",
+      "volume": "54",
+      "number": "11s",
+      "pages": "Article 238",
+      "peer_reviewed": true,
+      "doi": "10.1145/3514229",
+      "url": "https://doi.org/10.1145/3514229",
+      "notes": "Comprehensive survey of ransomware evolution, taxonomy, attack phases, target platforms, infection vectors, defense research, detection, and recovery mechanisms across PCs/workstations, mobile devices, and IoT/CPS platforms."
     }
   ],
 
@@ -174,29 +194,31 @@
     {
       "id": "THR-DATA-LOSS",
       "name": "Data loss",
-      "definition": "Loss of access to important files or information due to device failure, accidental deletion, malware, or other incidents.",
+      "definition": "Loss of access to important files or information due to device failure, accidental deletion, malware, or other incidents. Oz et al. explain that cryptographic ransomware encrypts victim files and can delete or overwrite original files, restricting access until ransom payment.",
       "related_categories": ["CAT-STORAGE-DEVICE"],
-      "source_ids": ["SRC-KARAYEL-2024"],
-      "support_status": "partially_supported",
-      "support_notes": "Karayel et al. directly mention backing up important files and secure data storage, but additional sources may be used to strengthen the broader data loss definition."
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-OZ-2022"],
+      "support_status": "directly_supported",
+      "support_notes": "Karayel et al. directly mention backing up important files and secure data storage. Oz et al. explain that cryptographic ransomware encrypts victim files and can delete or overwrite original files, restricting access until ransom payment."
     },
     {
       "id": "THR-RANSOMWARE",
       "name": "Ransomware",
-      "definition": "A form of malware that restricts access to data or systems until a ransom is paid.",
+      "definition": "Ransomware is a subset of malware that prevents or limits users from accessing their system and/or data until a ransom is paid.",   
       "related_categories": ["CAT-STORAGE-DEVICE", "CAT-EMAIL-MESSAGING"],
-      "source_ids": [],
-      "support_status": "inferred_from_practice",
-      "support_notes": "Inferred from backup, malware, and email hygiene practices. Requires an additional source for a direct ransomware definition and mapping."
+      "source_ids": [
+        "SRC-OZ-2022"
+      ],
+      "support_status": "directly_supported",
+      "support_notes": "Oz et al. directly define ransomware as malware that restricts access to a system or data until a ransom is paid. They distinguish cryptographic ransomware, which encrypts victim files, from locker ransomware, which prevents access to the system."    
     },
     {
       "id": "THR-UNPATCHED-SOFTWARE",
       "name": "Unpatched software",
-      "definition": "Risk arising from outdated software that may contain unresolved security vulnerabilities.",
-      "related_categories": ["CAT-STORAGE-DEVICE"],
-      "source_ids": ["SRC-KARAYEL-2024"],
-      "support_status": "partially_supported",
-      "support_notes": "Karayel et al. directly mention keeping device software up to date, but an additional source should support the specific vulnerability-risk framing."
+      "definition": "Risk arising from outdated software that may contain unresolved security vulnerabilities. It could lead to successful malware attacks such as ransomware by exploiting those security vulnerabilities.",
+      "related_categories": ["CAT-STORAGE-DEVICE", "CAT-EMAIL-MESSAGING"],
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-OZ-2022"],
+      "support_status": "directly_supported",
+      "support_notes": "Karayel et al. directly mention keeping device software up to date, but an additional source should support the specific vulnerability-risk framing. Oz et al. state that ransomware can employ vulnerabilities in system software or other applications, and that delayed upgrades or critical software patches contribute to ransomware success."
     },
     {
       "id": "THR-INSECURE-CONNECTION",
@@ -433,10 +455,10 @@
     {
       "id": "PRA-BACKUP-FILES",
       "name": "Back up important files",
-      "description": "Users should back up important files to reduce the impact of data loss, malware, or device failure.",
+      "description": "Users should back up important files to reduce the impact of data loss, malware, or device failure. Oz et al. describe file recovery via cloud backup as one category of ransomware recovery research, supporting backups as part of ransomware recovery planning.",
       "category_id": "CAT-STORAGE-DEVICE",
       "mitigates": ["THR-DATA-LOSS", "THR-RANSOMWARE"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020", "SRC-OZ-2022"]
     },
     {
       "id": "PRA-UPDATE-PROTECTION-SOFTWARE",
@@ -739,12 +761,12 @@
     {
       "id": "PRA-CHECK-DEVICE-UPDATES",
       "name": "Check device operating system and software updates",
-      "description": "Users should check whether their device has the latest operating system, software update, or patch.",
+      "description": "Users should check whether their device has the latest operating system, software update, or patch. Oz et al. identify delayed upgrades or critical software patches as a major success factor for ransomware and state that it is vital not to delay upgrades or security-related software patches.",
       "category_id": "CAT-STORAGE-DEVICE",
       "mitigates": [
         "THR-UNPATCHED-SOFTWARE"
       ],
-      "source_ids": ["SRC-VISHWANATH-2020"]
+      "source_ids": ["SRC-VISHWANATH-2020", "SRC-OZ-2022"]
     },
     {
       "id": "PRA-MONITOR-DEVICE-USAGE",
@@ -757,10 +779,10 @@
     {
       "id": "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS",
       "name": "Check email hyperlinks and attachments from unknown senders",
-      "description": "Users should check hyperlinks or attachments in emails from unknown senders as part of email and messaging hygiene.",
+      "description": "Users should check hyperlinks or attachments in emails from unknown senders as part of email and messaging hygiene. Oz et al. identify malicious emails as a common ransomware infection vector and note that ransomware may arrive as an attached malicious file or through a malicious link.",
       "category_id": "CAT-EMAIL-MESSAGING",
-      "mitigates": [],
-      "source_ids": ["SRC-VISHWANATH-2020"]
+      "mitigates": ["THR-MALWARE-INFECTION", "THR-EMAIL-SCAM", "THR-SOCIAL-ENGINEERING", "THR-RANSOMWARE"],
+      "source_ids": ["SRC-VISHWANATH-2020", "SRC-OZ-2022"]
     },
     {
       "id": "PRA-LIMIT-SHARING-PERSONAL-INFORMATION",
@@ -2419,7 +2441,7 @@
         "PRA-MONITOR-DEVICE-USAGE"
       ],
       "claim": "Storage and device hygiene involves conducting virus scans, backing up important files, keeping virus protection and device software up to date, enabling firewalls, checking device updates, monitoring device usage, securely storing data, and using checked or safe download links for software and applications.",
-      "explanation": "Karayel et al. describe storage and device hygiene as cyber hygiene behavior related to the configuration and security of digital devices, including scanning storage devices, backing up important files, keeping protection software updated, and securely storing data. Vishwanath et al.'s Cyber Hygiene Inventory additionally includes enabling firewalls, checking for operating system or software updates, keeping virus protection updated, and monitoring CPU, power, or network usage. Baraković and Baraković Husić add student-behavior evidence showing that scanning downloaded files and used devices is common among surveyed students, while backup behavior and download-link safety remain concerning.",
+      "explanation": "Karayel et al. describe storage and device hygiene as cyber hygiene behavior related to the configuration and security of digital devices, including scanning storage devices, backing up important files, keeping protection software updated, and securely storing data. Vishwanath et al.'s Cyber Hygiene Inventory additionally includes enabling firewalls, checking for operating system or software updates, keeping virus protection updated, and monitoring CPU, power, or network usage. Baraković and Baraković Husić add student-behavior evidence showing that scanning downloaded files and used devices is common among surveyed students, while backup behavior and download-link safety remain concerning. Oz et al. strengthen the importance of backups and updates in the ransomware context by describing backup-based recovery mechanisms and identifying delayed upgrades or critical software patches as a ransomware success factor.",
       "recommended_actions": [
         "Conduct virus scans or security scans on storage devices.",
         "Back up important files.",
@@ -2430,7 +2452,9 @@
         "Securely store data, including physical and cloud-based information.",
         "Run antivirus scans on storage devices",
         "Use checked and safe links when downloading software or applications.",
-        "Do not rely only on occasional backups; maintain a regular backup routine."
+        "Do not rely only on occasional backups; maintain a regular backup routine.",
+        "Maintain backups as part of ransomware recovery planning.",
+        "Do not delay security-related software patches or upgrades."
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -2926,7 +2950,9 @@
           "Cain et al.'s age-group percentages should not be generalized to all users without qualification",
           "Baraković and Baraković Husić prove that monthly backups are sufficient",
           "Using checked download links eliminates malware risk",
-          "Survey percentages from Baraković and Baraković Husić apply to all university students globally"
+          "Survey percentages from Baraković and Baraković Husić apply to all university students globally",
+          "Backups always guarantee complete recovery from ransomware",
+          "Installing updates eliminates all ransomware risk"
         ]
       }
     },
@@ -5955,6 +5981,350 @@
           "Gender-aware programs mean different security standards for men and women",
           "Awareness automatically converts into behavior without training or support",
           "The recommendations are validated for all populations globally"
+        ]
+      }
+    },
+    {
+      "id": "KU-OZ-RANSOMWARE-DEFINITION-TAXONOMY-001",
+      "title": "Ransomware restricts access to systems or data to extort payment",
+      "category_id": "CAT-STORAGE-DEVICE",
+      "threat_ids": [
+        "THR-RANSOMWARE",
+        "THR-MALWARE-INFECTION",
+        "THR-DATA-LOSS",
+        "THR-PRIVACY-EXPOSURE"
+      ],
+      "practice_ids": [
+        "PRA-BACKUP-FILES",
+        "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS",
+        "PRA-CHECK-DEVICE-UPDATES",
+        "PRA-UPDATE-PROTECTION-SOFTWARE"
+      ],
+      "claim": "Ransomware is a type of malware that restricts access to a victim's system or data until a ransom is paid, commonly through cryptographic ransomware that encrypts files or locker ransomware that blocks system access.",
+      "explanation": "Oz et al. define ransomware as malware that prevents or limits users from accessing their system or data until a ransom is paid. They classify ransomware into cryptographic ransomware, which encrypts victim files and demands payment for decryption, and locker ransomware, which prevents access to a system without necessarily encrypting data. They also describe ransomware attacks as involving phases such as infection, possible command-and-control communication, destruction through encryption or locking, and extortion through ransom instructions.",
+      "recommended_actions": [
+        "Treat ransomware as a malware threat that can affect access to systems or data.",
+        "Recognize that ransomware may encrypt files, lock systems, or combine extortion with data theft.",
+        "Be cautious with common ransomware infection vectors such as malicious emails, malicious links, drive-by downloads, malicious applications, and exploited vulnerabilities.",
+        "Use backups and timely security updates as part of ransomware risk reduction and recovery planning."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "What is ransomware?",
+        "What are the main types of ransomware?",
+        "How does ransomware work?",
+        "What is the difference between cryptographic ransomware and locker ransomware?",
+        "Why is ransomware considered a malware threat?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-OZ-RANSOMWARE-DEFINITION-001",
+          "source_id": "SRC-OZ-2022",
+          "citation_key": "oz_survey_2022",
+          "support_type": "direct",
+          "exact_supporting_text": "Ransomware is a subset of malware that prevents or limits users from accessing their system and/or data until a ransom is paid. The main objective of ransomware is extorting money from the victims.",
+          "page": 4,
+          "section": "3 Ransomware and Evolution of Ransomware",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 4,
+            "section": "3 Ransomware and Evolution of Ransomware",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-OZ-RANSOMWARE-TYPES-001",
+          "source_id": "SRC-OZ-2022",
+          "citation_key": "oz_survey_2022",
+          "support_type": "direct",
+          "exact_supporting_text": "Based on the employed methodology, ransomware is generally classified into two types. Cryptographic Ransomware: This variety of ransomware encrypts victim files, deletes or overwrites the original files, and demands a ransom payment for decryption of the files. Locker Ransomware: This type of ransomware prevents the victim from accessing its system by locking the screen or browser, and demands a ransom payment to unlock the system.  Unlike cryptographic ransomware, it does not encrypt the system or user data",
+          "page": 4,
+          "section": "3 Ransomware and Evolution of Ransomware",
+          "paragraph": "3 and 4",
+          "claim_location": {
+            "page": 4,
+            "section": "3 Ransomware and Evolution of Ransomware",
+            "paragraph": "3 and 4"
+          }
+        },
+        {
+          "evidence_id": "EVID-OZ-RANSOMWARE-PHASES-001",
+          "source_id": "SRC-OZ-2022",
+          "citation_key": "oz_survey_2022",
+          "support_type": "direct",
+          "exact_supporting_text": "Attack phases of ransomware can be summarized as follows: Infection... Communication with C&C servers... Destruction... Extortion.",
+          "page": 5,
+          "section": "3 Ransomware and Evolution of Ransomware",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 5,
+            "section": "3 Ransomware and Evolution of Ransomware",
+            "paragraph": "1"
+          }
+        },
+        {
+          "evidence_id": "EVID-OZ-RANSOMWARE-INFECTION-VECTORS-001",
+          "source_id": "SRC-OZ-2022",
+          "citation_key": "oz_survey_2022",
+          "support_type": "direct",
+          "exact_supporting_text": "Infection methods of ransomware can be categorized into five groups: malicious e-mails, SMS or instant messages (IMs), malicious applications, drive-by-download, and vulnerabilities. Malicious e-mails are the most commonly used infection vectors for ransomware. Attackers send spam e-mails to victims that have attachments containing ransomware [164]. Such spam campaigns can be distributed using botnets [110, 139]. Ransomware may come with an attached malicious file, or the e-mail may contain a malicious link that will trigger the installation of ransomware once visited (drive-by download). SMS Messages or IMs are used frequently for mobile ransomware. In such kinds of infections, attackers send SMS messages or IMs to the victims that will cause them to browse a malicious website to download ransomware to their platforms [140, 147]. Malicious Applications are used by ransomware attackers who develop and deploy mobile applications that contain ransomware camouflaged as a benign application [140, 147]. Drive-by download happens when a user unknowingly visits an infected website or clicks a malicious advertisement (i.e., malvertisement) and then the malware is downloaded and installed without the user’s knowledge [176]. Vulnerabilities in the victim platform such as vulnerabilities in operating systems [40], browsers [163], or software can be used by ransomware authors as infection vectors. Attackers can use helper applications, exploit kits, to exploit the known or zero-day vulnerabilities in target systems. Attackers can redirect victims to those kits via malvertisement and malicious links",
+          "page": 9,
+          "section": "4.2 Classification by Infection Vectors",
+          "paragraph": "3, 4, 5, 6, 7 and 8",
+          "claim_location": {
+            "page": 9,
+            "section": "4.2 Classification by Infection Vectors",
+            "paragraph": "3, 4, 5, 6, 7 and 8"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-OZ-RANSOMWARE-DEFINITION-001",
+          "fact": "Oz et al. define ransomware as malware that prevents or limits access to a system or data until a ransom is paid.",
+          "source_id": "SRC-OZ-2022",
+          "evidence_id": "EVID-OZ-RANSOMWARE-DEFINITION-001"
+        },
+        {
+          "fact_id": "VF-OZ-RANSOMWARE-TYPES-001",
+          "fact": "Oz et al. classify ransomware into cryptographic ransomware and locker ransomware.",
+          "source_id": "SRC-OZ-2022",
+          "evidence_id": "EVID-OZ-RANSOMWARE-TYPES-001"
+        },
+        {
+          "fact_id": "VF-OZ-RANSOMWARE-PHASES-001",
+          "fact": "Oz et al. describe ransomware attack phases as infection, possible command-and-control communication, destruction, and extortion.",
+          "source_id": "SRC-OZ-2022",
+          "evidence_id": "EVID-OZ-RANSOMWARE-PHASES-001"
+        },
+        {
+          "fact_id": "VF-OZ-RANSOMWARE-INFECTION-VECTORS-001",
+          "fact": "Oz et al. categorize ransomware infection vectors as malicious emails, SMS or instant messages, malicious applications, drive-by downloads, and vulnerabilities.",
+          "source_id": "SRC-OZ-2022",
+          "evidence_id": "EVID-OZ-RANSOMWARE-INFECTION-VECTORS-001"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-OZ-2022"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite Oz et al. (2022), especially page 4, Section 3, where ransomware is defined and classified, and page 9, Section 4.2, where infection vectors are listed."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "definition_with_explanation",
+        "must_include": [
+          "ransomware is a subset of malware",
+          "ransomware restricts access to systems or data",
+          "ransomware demands payment",
+          "cryptographic ransomware encrypts files",
+          "locker ransomware locks system access",
+          "infection vectors include malicious emails, malicious applications, drive-by downloads, and vulnerabilities"
+        ],
+        "avoid_claims": [
+          "All ransomware encrypts files",
+          "Locker ransomware always encrypts user data",
+          "Ransomware only targets individuals",
+          "Ransomware only spreads through email",
+          "Paying ransom guarantees recovery"
+        ]
+      }
+    },
+    {
+      "id": "KU-OZ-RANSOMWARE-DEFENSE-RECOVERY-001",
+      "title": "Ransomware defense depends on prevention, detection, and recovery planning",
+      "category_id": "CAT-STORAGE-DEVICE",
+      "threat_ids": [
+        "THR-RANSOMWARE",
+        "THR-DATA-LOSS",
+        "THR-UNPATCHED-SOFTWARE",
+        "THR-MALWARE-INFECTION",
+        "THR-PHISHING"
+      ],
+      "practice_ids": [
+        "PRA-BACKUP-FILES",
+        "PRA-CHECK-DEVICE-UPDATES",
+        "PRA-UPDATE-PROTECTION-SOFTWARE",
+        "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS",
+        "PRA-CONDUCT-SECURITY-SCANS"
+      ],
+      "claim": "Ransomware defense should combine prevention, detection, and recovery planning, because ransomware can infect systems through multiple vectors, restrict access to files or systems, and require recovery mechanisms such as key recovery, hardware-based recovery, cloud backup recovery, or external-storage backups.",
+      "explanation": "Oz et al. organize ransomware defense research around analysis, detection, recovery, and other defense mechanisms. They describe ransomware recovery for PCs/workstations through three main categories: recovery of keys, recovery of files via hardware, and recovery of files via cloud backup. For mobile devices, they also mention recovery approaches involving flash-memory behavior analysis and periodic backups to external storage. Oz et al. further identify delayed upgrades or critical software patches and security-unaware end-users as major factors behind ransomware success. This supports treating backups, patching, awareness of infection vectors, and detection/recovery planning as complementary parts of ransomware risk reduction.",
+      "recommended_actions": [
+        "Maintain backups that can support recovery if ransomware encrypts, destroys, or restricts access to files.",
+        "Do not delay upgrades or security-related software patches.",
+        "Train users to recognize ransomware infection vectors such as malicious emails, malicious links, malicious applications, drive-by downloads, and exploited vulnerabilities.",
+        "Treat ransomware defense as a combination of prevention, detection, and recovery rather than relying on one measure alone.",
+        "Consider recovery planning across relevant device types, including PCs/workstations and mobile devices."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "How can backups help against ransomware?",
+        "How can ransomware risk be reduced?",
+        "Why are software updates important against ransomware?",
+        "Why is user awareness important for ransomware defense?",
+        "What defenses are useful against ransomware?",
+        "What can I do to protect myself from ransomware?",
+        "I've been a victim of ransomware, what can I do?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-OZ-RANSOMWARE-RECOVERY-001",
+          "source_id": "SRC-OZ-2022",
+          "citation_key": "oz_survey_2022",
+          "support_type": "direct",
+          "exact_supporting_text": "Ransomware recovery research for PCs/workstations shows that recovery of the destruction performed by ransomware can be achieved in three different ways: recovery of keys, recovery of files via hardware, or recovery of files via cloud backup.",
+          "page": 26,
+          "section": "5.3.1 Ransomware Recovery for PCs/Workstations",
+          "paragraph": "4",
+          "claim_location": {
+            "page": 26,
+            "section": "5.3.1 Ransomware Recovery for PCs/Workstations",
+            "paragraph": "4"
+          }
+        },
+        {
+          "evidence_id": "EVID-OZ-RANSOMWARE-RECOVERY-002",
+          "source_id": "SRC-OZ-2022",
+          "citation_key": "oz_survey_2022",
+          "support_type": "direct",
+          "exact_supporting_text": "Recovery of Keys: Kolodenker et al. proposed PayBreak - a key-escrow mechanism that intends to capture encryption key(s) by hooking the cryptography APIs and decrypt the victim files. ", 
+          "page": 26,
+          "section": "5.3.1 Ransomware Recovery for PCs/Workstations",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 26,
+            "section": "5.3.1 Ransomware Recovery for PCs/Workstations",
+            "paragraph": "5"
+          }
+        },
+        {
+          "evidence_id": "EVID-OZ-RANSOMWARE-RECOVERY-003",
+          "source_id": "SRC-OZ-2022",
+          "citation_key": "oz_survey_2022",
+          "support_type": "direct",
+          "exact_supporting_text": "Recovery of Files via Hardware: The studies presented in this category aim to recover encrypted files of victims by utilizing the characteristics of storage hardware (i.e., SSD).  Alternatively... Min et al. designed an SSD system that performs an automated backup and minimizes the backup space overhead. Their system utilizes a detection component that leverages hardware accelerator to detect the infected pages in the memory.",
+          "page": 26,
+          "section": "5.3.1 Ransomware Recovery for PCs/Workstations",
+          "paragraph": "6",
+          "claim_location": {
+            "page": 26,
+            "section": "5.3.1 Ransomware Recovery for PCs/Workstations",
+            "paragraph": "6"
+          }
+        },
+        {
+          "evidence_id": "EVID-OZ-RANSOMWARE-RECOVERY-004",
+          "source_id": "SRC-OZ-2022",
+          "citation_key": "oz_survey_2022",
+          "support_type": "direct",
+          "exact_supporting_text": "Recovery of Files via Cloud Backup: Some of the recovery mechanisms in the literature aimed to recover files utilizing cloud environment for backup purposes. Yun et al. proposed a backup system named CLDSafe that is deployed on the cloud. ", 
+          "page": 26,
+          "section": "5.3.1 Ransomware Recovery for PCs/Workstations",
+          "paragraph": "7",
+          "claim_location": {
+            "page": 26,
+            "section": "5.3.1 Ransomware Recovery for PCs/Workstations",
+            "paragraph": "7"
+          }
+        },
+        {
+          "evidence_id": "EVID-OZ-RANSOMWARE-RECOVERY-005",
+          "source_id": "SRC-OZ-2022",
+          "citation_key": "oz_survey_2022",
+          "support_type": "direct",
+          "exact_supporting_text": "Ransomware Recovery for Mobile Devices. Considering the recovery solutions for mobile devices to enable data recovery from ransomware attacks, there exist only two studies... a recovery-based ransomware defense strategy for mobile devices that are equipped with flash memory as external storage. It collects the access behaviors of ransomware samples and applies K-mean clustering to identify the unique access patterns to the Flash Transaction Layer. In [59] Yalew et al. aimed to recover from ransomware by periodically performing backups to an external storage.", 
+          "page": 26,
+          "section": "5.3.2 Ransomware Recovery for Mobile Devices.",
+          "paragraph": "8",
+          "claim_location": {
+            "page": 26,
+            "section": "5.3.2 Ransomware Recovery for Mobile Devices.",
+            "paragraph": "8"
+          }
+        },
+        {
+          "evidence_id": "EVID-OZ-RANSOMWARE-PATCHING-001",
+          "source_id": "SRC-OZ-2022",
+          "citation_key": "oz_survey_2022",
+          "support_type": "direct",
+          "exact_supporting_text": "Although upgrades and patches may aim to repair such vulnerabilities, it is vital not to delay upgrades or security-related software patches to prevent the infection.",
+          "page": 29,
+          "section": "6 Open Issues",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 29,
+            "section": "6 Open Issues",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-OZ-RANSOMWARE-AWARENESS-001",
+          "source_id": "SRC-OZ-2022",
+          "citation_key": "oz_survey_2022",
+          "support_type": "direct",
+          "exact_supporting_text": "Security training of end-users in terms of the infection vectors of ransomware is very vital.",
+          "page": 29,
+          "section": "6 Open Issues",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 29,
+            "section": "6 Open Issues",
+            "paragraph": "3"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-OZ-RANSOMWARE-RECOVERY-001",
+          "fact": "Oz et al. describe ransomware recovery for PCs/workstations as involving key recovery, hardware-based file recovery, or cloud backup-based file recovery.",
+          "source_id": "SRC-OZ-2022",
+          "evidence_id": "EVID-OZ-RANSOMWARE-RECOVERY-001"
+        },
+        {
+          "fact_id": "VF-OZ-RANSOMWARE-BACKUP-RECOVERY-001",
+          "fact": "Oz et al. describe cloud backup-based file recovery as one ransomware recovery mechanism.",
+          "source_id": "SRC-OZ-2022",
+          "evidence_id": "EVID-OZ-RANSOMWARE-BACKUP-RECOVERY-001"
+        },
+        {
+          "fact_id": "VF-OZ-RANSOMWARE-PATCHING-001",
+          "fact": "Oz et al. state that it is vital not to delay upgrades or security-related software patches to prevent ransomware infection through vulnerabilities.",
+          "source_id": "SRC-OZ-2022",
+          "evidence_id": "EVID-OZ-RANSOMWARE-PATCHING-001"
+        },
+        {
+          "fact_id": "VF-OZ-RANSOMWARE-AWARENESS-001",
+          "fact": "Oz et al. state that end-user security training about ransomware infection vectors is very vital.",
+          "source_id": "SRC-OZ-2022",
+          "evidence_id": "EVID-OZ-RANSOMWARE-AWARENESS-001"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-OZ-2022"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite Oz et al. (2022), especially page 26, Section 5.3.1 for ransomware recovery mechanisms and page 29, Section 6 for patching and end-user awareness as success factors."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "practical_advice_with_explanation",
+        "must_include": [
+          "recovery can involve key recovery, hardware-based recovery, or cloud backup recovery",
+          "backups can support file recovery",
+          "delayed upgrades or critical software patches can contribute to ransomware success",
+          "end-user training about ransomware infection vectors is important",
+          "defense should not rely on one measure alone"
+        ],
+        "avoid_claims": [
+          "Backups always guarantee full recovery from ransomware",
+          "Cloud backups are always safe from ransomware",
+          "Security awareness alone prevents ransomware",
+          "Patching eliminates all ransomware risk",
+          "Detection tools always detect ransomware",
+          "Paying the ransom guarantees file recovery"
         ]
       }
     }

@@ -1,0 +1,20 @@
+Neo is a conversational agent grounded in a knowledge graph that answers cyber hygiene questions using only a selected base of peer-reviewed literature. The citations are traceable back to specific passages. Neo provides the exact page and paragraph number from where the knowledge was derived.
+
+How it works:
+- a hand-selected JSON knowledge base is ingested into a Neo4j knowledge graph. It includes: sources, cyber-hygiene categories (based on Karayel et al. (2024) and Vishwanath et al. (2020)), threats, practices and knowledge units. 
+
+- each object is linked to evidence passages that display the exact page/section/paragraph locations and a citation.
+
+- Neo currently uses the Ollama model: qwen3.5 4b.
+
+- at query time, the user's question is embedded with a local model (ollama nomic-embed-text) and matched by meaning agianst the knowledge units using Neo4j's native vector index (vector search).
+
+- the graph then supplies the full information for best-matching results (evidence, sources, linked threats and practices)
+
+- The local LLM writes the answer constrainted to that retrieved material (based on src/prompts/answer_prompt.txt)
+
+- The citations are generated deterministically from the graph's eviudence, so they cannot be hallucinated. That means that the agent itself does NOT format the citations. Python code selects and formats them based on the knowledge units selected by vector search.
+
+- The agent also does not write cypher queries for Neo4j graph traversal. There are templates and pre-defined queries (src/retrieval/templates.py, src/retrieval/embedding.py and src/retrieval/retriever.py) ran by the Python system during knowledge retrieval.
+
+- The agent simply formulates the answer based on the given data.
