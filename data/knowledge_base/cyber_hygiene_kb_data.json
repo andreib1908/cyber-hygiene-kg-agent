@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Cyber Hygiene Assistant Knowledge Base",
-    "version": "1.3",
+    "version": "1.4",
     "created_by": "Andrei Badea, s3012115",
     "description": "A curated knowledge base on cyber hygiene practices, threats, and source-grounded recommendations. The knowledge base supports a knowledge graph-grounded conversational agent and enables evaluation across validity, traceability, and stability.",
     "curation_notes": [
@@ -109,6 +109,27 @@
       "doi": "10.1145/3514229",
       "url": "https://doi.org/10.1145/3514229",
       "notes": "Comprehensive survey of ransomware evolution, taxonomy, attack phases, target platforms, infection vectors, defense research, detection, and recovery mechanisms across PCs/workstations, mobile devices, and IoT/CPS platforms."
+    },
+    {
+      "id": "SRC-AZEEM-2024",
+      "citation_key": "azeem_malware_detection_2024",
+      "authors": [
+        "Muhammad Azeem",
+        "Danish Khan",
+        "Saman Iftikhar",
+        "Shaikhan Bawazeer",
+        "Mohammed Alzahrani"
+      ],
+      "year": 2024,
+      "title": "Analyzing and comparing the effectiveness of malware detection: A study of machine learning approaches",
+      "venue": "Heliyon",
+      "volume": "10",
+      "number": "1",
+      "pages": "e23574",
+      "peer_reviewed": true,
+      "doi": "10.1016/j.heliyon.2023.e23574",
+      "url": "https://doi.org/10.1016/j.heliyon.2023.e23574",
+      "notes": "Machine-learning malware detection paper that provides a general malware definition, discusses malware types, and contrasts signature-based and behavior-based malware detection approaches."
     }
   ],
 
@@ -185,11 +206,11 @@
     {
       "id": "THR-MALWARE-INFECTION",
       "name": "Malware infection",
-      "definition": "A compromise in which malicious software infects a device or storage medium.",
+      "definition": "A compromise in which malicious software infects a device or storage medium. Malware infection involves malicious software that can monitor machine activity, gain access to a computer system, or gather critical information.",
       "related_categories": ["CAT-STORAGE-DEVICE"],
-      "source_ids": ["SRC-CAIN-2018"],
-      "support_status": "mentioned_in_source",
-      "support_notes": "Cain et al. (2018) mentioned malware as a common cyber-crime, but the specific infection framing should be supported by an additional source."
+      "source_ids": ["SRC-CAIN-2018", "SRC-AZEEM-2024"],
+      "support_status": "directly_supported",
+      "support_notes": "Cain et al. (2018) mentioned malware as a common cyber-crime. Azeem et al. define malware as software used to monitor machine activities, obtain access to a computer system, or gather critical information. They also describe malware as a major internet security threat and list several malware classes, including trojans, viruses, worms, spyware, rootkits, botnets, crimeware, and adware."
     },
     {
       "id": "THR-DATA-LOSS",
@@ -369,10 +390,11 @@
         "CAT-GENERAL-CYBER-HYGIENE"
       ],
       "source_ids": [
-        "SRC-CAIN-2018"
+        "SRC-CAIN-2018",
+        "SRC-AZEEM-2024"
       ],
-      "support_status": "mentioned_in_source",
-      "support_notes": "Cain et al. (2018) mention malicious code as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. The source mentions the category but does not provide a detailed definition."
+      "support_status": "directly_supported",
+      "support_notes": "Cain et al. (2018) mention malicious code as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. Azeem et al. discuss malware as malicious software used to monitor activity, gain system access, or gather critical information, and note that malware detection approaches rely on studying characteristics of malicious code."
     },
     {
       "id": "THR-BOTNET",
@@ -383,10 +405,11 @@
         "CAT-GENERAL-CYBER-HYGIENE"
       ],
       "source_ids": [
-        "SRC-CAIN-2018"
+        "SRC-CAIN-2018",
+        "SRC-AZEEM-2024"
       ],
       "support_status": "mentioned_in_source",
-      "support_notes": "Cain et al. (2018) mention botnets as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. The source mentions the category but does not provide a detailed definition."
+      "support_notes": "Cain et al. (2018) mention botnets as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. Azeem et al. list botnets as a malware type and describe a botnet as a large network of compromised computers."
     },
     {
       "id": "THR-STOLEN-DEVICE",
@@ -591,10 +614,10 @@
     {
       "id": "PRA-UPDATE-ANTIVIRUS",
       "name": "Update antivirus software",
-      "description": "Users should keep antivirus software up to date to reduce exposure to cyber threats.",
+      "description": "Users should keep antivirus software up to date to reduce exposure to cyber threats. Malware evolves and can evade traditional signature-based detection, supporting the need to treat antivirus as one part of broader device hygiene rather than a complete defense.",
       "category_id": "CAT-STORAGE-DEVICE",
       "mitigates": ["THR-MALWARE-INFECTION", "THR-UNPATCHED-SOFTWARE"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020", "SRC-CAIN-2018"]
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020", "SRC-CAIN-2018", "SRC-AZEEM-2024"]
     },
     {
       "id": "PRA-SECURELY-STORE-INFORMATION",
@@ -607,10 +630,10 @@
     {
       "id": "PRA-CONDUCT-SECURITY-SCANS",
       "name": "Conduct appropriate security scans",
-      "description": "Users should conduct appropriate security scans to detect cyber threats or attack attempts.",
+      "description": "Users should conduct appropriate security scans to detect cyber threats or attack attempts. Security measures for dangerous or suspicious activity are built around scanning systems and distinguish static, dynamic, statistical, and content analysis methods.",
       "category_id": "CAT-STORAGE-DEVICE",
       "mitigates": ["THR-MALWARE-INFECTION", "THR-INFECTED-USB-DRIVE"],
-      "source_ids": ["SRC-KARAYEL-2024"]
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-AZEEM-2024"]
     },
     {
       "id": "PRA-STRENGTHEN-ORG-CYBERSECURITY-MEASURES",
@@ -2454,7 +2477,8 @@
         "Use checked and safe links when downloading software or applications.",
         "Do not rely only on occasional backups; maintain a regular backup routine.",
         "Maintain backups as part of ransomware recovery planning.",
-        "Do not delay security-related software patches or upgrades."
+        "Do not delay security-related software patches or upgrades.",
+        "Use antivirus and security scans as part of a broader device hygiene routine rather than as the only protection against malware."
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -2918,7 +2942,8 @@
           "SRC-KARAYEL-2024",
           "SRC-VISHWANATH-2020",
           "SRC-CAIN-2018",
-          "SRC-BARAKOVIC-2023"
+          "SRC-BARAKOVIC-2023",
+          "SRC-AZEEM-2024"
         ],
         "citation_granularity": "table_or_section",
         "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020 and should be traceable to Karayel et al.'s Table 2/RQ4 discussion or Vishwanath et al.'s Table 1, where storage and device hygiene practices such as virus scans, backups, firewalls, operating system or software updates, virus protection updates, device software updates, secure data storage, and device usage monitoring are listed. Barakovic et al. (2023) also support this claim."
@@ -2952,7 +2977,8 @@
           "Using checked download links eliminates malware risk",
           "Survey percentages from Baraković and Baraković Husić apply to all university students globally",
           "Backups always guarantee complete recovery from ransomware",
-          "Installing updates eliminates all ransomware risk"
+          "Installing updates eliminates all ransomware risk",
+          "Antivirus or signature-based detection catches all malware"
         ]
       }
     },
@@ -6325,6 +6351,143 @@
           "Patching eliminates all ransomware risk",
           "Detection tools always detect ransomware",
           "Paying the ransom guarantees file recovery"
+        ]
+      }
+    },
+    {
+      "id": "KU-AZEEM-MALWARE-TYPES-DETECTION-LIMITATIONS-001",
+      "title": "Malware appears in multiple forms and cannot be handled by signature-based detection alone",
+      "category_id": "CAT-STORAGE-DEVICE",
+      "threat_ids": [
+        "THR-MALWARE-INFECTION",
+        "THR-MALICIOUS-CODE",
+        "THR-BOTNET",
+        "THR-UNAUTHORIZED-ACCESS",
+        "THR-PRIVACY-EXPOSURE"
+      ],
+      "practice_ids": [
+        "PRA-CONDUCT-SECURITY-SCANS",
+        "PRA-UPDATE-ANTIVIRUS",
+        "PRA-UPDATE-PROTECTION-SOFTWARE",
+        "PRA-CHECK-DEVICE-UPDATES",
+        "PRA-MONITOR-DEVICE-ACTIVITY"
+      ],
+      "claim": "Malware is malicious software that can monitor activity, gain access to systems, or gather critical information, and it appears in multiple forms such as trojans, viruses, worms, spyware, rootkits, botnets, crimeware, and adware.",
+      "explanation": "Azeem et al. describe malware as a significant internet security threat and define it as software used to monitor machine activity, obtain access to a computer system, or gather critical information. They list several malware classes, including trojans, viruses, worms, spyware, rootkits, botnets, crimeware, and adware. They also explain that traditional signature-based detection can be evaded, especially by polymorphic malware, and distinguish signature-based and behavior-based antivirus strategies.",
+      "recommended_actions": [
+        "Treat malware as a broad threat category rather than a single type of attack.",
+        "Use security scans and antivirus or anti-malware tools as part of storage and device hygiene.",
+        "Keep protection software and device software updated because malware evolves and detection methods can be bypassed.",
+        "Do not rely only on signature-based detection or antivirus software as a complete defense.",
+        "Monitor device activity for suspicious behavior as part of broader malware awareness."
+      ],
+      "evidence_strength": "medium",
+      "question_templates": [
+        "What is malware?",
+        "What are common types of malware?",
+        "Why is malware difficult to detect?",
+        "Is antivirus software enough to protect against malware?",
+        "What is the difference between signature-based and behavior-based malware detection?",
+        "Why should malware protection involve more than one security measure?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-AZEEM-MALWARE-DEFINITION-001",
+          "source_id": "SRC-AZEEM-2024",
+          "citation_key": "azeem_malware_detection_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Malware is software that is used to monitor machine activities, obtain access to a computer system, or gather critical information",
+          "page": 2,
+          "section": "1. Introduction",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 2,
+            "section": "1. Introduction",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-AZEEM-MALWARE-TYPES-001",
+          "source_id": "SRC-AZEEM-2024",
+          "citation_key": "azeem_malware_detection_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Malware is generally divided into the following classes... trojans, viruses, worms, spyware, rootkit, botnet, crimeware, adware.",
+          "page": 2,
+          "section": "1. Introduction",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 2,
+            "section": "1. Introduction",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-AZEEM-MALWARE-DETECTION-TYPES-001",
+          "source_id": "SRC-AZEEM-2024",
+          "citation_key": "azeem_malware_detection_2024",
+          "support_type": "direct",
+          "exact_supporting_text": "Two main sorts of antiviral strategies may be distinguished: those based on signatures and those based on behavior.",
+          "page": 7,
+          "section": "3. Related work",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 7,
+            "section": "3. Related work",
+            "paragraph": "5"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-AZEEM-MALWARE-DEFINITION-001",
+          "fact": "Azeem et al. define malware as software used to monitor machine activities, obtain access to a computer system, or gather critical information.",
+          "source_id": "SRC-AZEEM-2024",
+          "evidence_id": "EVID-AZEEM-MALWARE-DEFINITION-001"
+        },
+        {
+          "fact_id": "VF-AZEEM-MALWARE-TYPES-001",
+          "fact": "Azeem et al. list malware classes including trojans, viruses, worms, spyware, rootkits, botnets, crimeware, and adware.",
+          "source_id": "SRC-AZEEM-2024",
+          "evidence_id": "EVID-AZEEM-MALWARE-TYPES-001"
+        },
+        {
+          "fact_id": "VF-AZEEM-MALWARE-SIGNATURE-EVASION-001",
+          "fact": "Azeem et al. state that signature-based detection approaches can be evaded and that polymorphic malware can elude traditional detection methods.",
+          "source_id": "SRC-AZEEM-2024",
+          "evidence_id": "EVID-AZEEM-MALWARE-SIGNATURE-EVASION-001"
+        },
+        {
+          "fact_id": "VF-AZEEM-MALWARE-DETECTION-TYPES-001",
+          "fact": "Azeem et al. distinguish signature-based and behavior-based antivirus strategies.",
+          "source_id": "SRC-AZEEM-2024",
+          "evidence_id": "EVID-AZEEM-MALWARE-DETECTION-TYPES-001"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-AZEEM-2024"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite Azeem et al. (2024), especially page 2 for the malware definition and malware classes, page 3 for signature-based evasion, and page 7 for signature-based and behavior-based antivirus strategies."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "definition_with_practical_implications",
+        "must_include": [
+          "malware can monitor activity, gain system access, or gather critical information",
+          "malware appears in multiple forms",
+          "examples include trojans, viruses, worms, spyware, rootkits, botnets, crimeware, and adware",
+          "signature-based detection can be evaded",
+          "behavior-based detection is another detection strategy",
+          "antivirus alone should not be presented as a complete defense"
+        ],
+        "avoid_claims": [
+          "Antivirus software alone fully prevents malware",
+          "Signature-based detection catches all malware",
+          "All malware behaves the same way",
+          "Polymorphic malware is impossible to detect",
+          "Machine learning malware detection guarantees perfect security",
+          "The accuracy results from Azeem et al. apply to all real-world malware detection systems"
         ]
       }
     }
