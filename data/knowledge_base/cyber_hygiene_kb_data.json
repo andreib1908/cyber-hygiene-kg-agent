@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Cyber Hygiene Assistant Knowledge Base",
-    "version": "1.4",
+    "version": "1.5",
     "created_by": "Andrei Badea, s3012115",
     "description": "A curated knowledge base on cyber hygiene practices, threats, and source-grounded recommendations. The knowledge base supports a knowledge graph-grounded conversational agent and enables evaluation across validity, traceability, and stability.",
     "curation_notes": [
@@ -130,6 +130,24 @@
       "doi": "10.1016/j.heliyon.2023.e23574",
       "url": "https://doi.org/10.1016/j.heliyon.2023.e23574",
       "notes": "Machine-learning malware detection paper that provides a general malware definition, discusses malware types, and contrasts signature-based and behavior-based malware detection approaches."
+    },
+    {
+      "id": "SRC-NIST-800-83R1-2013",
+      "citation_key": "souppaya_malware_2013",
+      "authors": [
+        "Murugiah Souppaya",
+        "Karen Scarfone"
+      ],
+      "year": 2013,
+      "title": "Guide to Malware Incident Prevention and Handling for Desktops and Laptops",
+      "venue": "NIST Special Publication",
+      "volume": "",
+      "number": "800-83 Rev. 1",
+      "pages": "47",
+      "peer_reviewed": false,
+      "doi": "10.6028/NIST.SP.800-83r1",
+      "url": "https://doi.org/10.6028/NIST.SP.800-83r1",
+      "notes": "Authoritative NIST technical guidance on malware incident prevention and handling for desktops and laptops. Use for malware definitions, malware forms, prevention, awareness, vulnerability mitigation, threat mitigation, incident response, containment, eradication, and recovery. This is not a journal peer-reviewed article, but it is an official NIST Special Publication developed under NIST's information security standards and guidelines role."
     }
   ],
 
@@ -206,11 +224,11 @@
     {
       "id": "THR-MALWARE-INFECTION",
       "name": "Malware infection",
-      "definition": "A compromise in which malicious software infects a device or storage medium. Malware infection involves malicious software that can monitor machine activity, gain access to a computer system, or gather critical information.",
+      "definition": "A malware infection involves malicious code or software covertly inserted into a system or program with the intent to destroy data, run destructive or intrusive programs, or compromise the confidentiality, integrity, or availability of data, applications, or the operating system. It is a compromise in which malicious software infects a device or storage medium. Malware infection involves malicious software that can monitor machine activity, gain access to a computer system, or gather critical information.",
       "related_categories": ["CAT-STORAGE-DEVICE"],
-      "source_ids": ["SRC-CAIN-2018", "SRC-AZEEM-2024"],
+      "source_ids": ["SRC-CAIN-2018", "SRC-AZEEM-2024", "SRC-NIST-800-83R1-2013"],
       "support_status": "directly_supported",
-      "support_notes": "Cain et al. (2018) mentioned malware as a common cyber-crime. Azeem et al. define malware as software used to monitor machine activities, obtain access to a computer system, or gather critical information. They also describe malware as a major internet security threat and list several malware classes, including trojans, viruses, worms, spyware, rootkits, botnets, crimeware, and adware."
+      "support_notes": "Cain et al. (2018) mentioned malware as a common cyber-crime. Azeem et al. define malware as software used to monitor machine activities, obtain access to a computer system, or gather critical information. They also describe malware as a major internet security threat and list several malware classes, including trojans, viruses, worms, spyware, rootkits, botnets, crimeware, and adware. NIST SP 800-83 Rev. 1 directly defines malware, also known as malicious code, and describes it as a common external threat to hosts. Azeem et al. can remain as additional support for malware being a broad and evolving threat, but NIST should be the primary definition source."
     },
     {
       "id": "THR-DATA-LOSS",
@@ -334,11 +352,11 @@
     {
       "id": "THR-PHISHING",
       "name": "Phishing",
-      "definition": "A deceptive attack in which users are tricked into revealing information, clicking malicious links, opening harmful attachments, or performing unsafe actions.",
+      "definition": "A deceptive computer-based attack that tricks individuals into disclosing sensitive personal information, often through fraudulent emails or websites that appear to come from trusted organizations.",
       "related_categories": ["CAT-EMAIL-MESSAGING", "CAT-AUTH-CREDENTIAL"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"],
+      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018", "SRC-NIST-800-83R1-2013"],
       "support_status": "directly_supported",
-      "support_notes": "Karayel et al. explicitly mention phishing attacks in relation to email and messaging hygiene. Cain et al. (2018) also mention phishing as a common cyber-crime."
+      "support_notes": "Karayel et al. explicitly mention phishing attacks in relation to email and messaging hygiene. Cain et al. (2018) also mention phishing as a common cyber-crime. NIST defines phishing as deceptive computer-based means used to trick individuals into disclosing sensitive personal information. Karayel and Cain support phishing as part of cyber hygiene and cybercrime context."
     },
     {
       "id": "THR-EMAIL-SCAM",
@@ -370,46 +388,49 @@
     {
       "id": "THR-WEB-BASED-ATTACK",
       "name": "Web-based attack",
-      "definition": "A cyberattack category involving attacks delivered through or targeting web-based systems, websites, browsers, or online services.",
+      "definition": "A web-based malware attack can redirect a user's web browsing to an infected website, which then attempts to exploit vulnerabilities on the user's host and install rootkits or other attacker tools.",
       "related_categories": [
         "CAT-TRANSMISSION",
         "CAT-GENERAL-CYBER-HYGIENE"
       ],
       "source_ids": [
-        "SRC-CAIN-2018"
+        "SRC-CAIN-2018",
+        "SRC-NIST-800-83R1-2013"
       ],
       "support_status": "mentioned_in_source",
-      "support_notes": "Cain et al. (2018) mention web-based attacks as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. The source mentions the category but does not provide a detailed definition."
+      "support_notes": "NIST describes web-based malware, also known as drive-by-download, where browsing is redirected to an infected website that attempts to exploit host vulnerabilities and install attacker tools. Cain also mentions web-based attacks as a cybercrime category."
     },
     {
       "id": "THR-MALICIOUS-CODE",
       "name": "Malicious code",
-      "definition": "Software code intended to harm, compromise, disrupt, or gain unauthorized access to systems or data.",
+      "definition": "Malicious code is malware: a program covertly inserted into another program with intent to destroy data, run destructive or intrusive programs, or otherwise compromise confidentiality, integrity, or availability. Software code intended to harm, compromise, disrupt, or gain unauthorized access to systems or data.",
       "related_categories": [
         "CAT-STORAGE-DEVICE",
         "CAT-GENERAL-CYBER-HYGIENE"
       ],
       "source_ids": [
         "SRC-CAIN-2018",
-        "SRC-AZEEM-2024"
+        "SRC-AZEEM-2024",
+        "SRC-NIST-800-83R1-2013"
       ],
       "support_status": "directly_supported",
-      "support_notes": "Cain et al. (2018) mention malicious code as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. Azeem et al. discuss malware as malicious software used to monitor activity, gain system access, or gather critical information, and note that malware detection approaches rely on studying characteristics of malicious code."
+      "support_notes": "Cain et al. (2018) mention malicious code as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. Azeem et al. discuss malware as malicious software used to monitor activity, gain system access, or gather critical information, and note that malware detection approaches rely on studying characteristics of malicious code. NIST explicitly treats malware as malicious code and provides a direct definition. Cain mentions malicious code as an attack category, while Azeem provides weaker supporting context."
     },
     {
       "id": "THR-BOTNET",
       "name": "Botnet",
-      "definition": "A network of compromised devices that can be controlled by an attacker to carry out malicious activity.",
+      "definition": "A botnet involves compromised hosts, often called bots or zombies, that can be controlled by an attacker and used to attack other hosts or perform other malicious activity.",
       "related_categories": [
         "CAT-STORAGE-DEVICE",
         "CAT-GENERAL-CYBER-HYGIENE"
       ],
       "source_ids": [
         "SRC-CAIN-2018",
-        "SRC-AZEEM-2024"
+        "SRC-AZEEM-2024",
+        "SRC-NIST-800-83R1-2013"
       ],
-      "support_status": "mentioned_in_source",
-      "support_notes": "Cain et al. (2018) mention botnets as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. Azeem et al. list botnets as a malware type and describe a botnet as a large network of compromised computers."
+      "support_status": "directly_supported",
+      "support_notes": "NIST describes zombies, better known as bots, as backdoors installed on hosts to cause them to attack other hosts. Cain et al. (2018) mention botnets as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. Azeem et al. list botnets as a malware type and describe a botnet as a large network of compromised computers."
     },
     {
       "id": "THR-STOLEN-DEVICE",
@@ -463,6 +484,20 @@
       ],
       "support_status": "directly_supported",
       "support_notes": "Cain et al. state that using infected USB drives can compromise a network and can lead to problems such as malware download."
+    },
+    {
+      "id": "THR-KEYSTROKE-LOGGER",
+      "name": "Keystroke logger",
+      "definition": "A keystroke logger is an attacker tool that monitors and records keyboard use, sometimes transferring the captured data to another host.",
+      "related_categories": [
+        "CAT-AUTH-CREDENTIAL",
+        "CAT-STORAGE-DEVICE"
+      ],
+      "source_ids": [
+        "SRC-NIST-800-83R1-2013"
+      ],
+      "support_status": "directly_supported",
+      "support_notes": "NIST defines keystroke loggers as attacker tools that monitor and record keyboard use."
     }
   ],
 
@@ -1654,7 +1689,10 @@
         "Remain cautious when receiving unexpected requests through email or messaging platforms.",
         "Be suspicious of mismatches between the displayed sender name and sender address.",
         "Be suspicious of messages that encourage immediate action.",
-        "Check whether link text matches the actual link address before trusting it."
+        "Check whether link text matches the actual link address before trusting it.",
+        "Never reply to emails requesting financial or personal information.",
+        "In the case of possible phishing, contact the person or the organization at a legitimate phone number or website.",
+        "Do not use contact information from suspicious emails and do not click on any attachments or hyperlinks in the email."
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -1874,6 +1912,21 @@
             "section": "2. Related work",
             "paragraph": "2"
           }
+        },
+        {
+          "evidence_id": "EVID-NIST-PHISHING-SOCIAL-ENGINEERING-001",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "citation_key": "souppaya_malware_2013",
+          "support_type": "direct",
+          "exact_supporting_text": "Never reply to email requests for financial or personal information. Instead, contact the person or the organization at the legitimate phone number or website. Do not use the contact information provided in the email, and do not click on any attachments or hyperlinks in the email.",
+          "page": 19,
+          "section": "3.2 Awareness",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 19,
+            "section": "3.2 Awareness",
+            "paragraph": "3"
+          }
         }
       ],
       "validity_facts": [
@@ -1990,6 +2043,12 @@
           "fact": "Baraković and Baraković Husić cite prior work indicating that conceptual and procedural knowledge improved phishing threat avoidance behavior.",
           "source_id": "SRC-BARAKOVIC-2023",
           "evidence_id": "EVID-BARAKOVIC-EMAIL-MESSAGING-003"
+        },
+        {
+          "fact_id": "VF-NIST-EMAIL-MESSAGING-001",
+          "fact": "NIST explicitely mentions to never reply to email requests for financial or personal information.",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "evidence_id": "EVID-NIST-PHISHING-SOCIAL-ENGINEERING-001"
         }
       ],
       "traceability": {
@@ -2464,7 +2523,7 @@
         "PRA-MONITOR-DEVICE-USAGE"
       ],
       "claim": "Storage and device hygiene involves conducting virus scans, backing up important files, keeping virus protection and device software up to date, enabling firewalls, checking device updates, monitoring device usage, securely storing data, and using checked or safe download links for software and applications.",
-      "explanation": "Karayel et al. describe storage and device hygiene as cyber hygiene behavior related to the configuration and security of digital devices, including scanning storage devices, backing up important files, keeping protection software updated, and securely storing data. Vishwanath et al.'s Cyber Hygiene Inventory additionally includes enabling firewalls, checking for operating system or software updates, keeping virus protection updated, and monitoring CPU, power, or network usage. Baraković and Baraković Husić add student-behavior evidence showing that scanning downloaded files and used devices is common among surveyed students, while backup behavior and download-link safety remain concerning. Oz et al. strengthen the importance of backups and updates in the ransomware context by describing backup-based recovery mechanisms and identifying delayed upgrades or critical software patches as a ransomware success factor.",
+      "explanation": "Karayel et al. describe storage and device hygiene as cyber hygiene behavior related to the configuration and security of digital devices, including scanning storage devices, backing up important files, keeping protection software updated, and securely storing data. Vishwanath et al.'s Cyber Hygiene Inventory additionally includes enabling firewalls, checking for operating system or software updates, keeping virus protection updated, and monitoring CPU, power, or network usage. Baraković and Baraković Husić add student-behavior evidence showing that scanning downloaded files and used devices is common among surveyed students, while backup behavior and download-link safety remain concerning. Oz et al. strengthen the importance of backups and updates in the ransomware context by describing backup-based recovery mechanisms and identifying delayed upgrades or critical software patches as a ransomware success factor. NIST SP 800-83 Rev. 1 strengthens this category by defining malware as malicious code that can compromise data, applications, or operating systems, and by recommending layered malware prevention involving awareness, vulnerability mitigation, threat mitigation tools, and defensive architecture.",
       "recommended_actions": [
         "Conduct virus scans or security scans on storage devices.",
         "Back up important files.",
@@ -2478,7 +2537,10 @@
         "Do not rely only on occasional backups; maintain a regular backup routine.",
         "Maintain backups as part of ransomware recovery planning.",
         "Do not delay security-related software patches or upgrades.",
-        "Use antivirus and security scans as part of a broader device hygiene routine rather than as the only protection against malware."
+        "Use antivirus and security scans as part of a broader device hygiene routine rather than as the only protection against malware.",
+        "Do not open suspicious email attachments, suspicious links, suspicious popup windows, or applications from untrusted sources.",
+        "Do not use administrator-level accounts for regular host operation.",
+        "Do not disable malware security controls such as antivirus software, content filtering, reputation software, or personal firewalls."
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -2943,7 +3005,8 @@
           "SRC-VISHWANATH-2020",
           "SRC-CAIN-2018",
           "SRC-BARAKOVIC-2023",
-          "SRC-AZEEM-2024"
+          "SRC-AZEEM-2024",
+          "SRC-NIST-800-83R1-2013"
         ],
         "citation_granularity": "table_or_section",
         "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020 and should be traceable to Karayel et al.'s Table 2/RQ4 discussion or Vishwanath et al.'s Table 1, where storage and device hygiene practices such as virus scans, backups, firewalls, operating system or software updates, virus protection updates, device software updates, secure data storage, and device usage monitoring are listed. Barakovic et al. (2023) also support this claim."
@@ -2978,7 +3041,10 @@
           "Survey percentages from Baraković and Baraković Husić apply to all university students globally",
           "Backups always guarantee complete recovery from ransomware",
           "Installing updates eliminates all ransomware risk",
-          "Antivirus or signature-based detection catches all malware"
+          "Antivirus or signature-based detection catches all malware",
+          "Antivirus software alone prevents all malware incidents",
+          "User awareness alone is enough to prevent malware incidents",
+          "All malware can be reliably categorized into one classic malware type"
         ]
       }
     },
@@ -6488,6 +6554,410 @@
           "Polymorphic malware is impossible to detect",
           "Machine learning malware detection guarantees perfect security",
           "The accuracy results from Azeem et al. apply to all real-world malware detection systems"
+        ]
+      }
+    },
+    {
+      "id": "KU-NIST-MALWARE-DEFINITION-FORMS-001",
+      "title": "Malware is malicious code that can compromise data, applications, or operating systems",
+      "category_id": "CAT-STORAGE-DEVICE",
+      "threat_ids": [
+        "THR-MALWARE-INFECTION",
+        "THR-MALICIOUS-CODE",
+        "THR-WEB-BASED-ATTACK",
+        "THR-PHISHING",
+        "THR-BOTNET",
+        "THR-UNAUTHORIZED-ACCESS",
+        "THR-PRIVACY-EXPOSURE",
+        "THR-DATA-LOSS"
+      ],
+      "practice_ids": [
+        "PRA-CONDUCT-SECURITY-SCANS",
+        "PRA-UPDATE-ANTIVIRUS",
+        "PRA-UPDATE-PROTECTION-SOFTWARE",
+        "PRA-CHECK-DEVICE-UPDATES",
+        "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS",
+        "PRA-MONITOR-DEVICE-ACTIVITY",
+        "PRA-BACKUP-FILES"
+      ],
+      "claim": "Malware, also known as malicious code, is covertly inserted software intended to destroy data, run destructive or intrusive programs, or compromise the confidentiality, integrity, or availability of data, applications, or operating systems.",
+      "explanation": "NIST describes malware as a major external threat to hosts and provides classic malware categories such as viruses, worms, Trojan horses, malicious mobile code, and blended attacks. NIST also notes that modern malware often combines characteristics, relies heavily on social engineering, and may include web-based malware, phishing overlap, stealthy behavior, attacker tools, and advanced persistent threats.",
+      "recommended_actions": [
+        "Treat malware as a broad threat category rather than a single type of attack.",
+        "Use security scans, antivirus or anti-malware tools, software updates, and monitoring as part of device hygiene.",
+        "Be cautious with suspicious emails, attachments, links, websites, downloads, and unexpected files.",
+        "Do not assume that antivirus software alone can stop all malware.",
+        "Maintain backups because some malware incidents may require restoring data or rebuilding compromised hosts."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "What is malware?",
+        "What is malicious code?",
+        "What are common forms of malware?",
+        "What is the difference between a virus, worm, and Trojan horse?",
+        "Why is malware difficult to categorize?",
+        "Can malware steal information or damage files?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-NIST-MALWARE-DEFINITION-001",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "citation_key": "souppaya_malware_2013",
+          "support_type": "direct",
+          "exact_supporting_text": "Malware, also known as malicious code, refers to a program that is covertly inserted into another program with the intent to destroy data, run destructive or intrusive programs, or otherwise compromise the confidentiality, integrity, or availability of the victim’s data, applications, or operating system.",
+          "page": 13,
+          "section": "2. Understanding Malware Threats",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 13,
+            "section": "2. Understanding Malware Threats",
+            "paragraph": "1"
+          }
+        },
+        {
+          "evidence_id": "EVID-NIST-MALWARE-CLASSIC-CATEGORIES-001",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "citation_key": "souppaya_malware_2013",
+          "support_type": "direct",
+          "exact_supporting_text": "The following are the classic categories of malware: Viruses, Worms, Trojan Horses, Malicious Mobile Code, Blended Attacks.",
+          "page": 13,
+          "section": "2.1 Forms of Malware",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 13,
+            "section": "2.1 Forms of Malware",
+            "paragraph": "3"
+          }
+        },
+        {
+          "evidence_id": "EVID-NIST-MALWARE-TROJAN-001",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "citation_key": "souppaya_malware_2013",
+          "support_type": "direct",
+          "exact_supporting_text": "A Trojan horse is a self-contained, nonreplicating program that, while appearing to be benign, actually has a hidden malicious purpose.",
+          "page": 13,
+          "section": "2.1 Forms of Malware",
+          "paragraph": "10",
+          "claim_location": {
+            "page": 13,
+            "section": "2.1 Forms of Malware",
+            "paragraph": "10"
+          }
+        },
+        {
+          "evidence_id": "EVID-NIST-MALWARE-MODERN-CATEGORIES-LIMITATION-001",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "citation_key": "souppaya_malware_2013",
+          "support_type": "direct",
+          "exact_supporting_text": "Because so many instances of malware have a variety of malware characteristics, the classic malware categories listed above (virus, worm, etc.) are considerably less useful than they used to be for malware incident handling.",
+          "page": 14,
+          "section": "2.1 Forms of Malware",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 14,
+            "section": "2.1 Forms of Malware",
+            "paragraph": "3"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-NIST-MALWARE-DEFINITION-001",
+          "fact": "NIST defines malware, also known as malicious code, as a covertly inserted program intended to destroy data, run destructive or intrusive programs, or compromise confidentiality, integrity, or availability.",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "evidence_id": "EVID-NIST-MALWARE-DEFINITION-001"
+        },
+        {
+          "fact_id": "VF-NIST-MALWARE-CATEGORIES-001",
+          "fact": "NIST lists viruses, worms, Trojan horses, malicious mobile code, and blended attacks as classic malware categories.",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "evidence_id": "EVID-NIST-MALWARE-CLASSIC-CATEGORIES-001"
+        },
+        {
+          "fact_id": "VF-NIST-MALWARE-TROJAN-001",
+          "fact": "NIST defines a Trojan horse as self-contained and nonreplicating while appearing benign and having a hidden malicious purpose.",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "evidence_id": "EVID-NIST-MALWARE-TROJAN-001"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-NIST-800-83R1-2013"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite NIST SP 800-83 Rev. 1, page 2, Section 2 for the malware definition and page 2, Section 2.1 for classic malware categories."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "definition_with_explanation",
+        "must_include": [
+          "malware is also known as malicious code",
+          "malware can compromise confidentiality, integrity, or availability",
+          "classic malware forms include viruses, worms, Trojan horses, malicious mobile code, and blended attacks",
+          "Trojan horses are nonreplicating and appear benign while having malicious purpose",
+          "modern malware may combine characteristics, making strict categories less useful"
+        ],
+        "avoid_claims": [
+          "All malware fits neatly into one classic category",
+          "Trojan horses self-replicate like viruses or worms",
+          "All malware is easy to notice",
+          "Malware only causes data loss",
+          "Azeem et al.'s individual malware subtype definitions should override NIST definitions"
+        ]
+      }
+    },
+    {
+      "id": "KU-NIST-MALWARE-LAYERED-PREVENTION-001",
+      "title": "Malware prevention requires layered controls, not a single defensive tool",
+      "category_id": "CAT-STORAGE-DEVICE",
+      "threat_ids": [
+        "THR-MALWARE-INFECTION",
+        "THR-MALICIOUS-CODE",
+        "THR-WEB-BASED-ATTACK",
+        "THR-PHISHING",
+        "THR-UNPATCHED-SOFTWARE",
+        "THR-USER-NONCOMPLIANCE"
+      ],
+      "practice_ids": [
+        "PRA-UPDATE-ANTIVIRUS",
+        "PRA-UPDATE-PROTECTION-SOFTWARE",
+        "PRA-CONDUCT-SECURITY-SCANS",
+        "PRA-CHECK-DEVICE-UPDATES",
+        "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS",
+        "PRA-ENABLE-FIREWALLS",
+        "PRA-AVOID-UNTRUSTED-DOWNLOADS",
+        "PRA-AVOID-ADMIN-ACCOUNTS-FOR-REGULAR-USE",
+        "PRA-BACKUP-FILES"
+      ],
+      "claim": "Malware prevention should use layered controls, including policy, awareness, vulnerability mitigation, threat mitigation tools, and defensive architecture, because no single method prevents all malware incidents.",
+      "explanation": "NIST presents malware prevention as a layered approach. It identifies policy, awareness, vulnerability mitigation, threat mitigation, and defensive architecture as main prevention elements. NIST also states that organizations should be aware that malware incidents will still occur despite prevention efforts, including because of unknown threats and human error. This supports cyber hygiene guidance that combines technical controls, user awareness, patching, scanning, email/link caution, and recovery planning.",
+      "recommended_actions": [
+        "Use layered malware prevention rather than relying on one tool.",
+        "Keep operating systems, applications, antivirus software, and other protection software updated.",
+        "Avoid suspicious emails, attachments, hyperlinks, popup windows, untrusted downloads, and files commonly associated with malware.",
+        "Do not disable security controls such as antivirus software, content filtering, reputation software, or personal firewalls.",
+        "Avoid using administrator-level accounts for regular host operation.",
+        "Use firewalls, content filtering, application controls, and other technical controls where appropriate.",
+        "Maintain backups and incident handling plans because malware incidents can still occur."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "How can I prevent malware infections?",
+        "Is antivirus enough to prevent malware?",
+        "What are good malware prevention practices?",
+        "Why should malware prevention use layered controls?",
+        "How do updates help prevent malware?",
+        "How can users avoid malware from emails and downloads?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-NIST-MALWARE-PREVENTION-LAYERS-001",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "citation_key": "souppaya_malware_2013",
+          "support_type": "direct",
+          "exact_supporting_text": "The main elements of prevention are policy, awareness, vulnerability mitigation, threat mitigation, and defensive architecture.",
+          "page": 17,
+          "section": "3. Malware Incident Prevention",
+          "paragraph": "1",
+          "claim_location": {
+            "page": 17,
+            "section": "3. Malware Incident Prevention",
+            "paragraph": "1"
+          }
+        },
+        {
+          "evidence_id": "EVID-NIST-MALWARE-PREVENTION-NOT-FOOLPROOF-001",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "citation_key": "souppaya_malware_2013",
+          "support_type": "direct",
+          "exact_supporting_text": "Organizations should be aware that no matter how much effort they put into malware incident prevention, incidents will still occur (e.g., previously unknown types of threats, human error).",
+          "page": 17,
+          "section": "3. Malware Incident Prevention",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 17,
+            "section": "3. Malware Incident Prevention",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-NIST-MALWARE-AWARENESS-PRACTICES-001",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "citation_key": "souppaya_malware_2013",
+          "support_type": "direct",
+          "exact_supporting_text": "Examples of such practices are as follows: Not opening suspicious emails or email attachments, clicking on hyperlinks, etc. from unknown or known senders, or visiting websites that are likely to contain malicious content; Not clicking on suspicious web browser popup windows; Not opening files with file extensions that are likely to be associated with malware; Not disabling malware security control mechanisms; Not using administrator-level accounts for regular host operation; Not downloading or executing applications from untrusted sources.",
+          "page": 7,
+          "section": "3.2 Awareness",
+          "paragraph": "9",
+          "claim_location": {
+            "page": 7,
+            "section": "3.2 Awareness",
+            "paragraph": "9"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-NIST-MALWARE-PREVENTION-LAYERS-001",
+          "fact": "NIST identifies policy, awareness, vulnerability mitigation, threat mitigation, and defensive architecture as main elements of malware prevention.",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "evidence_id": "EVID-NIST-MALWARE-PREVENTION-LAYERS-001"
+        },
+        {
+          "fact_id": "VF-NIST-MALWARE-PREVENTION-NOT-FOOLPROOF-001",
+          "fact": "NIST states that malware incidents will still occur despite prevention efforts because of factors such as unknown threats and human error.",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "evidence_id": "EVID-NIST-MALWARE-PREVENTION-NOT-FOOLPROOF-001"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-NIST-800-83R1-2013"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite NIST SP 800-83 Rev. 1, page 6, Section 3 for layered malware prevention and page 7, Section 3.2 for user awareness practices."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "practical_advice_with_explanation",
+        "must_include": [
+          "malware prevention should be layered",
+          "policy, awareness, vulnerability mitigation, threat mitigation, and defensive architecture are prevention elements",
+          "technical controls do not prevent all incidents",
+          "avoid suspicious emails, attachments, links, popups, and untrusted downloads",
+          "do not disable security controls",
+          "avoid administrator-level accounts for regular use"
+        ],
+        "avoid_claims": [
+          "Antivirus alone prevents all malware",
+          "User awareness alone is enough to prevent malware",
+          "Patching eliminates all malware risk",
+          "No malware incident will occur if layered controls are used",
+          "Administrator accounts are safe for routine use"
+        ]
+      }
+    },
+    {
+      "id": "KU-NIST-ANTIVIRUS-USEFUL-BUT-LIMITED-001",
+      "title": "Antivirus software is important for malware mitigation but cannot stop all malware",
+      "category_id": "CAT-STORAGE-DEVICE",
+      "threat_ids": [
+        "THR-MALWARE-INFECTION",
+        "THR-MALICIOUS-CODE"
+      ],
+      "practice_ids": [
+        "PRA-UPDATE-ANTIVIRUS",
+        "PRA-UPDATE-PROTECTION-SOFTWARE",
+        "PRA-CONDUCT-SECURITY-SCANS",
+        "PRA-VIRUS-SCAN-STORAGE",
+        "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS"
+      ],
+      "claim": "Antivirus software is an important malware mitigation control, but it cannot stop all malware, especially unknown or highly customized threats.",
+      "explanation": "NIST describes antivirus software as the most commonly used technical control for malware threat mitigation and recommends capabilities such as scanning startup files, boot records, email attachments, downloaded/opened/executed files, removable media, and known malware. However, NIST also states that antivirus software cannot stop all malware incidents and is less effective against previously unknown or highly customized malware.",
+      "recommended_actions": [
+        "Use antivirus or anti-malware software where available.",
+        "Keep antivirus signatures and software updates current.",
+        "Configure antivirus for real-time/on-access scanning where appropriate.",
+        "Run regular scans and allow manual/on-demand scans when needed.",
+        "Do not rely on antivirus software as the only malware defense."
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "Is antivirus enough to protect against malware?",
+        "Why should antivirus software be kept up to date?",
+        "What does antivirus software do?",
+        "Why can antivirus miss malware?",
+        "How should antivirus be used as part of cyber hygiene?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-NIST-ANTIVIRUS-CAPABILITIES-001",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "citation_key": "souppaya_malware_2013",
+          "support_type": "direct",
+          "exact_supporting_text": "Antivirus software is the most commonly used technical control for malware threat mitigation. There are many brands of antivirus software, with most providing similar protection through the following recommended capabilities.",
+          "page": 21,
+          "section": "3.4.1 Antivirus Software",
+          "paragraph": "4",
+          "claim_location": {
+            "page": 21,
+            "section": "3.4.1 Antivirus Software",
+            "paragraph": "4"
+          }
+        },
+        {
+          "evidence_id": "EVID-NIST-ANTIVIRUS-UPDATES-001",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "citation_key": "souppaya_malware_2013",
+          "support_type": "direct",
+          "exact_supporting_text": "Antivirus software is most effective when its signatures are fully up-to-date. Accordingly, antivirus software should be kept current with the latest signature and software updates to improve malware detection.",
+          "page": 22,
+          "section": "3.4.1 Antivirus Software",
+          "paragraph": "2",
+          "claim_location": {
+            "page": 22,
+            "section": "3.4.1 Antivirus Software",
+            "paragraph": "2"
+          }
+        },
+        {
+          "evidence_id": "EVID-NIST-ANTIVIRUS-LIMITATION-001",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "citation_key": "souppaya_malware_2013",
+          "support_type": "direct",
+          "exact_supporting_text": "Although antivirus software has become a necessity for malware incident prevention, it is not possible for antivirus software to stop all malware incidents.",
+          "page": 22,
+          "section": "3.4.1 Antivirus Software",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 22,
+            "section": "3.4.1 Antivirus Software",
+            "paragraph": "5"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-NIST-ANTIVIRUS-CAPABILITIES-001",
+          "fact": "NIST describes antivirus software as the most commonly used technical control for malware threat mitigation.",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "evidence_id": "EVID-NIST-ANTIVIRUS-CAPABILITIES-001"
+        },
+        {
+          "fact_id": "VF-NIST-ANTIVIRUS-UPDATES-001",
+          "fact": "NIST states that antivirus software is most effective when signatures are fully up to date.",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "evidence_id": "EVID-NIST-ANTIVIRUS-UPDATES-001"
+        },
+        {
+          "fact_id": "VF-NIST-ANTIVIRUS-LIMITATION-001",
+          "fact": "NIST states that antivirus software cannot stop all malware incidents.",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "evidence_id": "EVID-NIST-ANTIVIRUS-LIMITATION-001"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-NIST-800-83R1-2013"
+        ],
+        "citation_granularity": "paragraph",
+        "minimum_traceability_requirement": "The answer should cite NIST SP 800-83 Rev. 1, page 10-11, Section 3.4.1 for antivirus capabilities, updates, and limitations."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "practical_advice_with_explanation",
+        "must_include": [
+          "antivirus is a common malware mitigation control",
+          "antivirus should be kept current with signature and software updates",
+          "antivirus can scan files, email attachments, removable media, startup files, and suspicious activity",
+          "antivirus cannot stop all malware incidents",
+          "unknown or customized malware can evade signature-based controls"
+        ],
+        "avoid_claims": [
+          "Antivirus software alone is sufficient",
+          "Antivirus software detects all malware",
+          "Updated antivirus guarantees safety",
+          "Users do not need other cyber hygiene practices if antivirus is installed"
         ]
       }
     }
