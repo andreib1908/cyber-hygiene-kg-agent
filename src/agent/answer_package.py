@@ -68,6 +68,13 @@ def _build_ku_package(record: dict[str, Any]) -> dict[str, Any]:
     avoid_claims = _as_list(guidance.get("avoid_claims"))
     question_templates = _as_list(record.get("question_templates"))
 
+    evidence_passages = []
+    for e in _as_list(record.get("evidence")):
+        evidence_id = e.get("evidence_id")
+        text = e.get("text")
+        if evidence_id and text:
+            evidence_passages.append({"evidence_id": evidence_id, "text": text})
+
     return {
         "id": ku.get("id"),
         "title": ku.get("title"),
@@ -78,6 +85,7 @@ def _build_ku_package(record: dict[str, Any]) -> dict[str, Any]:
         "must_include": _dedupe_preserve_order(must_include),
         "avoid_claims": _dedupe_preserve_order(avoid_claims),
         "question_templates": _dedupe_preserve_order(question_templates),
+        "evidence": evidence_passages,
     }
 
 def _record_ku_id(record: dict[str, Any]) -> str | None:
@@ -97,6 +105,39 @@ def ku_ids_in_context(context: list[dict[str, Any]]) -> list[str]:
         if ku_id and ku_id not in ids:
             ids.append(ku_id)
     return ids
+
+def evidence_ids_in_context(context: list[dict[str, Any]]) -> list[str]:
+    """Every evidence_id present in retrieved context, in order, de-duplicated."""
+    ids: list[str] = []
+    for record in context:
+        for evidence in _as_list(record.get("evidence")):
+            eid = evidence.get("evidence_id")
+            if eid and eid not in ids:
+                ids.append(eid)
+    return ids
+
+
+def select_sources_by_evidence_ids(
+    context: list[dict[str, Any]],
+    used_evidence_ids: list[str] | None,
+) -> list[dict[str, Any]]:
+    """Cite exactly the evidence passages the model declared it used.
+
+    Returned in natural context order (retrieval rank, then KU evidence order),
+    de-duplicated by evidence_id. No per-KU cap — the model's declaration bounds it.
+    """
+    if not context or not used_evidence_ids:
+        return []
+    wanted = set(used_evidence_ids)
+    selected: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for record in context:
+        for evidence in _as_list(record.get("evidence")):
+            eid = evidence.get("evidence_id")
+            if eid and eid in wanted and eid not in seen:
+                seen.add(eid)
+                selected.append(evidence)
+    return selected
 
 def build_answer_package(
     question: str,

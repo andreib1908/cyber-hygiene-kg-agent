@@ -18,7 +18,8 @@ from datetime import datetime
 
 from src.agent.answer_package import (
     build_answer_package,
-    ku_ids_in_context,
+    evidence_ids_in_context,
+    select_sources_by_evidence_ids,
     select_sources_used,
 )
 
@@ -28,7 +29,29 @@ CONVERSATION_PROMPT_PATH = PROJECT_ROOT / "src" / "prompts" / "conversation_prom
 DEBUG_DIR = PROJECT_ROOT / "debug"
 
 USED_KUS_PATTERN = re.compile(r"<used_kus>(.*?)</used_kus>", re.IGNORECASE | re.DOTALL)
+USED_EVIDENCE_PATTERN = re.compile(r"<used_evidence>(.*?)</used_evidence>", re.IGNORECASE | re.DOTALL)
 
+
+def extract_used_evidence_ids(text: str, available_evidence_ids: list[str]) -> list[str] | None:
+    """Parse <used_evidence>, keeping only ids that were actually retrieved.
+
+    Returns None when nothing usable is declared, signalling the caller to fall
+    back to the bounded KU-level selection.
+    """
+    matches = USED_EVIDENCE_PATTERN.findall(text)
+    if not matches:
+        return None
+    declared = [token.strip() for token in re.split(r"[,\s]+", matches[-1]) if token.strip()]
+    available = set(available_evidence_ids)
+    used = [eid for eid in declared if eid in available]
+    return used or None
+
+
+def strip_citation_tags(text: str) -> str:
+    """Remove citation-tracking tag(s) so the user never sees internal ids."""
+    text = USED_EVIDENCE_PATTERN.sub("", text)
+    text = USED_KUS_PATTERN.sub("", text)  # defensive: strip the old tag if it appears
+    return text.strip()
 
 def extract_used_ku_ids(text: str, available_ku_ids: list[str]) -> list[str] | None:
     """Parse the <used_kus> tag, keeping only ids that were actually retrieved.
@@ -230,9 +253,15 @@ def answer_from_context(question: str, context: list[dict[str, Any]]) -> tuple[s
     raw_output = extract_model_output(response)
     model_answer = finalize_model_output(raw_output)
 
-    used_ku_ids = extract_used_ku_ids(model_answer, ku_ids_in_context(context))
-    model_answer = strip_used_kus_tag(model_answer)
-    sources = select_sources_used(context, used_ku_ids=used_ku_ids)
+    used_evidence_ids = extract_used_evidence_ids(
+        model_answer, evidence_ids_in_context(context)
+    )
+    model_answer = strip_citation_tags(model_answer)
+
+    if used_evidence_ids:
+        sources = select_sources_by_evidence_ids(context, used_evidence_ids)
+    else:
+        sources = select_sources_used(context)  # fallback: bounded KU-level
 
     return model_answer, sources
 
