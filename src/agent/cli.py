@@ -32,10 +32,15 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.agent.neo_answer import answer_from_context
+from rich.console import Console
+
+from src.agent.answer_package import format_sources_block
+from src.agent.neo_answer import answer_conversationally, answer_from_context
+from src.agent.sources_table import build_sources_table
 from src.ingestion.build_graph import main as rebuild_graph
 from src.retrieval.retriever import retrieve_context
-from src.agent.neo_answer import answer_conversationally, answer_from_context
+
+console = Console()
 
 # ---------------------------------------------------------------------------
 # Terminal formatting
@@ -411,6 +416,7 @@ def answer_question(question: str, memory: dict[str, Any]) -> None:
 
     context: list[dict[str, Any]] = []
     answer = ""
+    sources: list[dict[str, Any]] = []
 
     try:
         if is_conversational_question(question):
@@ -430,7 +436,7 @@ def answer_question(question: str, memory: dict[str, Any]) -> None:
             spin_thread = threading.Thread(target=spinner, args=(stop_event,))
             spin_thread.start()
 
-            answer = answer_from_context(question, context)
+            answer, sources = answer_from_context(question, context)
 
     except KeyboardInterrupt:
         stop_event.set()
@@ -459,14 +465,22 @@ def answer_question(question: str, memory: dict[str, Any]) -> None:
     print(DIVIDER)
     print(indent_block(render_markdown_terminal(final_answer)))
     print(DIVIDER)
+
+    if sources:
+        console.print()
+        console.print(build_sources_table(sources))
+
     print(
         f"{DIM}{INDENT}Context records: {len(context)} | "
         f"Duration: {elapsed:.2f}s | Time: {datetime.now().strftime('%H:%M:%S')}{RESET}"
     )
 
+    sources_text = format_sources_block(sources)
+    logged_answer = f"{final_answer}\n\n{sources_text}" if sources_text else final_answer
+
     log_entry(
         question=question,
-        answer=answer,
+        answer=logged_answer,
         elapsed=elapsed,
         context_count=len(context),
     )

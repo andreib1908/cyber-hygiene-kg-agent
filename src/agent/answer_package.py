@@ -173,56 +173,43 @@ def _format_source_line(evidence: dict[str, Any]) -> str | None:
     return f"- {evidence_id} - ({', '.join(safe_parts)})"
 
 
-def format_sources_used(
-    context: list[dict[str, Any]],
-    used_ku_ids: list[str] | None = None,
-    max_per_ku: int = MAX_EVIDENCE_PER_KU,
-) -> str:
-    """Format the deterministic Sources used section from retrieved evidence.
-
-    If used_ku_ids is given, cite only the evidence belonging to those KUs (the
-    ones the model declared it used). Falls back to all retrieved KUs if the
-    filter matches nothing, so citations never disappear entirely.
-    """
+def select_sources_used(context, used_ku_ids=None, max_per_ku=MAX_EVIDENCE_PER_KU):
+    """The evidence items that would be cited — same logic, returned as data."""
     if not context:
-        return ""
-
+        return []
     records = context
     if used_ku_ids:
         used = set(used_ku_ids)
-        filtered = [record for record in context if _record_ku_id(record) in used]
-        records = filtered or context
+        records = [r for r in context if _record_ku_id(r) in used] or context
 
-    source_lines: list[str] = []
-    seen_evidence_ids: set[str] = set()
-
+    selected, seen = [], set()
     for record in records:
-        # Prefer direct evidence first.
         evidence_items = sorted(
             _as_list(record.get("evidence")),
-            key=lambda item: 0 if item.get("support_type") == "direct" else 1,
+            key=lambda e: 0 if e.get("support_type") == "direct" else 1,
         )
-
         count = 0
         for evidence in evidence_items:
-            evidence_id = evidence.get("evidence_id")
-            if not evidence_id or evidence_id in seen_evidence_ids:
+            eid = evidence.get("evidence_id")
+            if not eid or eid in seen:
                 continue
-
-            line = _format_source_line(evidence)
-            if not line:
-                continue
-
-            seen_evidence_ids.add(evidence_id)
-            source_lines.append(line)
+            seen.add(eid)
+            selected.append(evidence)
             count += 1
             if count >= max_per_ku:
                 break
+    return selected
 
-    if not source_lines:
-        return ""
 
-    return "Sources used:\n" + "\n".join(source_lines)
+def format_sources_block(evidence_items: list[dict[str, Any]]) -> str:
+    """Plain-text 'Sources used' from already-selected evidence (logs, non-TTY)."""
+    lines = [_format_source_line(e) for e in evidence_items]
+    lines = [line for line in lines if line]
+    return ("Sources used:\n" + "\n".join(lines)) if lines else ""
+
+
+def format_sources_used(context, used_ku_ids=None, max_per_ku=MAX_EVIDENCE_PER_KU):
+    return format_sources_block(select_sources_used(context, used_ku_ids, max_per_ku))
 
 def append_sources_used(answer: str, sources_text: str) -> str:
     """Append deterministic sources to the model-generated answer."""

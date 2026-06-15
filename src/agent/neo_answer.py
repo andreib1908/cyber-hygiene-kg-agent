@@ -17,10 +17,9 @@ from langchain_ollama import ChatOllama
 from datetime import datetime
 
 from src.agent.answer_package import (
-    append_sources_used,
     build_answer_package,
-    format_sources_used,
     ku_ids_in_context,
+    select_sources_used,
 )
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -210,10 +209,10 @@ def debug_llm_prompt(prompt: str, mode: str) -> None:
         print(f"\nSaved exact LLM prompt to: {path}")
 
 
-def answer_from_context(question: str, context: list[dict[str, Any]]) -> str:
-    """Generate a source-grounded answer, citing only the KUs the model used."""
+def answer_from_context(question: str, context: list[dict[str, Any]]) -> tuple[str, list[dict[str, Any]]]:
+    """Generate a grounded answer plus the evidence the CLI should cite."""
     if not context:
-        return "The knowledge base does not contain enough evidence to answer this."
+        return "The knowledge base does not contain enough evidence to answer this.", []
 
     prompt_template = load_answer_prompt()
     answer_package = build_answer_package(question, context)
@@ -231,12 +230,11 @@ def answer_from_context(question: str, context: list[dict[str, Any]]) -> str:
     raw_output = extract_model_output(response)
     model_answer = finalize_model_output(raw_output)
 
-    # Cite only the knowledge units the model declared it used.
     used_ku_ids = extract_used_ku_ids(model_answer, ku_ids_in_context(context))
     model_answer = strip_used_kus_tag(model_answer)
-    sources_text = format_sources_used(context, used_ku_ids=used_ku_ids)
+    sources = select_sources_used(context, used_ku_ids=used_ku_ids)
 
-    return append_sources_used(model_answer, sources_text)
+    return model_answer, sources
 
 
 def answer_conversationally(question: str) -> str:

@@ -2057,7 +2057,8 @@
           "SRC-KARAYEL-2024",
           "SRC-VISHWANATH-2020",
           "SRC-CAIN-2018",
-          "SRC-BARAKOVIC-2023"
+          "SRC-BARAKOVIC-2023",
+          "SRC-NIST-800-83R1-2013"
         ],
         "citation_granularity": "table_or_section",
         "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020. Claims linking email and messaging hygiene to phishing, e-fraud, or social engineering should be traceable to Karayel et al.'s Table 2 and Section 4.3 discussion. Claims about checking incoming email headers, sender email domain names, hyperlinks or attachments from unknown senders, and grammatical or typographical errors should be traceable to Vishwanath et al.'s Table 1. Cain et al. (2018) had also identified email cyber hygiene (look at the provided evidence)."

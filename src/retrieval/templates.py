@@ -71,6 +71,7 @@ RETURN
     source_id: s.id,
     source_title: s.title,
     authors: s.authors,
+    url: s.url,
     year: s.year
   }) AS evidence,
 
