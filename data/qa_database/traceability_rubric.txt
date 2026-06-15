@@ -1,0 +1,27 @@
+TRACEABILITY RUBRIC
+
+Purpose:
+Traceability measures whether the answer can be connected to real, relevant, and verifiable sources.
+
+The traceability score is assigned by the researcher.
+
+Score 1 — No traceability
+The answer provides no sources, citations, references, or identifiable evidence. There is no clear way to verify where the answer came from.
+
+Score 2 — Vague traceability
+The answer refers vaguely to sources, such as “research shows,” “experts recommend,” “NIST says,” or “studies suggest,” but does not provide enough information to identify or verify the source. The answer may mention broad institutions or generic research without a title, DOI, URL, page, section, or other stable reference.
+
+Score 3 — Source-level traceability
+The answer names at least one real and relevant source, organization, standard, article, or report. However, it does not provide precise evidence locations such as page numbers, sections, paragraphs, or exact supporting text. The answer is traceable at a broad source level but not at a specific claim level.
+
+Score 4 — Specific traceability
+The answer provides real and relevant sources with enough detail to locate them, such as title, author, DOI, URL, page, section, paragraph, or similar evidence location. However, citations may apply broadly to the answer rather than being clearly linked to each individual important claim.
+
+Score 5 — Claim-level traceability
+The answer links important claims to exact supporting evidence. The source information is real, relevant, and specific, including details such as DOI or stable identifier, page, section, paragraph, and/or exact supporting text. The cited evidence clearly supports the claims made in the answer.
+
+Special rule for fabricated or unverifiable sources:
+If an answer provides sources that appear fabricated, unverifiable, irrelevant, or misleading, the traceability score should be no higher than 2, even if the citations look detailed.
+
+Special note for Neo:
+Neo may provide a retrieved source block that lists evidence available during answer generation. If the source block is real, relevant, and specific, but not every source is clearly tied to a specific sentence in the answer, this should generally receive a score around 4 rather than 5.

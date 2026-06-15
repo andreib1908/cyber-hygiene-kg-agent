@@ -1,0 +1,26 @@
+VALIDITY RUBRIC
+
+Purpose:
+Validity measures whether the answer is factually correct, complete enough for the question, and safe/useful as cyber hygiene guidance.
+
+The validity score should be assigned by domain experts.
+
+Score 1 — Mostly incorrect or unsafe
+The answer contains serious inaccuracies, unsafe recommendations, misleading advice, or statements that directly contradict established cyber hygiene guidance. It may give advice that could increase user risk.
+
+Score 2 — Partially correct but weak
+The answer contains some correct points, but it has major omissions, vague or shallow advice, unsupported claims, or questionable recommendations. It may answer only a small part of the question.
+
+Score 3 — Mostly correct
+The answer is generally valid and gives a reasonable response, but it misses some important points, lacks useful detail, or includes minor unsupported or unclear claims. It is acceptable but incomplete.
+
+Score 4 — Correct and useful
+The answer is accurate, practical, and covers the main expected points. It does not contain major unsupported, unsafe, or misleading claims. Minor omissions are acceptable.
+
+Score 5 — Highly accurate and complete
+The answer is highly accurate, complete, practical, and well-nuanced. It directly addresses the question, includes the important relevant points, avoids overclaiming, and gives safe cyber hygiene guidance.
+
+Additional notes:
+- Experts should focus on the correctness and usefulness of the answer, not on whether sources are provided.
+- Traceability is assessed separately.
+- Experts may add comments explaining missing information, incorrect claims, unsafe recommendations, or strong aspects of the answer.

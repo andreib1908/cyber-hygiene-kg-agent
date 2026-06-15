@@ -1,0 +1,537 @@
+{
+  "experiment": {
+    "id": "EXP-NEO-COMPARE-001",
+    "title": "Evaluation of Neo against general-purpose LLMs for cyber hygiene advice",
+    "description": "Comparison of Neo, ChatGPT, Claude, and Gemini on cyber hygiene benchmark questions across validity, traceability, and stability.",
+    "evaluation_dimensions": [
+      "validity",
+      "traceability",
+      "stability"
+    ],
+    "models": [
+      {
+        "id": "NEO",
+        "name": "Neo",
+        "access_mode": "local CLI",
+        "context_policy": "Uses the local cyber hygiene knowledge base and graph-grounded retrieval.",
+        "reset_method": "Restart CLI before each repetition."
+      },
+      {
+        "id": "CHATGPT",
+        "name": "ChatGPT",
+        "access_mode": "free public web version",
+        "context_policy": "No prior context. Fresh chat for each repetition.",
+        "reset_method": "Delete chat history or start a new chat before each repetition."
+      },
+      {
+        "id": "CLAUDE",
+        "name": "Claude",
+        "access_mode": "free public web version",
+        "context_policy": "No prior context. Fresh chat for each repetition.",
+        "reset_method": "Delete chat history or start a new chat before each repetition."
+      },
+      {
+        "id": "GEMINI",
+        "name": "Gemini",
+        "access_mode": "free public web version",
+        "context_policy": "No prior context. Fresh chat for each repetition.",
+        "reset_method": "Delete chat history or start a new chat before each repetition."
+      }
+    ],
+    "experts": [
+      {
+        "id": "EXP-01",
+        "role": "",
+        "notes": ""
+      },
+      {
+        "id": "EXP-02",
+        "role": "",
+        "notes": ""
+      },
+      {
+        "id": "EXP-03",
+        "role": "",
+        "notes": ""
+      }
+    ],
+    "rubric_files": {
+      "validity_rubric": "validity_rubric.txt",
+      "traceability_rubric": "traceability_rubric.txt",
+      "stability_rubric": "stability_rubric.txt"
+    }
+  },
+  "questions": [
+    {
+      "id": "QUE-01",
+      "question_text": "What is phishing and how do I protect myself against it?",
+      "question_type": "definition_and_practical_advice",
+      "neo_target_kus": [
+        "KU-EMAIL-MESSAGING-001"
+      ],
+      "answers": [
+        {
+          "id": "ANS-QUE-01-NEO-01",
+          "question_id": "QUE-01",
+          "model_id": "NEO",
+          "repetition": 1,
+          "prompt_given": "What is phishing and how do I protect myself against it?",
+          "answer_text": "",
+          "clean_answer_text": "",
+          "retrieval_metadata": {
+            "retrieved_kus": [],
+            "sources_block_present": true,
+            "sources_block_text": ""
+          },
+          "traceability": {
+            "trace_text": "",
+            "trace_score": null,
+            "trace_score_reason": "",
+            "citation_granularity": "",
+            "source_status": "",
+            "fabricated_sources_detected": false
+          },
+          "validity": {
+            "expert_ratings": [
+              {
+                "expert_id": "EXP-01",
+                "score": null,
+                "comment": "",
+                "error_flags": []
+              },
+              {
+                "expert_id": "EXP-02",
+                "score": null,
+                "comment": "",
+                "error_flags": []
+              },
+              {
+                "expert_id": "EXP-03",
+                "score": null,
+                "comment": "",
+                "error_flags": []
+              }
+            ],
+            "aggregate": {
+              "mean_score": null,
+              "median_score": null,
+              "standard_deviation": null,
+              "number_of_expert_ratings": null
+            }
+          },
+          "notes": ""
+        },
+        {
+          "id": "ANS-QUE-01-NEO-02",
+          "question_id": "QUE-01",
+          "model_id": "NEO",
+          "repetition": 2,
+          "prompt_given": "What is phishing and how do I protect myself against it?",
+          "answer_text": "",
+          "clean_answer_text": "",
+          "retrieval_metadata": {
+            "retrieved_kus": [],
+            "sources_block_present": true,
+            "sources_block_text": ""
+          },
+          "traceability": {
+            "trace_text": "",
+            "trace_score": null,
+            "trace_score_reason": "",
+            "citation_granularity": "",
+            "source_status": "",
+            "fabricated_sources_detected": false
+          },
+          "validity": {
+            "expert_ratings": [],
+            "aggregate": {
+              "mean_score": null,
+              "median_score": null,
+              "standard_deviation": null,
+              "number_of_expert_ratings": null
+            }
+          },
+          "notes": ""
+        },
+        {
+          "id": "ANS-QUE-01-NEO-03",
+          "question_id": "QUE-01",
+          "model_id": "NEO",
+          "repetition": 3,
+          "prompt_given": "What is phishing and how do I protect myself against it?",
+          "answer_text": "",
+          "clean_answer_text": "",
+          "retrieval_metadata": {
+            "retrieved_kus": [],
+            "sources_block_present": true,
+            "sources_block_text": ""
+          },
+          "traceability": {
+            "trace_text": "",
+            "trace_score": null,
+            "trace_score_reason": "",
+            "citation_granularity": "",
+            "source_status": "",
+            "fabricated_sources_detected": false
+          },
+          "validity": {
+            "expert_ratings": [],
+            "aggregate": {
+              "mean_score": null,
+              "median_score": null,
+              "standard_deviation": null,
+              "number_of_expert_ratings": null
+            }
+          },
+          "notes": ""
+        },
+        {
+          "id": "ANS-QUE-01-CHATGPT-01",
+          "question_id": "QUE-01",
+          "model_id": "CHATGPT",
+          "repetition": 1,
+          "prompt_given": "What is phishing and how do I protect myself against it?",
+          "answer_text": "",
+          "clean_answer_text": "",
+          "retrieval_metadata": null,
+          "traceability": {
+            "trace_text": "",
+            "trace_score": null,
+            "trace_score_reason": "",
+            "citation_granularity": "",
+            "source_status": "",
+            "fabricated_sources_detected": false
+          },
+          "validity": {
+            "expert_ratings": [],
+            "aggregate": {
+              "mean_score": null,
+              "median_score": null,
+              "standard_deviation": null,
+              "number_of_expert_ratings": null
+            }
+          },
+          "notes": ""
+        },
+        {
+          "id": "ANS-QUE-01-CHATGPT-02",
+          "question_id": "QUE-01",
+          "model_id": "CHATGPT",
+          "repetition": 2,
+          "prompt_given": "What is phishing and how do I protect myself against it?",
+          "answer_text": "",
+          "clean_answer_text": "",
+          "retrieval_metadata": null,
+          "traceability": {
+            "trace_text": "",
+            "trace_score": null,
+            "trace_score_reason": "",
+            "citation_granularity": "",
+            "source_status": "",
+            "fabricated_sources_detected": false
+          },
+          "validity": {
+            "expert_ratings": [],
+            "aggregate": {
+              "mean_score": null,
+              "median_score": null,
+              "standard_deviation": null,
+              "number_of_expert_ratings": null
+            }
+          },
+          "notes": ""
+        },
+        {
+          "id": "ANS-QUE-01-CHATGPT-03",
+          "question_id": "QUE-01",
+          "model_id": "CHATGPT",
+          "repetition": 3,
+          "prompt_given": "What is phishing and how do I protect myself against it?",
+          "answer_text": "",
+          "clean_answer_text": "",
+          "retrieval_metadata": null,
+          "traceability": {
+            "trace_text": "",
+            "trace_score": null,
+            "trace_score_reason": "",
+            "citation_granularity": "",
+            "source_status": "",
+            "fabricated_sources_detected": false
+          },
+          "validity": {
+            "expert_ratings": [],
+            "aggregate": {
+              "mean_score": null,
+              "median_score": null,
+              "standard_deviation": null,
+              "number_of_expert_ratings": null
+            }
+          },
+          "notes": ""
+        },
+        {
+          "id": "ANS-QUE-01-CLAUDE-01",
+          "question_id": "QUE-01",
+          "model_id": "CLAUDE",
+          "repetition": 1,
+          "prompt_given": "What is phishing and how do I protect myself against it?",
+          "answer_text": "",
+          "clean_answer_text": "",
+          "retrieval_metadata": null,
+          "traceability": {
+            "trace_text": "",
+            "trace_score": null,
+            "trace_score_reason": "",
+            "citation_granularity": "",
+            "source_status": "",
+            "fabricated_sources_detected": false
+          },
+          "validity": {
+            "expert_ratings": [],
+            "aggregate": {
+              "mean_score": null,
+              "median_score": null,
+              "standard_deviation": null,
+              "number_of_expert_ratings": null
+            }
+          },
+          "notes": ""
+        },
+        {
+          "id": "ANS-QUE-01-CLAUDE-02",
+          "question_id": "QUE-01",
+          "model_id": "CLAUDE",
+          "repetition": 2,
+          "prompt_given": "What is phishing and how do I protect myself against it?",
+          "answer_text": "",
+          "clean_answer_text": "",
+          "retrieval_metadata": null,
+          "traceability": {
+            "trace_text": "",
+            "trace_score": null,
+            "trace_score_reason": "",
+            "citation_granularity": "",
+            "source_status": "",
+            "fabricated_sources_detected": false
+          },
+          "validity": {
+            "expert_ratings": [],
+            "aggregate": {
+              "mean_score": null,
+              "median_score": null,
+              "standard_deviation": null,
+              "number_of_expert_ratings": null
+            }
+          },
+          "notes": ""
+        },
+        {
+          "id": "ANS-QUE-01-CLAUDE-03",
+          "question_id": "QUE-01",
+          "model_id": "CLAUDE",
+          "repetition": 3,
+          "prompt_given": "What is phishing and how do I protect myself against it?",
+          "answer_text": "",
+          "clean_answer_text": "",
+          "retrieval_metadata": null,
+          "traceability": {
+            "trace_text": "",
+            "trace_score": null,
+            "trace_score_reason": "",
+            "citation_granularity": "",
+            "source_status": "",
+            "fabricated_sources_detected": false
+          },
+          "validity": {
+            "expert_ratings": [],
+            "aggregate": {
+              "mean_score": null,
+              "median_score": null,
+              "standard_deviation": null,
+              "number_of_expert_ratings": null
+            }
+          },
+          "notes": ""
+        },
+        {
+          "id": "ANS-QUE-01-GEMINI-01",
+          "question_id": "QUE-01",
+          "model_id": "GEMINI",
+          "repetition": 1,
+          "prompt_given": "What is phishing and how do I protect myself against it?",
+          "answer_text": "",
+          "clean_answer_text": "",
+          "retrieval_metadata": null,
+          "traceability": {
+            "trace_text": "",
+            "trace_score": null,
+            "trace_score_reason": "",
+            "citation_granularity": "",
+            "source_status": "",
+            "fabricated_sources_detected": false
+          },
+          "validity": {
+            "expert_ratings": [],
+            "aggregate": {
+              "mean_score": null,
+              "median_score": null,
+              "standard_deviation": null,
+              "number_of_expert_ratings": null
+            }
+          },
+          "notes": ""
+        },
+        {
+          "id": "ANS-QUE-01-GEMINI-02",
+          "question_id": "QUE-01",
+          "model_id": "GEMINI",
+          "repetition": 2,
+          "prompt_given": "What is phishing and how do I protect myself against it?",
+          "answer_text": "",
+          "clean_answer_text": "",
+          "retrieval_metadata": null,
+          "traceability": {
+            "trace_text": "",
+            "trace_score": null,
+            "trace_score_reason": "",
+            "citation_granularity": "",
+            "source_status": "",
+            "fabricated_sources_detected": false
+          },
+          "validity": {
+            "expert_ratings": [],
+            "aggregate": {
+              "mean_score": null,
+              "median_score": null,
+              "standard_deviation": null,
+              "number_of_expert_ratings": null
+            }
+          },
+          "notes": ""
+        },
+        {
+          "id": "ANS-QUE-01-GEMINI-03",
+          "question_id": "QUE-01",
+          "model_id": "GEMINI",
+          "repetition": 3,
+          "prompt_given": "What is phishing and how do I protect myself against it?",
+          "answer_text": "",
+          "clean_answer_text": "",
+          "retrieval_metadata": null,
+          "traceability": {
+            "trace_text": "",
+            "trace_score": null,
+            "trace_score_reason": "",
+            "citation_granularity": "",
+            "source_status": "",
+            "fabricated_sources_detected": false
+          },
+          "validity": {
+            "expert_ratings": [],
+            "aggregate": {
+              "mean_score": null,
+              "median_score": null,
+              "standard_deviation": null,
+              "number_of_expert_ratings": null
+            }
+          },
+          "notes": ""
+        }
+      ],
+      "stability_evaluations": [
+        {
+          "id": "STAB-QUE-01-NEO",
+          "question_id": "QUE-01",
+          "model_id": "NEO",
+          "answer_ids": [
+            "ANS-QUE-01-NEO-01",
+            "ANS-QUE-01-NEO-02",
+            "ANS-QUE-01-NEO-03"
+          ],
+          "method": "embedding_cosine_similarity",
+          "text_used": "clean_answer_text_without_sources",
+          "pairwise_similarity": {
+            "run_1_vs_2": null,
+            "run_1_vs_3": null,
+            "run_2_vs_3": null
+          },
+          "average_similarity": null,
+          "minimum_similarity": null,
+          "major_claim_conflicts": false,
+          "major_claim_conflict_notes": "",
+          "stability_score": null,
+          "stability_score_reason": ""
+        },
+        {
+          "id": "STAB-QUE-01-CHATGPT",
+          "question_id": "QUE-01",
+          "model_id": "CHATGPT",
+          "answer_ids": [
+            "ANS-QUE-01-CHATGPT-01",
+            "ANS-QUE-01-CHATGPT-02",
+            "ANS-QUE-01-CHATGPT-03"
+          ],
+          "method": "embedding_cosine_similarity",
+          "text_used": "clean_answer_text_without_sources",
+          "pairwise_similarity": {
+            "run_1_vs_2": null,
+            "run_1_vs_3": null,
+            "run_2_vs_3": null
+          },
+          "average_similarity": null,
+          "minimum_similarity": null,
+          "major_claim_conflicts": false,
+          "major_claim_conflict_notes": "",
+          "stability_score": null,
+          "stability_score_reason": ""
+        },
+        {
+          "id": "STAB-QUE-01-CLAUDE",
+          "question_id": "QUE-01",
+          "model_id": "CLAUDE",
+          "answer_ids": [
+            "ANS-QUE-01-CLAUDE-01",
+            "ANS-QUE-01-CLAUDE-02",
+            "ANS-QUE-01-CLAUDE-03"
+          ],
+          "method": "embedding_cosine_similarity",
+          "text_used": "clean_answer_text_without_sources",
+          "pairwise_similarity": {
+            "run_1_vs_2": null,
+            "run_1_vs_3": null,
+            "run_2_vs_3": null
+          },
+          "average_similarity": null,
+          "minimum_similarity": null,
+          "major_claim_conflicts": false,
+          "major_claim_conflict_notes": "",
+          "stability_score": null,
+          "stability_score_reason": ""
+        },
+        {
+          "id": "STAB-QUE-01-GEMINI",
+          "question_id": "QUE-01",
+          "model_id": "GEMINI",
+          "answer_ids": [
+            "ANS-QUE-01-GEMINI-01",
+            "ANS-QUE-01-GEMINI-02",
+            "ANS-QUE-01-GEMINI-03"
+          ],
+          "method": "embedding_cosine_similarity",
+          "text_used": "clean_answer_text_without_sources",
+          "pairwise_similarity": {
+            "run_1_vs_2": null,
+            "run_1_vs_3": null,
+            "run_2_vs_3": null
+          },
+          "average_similarity": null,
+          "minimum_similarity": null,
+          "major_claim_conflicts": false,
+          "major_claim_conflict_notes": "",
+          "stability_score": null,
+          "stability_score_reason": ""
+        }
+      ]
+    }
+  ]
+}

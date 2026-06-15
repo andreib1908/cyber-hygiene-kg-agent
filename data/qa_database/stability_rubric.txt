@@ -1,0 +1,45 @@
+STABILITY RUBRIC
+
+Purpose:
+Stability measures whether a model gives substantively consistent answers when asked the same question multiple times under the same conditions.
+
+Each question is asked three times per model. Stability is assessed by comparing the three repeated answers.
+
+Primary quantitative method:
+Embedding-based cosine similarity is calculated between the clean answer texts of the three repetitions.
+
+For three repeated answers, calculate:
+- similarity between run 1 and run 2
+- similarity between run 1 and run 3
+- similarity between run 2 and run 3
+
+Then calculate:
+- average similarity
+- minimum similarity
+
+The clean answer text should exclude source blocks or traceability sections where possible, especially for Neo, so that stability reflects the actual answer content rather than repeated citation text.
+
+Score 1 — Highly unstable
+Average cosine similarity is below 0.55, or the repeated answers contradict each other, change the core recommendation, or provide substantially different advice.
+
+Score 2 — Unstable
+Average cosine similarity is between 0.55 and 0.69, or the repeated answers show meaningful differences in important claims, recommendations, or conclusions.
+
+Score 3 — Moderately stable
+Average cosine similarity is between 0.70 and 0.79. The answers generally point in the same direction, but differ noticeably in detail, emphasis, completeness, or recommendations.
+
+Score 4 — Stable
+Average cosine similarity is between 0.80 and 0.89. The repeated answers contain the same core claims and recommendations, with only minor wording or detail differences.
+
+Score 5 — Highly stable
+Average cosine similarity is 0.90 or higher. The repeated answers are substantively equivalent, with consistent claims, recommendations, limitations, and overall meaning.
+
+Recommended reporting:
+For each model and question, report:
+- run 1 vs run 2 similarity
+- run 1 vs run 3 similarity
+- run 2 vs run 3 similarity
+- average similarity
+- minimum similarity
+- stability score
+- major claim conflict flag
