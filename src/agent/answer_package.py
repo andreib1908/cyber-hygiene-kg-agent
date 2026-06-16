@@ -9,6 +9,7 @@ handled deterministically outside the model.
 
 from __future__ import annotations
 
+import os
 from typing import Any
 
 
@@ -57,6 +58,108 @@ def _dedupe_preserve_order(values: list[Any]) -> list[Any]:
 
     return result
 
+def _sanitize_answer_style(style: str | None) -> str:
+    """Strip the '...with_traceability_note' suffix from answer styles.
+
+    That style reads to the model as an instruction to add a traceability note,
+    which leaks internal ids / author-year citations into the answer body.
+    """
+    return (style or "concise_answer").replace("_with_traceability_note", "")
+
+def _split_sentences(text: str) -> list[str]:
+    """Split an answer into sentences and bullet lines for matching."""
+    import re
+    out: list[str] = []
+    for chunk in re.split(r"(?<=[.!?])\s+", text.strip()):
+        for line in chunk.split("\n"):
+            line = line.strip(" -*•\t")
+            if line:
+                out.append(line)
+    return out
+
+
+def _cosine(a: list[float], b: list[float]) -> float:
+    dot = sum(x * y for x, y in zip(a, b))
+    na = sum(x * x for x in a) ** 0.5
+    nb = sum(y * y for y in b) ** 0.5
+    return dot / (na * nb) if na and nb else 0.0
+
+def _score_sources_against_answer(
+    sources: list[dict[str, Any]], answer: str
+) -> list[tuple[dict[str, Any], float]] | None:
+    """Best cosine of each source to any answer sentence/bullet. None if embedder down."""
+    if not sources:
+        return []
+    try:
+        from src.retrieval.embeddings import embed_documents, embed_query
+        sentences = _split_sentences(answer) or [answer]
+        sentence_vectors = [embed_query(s) for s in sentences]
+        passage_vectors = embed_documents([s.get("text") or "" for s in sources])
+    except Exception:
+        return None
+    return [
+        (src, max((_cosine(pv, sv) for sv in sentence_vectors), default=0.0))
+        for src, pv in zip(sources, passage_vectors)
+    ]
+
+
+def _normalize_text(text: str | None) -> str:
+    return " ".join((text or "").lower().split())
+
+
+def _dedupe_sources_by_text(sources: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Collapse evidence items that quote identical source text (keeps the first)."""
+    seen, out = set(), []
+    for source in sources:
+        key = _normalize_text(source.get("text"))
+        if key and key in seen:
+            continue
+        seen.add(key)
+        out.append(source)
+    return out
+
+def filter_sources_by_answer(sources, answer, floor, debug=False):
+    """Drop declared evidence whose statement does not appear in the answer."""
+    if not sources or not answer:
+        return sources
+    scored = _score_sources_against_answer(sources, answer)
+    if scored is None:
+        return sources
+    kept = []
+    for source, best in scored:
+        keep = floor <= 0 or best >= floor
+        if debug:
+            print(f"[citation-filter] {source.get('evidence_id')} best={best:.3f} {'KEEP' if keep else 'DROP'}")
+        if keep:
+            kept.append(source)
+    return kept or sources
+
+
+def select_sources_by_relevance(context, answer, floor, debug=False, max_total=int(os.getenv("CITATION_MAX", "10"))):
+    """Cite retrieved evidence whose content matches the answer — no model tag needed."""
+    candidates, seen = [], set()
+    for record in context:
+        for evidence in _as_list(record.get("evidence")):
+            eid = evidence.get("evidence_id")
+            if eid and eid not in seen:
+                seen.add(eid)
+                candidates.append(evidence)
+    scored = _score_sources_against_answer(candidates, answer)
+    if scored is None:
+        return select_sources_used(context)
+    ranked = sorted(scored, key=lambda x: x[1], reverse=True)
+    kept = []
+    for source, best in ranked:
+        keep = floor <= 0 or best >= floor
+        if debug:
+            print(f"[citation-relevance] {source.get('evidence_id')} best={best:.3f} {'KEEP' if keep else 'DROP'}")
+        if keep:
+            kept.append(source)
+
+    kept = _dedupe_sources_by_text(kept)
+    return kept[:max_total] if kept else select_sources_used(context)
+
+
 
 def _build_ku_package(record: dict[str, Any]) -> dict[str, Any]:
     """Build a compact package for one retrieved KnowledgeUnit."""
@@ -78,7 +181,7 @@ def _build_ku_package(record: dict[str, Any]) -> dict[str, Any]:
     return {
         "id": ku.get("id"),
         "title": ku.get("title"),
-        "answer_style": guidance.get("answer_style") or "concise_answer",
+        "answer_style": _sanitize_answer_style(guidance.get("answer_style")),
         "main_claim": ku.get("claim") or "",
         "brief_explanation": ku.get("explanation") or "",
         "allowed_recommendations": _dedupe_preserve_order(recommended_actions),
@@ -137,7 +240,7 @@ def select_sources_by_evidence_ids(
             if eid and eid in wanted and eid not in seen:
                 seen.add(eid)
                 selected.append(evidence)
-    return selected
+    return _dedupe_sources_by_text(selected)
 
 def build_answer_package(
     question: str,

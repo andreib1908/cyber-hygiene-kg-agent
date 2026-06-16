@@ -19,8 +19,10 @@ from datetime import datetime
 from src.agent.answer_package import (
     build_answer_package,
     evidence_ids_in_context,
+    filter_sources_by_answer,
     select_sources_by_evidence_ids,
     select_sources_used,
+    select_sources_by_relevance
 )
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -31,6 +33,7 @@ DEBUG_DIR = PROJECT_ROOT / "debug"
 USED_KUS_PATTERN = re.compile(r"<used_kus>(.*?)</used_kus>", re.IGNORECASE | re.DOTALL)
 USED_EVIDENCE_PATTERN = re.compile(r"<used_evidence>(.*?)</used_evidence>", re.IGNORECASE | re.DOTALL)
 
+INLINE_ID_PATTERN = re.compile(r"\[\s*(?:KU|EVID|SRC)-[^\]]*\]", re.IGNORECASE)
 
 def extract_used_evidence_ids(text: str, available_evidence_ids: list[str]) -> list[str] | None:
     """Parse <used_evidence>, keeping only ids that were actually retrieved.
@@ -46,11 +49,13 @@ def extract_used_evidence_ids(text: str, available_evidence_ids: list[str]) -> l
     used = [eid for eid in declared if eid in available]
     return used or None
 
-
 def strip_citation_tags(text: str) -> str:
-    """Remove citation-tracking tag(s) so the user never sees internal ids."""
+    """Remove citation-tracking tag(s) and any leaked inline ids."""
     text = USED_EVIDENCE_PATTERN.sub("", text)
-    text = USED_KUS_PATTERN.sub("", text)  # defensive: strip the old tag if it appears
+    text = USED_KUS_PATTERN.sub("", text)              # defensive: old tag
+    text = INLINE_ID_PATTERN.sub("", text)             # leaked [KU-...]/[EVID-...]/[SRC-...]
+    text = re.sub(r"[ \t]{2,}", " ", text)             # collapse doubled spaces
+    text = re.sub(r"[ \t]+([.,;:])", r"\1", text)      # drop space left before punctuation
     return text.strip()
 
 def extract_used_ku_ids(text: str, available_ku_ids: list[str]) -> list[str] | None:
@@ -253,15 +258,27 @@ def answer_from_context(question: str, context: list[dict[str, Any]]) -> tuple[s
     raw_output = extract_model_output(response)
     model_answer = finalize_model_output(raw_output)
 
-    used_evidence_ids = extract_used_evidence_ids(
-        model_answer, evidence_ids_in_context(context)
-    )
+    used_evidence_ids = extract_used_evidence_ids(model_answer, evidence_ids_in_context(context))
+    if os.getenv("DEBUG_CITATION_FILTER", "false").lower() == "true" and not used_evidence_ids:
+        print(f"[citation] no <used_evidence> parsed — fell back to KU-level. tail: …{model_answer[-200:].strip()}")
     model_answer = strip_citation_tags(model_answer)
 
-    if used_evidence_ids:
+    floor = float(os.getenv("CITATION_FILTER_FLOOR", "0.0"))
+    debug = os.getenv("DEBUG_CITATION_FILTER", "false").lower() == "true"
+    mode = os.getenv("CITATION_MODE", "declared").lower()
+
+    used_evidence_ids = extract_used_evidence_ids(model_answer, evidence_ids_in_context(context))
+    if debug and not used_evidence_ids:
+        print(f"[citation] no <used_evidence> parsed. tail: …{model_answer[-200:].strip()}")
+    model_answer = strip_citation_tags(model_answer)
+
+    if mode == "relevance":
+        sources = select_sources_by_relevance(context, model_answer, floor=floor, debug=debug)
+    elif used_evidence_ids:
         sources = select_sources_by_evidence_ids(context, used_evidence_ids)
+        sources = filter_sources_by_answer(sources, model_answer, floor=floor, debug=debug)
     else:
-        sources = select_sources_used(context)  # fallback: bounded KU-level
+        sources = select_sources_by_relevance(context, model_answer, floor=floor, debug=debug)
 
     return model_answer, sources
 

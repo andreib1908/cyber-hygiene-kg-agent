@@ -61,13 +61,9 @@ def retrieve_by_ku_ids(ku_ids: list[str], limit: int = DEFAULT_TOP_K) -> list[di
     return run_query(RETRIEVE_BY_KU_IDS, {"ku_ids": ku_ids, "limit": limit})
 
 
-def vector_search_ku_ids(question: str, top_k: int, floor: float) -> list[str]:
-    """Return KU ids whose embeddings are nearest the question, above the floor.
-
-    Results stay in similarity order (closest first).
-    """
+def vector_search_ku_hits(question: str, top_k: int, floor: float) -> list[tuple[str, float]]:
+    """Return (ku_id, score) pairs nearest the question, above the floor, closest first."""
     query_vector = embed_query(question)
-
     hits = run_query(
         VECTOR_SEARCH_KNOWLEDGE_UNITS,
         {
@@ -76,33 +72,39 @@ def vector_search_ku_ids(question: str, top_k: int, floor: float) -> list[str]:
             "query_vector": query_vector,
         },
     )
-
-    ku_ids: list[str] = []
+    scored: list[tuple[str, float]] = []
     for hit in hits:
         ku_id = hit.get("ku_id")
         score = hit.get("score") or 0.0
-
         if ku_id and score >= floor:
-            ku_ids.append(ku_id)
+            scored.append((ku_id, float(score)))
+    return scored
 
-    return ku_ids
+
+def vector_search_ku_ids(question: str, top_k: int, floor: float) -> list[str]:
+    """Backwards-compatible: KU ids only, in similarity order."""
+    return [ku_id for ku_id, _ in vector_search_ku_hits(question, top_k, floor)]
 
 
 def retrieve_context(question: str, limit: int = DEFAULT_TOP_K) -> list[dict[str, Any]]:
-    """Retrieve graph context for a user question via vector search.
-
-    Embeds the question, finds the nearest KnowledgeUnits through the vector
-    index, then hydrates their full graph context. Returns an empty list when
-    nothing clears the similarity floor, which lets Neo decline gracefully.
-    """
     load_dotenv()
-
     top_k = int(os.getenv("RETRIEVAL_TOP_K", limit))
     floor = float(os.getenv("RETRIEVAL_SIMILARITY_FLOOR", DEFAULT_SIMILARITY_FLOOR))
 
-    ku_ids = vector_search_ku_ids(question, top_k=top_k, floor=floor)
-
-    if not ku_ids:
+    hits = vector_search_ku_hits(question, top_k=top_k, floor=floor)
+    if not hits:
         return []
 
-    return retrieve_by_ku_ids(ku_ids, limit=top_k)
+    scores = {ku_id: score for ku_id, score in hits}
+    ku_ids = [ku_id for ku_id, _ in hits]
+
+    if os.getenv("DEBUG_RETRIEVAL_SCORES", "false").lower() == "true":
+        ranked = " | ".join(f"{kid}={s:.3f}" for kid, s in hits)
+        print(f"[retrieval] vector scores (top_k={top_k}, floor={floor}): {ranked}")
+
+    context = retrieve_by_ku_ids(ku_ids, limit=top_k)
+    for record in context:
+        ku_id = record.get("ku_id") or (record.get("knowledge_units") or [{}])[0].get("id")
+        if ku_id in scores:
+            record["score"] = scores[ku_id]
+    return context
