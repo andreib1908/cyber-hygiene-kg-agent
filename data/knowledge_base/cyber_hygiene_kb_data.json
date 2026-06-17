@@ -51,7 +51,7 @@
       "peer_reviewed": true,
       "doi": "10.1016/j.dss.2019.113160",
       "url": "https://doi.org/10.1016/j.dss.2019.113160",
-      "notes": "Original source for the Cyber Hygiene Inventory and its five cyber hygiene dimensions."
+      "notes": "Original source for defining cyber hygiene as a concept, developing and validating the Cyber Hygiene Inventory, and identifying its five dimensions: storage/device hygiene, authentication/credential hygiene, social media hygiene, email/messaging hygiene, and transmission/browsing hygiene. Used as a primary source for the KB taxonomy and for source-listed cyber hygiene practices."
     },
     {
       "id": "SRC-CAIN-2018",
@@ -70,7 +70,7 @@
       "peer_reviewed": true,
       "doi": "10.1016/j.jisa.2018.08.002",
       "url": "https://doi.org/10.1016/j.jisa.2018.08.002",
-      "notes": "Survey and literature review that highlights user behavior in cyber hygiene and also defines threats such as phishing. They also talk about best practices."
+      "notes": "Peer-reviewed exploratory survey and literature review on end-user cyber hygiene knowledge and behavior. Used to support KUs on user behavior, actionable knowledge gaps, password hygiene, phishing-related behaviors, unsafe email behavior, social media oversharing, and differences between cybersecurity knowledge and protective behavior."
     },
     {
       "id": "SRC-BARAKOVIC-2023",
@@ -88,7 +88,7 @@
       "peer_reviewed": true,
       "doi": "10.1080/19393555.2022.2088428",
       "url": "https://doi.org/10.1080/19393555.2022.2088428",
-      "notes": "Peer-reviewed study on cyber hygiene knowledge, awareness, and behavioral practices among university students. Useful for strengthening knowledge-awareness-behavior KUs and findings about student cyber hygiene."
+      "notes": "Peer-reviewed study on cyber hygiene knowledge, awareness, and behavioral practices among university students. Used to strengthen KUs on knowledge-awareness-behavior relationships, student cyber hygiene, storage/device practices, transmission and browsing hygiene, authentication behavior, social media hygiene, email and messaging hygiene, and user behavior change."
     },
     {
       "id": "SRC-OZ-2022",
@@ -104,7 +104,7 @@
       "venue": "ACM Computing Surveys",
       "volume": "54",
       "number": "11s",
-      "pages": "Article 238",
+      "pages": "238:1--238:37",
       "peer_reviewed": true,
       "doi": "10.1145/3514229",
       "url": "https://doi.org/10.1145/3514229",
@@ -129,7 +129,7 @@
       "peer_reviewed": true,
       "doi": "10.1016/j.heliyon.2023.e23574",
       "url": "https://doi.org/10.1016/j.heliyon.2023.e23574",
-      "notes": "Machine-learning malware detection paper that provides a general malware definition, discusses malware types, and contrasts signature-based and behavior-based malware detection approaches."
+      "notes": "Peer-reviewed malware detection paper focused on comparing machine-learning approaches for malware detection and classification. Used selectively for broad malware context, malware detection limitations, and the distinction between signature-based and behavior-based detection approaches. Not used as the main authority for precise malware subtype definitions."
     },
     {
       "id": "SRC-NIST-800-83R1-2013",
@@ -147,7 +147,7 @@
       "peer_reviewed": false,
       "doi": "10.6028/NIST.SP.800-83r1",
       "url": "https://doi.org/10.6028/NIST.SP.800-83r1",
-      "notes": "Authoritative NIST technical guidance on malware incident prevention and handling for desktops and laptops. Use for malware definitions, malware forms, prevention, awareness, vulnerability mitigation, threat mitigation, incident response, containment, eradication, and recovery. This is not a journal peer-reviewed article, but it is an official NIST Special Publication developed under NIST's information security standards and guidelines role."
+      "notes": "Authoritative NIST technical guidance on malware incident prevention and handling for desktops and laptops. Used for malware definitions, malware forms, layered prevention, user awareness, vulnerability mitigation, threat mitigation tools, antivirus limitations, incident response, containment, eradication, and recovery. This is not a peer-reviewed journal article, but it is an official NIST Special Publication and is treated as an authoritative technical source."
     }
   ],
 
@@ -224,218 +224,303 @@
     {
       "id": "THR-MALWARE-INFECTION",
       "name": "Malware infection",
-      "definition": "A malware infection involves malicious code or software covertly inserted into a system or program with the intent to destroy data, run destructive or intrusive programs, or compromise the confidentiality, integrity, or availability of data, applications, or the operating system. It is a compromise in which malicious software infects a device or storage medium. Malware infection involves malicious software that can monitor machine activity, gain access to a computer system, or gather critical information.",
-      "related_categories": ["CAT-STORAGE-DEVICE"],
-      "source_ids": ["SRC-CAIN-2018", "SRC-AZEEM-2024", "SRC-NIST-800-83R1-2013"],
+      "definition": "A malware infection involves malicious code or software that compromises a device, application, operating system, or data. Malware may be covertly inserted with the intent to destroy data, run destructive or intrusive programs, or compromise the confidentiality, integrity, or availability of the victim's data, applications, or operating system.",
+      "related_categories": [
+        "CAT-STORAGE-DEVICE"
+      ],
+      "source_ids": [
+        "SRC-NIST-800-83R1-2013",
+        "SRC-AZEEM-2024"
+      ],
       "support_status": "directly_supported",
-      "support_notes": "Cain et al. (2018) mentioned malware as a common cyber-crime. Azeem et al. define malware as software used to monitor machine activities, obtain access to a computer system, or gather critical information. They also describe malware as a major internet security threat and list several malware classes, including trojans, viruses, worms, spyware, rootkits, botnets, crimeware, and adware. NIST SP 800-83 Rev. 1 directly defines malware, also known as malicious code, and describes it as a common external threat to hosts. Azeem et al. can remain as additional support for malware being a broad and evolving threat, but NIST should be the primary definition source."
+      "support_notes": "NIST SP 800-83 Rev. 1 is the primary source for the malware definition, describing malware, also known as malicious code, as a program covertly inserted into another program with the intent to destroy data, run destructive or intrusive programs, or otherwise compromise the confidentiality, integrity, or availability of the victim's data, applications, or operating system. Azeem et al. (2024) provide secondary support by describing malware as software used to monitor machine activity, obtain access to a computer system, or gather critical information. Cain et al. (2018) may support malware-related user behavior or phishing consequences in specific KUs, but is not used here as a primary malware definition source."
     },
     {
       "id": "THR-DATA-LOSS",
       "name": "Data loss",
-      "definition": "Loss of access to important files or information due to device failure, accidental deletion, malware, or other incidents. Oz et al. explain that cryptographic ransomware encrypts victim files and can delete or overwrite original files, restricting access until ransom payment.",
-      "related_categories": ["CAT-STORAGE-DEVICE"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-OZ-2022"],
+      "definition": "Data loss refers to losing access to important files or information, especially when malware or ransomware restricts, encrypts, deletes, or overwrites files. In the ransomware context, cryptographic ransomware can encrypt victim files and may delete or overwrite original files, restricting access until a ransom is paid.",
+      "related_categories": [
+        "CAT-STORAGE-DEVICE"
+      ],
+      "source_ids": [
+        "SRC-OZ-2022",
+        "SRC-KARAYEL-2024"
+      ],
       "support_status": "directly_supported",
-      "support_notes": "Karayel et al. directly mention backing up important files and secure data storage. Oz et al. explain that cryptographic ransomware encrypts victim files and can delete or overwrite original files, restricting access until ransom payment."
+      "support_notes": "Oz et al. (2022) directly support the ransomware-related data loss definition by explaining that cryptographic ransomware encrypts victim files and can delete or overwrite original files, restricting access until ransom payment. Karayel et al. (2025) support the related storage/device hygiene practices of backing up important files and secure data storage, but should be treated as practice support rather than the primary definition source for data loss."
     },
     {
       "id": "THR-RANSOMWARE",
       "name": "Ransomware",
-      "definition": "Ransomware is a subset of malware that prevents or limits users from accessing their system and/or data until a ransom is paid.",   
-      "related_categories": ["CAT-STORAGE-DEVICE", "CAT-EMAIL-MESSAGING"],
+      "definition": "Ransomware is a subset of malware that prevents or limits users from accessing their system and/or data until a ransom is paid.",
+      "related_categories": [
+        "CAT-STORAGE-DEVICE",
+        "CAT-EMAIL-MESSAGING"
+      ],
       "source_ids": [
         "SRC-OZ-2022"
       ],
       "support_status": "directly_supported",
-      "support_notes": "Oz et al. directly define ransomware as malware that restricts access to a system or data until a ransom is paid. They distinguish cryptographic ransomware, which encrypts victim files, from locker ransomware, which prevents access to the system."    
+      "support_notes": "Oz et al. (2022) directly define ransomware as malware that restricts access to a system or data until a ransom is paid. They also distinguish cryptographic ransomware, which encrypts victim files, from locker ransomware, which prevents access to the system."
     },
     {
       "id": "THR-UNPATCHED-SOFTWARE",
       "name": "Unpatched software",
-      "definition": "Risk arising from outdated software that may contain unresolved security vulnerabilities. It could lead to successful malware attacks such as ransomware by exploiting those security vulnerabilities.",
-      "related_categories": ["CAT-STORAGE-DEVICE", "CAT-EMAIL-MESSAGING"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-OZ-2022"],
+      "definition": "Unpatched software refers to software or applications that have not received available security updates or patches, leaving known vulnerabilities unresolved. In the ransomware context, such vulnerabilities can be exploited by attackers, and delayed upgrades or security-related patches can contribute to successful infection.",
+      "related_categories": [
+        "CAT-STORAGE-DEVICE",
+        "CAT-EMAIL-MESSAGING"
+      ],
+      "source_ids": [
+        "SRC-OZ-2022",
+        "SRC-KARAYEL-2024"
+      ],
       "support_status": "directly_supported",
-      "support_notes": "Karayel et al. directly mention keeping device software up to date, but an additional source should support the specific vulnerability-risk framing. Oz et al. state that ransomware can employ vulnerabilities in system software or other applications, and that delayed upgrades or critical software patches contribute to ransomware success."
+      "support_notes": "Oz et al. (2022) directly support the vulnerability-risk framing by explaining that ransomware can exploit vulnerabilities in system software or applications and that delayed upgrades or security-related software patches can contribute to ransomware infection. Karayel et al. (2025) support the related cyber hygiene practice of keeping device software up to date, but should be treated as practice support rather than the main threat-definition source."
     },
     {
       "id": "THR-INSECURE-CONNECTION",
+      "name": "Insecure connection",
+      "definition": "An insecure connection refers to risky use of unknown, public, unsecured, or insufficiently trusted network connections, or websites without SSL/TLS security indicators. Such connections are relevant to transmission and browsing hygiene, especially when users perform sensitive activities or enter personal information online.",
+      "related_categories": [
+        "CAT-TRANSMISSION"
+      ],
       "source_ids": [
         "SRC-KARAYEL-2024",
-        "SRC-CAIN-2018",
         "SRC-BARAKOVIC-2023"
       ],
       "support_status": "directly_supported",
-      "support_notes": "Karayel et al. directly link transmission hygiene to unknown or insecure wireless networks and websites without SSL security certificates. Cain et al. state that using unsecured Wi-Fi hotspots can compromise a network. Baraković and Baraković Husić report that many students use public Wi-Fi networks and show uncertainty about password-protected Wi-Fi safety and default Wi-Fi traffic encryption."
+      "support_notes": "Karayel et al. (2025) directly link transmission hygiene to unknown or insecure wireless networks and browsing hygiene to websites without SSL security certificates. Baraković and Baraković Husić (2023) support this threat context by discussing risks related to unknown or unsecured Wi-Fi networks, VPN use on public Wi-Fi, SSL certificate checks, browser lock checks, and student uncertainty about password-protected Wi-Fi safety and default Wi-Fi traffic encryption. Cain et al. (2018) should only be added if the KB contains a direct evidence object supporting unsecured Wi-Fi or insecure connection risk."
     },
     {
       "id": "THR-MAN-IN-THE-MIDDLE",
       "name": "Man-in-the-middle attack",
-      "definition": "An attack in which a third party intercepts or manipulates communication between two parties.",
-      "related_categories": ["CAT-TRANSMISSION"],
+      "definition": "A man-in-the-middle attack involves a third party intercepting, observing, or manipulating communication between two parties.",
+      "related_categories": [
+        "CAT-TRANSMISSION"
+      ],
       "source_ids": [],
-      "support_status": "inferred_from_practice",
-      "support_notes": "Inferred from SSL certificate and insecure connection practices. Requires an additional source for a direct man-in-the-middle definition."
+      "support_status": "needs_direct_source",
+      "support_notes": "This threat is currently inferred from transmission hygiene practices related to SSL certificate checks, browser lock checks, unknown or insecure wireless networks, and public Wi-Fi use. The KB does not yet contain a direct source defining man-in-the-middle attacks. Do not present this threat as directly literature-supported until a source with a direct MITM definition is added."
     },
     {
       "id": "THR-SOCIAL-ENGINEERING",
       "name": "Social engineering",
-      "definition": "Manipulation of users into revealing information or performing unsafe actions.",
-      "related_categories": ["CAT-SOCIAL-MEDIA", "CAT-EMAIL-MESSAGING"],
-      "source_ids": ["SRC-KARAYEL-2024"],
-      "support_status": "directly_supported",
-      "support_notes": "Karayel et al. explicitly mention social engineering frauds in relation to email and messaging hygiene in remote work."
+      "definition": "Social engineering is treated in this knowledge base as a user-facing threat context involving deceptive or manipulative attempts that can lead users to reveal information or perform unsafe actions, especially through email, messaging, phishing, or social media interactions.",
+      "related_categories": [
+        "CAT-SOCIAL-MEDIA",
+        "CAT-EMAIL-MESSAGING"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-CAIN-2018"
+      ],
+      "support_status": "partially_supported",
+      "support_notes": "Karayel et al. mention social engineering frauds in relation to email and messaging hygiene. Cain et al. support the connection between personal-information exposure and social engineering attacks such as spear phishing. However, the KB currently does not contain a dedicated source that directly defines social engineering, so this threat should not be treated as having a fully sourced standalone definition."
     },
     {
       "id": "THR-IMPERSONATION",
       "name": "Impersonation",
-      "definition": "A deception tactic in which an attacker pretends to be a trusted person, organization, or account.",
-      "related_categories": ["CAT-SOCIAL-MEDIA", "CAT-EMAIL-MESSAGING"],
-      "source_ids": ["SRC-KARAYEL-2024"],
+      "definition": "Impersonation is treated in this knowledge base as a deception-related threat context where users may need to assess whether a social media request, email sender, or displayed sender identity is authentic.",
+      "related_categories": [
+        "CAT-SOCIAL-MEDIA",
+        "CAT-EMAIL-MESSAGING"
+      ],
+      "source_ids": [
+        "SRC-VISHWANATH-2020",
+        "SRC-CAIN-2018",
+        "SRC-KARAYEL-2024"
+      ],
       "support_status": "partially_supported",
-      "support_notes": "Supported by practices such as evaluating authenticity of social media friend requests and checking sender email domains. Additional sources may strengthen the explicit impersonation framing."
+      "support_notes": "Vishwanath et al. support the social-media side through EVID-VISHWANATH-SOCIAL-MEDIA-001, which lists assessing the authenticity of social media friend/information requests. Cain et al. support the email-identity side through EVID-CAIN-EMAIL-MESSAGING-003, which lists mismatches between the displayed sender name and address in the From field as a warning sign. Karayel et al. support related email hygiene through EVID-KARAYEL-EMAIL-MESSAGING-001, which includes checking the sender's email domain name. These evidence objects support impersonation as a threat context, but the KB does not yet contain a dedicated standalone definition source for impersonation."
     },
     {
       "id": "THR-OVERSHARING",
       "name": "Oversharing personal information",
-      "definition": "Exposure of personal or sensitive information through excessive or poorly controlled sharing. Users may freely share passwords or private information over social networks.",
-      "related_categories": ["CAT-SOCIAL-MEDIA"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"],
+      "definition": "Oversharing personal information refers to exposing personal or sensitive information through excessive or poorly controlled sharing, especially on social networking sites. This can include sharing private information, addresses, phone numbers, dates of birth, email addresses, location information, or passwords in ways that increase exposure to attacker interest or social engineering.",
+      "related_categories": [
+        "CAT-SOCIAL-MEDIA"
+      ],
+      "source_ids": [
+        "SRC-CAIN-2018",
+        "SRC-VISHWANATH-2020"
+      ],
       "support_status": "directly_supported",
-      "support_notes": "Supported by Karayel et al.'s social media hygiene examples, including awareness of who users are friends with and managing privacy settings. Cain et al. (2018) note that users may freely share passwords or private information on social networks, as attackers focus on stealing that information."
+      "support_notes": "Cain et al. (2018) directly support this threat through EVID-CAIN-POOR-HYGIENE-002, which identifies freely sharing passwords and private information over social networks as poor cyber hygiene; EVID-CAIN-POOR-HYGIENE-004, which states that personal information can be stolen when users post it on social networking sites; EVID-CAIN-POOR-HYGIENE-005, which states that personal information can be used in social engineering attacks such as spear phishing; and EVID-CAIN-POOR-HYGIENE-008, which states that many users share too much personal information on social media and often do not check privacy settings. Vishwanath et al. (2020) support related social media hygiene practices through EVID-VISHWANATH-SOCIAL-MEDIA-004 on managing privacy settings and EVID-VISHWANATH-SOCIAL-MEDIA-005 on preventing location information leaks in posts."
     },
     {
       "id": "THR-PRIVACY-EXPOSURE",
       "name": "Privacy exposure",
-      "definition": "Risk of unintended disclosure of personal information due to weak privacy settings or unsafe online behavior.",
-      "related_categories": ["CAT-SOCIAL-MEDIA"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"],
+      "definition": "Privacy exposure refers to the unintended or poorly controlled disclosure of personal information through unsafe online behavior, weak social media privacy practices, or information shared in posts. This can include exposure of names, dates of birth, addresses, phone numbers, email addresses, or location information.",
+      "related_categories": [
+        "CAT-SOCIAL-MEDIA"
+      ],
+      "source_ids": [
+        "SRC-CAIN-2018",
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023"
+      ],
       "support_status": "directly_supported",
-      "support_notes": "Karayel et al. directly include managing privacy settings within social media hygiene. Cain et al. report participant behavior involving real name and date-of-birth disclosure on social media sites."
+      "support_notes": "Cain et al. (2018) directly support this threat through EVID-CAIN-POOR-HYGIENE-004, which states that personal information can be stolen when users post it on social networking sites; EVID-CAIN-POOR-HYGIENE-006 and EVID-CAIN-POOR-HYGIENE-007, which report participant behavior involving real names, dates of birth, addresses, phone numbers, email addresses, and privacy settings on social media; and EVID-CAIN-POOR-HYGIENE-008, which states that many users share too much personal information on social media and often do not check privacy settings. Vishwanath et al. (2020) support related social media hygiene practices through EVID-VISHWANATH-SOCIAL-MEDIA-004 on managing privacy settings and EVID-VISHWANATH-SOCIAL-MEDIA-005 on preventing location information leaks. Baraković and Baraković Husić (2023) support related social media hygiene practices through EVID-BARAKOVIC-SOCIAL-MEDIA-001."
     },
     {
       "id": "THR-CREDENTIAL-TARGETING",
       "name": "Credential targeting",
-      "definition": "Attempts by attackers to target user information, usernames, passwords, or authentication mechanisms.",
-      "related_categories": ["CAT-AUTH-CREDENTIAL", "CAT-EMAIL-MESSAGING"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"],
+      "definition": "Credential targeting refers to attacker attempts to obtain, steal, or exploit user credentials or related user information, such as usernames, passwords, or other sensitive account information.",
+      "related_categories": [
+        "CAT-AUTH-CREDENTIAL",
+        "CAT-EMAIL-MESSAGING"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-CAIN-2018"
+      ],
       "support_status": "directly_supported",
-      "support_notes": "Karayel et al. discuss authentication and credential hygiene and state that user information and passwords are frequently targeted by hackers. Cain et al. state that attackers may seek user information and that phishing can release usernames and passwords."    
+      "support_notes": "Karayel et al. support this threat through EVID-KARAYEL-AUTH-002, which states that user information and passwords are frequently targeted by hackers. Cain et al. support this threat through EVID-CAIN-POOR-HYGIENE-003, which states that attackers may seek to steal user information, and EVID-CAIN-EMAIL-MESSAGING-002, which states that phishing scams can result in the release of sensitive information such as usernames, passwords, and credit card information."
     },
     {
       "id": "THR-CREDENTIAL-THEFT",
       "name": "Credential theft",
-      "definition": "Unauthorized acquisition or misuse of usernames, passwords, or other authentication information.",
-      "related_categories": ["CAT-AUTH-CREDENTIAL", "CAT-EMAIL-MESSAGING"],
-      "source_ids": ["SRC-CAIN-2018"],
+      "definition": "Credential theft is treated in this knowledge base as a threat context where attackers obtain or cause the disclosure of user credentials or related sensitive account information, such as usernames and passwords.",
+      "related_categories": [
+        "CAT-AUTH-CREDENTIAL",
+        "CAT-EMAIL-MESSAGING"
+      ],
+      "source_ids": [
+        "SRC-CAIN-2018"
+      ],
       "support_status": "partially_supported",
-      "support_notes": "Cain et al. discuss attackers stealing user information and phishing scams releasing usernames and passwords. The specific credential-theft label is a knowledge-base mapping."    },
+      "support_notes": "Cain et al. support this threat through EVID-CAIN-POOR-HYGIENE-003, which states that attackers may seek to steal user information, and EVID-CAIN-EMAIL-MESSAGING-002, which states that phishing scams can result in the release of sensitive information such as usernames, passwords, and credit card information. The specific label 'credential theft' is a knowledge-base mapping rather than a standalone formal definition from Cain et al."
+    },
     {
       "id": "THR-BRUTE-FORCE",
       "name": "Brute-force credential attack",
-      "definition": "An attempt to guess credentials through repeated login attempts.",
-      "related_categories": ["CAT-AUTH-CREDENTIAL"],
-      "source_ids": ["SRC-CAIN-2018"],
+      "definition": "A brute-force credential attack is treated in this knowledge base as a credential threat related to password guessing, where weak passwords can make accounts more vulnerable to guessing or brute-force attacks.",
+      "related_categories": [
+        "CAT-AUTH-CREDENTIAL"
+      ],
+      "source_ids": [
+        "SRC-CAIN-2018",
+        "SRC-BARAKOVIC-2023"
+      ],
       "support_status": "partially_supported",
-      "support_notes": "Cain et al. state that users are advised to select strong passwords to prevent guessing attacks. The broader brute-force framing remains a terminology mapping."
+      "support_notes": "Cain et al. support this threat through EVID-CAIN-PASSWORD-HYGIENE-002, which states that users are advised to select strong passwords to prevent guessing attacks. Baraković and Baraković Husić support the brute-force terminology through EVID-BARAKOVIC-AUTH-003, which states that weak passwords invited brute-force attack. The KB does not currently contain a standalone formal definition of brute-force attacks as repeated automated login attempts, so this threat remains partially supported rather than fully defined."
     },
     {
       "id": "THR-UNAUTHORIZED-ACCESS",
       "name": "Unauthorized access",
-      "definition": "Access to an account, device, or system without legitimate permission.",
-      "related_categories": ["CAT-AUTH-CREDENTIAL", "CAT-STORAGE-DEVICE"],
+      "definition": "Unauthorized access refers to access to an account, device, or system without legitimate permission. In this knowledge base, it is currently treated as an inferred threat context connected to weak authentication, default credentials, password reuse, and missing multifactor authentication.",
+      "related_categories": [
+        "CAT-AUTH-CREDENTIAL",
+        "CAT-STORAGE-DEVICE"
+      ],
       "source_ids": [],
       "support_status": "inferred_from_practice",
-      "support_notes": "Inferred from authentication practices such as changing defaults and enabling MFA. Requires an additional source for a direct unauthorized-access definition."
+      "support_notes": "This threat is inferred from authentication and credential hygiene practices such as changing default usernames and passwords, creating unique credentials, avoiding password reuse, and enabling multifactor authentication. The KB does not currently contain a direct evidence object defining unauthorized access as a standalone threat."
     },
     {
       "id": "THR-PHISHING",
       "name": "Phishing",
-      "definition": "A deceptive computer-based attack that tricks individuals into disclosing sensitive personal information, often through fraudulent emails or websites that appear to come from trusted organizations.",
-      "related_categories": ["CAT-EMAIL-MESSAGING", "CAT-AUTH-CREDENTIAL"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018", "SRC-NIST-800-83R1-2013"],
+      "definition": "Phishing is treated in this knowledge base as a deceptive email, messaging, or computer-based threat that can lead users to disclose sensitive information, download malware, or interact with fraudulent requests that appear trustworthy.",
+      "related_categories": [
+        "CAT-EMAIL-MESSAGING",
+        "CAT-AUTH-CREDENTIAL"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-CAIN-2018",
+        "SRC-NIST-800-83R1-2013"
+      ],
       "support_status": "directly_supported",
-      "support_notes": "Karayel et al. explicitly mention phishing attacks in relation to email and messaging hygiene. Cain et al. (2018) also mention phishing as a common cyber-crime. NIST defines phishing as deceptive computer-based means used to trick individuals into disclosing sensitive personal information. Karayel and Cain support phishing as part of cyber hygiene and cybercrime context."
+      "support_notes": "Karayel et al. support phishing as an email and messaging hygiene threat through EVID-KARAYEL-EMAIL-MESSAGING-002 and EVID-KARAYEL-EMAIL-MESSAGING-003. Cain et al. support phishing consequences and warning signs through EVID-CAIN-EMAIL-MESSAGING-002 and EVID-CAIN-EMAIL-MESSAGING-003. NIST supports phishing-related defensive guidance through EVID-NIST-PHISHING-SOCIAL-ENGINEERING-001, which advises users not to reply to financial or personal information requests and to contact the real organization through legitimate channels. If a separate NIST phishing definition evidence object is added, this node can use that as the primary definition support."
     },
     {
       "id": "THR-EMAIL-SCAM",
       "name": "Email scam and e-fraud",
-      "definition": "A fraudulent email-based attempt to deceive users into unsafe actions or disclosure of information.",
-      "related_categories": ["CAT-EMAIL-MESSAGING"],
-      "source_ids": ["SRC-KARAYEL-2024"],
-      "support_status": "directly_supported",
-      "support_notes": "Karayel et al. mention e-fraud in relation to email and messaging hygiene."
+      "definition": "Email scam and e-fraud are treated in this knowledge base as email or messaging-based fraud contexts where users may be deceived into unsafe actions or disclosure of information.",
+      "related_categories": [
+        "CAT-EMAIL-MESSAGING"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024"
+      ],
+      "support_status": "partially_supported",
+      "support_notes": "Karayel et al. support this threat context through EVID-KARAYEL-EMAIL-MESSAGING-002, which links email and messaging hygiene to preventing phishing and e-fraud, and EVID-KARAYEL-EMAIL-MESSAGING-003, which links caution and awareness to preventing social engineering frauds and phishing attacks. The KB does not currently contain a standalone formal definition of email scam or e-fraud."
     },
     {
       "id": "THR-USER-NONCOMPLIANCE",
       "name": "User noncompliance with security practices",
-      "definition": "A behavioral cybersecurity risk in which users fail to follow recommended or required security practices, increasing the likelihood of security incidents.",
-      "related_categories": ["CAT-GENERAL-CYBER-HYGIENE"],
-      "source_ids": ["SRC-KARAYEL-2024"],
+      "definition": "User noncompliance with security practices refers to a behavioral cybersecurity risk in which users do not follow recommended or required security practices, weakening cyber hygiene and increasing exposure to security incidents.",
+      "related_categories": [
+        "CAT-GENERAL-CYBER-HYGIENE"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024"
+      ],
       "support_status": "directly_supported",
-      "support_notes": "Karayel et al. discuss human factors as a weak link in security systems and state that noncompliance with security practices is a primary cause of security breaches."
+      "support_notes": "Karayel et al. support this threat through EVID-KARAYEL-HUMAN-FACTORS-001, which states that cybersecurity investments and measures alone are insufficient; EVID-KARAYEL-HUMAN-FACTORS-002, which states that human factors often constitute the weakest link; and EVID-KARAYEL-HUMAN-FACTORS-003, which identifies noncompliance with security practices as a human-factor concern."
     },
     {
       "id": "THR-INSUFFICIENT-ORG-SECURITY-MEASURES",
       "name": "Insufficient organizational cybersecurity measures",
-      "definition": "A contextual cybersecurity risk in which weak or insufficient organizational security measures may be associated with poorer employee cyber hygiene practices.",
-      "related_categories": ["CAT-GENERAL-CYBER-HYGIENE"],
-      "source_ids": ["SRC-KARAYEL-2024"],
+      "definition": "Insufficient organizational cybersecurity measures refer to weak or inadequate organizational security measures that may be associated with poorer employee cyber hygiene practices, especially in remote work contexts.",
+      "related_categories": [
+        "CAT-GENERAL-CYBER-HYGIENE"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024"
+      ],
       "support_status": "directly_supported",
-      "support_notes": "Karayel et al. report a statistically significant positive relationship between organizational cybersecurity measures and employees' cyber hygiene practices."
+      "support_notes": "Karayel et al. support this threat through EVID-KARAYEL-ORG-MEASURES-001, which reports a significant correlation between company security measures and employees' cyber hygiene practices, and EVID-KARAYEL-ORG-MEASURES-002, which reports a statistically significant positive relationship between companies' cybersecurity measures and individual cyber hygiene behaviour. This should be interpreted as an association, not proof of strict causation."
     },
     {
       "id": "THR-WEB-BASED-ATTACK",
       "name": "Web-based attack",
-      "definition": "A web-based malware attack can redirect a user's web browsing to an infected website, which then attempts to exploit vulnerabilities on the user's host and install rootkits or other attacker tools.",
+      "definition": "A web-based attack is treated in this knowledge base as a malware-related threat context involving web-based malware, malicious websites, browser-based delivery, malicious web content, or attacker tools delivered through web activity.",
       "related_categories": [
         "CAT-TRANSMISSION",
         "CAT-GENERAL-CYBER-HYGIENE"
       ],
       "source_ids": [
-        "SRC-CAIN-2018",
         "SRC-NIST-800-83R1-2013"
       ],
-      "support_status": "mentioned_in_source",
-      "support_notes": "NIST describes web-based malware, also known as drive-by-download, where browsing is redirected to an infected website that attempts to exploit host vulnerabilities and install attacker tools. Cain also mentions web-based attacks as a cybercrime category."
+      "support_status": "directly_supported",
+      "support_notes": "NIST supports this threat through its malware forms and attacker-tools discussion, including web-based malware, phishing overlap with web-based malware, rootkits, malicious browser plug-ins, and attacker tools delivered through malware. Use the relevant NIST evidence object from KU-NIST-MALWARE-DEFINITION-FORMS-001, or create/check an evidence object such as EVID-NIST-WEB-BASED-MALWARE-001 before treating this source mapping as valid. Cain et al. should only be added if a concrete EVID-CAIN-* object exists that explicitly mentions web-based attacks as a cybercrime category."
     },
     {
       "id": "THR-MALICIOUS-CODE",
       "name": "Malicious code",
-      "definition": "Malicious code is malware: a program covertly inserted into another program with intent to destroy data, run destructive or intrusive programs, or otherwise compromise confidentiality, integrity, or availability. Software code intended to harm, compromise, disrupt, or gain unauthorized access to systems or data.",
+      "definition": "Malicious code refers to malware: a program covertly inserted into another program with the intent to destroy data, run destructive or intrusive programs, or otherwise compromise the confidentiality, integrity, or availability of data, applications, or an operating system.",
       "related_categories": [
         "CAT-STORAGE-DEVICE",
         "CAT-GENERAL-CYBER-HYGIENE"
       ],
       "source_ids": [
-        "SRC-CAIN-2018",
-        "SRC-AZEEM-2024",
-        "SRC-NIST-800-83R1-2013"
+        "SRC-NIST-800-83R1-2013",
+        "SRC-AZEEM-2024"
       ],
       "support_status": "directly_supported",
-      "support_notes": "Cain et al. (2018) mention malicious code as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. Azeem et al. discuss malware as malicious software used to monitor activity, gain system access, or gather critical information, and note that malware detection approaches rely on studying characteristics of malicious code. NIST explicitly treats malware as malicious code and provides a direct definition. Cain mentions malicious code as an attack category, while Azeem provides weaker supporting context."
+      "support_notes": "NIST directly supports this definition by defining malware, also known as malicious code, as a covertly inserted program intended to destroy data, run destructive or intrusive programs, or compromise confidentiality, integrity, or availability. Azeem et al. support related malware context through EVID-AZEEM-MALWARE-DEFINITION-001, which defines malware as software used to monitor machine activity, obtain access to a computer system, or gather critical information. Cain et al. should be omitted unless a specific EVID-CAIN-* object is used only to support that malicious code was mentioned as a cybercrime category."
     },
     {
       "id": "THR-BOTNET",
       "name": "Botnet",
-      "definition": "A botnet involves compromised hosts, often called bots or zombies, that can be controlled by an attacker and used to attack other hosts or perform other malicious activity.",
+      "definition": "A botnet is treated in this knowledge base as a malware-related threat involving compromised hosts or bots that can be controlled or used to attack other hosts or perform malicious activity.",
       "related_categories": [
         "CAT-STORAGE-DEVICE",
         "CAT-GENERAL-CYBER-HYGIENE"
       ],
       "source_ids": [
-        "SRC-CAIN-2018",
-        "SRC-AZEEM-2024",
-        "SRC-NIST-800-83R1-2013"
+        "SRC-NIST-800-83R1-2013",
+        "SRC-AZEEM-2024"
       ],
       "support_status": "directly_supported",
-      "support_notes": "NIST describes zombies, better known as bots, as backdoors installed on hosts to cause them to attack other hosts. Cain et al. (2018) mention botnets as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. Azeem et al. list botnets as a malware type and describe a botnet as a large network of compromised computers."
+      "support_notes": "NIST supports this threat through its attacker-tools discussion, where zombies, better known as bots, are described as backdoors installed on hosts to cause them to attack other hosts. Azeem et al. support botnet as a malware class through EVID-AZEEM-MALWARE-TYPES-001, which lists botnet among malware classes. Cain et al. should only be added if a concrete EVID-CAIN-* object exists that explicitly mentions botnets as a cybercrime category."
     },
     {
       "id": "THR-STOLEN-DEVICE",
       "name": "Stolen device",
-      "definition": "A physical device theft incident that can expose systems, accounts, or information stored on the device.",
+      "definition": "Stolen device is treated in this knowledge base as a physical-device threat category that may be relevant to storage and device hygiene. The KB currently treats the exposure of systems, accounts, or stored information as a reasonable threat interpretation, not as a fully sourced standalone definition.",
       "related_categories": [
         "CAT-STORAGE-DEVICE",
         "CAT-GENERAL-CYBER-HYGIENE"
@@ -444,12 +529,12 @@
         "SRC-CAIN-2018"
       ],
       "support_status": "mentioned_in_source",
-      "support_notes": "Cain et al. (2018) mention attacks related to stolen devices as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. The source mentions the category but does not provide a detailed definition."
+      "support_notes": "Cain et al. may support this only if the KB contains a concrete EVID-CAIN-* object showing that stolen devices are mentioned as a cybercrime or attack category. The current KB should not present Cain et al. as providing a detailed definition of stolen-device risk or as directly supporting all consequences such as account or information exposure."
     },
     {
       "id": "THR-DENIAL-OF-SERVICE",
       "name": "Denial-of-service attack",
-      "definition": "An attack intended to disrupt or prevent normal access to a service, system, or network.",
+      "definition": "Denial-of-service attack is treated in this knowledge base as an attack category involving disruption or prevention of normal access to a service, system, or network. The KB currently treats this as a threat-category label rather than a fully sourced standalone definition.",
       "related_categories": [
         "CAT-GENERAL-CYBER-HYGIENE"
       ],
@@ -457,12 +542,12 @@
         "SRC-CAIN-2018"
       ],
       "support_status": "mentioned_in_source",
-      "support_notes": "Cain et al. (2018) mention denial-of-service attacks as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. The source mentions the category but does not provide a detailed definition."
+      "support_notes": "Cain et al. may support this only if the KB contains a concrete EVID-CAIN-* object showing that denial-of-service attacks are mentioned as a cybercrime or attack category. Cain et al. should not be treated as providing a detailed denial-of-service definition. Add a direct technical source if this threat needs to support explanatory answers."
     },
     {
       "id": "THR-MALICIOUS-INSIDER",
       "name": "Malicious insider",
-      "definition": "A threat involving harmful or unauthorized actions by someone with insider access to an organization, system, or data.",
+      "definition": "Malicious insider is treated in this knowledge base as an organizational threat category involving harmful or unauthorized actions by someone with insider access to an organization, system, or data. The KB currently treats this as a mentioned threat category rather than a fully sourced standalone definition.",
       "related_categories": [
         "CAT-GENERAL-CYBER-HYGIENE"
       ],
@@ -470,12 +555,12 @@
         "SRC-CAIN-2018"
       ],
       "support_status": "mentioned_in_source",
-      "support_notes": "Cain et al. (2018) mention malicious insiders as one attack category experienced by organizations in the cited Ponemon cybercrime cost study. The source mentions the category but does not provide a detailed definition."
+      "support_notes": "Cain et al. should only support this threat if the KB contains a concrete EVID-CAIN-* object showing that malicious insiders are mentioned as a cybercrime or attack category. Cain et al. should not be treated as providing a detailed definition of malicious insider threats."
     },
     {
       "id": "THR-INFECTED-USB-DRIVE",
       "name": "Infected USB drive",
-      "definition": "A removable storage device that may carry malicious software or otherwise compromise a system or network when used.",
+      "definition": "An infected USB drive is treated in this knowledge base as a removable storage threat in which using an infected USB drive can compromise a network or contribute to malware-related harm.",
       "related_categories": [
         "CAT-STORAGE-DEVICE"
       ],
@@ -483,12 +568,12 @@
         "SRC-CAIN-2018"
       ],
       "support_status": "directly_supported",
-      "support_notes": "Cain et al. state that using infected USB drives can compromise a network and can lead to problems such as malware download."
+      "support_notes": "Cain et al. support this threat if the KB contains a concrete EVID-CAIN-* object stating that using infected USB drives can compromise a network and can lead to problems such as malware download. Use that exact evidence object in KU-level evidence mappings. If that EVID object is missing, this threat should be downgraded to needs_direct_source."
     },
     {
       "id": "THR-KEYSTROKE-LOGGER",
       "name": "Keystroke logger",
-      "definition": "A keystroke logger is an attacker tool that monitors and records keyboard use, sometimes transferring the captured data to another host.",
+      "definition": "A keystroke logger is an attacker tool that monitors and records keyboard use, and may transfer the captured data to another host.",
       "related_categories": [
         "CAT-AUTH-CREDENTIAL",
         "CAT-STORAGE-DEVICE"
@@ -497,7 +582,7 @@
         "SRC-NIST-800-83R1-2013"
       ],
       "support_status": "directly_supported",
-      "support_notes": "NIST defines keystroke loggers as attacker tools that monitor and record keyboard use."
+      "support_notes": "NIST supports this threat if the KB contains a concrete EVID-NIST-* object stating that keystroke loggers monitor and record keyboard use, and may transfer the captured data to another host. Use that exact evidence object in KU-level evidence mappings. If this evidence object is not yet present, add it from the NIST malware forms or attacker-tools section before relying on this threat as directly supported."
     }
   ],
 
@@ -505,189 +590,519 @@
     {
       "id": "PRA-VIRUS-SCAN-STORAGE",
       "name": "Conduct virus scans on storage devices",
-      "description": "Users should conduct virus scans on storage devices to detect potentially malicious or infected files.",
+      "description": "Users should conduct virus scans on storage devices, especially new USB drives or external hard drives, before use to reduce exposure to potentially malicious or infected files.",
       "category_id": "CAT-STORAGE-DEVICE",
-      "mitigates": ["THR-MALWARE-INFECTION", "THR-INFECTED-USB-DRIVE"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      "mitigates": [
+        "THR-MALWARE-INFECTION",
+        "THR-INFECTED-USB-DRIVE"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-STORAGE-DEVICE-001",
+        "EVID-VISHWANATH-STORAGE-DEVICE-001",
+        "EVID-BARAKOVIC-STORAGE-DEVICE-001"
+      ],
+      "support_notes": "Karayel et al. support virus scans on storage devices through EVID-KARAYEL-STORAGE-DEVICE-001. Vishwanath et al. support scanning new USB or external storage devices through EVID-VISHWANATH-STORAGE-DEVICE-001. Baraković and Baraković Husić support storage/device hygiene examples including virus scans through EVID-BARAKOVIC-STORAGE-DEVICE-001. The infected-USB mitigation is especially supported by the USB/external-storage wording."
     },
     {
       "id": "PRA-BACKUP-FILES",
       "name": "Back up important files",
-      "description": "Users should back up important files to reduce the impact of data loss, malware, or device failure. Oz et al. describe file recovery via cloud backup as one category of ransomware recovery research, supporting backups as part of ransomware recovery planning.",
+      "description": "Users should back up important files to reduce the impact of data loss or malware-related file access loss, and backups can support ransomware recovery planning.",
       "category_id": "CAT-STORAGE-DEVICE",
-      "mitigates": ["THR-DATA-LOSS", "THR-RANSOMWARE"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020", "SRC-OZ-2022"]
+      "mitigates": [
+        "THR-DATA-LOSS",
+        "THR-RANSOMWARE"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-VISHWANATH-2020",
+        "SRC-CAIN-2018",
+        "SRC-BARAKOVIC-2023",
+        "SRC-OZ-2022"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-STORAGE-DEVICE-001",
+        "EVID-VISHWANATH-STORAGE-DEVICE-002",
+        "EVID-CAIN-STORAGE-DEVICE-003",
+        "EVID-BARAKOVIC-STORAGE-DEVICE-001",
+        "EVID-OZ-RANSOMWARE-RECOVERY-001",
+        "EVID-OZ-RANSOMWARE-BACKUP-RECOVERY-001"
+      ],
+      "support_notes": "Karayel and Vishwanath directly list backing up important files through EVID-KARAYEL-STORAGE-DEVICE-001 and EVID-VISHWANATH-STORAGE-DEVICE-002. Cain's source-listed government guidance includes backing up data/files through EVID-CAIN-STORAGE-DEVICE-003. Baraković and Baraković Husić list backups as storage/device hygiene through EVID-BARAKOVIC-STORAGE-DEVICE-001. Oz et al. support the ransomware recovery context through EVID-OZ-RANSOMWARE-RECOVERY-001 and EVID-OZ-RANSOMWARE-BACKUP-RECOVERY-001. Do not claim backups guarantee complete ransomware recovery."
     },
     {
       "id": "PRA-UPDATE-PROTECTION-SOFTWARE",
-      "name": "Keep protection software up to date",
-      "description": "Users should keep antivirus protection and device software up to date.",
+      "name": "Keep protection and device software up to date",
+      "description": "Users should keep antivirus protection, security software, operating systems, applications, and device software up to date.",
       "category_id": "CAT-STORAGE-DEVICE",
-      "mitigates": ["THR-MALWARE-INFECTION", "THR-UNPATCHED-SOFTWARE"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"]
+      "mitigates": [
+        "THR-MALWARE-INFECTION",
+        "THR-UNPATCHED-SOFTWARE"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-CAIN-2018",
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023",
+        "SRC-OZ-2022"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-STORAGE-DEVICE-001",
+        "EVID-CAIN-STORAGE-DEVICE-002",
+        "EVID-CAIN-STORAGE-DEVICE-003",
+        "EVID-VISHWANATH-STORAGE-DEVICE-004",
+        "EVID-VISHWANATH-STORAGE-DEVICE-006",
+        "EVID-BARAKOVIC-STORAGE-DEVICE-001",
+        "EVID-OZ-RANSOMWARE-PATCHING-001"
+      ],
+      "support_notes": "Karayel supports keeping protection and device software up to date through EVID-KARAYEL-STORAGE-DEVICE-001. Cain supports updating security software, applications, operating systems, and software through EVID-CAIN-STORAGE-DEVICE-002 and EVID-CAIN-STORAGE-DEVICE-003. Vishwanath supports checking OS/software/patch status and keeping virus protection updated through EVID-VISHWANATH-STORAGE-DEVICE-004 and EVID-VISHWANATH-STORAGE-DEVICE-006. Baraković supports latest OS and updated virus protection/software through EVID-BARAKOVIC-STORAGE-DEVICE-001. Oz supports not delaying security-related patches in ransomware risk through EVID-OZ-RANSOMWARE-PATCHING-001."
     },
     {
       "id": "PRA-CHECK-SSL-CERTIFICATE",
       "name": "Check SSL certificate quality",
-      "description": "Users should check whether a website uses a valid SSL certificate before entering sensitive information.",
+      "description": "Users should check whether a website uses SSL or a valid SSL certificate before entering sensitive information or carrying out sensitive online activity.",
       "category_id": "CAT-TRANSMISSION",
-      "mitigates": ["THR-INSECURE-CONNECTION"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      "mitigates": [
+        "THR-INSECURE-CONNECTION"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-TRANSMISSION-001",
+        "EVID-VISHWANATH-TRANSMISSION-001",
+        "EVID-BARAKOVIC-TRANSMISSION-002"
+      ],
+      "support_notes": "Karayel supports checking SSL certificate quality through EVID-KARAYEL-TRANSMISSION-001. Vishwanath supports checking SSL certificate quality for online financial transactions through EVID-VISHWANATH-TRANSMISSION-001. Baraković and Baraković Husić list checking SSL certificate quality as good transmission/browsing hygiene through EVID-BARAKOVIC-TRANSMISSION-002."
     },
     {
       "id": "PRA-CHECK-BROWSER-LOCK",
       "name": "Check browser lock icon",
-      "description": "Users should check for the browser lock icon to identify whether a connection appears secured.",
+      "description": "Users should check for the browser lock icon or similar browser security indicators to assess whether a website connection appears secured before sensitive activity.",
       "category_id": "CAT-TRANSMISSION",
-      "mitigates": ["THR-INSECURE-CONNECTION"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      "mitigates": [
+        "THR-INSECURE-CONNECTION"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-TRANSMISSION-001",
+        "EVID-VISHWANATH-TRANSMISSION-002",
+        "EVID-BARAKOVIC-TRANSMISSION-002"
+      ],
+      "support_notes": "Karayel supports checking the browser lock icon through EVID-KARAYEL-TRANSMISSION-001. Vishwanath supports checking the lock icon/SSL indicator to see whether a website uses encryption through EVID-VISHWANATH-TRANSMISSION-002. Baraković and Baraković Husić list checking the browser lock icon as good transmission/browsing hygiene through EVID-BARAKOVIC-TRANSMISSION-002. Do not claim the lock icon guarantees safety."
     },
     {
       "id": "PRA-EVALUATE-FRIEND-REQUESTS",
       "name": "Evaluate authenticity of friend requests",
-      "description": "Users should evaluate whether social media friend requests are authentic before accepting them.",
+      "description": "Users should evaluate whether social media friend or information requests are authentic before accepting or responding to them.",
       "category_id": "CAT-SOCIAL-MEDIA",
-      "mitigates": ["THR-SOCIAL-ENGINEERING", "THR-IMPERSONATION"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      "mitigates": [
+        "THR-IMPERSONATION",
+        "THR-SOCIAL-ENGINEERING"
+      ],
+      "source_ids": [
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-VISHWANATH-SOCIAL-MEDIA-001",
+        "EVID-BARAKOVIC-SOCIAL-MEDIA-001"
+      ],
+      "support_notes": "Vishwanath supports assessing the authenticity of social media friend/information requests through EVID-VISHWANATH-SOCIAL-MEDIA-001. Baraković and Baraković Husić list the same social-media hygiene practice through EVID-BARAKOVIC-SOCIAL-MEDIA-001. The impersonation mitigation is direct; the social-engineering mitigation is a broader deception-related mapping."
     },
     {
       "id": "PRA-MANAGE-PRIVACY-SETTINGS",
       "name": "Manage privacy settings",
-      "description": "Users should manage social media privacy settings to control who can view their information.",
+      "description": "Users should manage social media privacy settings to better control who can view their personal information.",
       "category_id": "CAT-SOCIAL-MEDIA",
-      "mitigates": ["THR-OVERSHARING", "THR-PRIVACY-EXPOSURE"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      "mitigates": [
+        "THR-OVERSHARING",
+        "THR-PRIVACY-EXPOSURE"
+      ],
+      "source_ids": [
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023",
+        "SRC-CAIN-2018"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-VISHWANATH-SOCIAL-MEDIA-004",
+        "EVID-BARAKOVIC-SOCIAL-MEDIA-001",
+        "EVID-CAIN-POOR-HYGIENE-008"
+      ],
+      "support_notes": "Vishwanath supports managing social media privacy settings through EVID-VISHWANATH-SOCIAL-MEDIA-004. Baraković and Baraković Husić include managing privacy settings among social-media hygiene examples through EVID-BARAKOVIC-SOCIAL-MEDIA-001. Cain supports the risk context through EVID-CAIN-POOR-HYGIENE-008, which states that many users share too much personal information and often do not check privacy settings."
     },
     {
       "id": "PRA-CHANGE-DEFAULT-CREDENTIALS",
       "name": "Change default usernames and passwords",
-      "description": "Users should change default usernames and passwords to reduce the risk of unauthorized access.",
+      "description": "Users should change default usernames and passwords to reduce exposure from unchanged default credentials.",
       "category_id": "CAT-AUTH-CREDENTIAL",
-      "mitigates": ["THR-CREDENTIAL-THEFT", "THR-UNAUTHORIZED-ACCESS"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      "mitigates": [
+        "THR-CREDENTIAL-TARGETING",
+        "THR-UNAUTHORIZED-ACCESS"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-AUTH-001",
+        "EVID-VISHWANATH-AUTH-001",
+        "EVID-VISHWANATH-AUTH-002",
+        "EVID-BARAKOVIC-AUTH-001"
+      ],
+      "support_notes": "Karayel supports changing default usernames and passwords through EVID-KARAYEL-AUTH-001. Vishwanath supports changing default usernames and default passwords through EVID-VISHWANATH-AUTH-001 and EVID-VISHWANATH-AUTH-002. Baraković and Baraković Husić describe authentication and credential hygiene as including changing default usernames and passwords through EVID-BARAKOVIC-AUTH-001. The unauthorized-access mitigation remains partly inferred because the THR itself lacks a direct definition source."
     },
     {
       "id": "PRA-CREATE-COMPLEX-CREDENTIALS",
       "name": "Create complex usernames and passwords",
-      "description": "Users should create complex usernames and passwords to reduce the risk of credential compromise.",
+      "description": "Users should create complex usernames and passwords, avoiding easily guessed choices such as personal information or dictionary words.",
       "category_id": "CAT-AUTH-CREDENTIAL",
-      "mitigates": ["THR-CREDENTIAL-THEFT", "THR-BRUTE-FORCE"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"]
+      "mitigates": [
+        "THR-CREDENTIAL-TARGETING",
+        "THR-BRUTE-FORCE"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-CAIN-2018",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-AUTH-001",
+        "EVID-CAIN-PASSWORD-HYGIENE-002",
+        "EVID-CAIN-PASSWORD-HYGIENE-003",
+        "EVID-BARAKOVIC-AUTH-003"
+      ],
+      "support_notes": "Karayel supports creating complex usernames and passwords through EVID-KARAYEL-AUTH-001. Cain supports strong passwords for guessing attacks and avoiding personal information/dictionary words through EVID-CAIN-PASSWORD-HYGIENE-002 and EVID-CAIN-PASSWORD-HYGIENE-003. Baraković and Baraković Husić support the brute-force context through EVID-BARAKOVIC-AUTH-003. Do not claim strong passwords alone protect against phishing or keylogging."
     },
     {
       "id": "PRA-ENABLE-MFA",
       "name": "Enable multifactor authentication",
-      "description": "Users should enable multifactor authentication to add an additional layer of account security.",
+      "description": "Users should enable multifactor authentication to add an additional layer of account security beyond usernames and passwords.",
       "category_id": "CAT-AUTH-CREDENTIAL",
-      "mitigates": ["THR-CREDENTIAL-THEFT", "THR-UNAUTHORIZED-ACCESS"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      "mitigates": [
+        "THR-CREDENTIAL-TARGETING",
+        "THR-UNAUTHORIZED-ACCESS"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-AUTH-001",
+        "EVID-VISHWANATH-AUTH-003",
+        "EVID-BARAKOVIC-AUTH-004"
+      ],
+      "support_notes": "Karayel supports enabling multifactor authentication through EVID-KARAYEL-AUTH-001. Vishwanath supports enabling two-factor or multifactor authentication through EVID-VISHWANATH-AUTH-003. Baraković and Baraković Husić describe MFA as enhancing security by requiring more than one authentication factor through EVID-BARAKOVIC-AUTH-004. The unauthorized-access mitigation is reasonable but partly inferred."
     },
     {
       "id": "PRA-CHECK-EMAIL-SUBJECT",
       "name": "Check incoming email subjects",
-      "description": "Users should inspect the subject of incoming emails for suspicious, unexpected, or urgency-based requests that may indicate phishing or e-fraud.",
+      "description": "Users should inspect the subject of incoming emails and be cautious of suspicious, unexpected, or urgency-based requests that may indicate phishing or e-fraud.",
       "category_id": "CAT-EMAIL-MESSAGING",
-      "mitigates": ["THR-PHISHING", "THR-EMAIL-SCAM", "THR-SOCIAL-ENGINEERING"],
-      "source_ids": ["SRC-KARAYEL-2024"]
+      "mitigates": [
+        "THR-PHISHING",
+        "THR-EMAIL-SCAM",
+        "THR-SOCIAL-ENGINEERING"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-CAIN-2018"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-EMAIL-MESSAGING-001",
+        "EVID-CAIN-EMAIL-MESSAGING-003"
+      ],
+      "support_notes": "Karayel supports checking the subject of incoming emails through EVID-KARAYEL-EMAIL-MESSAGING-001. Cain supports urgency and other phishing warning signs through EVID-CAIN-EMAIL-MESSAGING-003. The social-engineering mitigation is a broader deception-related mapping."
     },
     {
       "id": "PRA-CHECK-SENDER-DOMAIN",
       "name": "Check sender email domain",
-      "description": "Users should check the sender's email domain name before trusting an email request, especially when the message asks for sensitive information or urgent action.",
+      "description": "Users should check the sender's email domain name before trusting an email request.",
       "category_id": "CAT-EMAIL-MESSAGING",
-      "mitigates": ["THR-PHISHING", "THR-IMPERSONATION", "THR-SOCIAL-ENGINEERING"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      "mitigates": [
+        "THR-PHISHING",
+        "THR-IMPERSONATION",
+        "THR-SOCIAL-ENGINEERING"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023",
+        "SRC-CAIN-2018"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-EMAIL-MESSAGING-001",
+        "EVID-VISHWANATH-EMAIL-MESSAGING-002",
+        "EVID-BARAKOVIC-EMAIL-MESSAGING-001",
+        "EVID-CAIN-EMAIL-MESSAGING-003"
+      ],
+      "support_notes": "Karayel and Vishwanath support checking sender email domains through EVID-KARAYEL-EMAIL-MESSAGING-001 and EVID-VISHWANATH-EMAIL-MESSAGING-002. Baraković and Baraković Husić also list checking sender domain names through EVID-BARAKOVIC-EMAIL-MESSAGING-001. Cain supports related sender-identity warning signs through EVID-CAIN-EMAIL-MESSAGING-003, which mentions mismatched sender name/address."
     },
     {
       "id": "PRA-CHECK-EMAIL-HEADER",
       "name": "Check incoming email headers",
       "description": "Users should check an incoming email's header as part of email and messaging hygiene.",
       "category_id": "CAT-EMAIL-MESSAGING",
-      "mitigates": [],
-      "source_ids": ["SRC-VISHWANATH-2020"]
+      "mitigates": [
+        "THR-PHISHING",
+        "THR-IMPERSONATION"
+      ],
+      "source_ids": [
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-VISHWANATH-EMAIL-MESSAGING-001",
+        "EVID-BARAKOVIC-EMAIL-MESSAGING-001"
+      ],
+      "support_notes": "Vishwanath supports checking incoming email headers through EVID-VISHWANATH-EMAIL-MESSAGING-001. Baraković and Baraković Husić also list checking incoming email headers through EVID-BARAKOVIC-EMAIL-MESSAGING-001. Mitigation links to phishing and impersonation are reasonable email-authenticity mappings."
     },
     {
       "id": "PRA-CHECK-EMAIL-LANGUAGE",
       "name": "Check spelling and grammar of email requests",
-      "description": "Users should inspect spelling and grammar in email requests as possible warning signs of suspicious, fraudulent, or socially engineered messages.",
+      "description": "Users should inspect spelling and grammar in email requests as possible warning signs of suspicious or fraudulent messages.",
       "category_id": "CAT-EMAIL-MESSAGING",
-      "mitigates": ["THR-PHISHING", "THR-EMAIL-SCAM", "THR-SOCIAL-ENGINEERING"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020"]
+      "mitigates": [
+        "THR-PHISHING",
+        "THR-EMAIL-SCAM",
+        "THR-SOCIAL-ENGINEERING"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023",
+        "SRC-CAIN-2018"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-EMAIL-MESSAGING-001",
+        "EVID-VISHWANATH-EMAIL-MESSAGING-003",
+        "EVID-BARAKOVIC-EMAIL-MESSAGING-001",
+        "EVID-CAIN-EMAIL-MESSAGING-003"
+      ],
+      "support_notes": "Karayel supports checking spelling and grammar through EVID-KARAYEL-EMAIL-MESSAGING-001. Vishwanath supports checking grammatical or typographical errors through EVID-VISHWANATH-EMAIL-MESSAGING-003. Baraković and Baraković Husić list the same type of email/messaging hygiene practice through EVID-BARAKOVIC-EMAIL-MESSAGING-001. Cain supports spelling/grammar issues as phishing warning signs through EVID-CAIN-EMAIL-MESSAGING-003."
     },
     {
       "id": "PRA-ADDRESS-USER-BEHAVIOR",
       "name": "Address individual user behavior",
-      "description": "Cybersecurity guidance should address individual user behavior in addition to technical security measures.",
+      "description": "Cybersecurity guidance should address individual user behavior and human factors in addition to technical security measures.",
       "category_id": "CAT-GENERAL-CYBER-HYGIENE",
-      "mitigates": ["THR-USER-NONCOMPLIANCE"],
-      "source_ids": ["SRC-KARAYEL-2024"]
+      "mitigates": [
+        "THR-USER-NONCOMPLIANCE"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-CAIN-2018"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-HUMAN-FACTORS-001",
+        "EVID-KARAYEL-HUMAN-FACTORS-002",
+        "EVID-KARAYEL-HUMAN-FACTORS-003",
+        "EVID-CAIN-HUMAN-FACTORS-001",
+        "EVID-CAIN-HUMAN-FACTORS-002"
+      ],
+      "support_notes": "Karayel supports the need to address human factors because technical measures alone are insufficient, human factors are a weak link, and noncompliance is relevant through EVID-KARAYEL-HUMAN-FACTORS-001, EVID-KARAYEL-HUMAN-FACTORS-002, and EVID-KARAYEL-HUMAN-FACTORS-003. Cain supports the user-behavior framing through EVID-CAIN-HUMAN-FACTORS-001 and EVID-CAIN-HUMAN-FACTORS-002."
     },
     {
       "id": "PRA-USE-STRONG-PASSWORDS",
       "name": "Use strong passwords",
-      "description": "Users should use strong passwords as part of routine cyber hygiene behavior.",
+      "description": "Users should use strong passwords as part of routine cyber hygiene, avoiding easily guessed passwords such as those based on personal information or dictionary words.",
       "category_id": "CAT-AUTH-CREDENTIAL",
-      "mitigates": ["THR-CREDENTIAL-TARGETING", "THR-CREDENTIAL-THEFT", "THR-BRUTE-FORCE"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"]
+      "mitigates": [
+        "THR-CREDENTIAL-TARGETING",
+        "THR-BRUTE-FORCE"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-CAIN-2018",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-ROUTINE-PRACTICES-001",
+        "EVID-CAIN-PASSWORD-HYGIENE-002",
+        "EVID-CAIN-PASSWORD-HYGIENE-003",
+        "EVID-BARAKOVIC-AUTH-003"
+      ],
+      "support_notes": "Karayel supports strong passwords as routine cyber hygiene through EVID-KARAYEL-ROUTINE-PRACTICES-001. Cain supports strong passwords for preventing guessing attacks and avoiding personal information/dictionary words through EVID-CAIN-PASSWORD-HYGIENE-002 and EVID-CAIN-PASSWORD-HYGIENE-003. Baraković and Baraković Husić support the weak-password/brute-force context through EVID-BARAKOVIC-AUTH-003."
     },
     {
       "id": "PRA-CHANGE-PASSWORDS-REGULARLY",
       "name": "Change passwords regularly",
-      "description": "Users should change passwords regularly as part of maintaining cyber hygiene.",
+      "description": "Users should change passwords regularly as part of maintaining authentication and credential hygiene.",
       "category_id": "CAT-AUTH-CREDENTIAL",
-      "mitigates": ["THR-CREDENTIAL-TARGETING", "THR-CREDENTIAL-THEFT"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"]
+      "mitigates": [
+        "THR-CREDENTIAL-TARGETING"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-CAIN-2018"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-ROUTINE-PRACTICES-001",
+        "EVID-CAIN-PASSWORD-HYGIENE-004"
+      ],
+      "support_notes": "Karayel supports changing passwords regularly through EVID-KARAYEL-ROUTINE-PRACTICES-001. Cain supports changing passwords often through EVID-CAIN-PASSWORD-HYGIENE-004. The mitigation is mapped to credential targeting rather than credential theft because regular password changes do not directly prevent phishing or keylogging."
     },
     {
       "id": "PRA-AVOID-PASSWORD-REUSE",
       "name": "Avoid password reuse",
-      "description": "Users should avoid reusing passwords across accounts to reduce credential-related risk.",
+      "description": "Users should avoid reusing the same password across multiple accounts to reduce credential-related exposure.",
       "category_id": "CAT-AUTH-CREDENTIAL",
-      "mitigates": ["THR-CREDENTIAL-TARGETING", "THR-CREDENTIAL-THEFT"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-CAIN-2018"]
+      "mitigates": [
+        "THR-CREDENTIAL-TARGETING",
+        "THR-UNAUTHORIZED-ACCESS"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-CAIN-2018",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-ROUTINE-PRACTICES-001",
+        "EVID-CAIN-PASSWORD-HYGIENE-004",
+        "EVID-BARAKOVIC-AUTH-002"
+      ],
+      "support_notes": "Karayel supports avoiding password reuse through EVID-KARAYEL-ROUTINE-PRACTICES-001. Cain supports not using passwords for multiple accounts through EVID-CAIN-PASSWORD-HYGIENE-004. Baraković and Baraković Husić identify password reuse as lax security behavior through EVID-BARAKOVIC-AUTH-002. The unauthorized-access mitigation is reasonable but partly inferred."
     },
     {
       "id": "PRA-UPDATE-ANTIVIRUS",
       "name": "Update antivirus software",
-      "description": "Users should keep antivirus software up to date to reduce exposure to cyber threats. Malware evolves and can evade traditional signature-based detection, supporting the need to treat antivirus as one part of broader device hygiene rather than a complete defense.",
+      "description": "Users should keep antivirus or virus protection software up to date as part of storage and device hygiene.",
       "category_id": "CAT-STORAGE-DEVICE",
-      "mitigates": ["THR-MALWARE-INFECTION", "THR-UNPATCHED-SOFTWARE"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-VISHWANATH-2020", "SRC-CAIN-2018", "SRC-AZEEM-2024"]
+      "mitigates": [
+        "THR-MALWARE-INFECTION",
+        "THR-UNPATCHED-SOFTWARE"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-VISHWANATH-2020",
+        "SRC-CAIN-2018",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-STORAGE-DEVICE-001",
+        "EVID-KARAYEL-STORAGE-DEVICE-002",
+        "EVID-VISHWANATH-STORAGE-DEVICE-006",
+        "EVID-CAIN-STORAGE-DEVICE-002",
+        "EVID-CAIN-STORAGE-DEVICE-005",
+        "EVID-BARAKOVIC-STORAGE-DEVICE-001"
+      ],
+      "support_notes": "Karayel supports keeping virus protection and antivirus software up to date through EVID-KARAYEL-STORAGE-DEVICE-001 and EVID-KARAYEL-STORAGE-DEVICE-002. Vishwanath supports keeping virus protection updated through EVID-VISHWANATH-STORAGE-DEVICE-006. Cain supports updating security software and reports antivirus-update behavior through EVID-CAIN-STORAGE-DEVICE-002 and EVID-CAIN-STORAGE-DEVICE-005. Baraković and Baraković Husić support keeping virus protection/software updated through EVID-BARAKOVIC-STORAGE-DEVICE-001."
     },
     {
       "id": "PRA-SECURELY-STORE-INFORMATION",
-      "name": "Securely store online information",
-      "description": "Users should securely store online information to protect personal and sensitive data.",
+      "name": "Securely store information",
+      "description": "Users should securely store information, including physical and cloud-based data, as part of storage and device hygiene.",
       "category_id": "CAT-STORAGE-DEVICE",
-      "mitigates": ["THR-DATA-LOSS", "THR-PRIVACY-EXPOSURE"],
-      "source_ids": ["SRC-KARAYEL-2024"]
+      "mitigates": [
+        "THR-DATA-LOSS",
+        "THR-PRIVACY-EXPOSURE"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-STORAGE-DEVICE-002",
+        "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+      ],
+      "support_notes": "Karayel supports secure data storage, including physical and cloud-based data, through EVID-KARAYEL-STORAGE-DEVICE-002, and secure online information storage through EVID-KARAYEL-ROUTINE-PRACTICES-001. The privacy-exposure mitigation is a reasonable mapping when stored information is personal or sensitive."
     },
     {
       "id": "PRA-CONDUCT-SECURITY-SCANS",
       "name": "Conduct appropriate security scans",
-      "description": "Users should conduct appropriate security scans to detect cyber threats or attack attempts. Security measures for dangerous or suspicious activity are built around scanning systems and distinguish static, dynamic, statistical, and content analysis methods.",
+      "description": "Users should conduct regular virus or security scans, especially on storage devices such as new USB drives or external storage devices.",
       "category_id": "CAT-STORAGE-DEVICE",
-      "mitigates": ["THR-MALWARE-INFECTION", "THR-INFECTED-USB-DRIVE"],
-      "source_ids": ["SRC-KARAYEL-2024", "SRC-AZEEM-2024"]
+      "mitigates": [
+        "THR-MALWARE-INFECTION",
+        "THR-INFECTED-USB-DRIVE"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024",
+        "SRC-VISHWANATH-2020",
+        "SRC-CAIN-2018",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-STORAGE-DEVICE-001",
+        "EVID-KARAYEL-STORAGE-DEVICE-002",
+        "EVID-VISHWANATH-STORAGE-DEVICE-001",
+        "EVID-CAIN-STORAGE-DEVICE-003",
+        "EVID-CAIN-STORAGE-DEVICE-005",
+        "EVID-BARAKOVIC-STORAGE-DEVICE-001",
+        "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-002"
+      ],
+      "support_notes": "Karayel supports virus/security scans through EVID-KARAYEL-STORAGE-DEVICE-001 and EVID-KARAYEL-STORAGE-DEVICE-002. Vishwanath supports scanning new USB/external storage through EVID-VISHWANATH-STORAGE-DEVICE-001. Cain supports antivirus scans through EVID-CAIN-STORAGE-DEVICE-003 and EVID-CAIN-STORAGE-DEVICE-005. Baraković and Baraković Husić support virus scans and scanning downloaded files/used devices through EVID-BARAKOVIC-STORAGE-DEVICE-001 and EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-002."
     },
     {
       "id": "PRA-STRENGTHEN-ORG-CYBERSECURITY-MEASURES",
       "name": "Strengthen organizational cybersecurity measures",
       "description": "Organizations should strengthen cybersecurity measures that support employees' cyber hygiene practices.",
       "category_id": "CAT-GENERAL-CYBER-HYGIENE",
-      "mitigates": ["THR-INSUFFICIENT-ORG-SECURITY-MEASURES"],
-      "source_ids": ["SRC-KARAYEL-2024"]
+      "mitigates": [
+        "THR-INSUFFICIENT-ORG-SECURITY-MEASURES"
+      ],
+      "source_ids": [
+        "SRC-KARAYEL-2024"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-ORG-MEASURES-001",
+        "EVID-KARAYEL-ORG-MEASURES-002",
+        "EVID-KARAYEL-ORG-TRAINING-POLICIES-004"
+      ],
+      "support_notes": "Karayel supports this practice through EVID-KARAYEL-ORG-MEASURES-001 and EVID-KARAYEL-ORG-MEASURES-002, which report an association between company cybersecurity measures and employee cyber hygiene practices, and through EVID-KARAYEL-ORG-TRAINING-POLICIES-004, which recommends strengthening cybersecurity measures in remote work systems."
     },
     {
       "id": "PRA-CYBERSECURITY-TRAINING",
       "name": "Provide cybersecurity training",
-      "description": "Organizations should educate and train employees on cyber hygiene to support improved cyber hygiene behavior.",
+      "description": "Organizations should educate and train employees on cyber hygiene to support improved cyber hygiene behavior and awareness.",
       "category_id": "CAT-GENERAL-CYBER-HYGIENE",
       "mitigates": [
         "THR-INSUFFICIENT-ORG-SECURITY-MEASURES",
         "THR-USER-NONCOMPLIANCE"
       ],
-      "source_ids": ["SRC-KARAYEL-2024"]
+      "source_ids": [
+        "SRC-KARAYEL-2024"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-ORG-TRAINING-POLICIES-004",
+        "EVID-KARAYEL-ORG-TRAINING-POLICIES-005",
+        "EVID-KARAYEL-ORG-TRAINING-POLICIES-006"
+      ],
+      "support_notes": "Karayel supports educating/training employees through EVID-KARAYEL-ORG-TRAINING-POLICIES-004, comprehensive training/awareness through EVID-KARAYEL-ORG-TRAINING-POLICIES-005, and incident management training/educational materials through EVID-KARAYEL-ORG-TRAINING-POLICIES-006."
     },
     {
       "id": "PRA-TAILORED-TRAINING",
@@ -698,28 +1113,52 @@
         "THR-INSUFFICIENT-ORG-SECURITY-MEASURES",
         "THR-USER-NONCOMPLIANCE"
       ],
-      "source_ids": ["SRC-KARAYEL-2024"]
+      "source_ids": [
+        "SRC-KARAYEL-2024"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-ORG-TRAINING-POLICIES-002",
+        "EVID-KARAYEL-ORG-TRAINING-POLICIES-003"
+      ],
+      "support_notes": "Karayel supports tailoring improvement initiatives to educational levels through EVID-KARAYEL-ORG-TRAINING-POLICIES-002 and focused/simplified training for older workers through EVID-KARAYEL-ORG-TRAINING-POLICIES-003. This should be framed as tailoring by educational level, age, or comprehension needs, not as a universal claim that all users need different training."
     },
     {
       "id": "PRA-SECURITY-POLICIES-PROCEDURES",
       "name": "Develop cybersecurity policies and procedures",
-      "description": "Organizations should develop cybersecurity policies and procedures that support remote work systems and foster a strong cyber hygiene culture.",
+      "description": "Organizations should develop cybersecurity policies and procedures that support remote work systems and foster a cyber hygiene culture.",
       "category_id": "CAT-GENERAL-CYBER-HYGIENE",
       "mitigates": [
         "THR-INSUFFICIENT-ORG-SECURITY-MEASURES",
         "THR-USER-NONCOMPLIANCE"
       ],
-      "source_ids": ["SRC-KARAYEL-2024"]
+      "source_ids": [
+        "SRC-KARAYEL-2024"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-ORG-TRAINING-POLICIES-004",
+        "EVID-KARAYEL-ORG-TRAINING-POLICIES-005",
+        "EVID-KARAYEL-ORG-TRAINING-POLICIES-006"
+      ],
+      "support_notes": "Karayel supports cybersecurity policies for remote work systems through EVID-KARAYEL-ORG-TRAINING-POLICIES-004, policies/procedures for fostering cyber hygiene culture through EVID-KARAYEL-ORG-TRAINING-POLICIES-005, and cybersecurity protocols through EVID-KARAYEL-ORG-TRAINING-POLICIES-006."
     },
     {
       "id": "PRA-INCIDENT-MANAGEMENT-TRAINING",
       "name": "Provide incident management training",
-      "description": "Organizations should adopt incident management training as part of advanced cybersecurity measures for coordinating and managing incidents.",
+      "description": "Organizations should adopt incident management training as part of cybersecurity measures for coordinating and managing incidents.",
       "category_id": "CAT-GENERAL-CYBER-HYGIENE",
       "mitigates": [
         "THR-INSUFFICIENT-ORG-SECURITY-MEASURES"
       ],
-      "source_ids": ["SRC-KARAYEL-2024"]
+      "source_ids": [
+        "SRC-KARAYEL-2024"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-ORG-TRAINING-POLICIES-006"
+      ],
+      "support_notes": "Karayel supports incident management training through EVID-KARAYEL-ORG-TRAINING-POLICIES-006, which recommends incident management training, educational booklets, and cybersecurity protocols for coordinating and managing incidents."
     },
     {
       "id": "PRA-CYBERSECURITY-PROTOCOLS",
@@ -729,50 +1168,108 @@
       "mitigates": [
         "THR-INSUFFICIENT-ORG-SECURITY-MEASURES"
       ],
-      "source_ids": ["SRC-KARAYEL-2024"]
+      "source_ids": [
+        "SRC-KARAYEL-2024"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-KARAYEL-ORG-TRAINING-POLICIES-006"
+      ],
+      "support_notes": "Karayel supports cybersecurity protocols for coordinating and managing incidents through EVID-KARAYEL-ORG-TRAINING-POLICIES-006."
     },
     {
       "id": "PRA-USE-VPN-PUBLIC-WIFI",
       "name": "Use a VPN on free or public Wi-Fi",
       "description": "Users should use a VPN when using free or public Wi-Fi.",
       "category_id": "CAT-TRANSMISSION",
-      "mitigates": ["THR-INSECURE-CONNECTION"],
-      "source_ids": ["SRC-VISHWANATH-2020"]
+      "mitigates": [
+        "THR-INSECURE-CONNECTION"
+      ],
+      "source_ids": [
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-VISHWANATH-TRANSMISSION-002-001",
+        "EVID-BARAKOVIC-TRANSMISSION-002"
+      ],
+      "support_notes": "Vishwanath supports VPN use on free/public Wi-Fi through EVID-VISHWANATH-TRANSMISSION-002-001. Baraković and Baraković Husić list VPN use on public Wi-Fi as good transmission/browsing hygiene through EVID-BARAKOVIC-TRANSMISSION-002. Do not claim VPN use makes public Wi-Fi completely safe."
     },
     {
       "id": "PRA-USE-PASSWORD-VAULT",
       "name": "Store logins and passwords in an encrypted online password vault",
       "description": "Users should store logins and passwords in encrypted online password vaults.",
       "category_id": "CAT-TRANSMISSION",
-      "mitigates": [],
-      "source_ids": ["SRC-VISHWANATH-2020"]
+      "mitigates": [
+        "THR-CREDENTIAL-TARGETING"
+      ],
+      "source_ids": [
+        "SRC-VISHWANATH-2020"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-VISHWANATH-TRANSMISSION-002-002"
+      ],
+      "support_notes": "Vishwanath supports storing logins and passwords in encrypted online password vaults through EVID-VISHWANATH-TRANSMISSION-002-002. The credential-targeting mitigation is a reasonable mapping, but the evidence directly supports the source-listed CHI practice rather than proving a specific threat-reduction mechanism."
     },
     {
       "id": "PRA-SET-PERSONAL-INFO-ALERTS",
       "name": "Set online alerts for personal information",
-      "description": "Users should place online alerts for their name or personal information.",
+      "description": "Users should place online alerts for their name or personal information to monitor possible exposure of personal information online.",
       "category_id": "CAT-TRANSMISSION",
-      "mitigates": [],
-      "source_ids": ["SRC-VISHWANATH-2020"]
+      "mitigates": [
+        "THR-PRIVACY-EXPOSURE"
+      ],
+      "source_ids": [
+        "SRC-VISHWANATH-2020"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-VISHWANATH-TRANSMISSION-002-003"
+      ],
+      "support_notes": "Vishwanath supports placing online alerts for one's name or personal information through EVID-VISHWANATH-TRANSMISSION-002-003. The privacy-exposure mitigation should be interpreted as monitoring or detecting possible exposure, not as preventing oversharing or identity theft."
     },
     {
       "id": "PRA-CREATE-UNIQUE-LOGINS",
       "name": "Create new and unique logins and passwords",
-      "description": "Users should create new and unique logins and passwords for each account.",
+      "description": "Users should create new and unique logins and passwords for each account and avoid using the same password across multiple accounts.",
       "category_id": "CAT-AUTH-CREDENTIAL",
       "mitigates": [
         "THR-CREDENTIAL-TARGETING",
-        "THR-CREDENTIAL-THEFT"
+        "THR-UNAUTHORIZED-ACCESS"
       ],
-      "source_ids": ["SRC-VISHWANATH-2020", "SRC-CAIN-2018"]
+      "source_ids": [
+        "SRC-VISHWANATH-2020",
+        "SRC-CAIN-2018"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-VISHWANATH-AUTH-005",
+        "EVID-CAIN-PASSWORD-HYGIENE-004",
+        "EVID-CAIN-POOR-HYGIENE-001"
+      ],
+      "support_notes": "Vishwanath supports creating new/unique logins and passwords through EVID-VISHWANATH-AUTH-005. Cain supports not using passwords for multiple accounts through EVID-CAIN-PASSWORD-HYGIENE-004 and describes developing unique passwords as ideal good cyber hygiene through EVID-CAIN-POOR-HYGIENE-001. The unauthorized-access mitigation is reasonable but partly inferred."
     },
     {
       "id": "PRA-MANAGE-BROWSER-STORED-PASSWORDS",
       "name": "Manage browser-stored passwords",
       "description": "Users should manage passwords stored by browsers as part of authentication and credential hygiene.",
       "category_id": "CAT-AUTH-CREDENTIAL",
-      "mitigates": [],
-      "source_ids": ["SRC-VISHWANATH-2020"]
+      "mitigates": [
+        "THR-CREDENTIAL-TARGETING",
+        "THR-UNAUTHORIZED-ACCESS"
+      ],
+      "source_ids": [
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-VISHWANATH-AUTH-004",
+        "EVID-BARAKOVIC-AUTH-001"
+      ],
+      "support_notes": "Vishwanath supports managing browser-stored passwords through EVID-VISHWANATH-AUTH-004. Baraković and Baraković Husić describe authentication and credential hygiene as including managing how browsers store passwords through EVID-BARAKOVIC-AUTH-001. The unauthorized-access mitigation is reasonable but partly inferred."
     },
     {
       "id": "PRA-KNOW-SOCIAL-MEDIA-CONNECTIONS",
@@ -780,10 +1277,18 @@
       "description": "Users should be aware of who they are connected to on social media.",
       "category_id": "CAT-SOCIAL-MEDIA",
       "mitigates": [
-        "THR-PRIVACY-EXPOSURE",
-        "THR-OVERSHARING"
+        "THR-PRIVACY-EXPOSURE"
       ],
-      "source_ids": ["SRC-VISHWANATH-2020"]
+      "source_ids": [
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-VISHWANATH-SOCIAL-MEDIA-002",
+        "EVID-BARAKOVIC-SOCIAL-MEDIA-001"
+      ],
+      "support_notes": "Vishwanath supports knowing social media connections through EVID-VISHWANATH-SOCIAL-MEDIA-002. Baraković and Baraković Husić list knowing social media connections as a social media hygiene example through EVID-BARAKOVIC-SOCIAL-MEDIA-001. Privacy exposure is the strongest mitigation mapping; oversharing should only be added if framed as limiting audience exposure."
     },
     {
       "id": "PRA-REASSESS-SOCIAL-MEDIA-CONNECTIONS",
@@ -792,10 +1297,18 @@
       "category_id": "CAT-SOCIAL-MEDIA",
       "mitigates": [
         "THR-PRIVACY-EXPOSURE",
-        "THR-IMPERSONATION",
-        "THR-OVERSHARING"
+        "THR-IMPERSONATION"
       ],
-      "source_ids": ["SRC-VISHWANATH-2020"]
+      "source_ids": [
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-VISHWANATH-SOCIAL-MEDIA-003",
+        "EVID-BARAKOVIC-SOCIAL-MEDIA-001"
+      ],
+      "support_notes": "Vishwanath supports reassessing social media friends/connections through EVID-VISHWANATH-SOCIAL-MEDIA-003. Baraković and Baraković Husić list reassessing social media friends/connections through EVID-BARAKOVIC-SOCIAL-MEDIA-001. Privacy exposure and impersonation are reasonable mappings; oversharing is weaker unless framed as limiting exposure to inappropriate audiences."
     },
     {
       "id": "PRA-PREVENT-LOCATION-LEAKS",
@@ -806,41 +1319,109 @@
         "THR-PRIVACY-EXPOSURE",
         "THR-OVERSHARING"
       ],
-      "source_ids": ["SRC-VISHWANATH-2020"]
+      "source_ids": [
+        "SRC-VISHWANATH-2020",
+        "SRC-BARAKOVIC-2023"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-VISHWANATH-SOCIAL-MEDIA-005",
+        "EVID-BARAKOVIC-SOCIAL-MEDIA-001"
+      ],
+      "support_notes": "Vishwanath supports preventing location leakage in posts through EVID-VISHWANATH-SOCIAL-MEDIA-005. Baraković and Baraković Husić list ensuring location information is not leaked in posts through EVID-BARAKOVIC-SOCIAL-MEDIA-001. Privacy exposure and oversharing are appropriate mappings because location leakage is a specific form of personal-information exposure."
     },
     {
       "id": "PRA-ENABLE-FIREWALLS",
       "name": "Enable firewalls",
       "description": "Users should enable firewalls on computing devices as part of storage and device hygiene.",
       "category_id": "CAT-STORAGE-DEVICE",
-      "mitigates": [],
-      "source_ids": ["SRC-VISHWANATH-2020", "SRC-CAIN-2018"]
+      "mitigates": [
+        "THR-MALWARE-INFECTION",
+        "THR-UNAUTHORIZED-ACCESS"
+      ],
+      "source_ids": [
+        "SRC-VISHWANATH-2020",
+        "SRC-CAIN-2018"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-VISHWANATH-STORAGE-DEVICE-003",
+        "EVID-CAIN-STORAGE-DEVICE-001",
+        "EVID-CAIN-STORAGE-DEVICE-003",
+        "EVID-CAIN-STORAGE-DEVICE-006"
+      ],
+      "support_notes": "Vishwanath supports enabling firewalls through EVID-VISHWANATH-STORAGE-DEVICE-003. Cain supports firewalls as secure-computing factors, government-listed guidance, and user firewall behavior through EVID-CAIN-STORAGE-DEVICE-001, EVID-CAIN-STORAGE-DEVICE-003, and EVID-CAIN-STORAGE-DEVICE-006. The unauthorized-access mitigation is reasonable but partly inferred."
     },
     {
       "id": "PRA-CHECK-DEVICE-UPDATES",
       "name": "Check device operating system and software updates",
-      "description": "Users should check whether their device has the latest operating system, software update, or patch. Oz et al. identify delayed upgrades or critical software patches as a major success factor for ransomware and state that it is vital not to delay upgrades or security-related software patches.",
+      "description": "Users should check whether their device has the latest operating system, software update, or patch, and should not delay security-related software patches or upgrades.",
       "category_id": "CAT-STORAGE-DEVICE",
       "mitigates": [
-        "THR-UNPATCHED-SOFTWARE"
+        "THR-UNPATCHED-SOFTWARE",
+        "THR-RANSOMWARE"
       ],
-      "source_ids": ["SRC-VISHWANATH-2020", "SRC-OZ-2022"]
+      "source_ids": [
+        "SRC-VISHWANATH-2020",
+        "SRC-CAIN-2018",
+        "SRC-BARAKOVIC-2023",
+        "SRC-OZ-2022"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-VISHWANATH-STORAGE-DEVICE-004",
+        "EVID-CAIN-STORAGE-DEVICE-003",
+        "EVID-BARAKOVIC-STORAGE-DEVICE-001",
+        "EVID-OZ-RANSOMWARE-PATCHING-001"
+      ],
+      "support_notes": "Vishwanath supports checking OS/software/patch status through EVID-VISHWANATH-STORAGE-DEVICE-004. Cain supports updating applications/software/operating systems through EVID-CAIN-STORAGE-DEVICE-003. Baraković and Baraković Husić support latest operating systems and updated software through EVID-BARAKOVIC-STORAGE-DEVICE-001. Oz supports the ransomware patching context through EVID-OZ-RANSOMWARE-PATCHING-001. Do not claim patching eliminates all ransomware risk."
     },
     {
       "id": "PRA-MONITOR-DEVICE-USAGE",
       "name": "Monitor device resource and network usage",
-      "description": "Users should monitor device processes such as CPU, power, and network usage.",
+      "description": "Users should monitor device processes such as CPU, power, and network usage as part of storage and device hygiene.",
       "category_id": "CAT-STORAGE-DEVICE",
-      "mitigates": [],
-      "source_ids": ["SRC-VISHWANATH-2020"]
+      "mitigates": [
+        "THR-MALWARE-INFECTION"
+      ],
+      "source_ids": [
+        "SRC-VISHWANATH-2020"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-VISHWANATH-STORAGE-DEVICE-005"
+      ],
+      "support_notes": "Vishwanath supports monitoring CPU, power, or network usage through EVID-VISHWANATH-STORAGE-DEVICE-005. The malware-infection mitigation is a cautious device-hygiene mapping; the evidence supports monitoring behavior itself rather than proving it detects malware."
     },
     {
       "id": "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS",
       "name": "Check email hyperlinks and attachments from unknown senders",
-      "description": "Users should check hyperlinks or attachments in emails from unknown senders as part of email and messaging hygiene. Oz et al. identify malicious emails as a common ransomware infection vector and note that ransomware may arrive as an attached malicious file or through a malicious link.",
+      "description": "Users should be cautious with hyperlinks and attachments in emails from unknown senders before clicking or opening them, especially because phishing and ransomware may use malicious links or attachments.",
       "category_id": "CAT-EMAIL-MESSAGING",
-      "mitigates": ["THR-MALWARE-INFECTION", "THR-EMAIL-SCAM", "THR-SOCIAL-ENGINEERING", "THR-RANSOMWARE"],
-      "source_ids": ["SRC-VISHWANATH-2020", "SRC-OZ-2022"]
+      "mitigates": [
+        "THR-PHISHING",
+        "THR-EMAIL-SCAM",
+        "THR-SOCIAL-ENGINEERING",
+        "THR-MALWARE-INFECTION",
+        "THR-RANSOMWARE"
+      ],
+      "source_ids": [
+        "SRC-VISHWANATH-2020",
+        "SRC-CAIN-2018",
+        "SRC-NIST-800-83R1-2013",
+        "SRC-OZ-2022"
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-VISHWANATH-EMAIL-MESSAGING-004",
+        "EVID-CAIN-EMAIL-MESSAGING-001",
+        "EVID-CAIN-EMAIL-MESSAGING-002",
+        "EVID-CAIN-EMAIL-MESSAGING-003",
+        "EVID-CAIN-EMAIL-MESSAGING-004",
+        "EVID-NIST-PHISHING-SOCIAL-ENGINEERING-001",
+        "EVID-OZ-RANSOMWARE-INFECTION-VECTORS-001"
+      ],
+      "support_notes": "Vishwanath supports the CHI item concerning hyperlinks or attachments in email from unknown senders through EVID-VISHWANATH-EMAIL-MESSAGING-004. Cain supports cautious handling of emails from unknown sources, phishing consequences, warning signs, and unsafe user behavior through EVID-CAIN-EMAIL-MESSAGING-001, EVID-CAIN-EMAIL-MESSAGING-002, EVID-CAIN-EMAIL-MESSAGING-003, and EVID-CAIN-EMAIL-MESSAGING-004. NIST supports not clicking suspicious email attachments or hyperlinks through EVID-NIST-PHISHING-SOCIAL-ENGINEERING-001. Oz supports the ransomware infection-vector context through EVID-OZ-RANSOMWARE-INFECTION-VECTORS-001."
     },
     {
       "id": "PRA-LIMIT-SHARING-PERSONAL-INFORMATION",
@@ -849,52 +1430,69 @@
       "category_id": "CAT-SOCIAL-MEDIA",
       "mitigates": [
         "THR-OVERSHARING",
-        "THR-PRIVACY-EXPOSURE"
+        "THR-PRIVACY-EXPOSURE",
+        "THR-SOCIAL-ENGINEERING"
       ],
       "source_ids": [
         "SRC-CAIN-2018"
-      ]
+      ],
+      "support_status": "directly_supported",
+      "evidence_ids": [
+        "EVID-CAIN-POOR-HYGIENE-002",
+        "EVID-CAIN-POOR-HYGIENE-004",
+        "EVID-CAIN-POOR-HYGIENE-005",
+        "EVID-CAIN-POOR-HYGIENE-006",
+        "EVID-CAIN-POOR-HYGIENE-007",
+        "EVID-CAIN-POOR-HYGIENE-008"
+      ],
+      "support_notes": "Cain supports limiting private/personal information sharing through EVID-CAIN-POOR-HYGIENE-002, which identifies sharing private information over social networks as poor cyber hygiene; EVID-CAIN-POOR-HYGIENE-004, which states that personal information can be stolen from social networking sites; EVID-CAIN-POOR-HYGIENE-005, which links personal information to social engineering such as spear phishing; EVID-CAIN-POOR-HYGIENE-006 and EVID-CAIN-POOR-HYGIENE-007, which report disclosure behaviors; and EVID-CAIN-POOR-HYGIENE-008, which states that many users share too much personal information."
     },
     {
       "id": "PRA-PASSWORD-PROTECT-MOBILE-DEVICE",
       "name": "Password protect mobile devices",
-      "description": "Users should protect mobile devices with authentication, such as a PIN password, as part of cyber hygiene.",
+      "description": "Users should protect mobile devices with authentication, such as a PIN or password, but this practice requires a direct evidence object before being treated as source-supported in this KB.",
       "category_id": "CAT-AUTH-CREDENTIAL",
       "mitigates": [
         "THR-STOLEN-DEVICE",
         "THR-UNAUTHORIZED-ACCESS",
         "THR-PRIVACY-EXPOSURE"
       ],
-      "source_ids": [
-        "SRC-CAIN-2018"
-      ]
+      "source_ids": [],
+      "support_status": "needs_direct_source",
+      "evidence_ids": [],
+      "support_notes": "No direct EVID object was found in the current KU evidence map for password- or PIN-protecting mobile devices. Do not use SRC-CAIN-2018 for this practice unless a concrete EVID-CAIN-* object is added. The mitigation links are conceptually reasonable but should be treated as unsupported until direct evidence exists."
     },
     {
       "id": "PRA-SECURE-WIRELESS-NETWORK",
       "name": "Secure wireless networks",
-      "description": "Users should secure their wireless networks, including password-protecting Wi-Fi, as part of cyber hygiene.",
+      "description": "Users should secure their wireless networks, including password-protecting Wi-Fi, but this exact practice requires a direct evidence object before being treated as source-supported in this KB.",
       "category_id": "CAT-TRANSMISSION",
       "mitigates": [
         "THR-INSECURE-CONNECTION",
         "THR-UNAUTHORIZED-ACCESS"
       ],
-      "source_ids": [
-        "SRC-CAIN-2018"
-      ]
+      "source_ids": [],
+      "support_status": "needs_direct_source",
+      "evidence_ids": [],
+      "support_notes": "No direct EVID object was found in the current KU evidence map for securing personal wireless networks or password-protecting Wi-Fi. Karayel and Baraković support caution around unknown, insecure, public, or password-protected Wi-Fi networks, but that is not the same as direct support for this practice. Add a concrete EVID object before using this PRA as a supported recommendation."
     },
     {
       "id": "PRA-USE-SAFE-DOWNLOAD-LINKS",
       "name": "Use checked and safe download links",
-      "description": "Users should prefer checked and safe links when downloading software or applications on computers or smartphones.",
+      "description": "Users should prefer checked and safe links when downloading software or applications on computers or smartphones, but the current evidence supports this mainly as a behavior/concern area rather than a detailed standalone practice.",
       "category_id": "CAT-STORAGE-DEVICE",
       "mitigates": [
         "THR-MALWARE-INFECTION",
-        "THR-MALICIOUS-CODE",
-        "THR-UNPATCHED-SOFTWARE"
+        "THR-MALICIOUS-CODE"
       ],
       "source_ids": [
         "SRC-BARAKOVIC-2023"
-      ]
+      ],
+      "support_status": "partially_supported",
+      "evidence_ids": [
+        "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-004"
+      ],
+      "support_notes": "Baraković and Baraković Husić support the download-link behavior/concern area through EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-004, which reports concerning results for links used for software and application downloads on computers and smartphones. This supports the practice directionally, but the exact wording 'use checked and safe download links' should be treated as a conservative practical rewording. The unpatched-software mitigation was removed because safe download links do not directly address patching."
     }
   ],
 
@@ -905,13 +1503,33 @@
       "category_id": "CAT-GENERAL-CYBER-HYGIENE",
       "threat_ids": [],
       "practice_ids": [],
-      "claim": "Cyber hygiene refers to routine cybersecurity practices that online users adopt to protect the security and integrity of their personal information on internet-connected devices against cyber threats.",
-      "explanation": "Cyber hygiene consists of regular security behaviors and habits that help protect internet-enabled devices and the safety and integrity of personal information from cyber threats.",
+      "claim": "Cyber hygiene refers to routine cybersecurity practices that online users adopt to protect the security, safety, and integrity of their personal information on internet-connected devices against cyber threats.",
+      "explanation": "Cyber hygiene consists of simple, routine cybersecurity practices that help online users protect personal information on internet-connected or internet-enabled devices and reduce exposure to cyber threats.",
       "recommended_actions": [
-        "Adopt routine security habits when using internet-connected devices.",
-        "Protect personal, financial, and social information during online activity.",
-        "Follow security guidelines that reduce exposure to cyber threats.",
-        "Maintain secure behavior across devices, accounts, networks, and online communication."
+        {
+          "action_id": "ACT-CYBER-HYGIENE-DEF-001",
+          "action_text": "Adopt routine cybersecurity practices when using internet-connected devices.",
+          "evidence_ids": [
+            "EVID-KARAYEL-CYBER-HYGIENE-DEF-001",
+            "EVID-KARAYEL-CYBER-HYGIENE-DEF-002",
+            "EVID-VISHWANATH-CYBER-HYGIENE-DEF-001"
+          ]
+        },
+        {
+          "action_id": "ACT-CYBER-HYGIENE-DEF-002",
+          "action_text": "Protect the security, safety, and integrity of personal information on internet-connected devices.",
+          "evidence_ids": [
+            "EVID-KARAYEL-CYBER-HYGIENE-DEF-001",
+            "EVID-VISHWANATH-CYBER-HYGIENE-DEF-001"
+          ]
+        },
+        {
+          "action_id": "ACT-CYBER-HYGIENE-DEF-003",
+          "action_text": "Use simple, routine security measures to reduce cyber threat risk.",
+          "evidence_ids": [
+            "EVID-KARAYEL-CYBER-HYGIENE-DEF-002"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -1019,7 +1637,7 @@
           "SRC-VISHWANATH-2020"
         ],
         "citation_granularity": "section_or_paragraph",
-        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020 and should be traceable to Karayel et al.'s Section 2.1, Cyber hygiene, or Vishwanath et al.'s Section 1, Defining cyber hygiene."
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. or Vishwanath et al. and should be traceable to Karayel et al.'s Section 2.1, Cyber hygiene, or Vishwanath et al.'s Section 1, Defining cyber hygiene."
       },
       "agent_answer_guidance": {
         "answer_style": "definition_with_brief_explanation",
@@ -1033,7 +1651,9 @@
         "avoid_claims": [
           "Cyber hygiene is only about antivirus software",
           "Cyber hygiene is only relevant to organizations",
-          "Cyber hygiene completely eliminates cybersecurity risk"
+          "Cyber hygiene completely eliminates cybersecurity risk",
+          "Cyber hygiene is a complete guarantee against cyberattacks",
+          "Cyber hygiene only concerns one device, tool, or behavior"
         ]
       }
     },
