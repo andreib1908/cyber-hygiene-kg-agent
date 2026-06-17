@@ -265,17 +265,9 @@ def _build_ku_package(record: dict[str, Any]) -> dict[str, Any]:
     ku = _first_item(record.get("knowledge_units"))
     guidance = _first_item(record.get("answer_guidance"))
 
-    recommended_actions = _as_list(ku.get("recommended_actions"))
     must_include = _as_list(guidance.get("must_include"))
     avoid_claims = _as_list(guidance.get("avoid_claims"))
     question_templates = _as_list(record.get("question_templates"))
-
-    evidence_passages = []
-    for e in _as_list(record.get("evidence")):
-        evidence_id = e.get("evidence_id")
-        text = e.get("text")
-        if evidence_id and text:
-            evidence_passages.append({"evidence_id": evidence_id, "text": text})
 
     return {
         "id": ku.get("id"),

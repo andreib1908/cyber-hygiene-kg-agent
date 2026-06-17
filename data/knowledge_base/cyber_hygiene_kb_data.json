@@ -3676,7 +3676,7 @@
     },
     {
       "id": "KU-ORG-TRAINING-POLICIES-001",
-      "title": "Organizations can support cyber hygiene through training, tailored initiatives, policies, and incident protocols",
+      "title": "Organizations can support cyber hygiene through training, tailored initiatives, policies, procedures, and incident protocols",
       "category_id": "CAT-GENERAL-CYBER-HYGIENE",
       "threat_ids": [
         "THR-INSUFFICIENT-ORG-SECURITY-MEASURES",
@@ -3690,15 +3690,73 @@
         "PRA-CYBERSECURITY-PROTOCOLS",
         "PRA-STRENGTHEN-ORG-CYBERSECURITY-MEASURES"
       ],
-      "claim": "Organizations can support employees' cyber hygiene by strengthening cybersecurity measures, providing cyber hygiene education and training, tailoring improvement initiatives to employee needs, developing cybersecurity policies, and adopting incident management training and cybersecurity protocols.",
-      "explanation": "Karayel et al. recommend organizational support for cyber hygiene in remote work contexts, including stronger cybersecurity measures, employee education and training, tailored improvement initiatives, cybersecurity policies, and tools or protocols for managing incidents.",
+      "claim": "Organizations can support employees' cyber hygiene by strengthening cybersecurity measures, maintaining cyber hygiene awareness, educating and training employees, tailoring improvement initiatives to employee characteristics, developing cybersecurity policies and procedures, and adopting incident management training and cybersecurity protocols.",
+      "explanation": "This KU covers organizational interventions that support employee cyber hygiene, especially in remote work contexts. Karayel et al. recommend strengthening cybersecurity measures, educating and training employees, tailoring cyber hygiene initiatives to different educational levels and older workers' needs, developing cybersecurity policies for remote work systems, implementing policies and procedures, and adopting incident management training, educational booklets, and cybersecurity protocols. These actions should be framed as organizational support mechanisms that can help improve cyber hygiene behavior, not as guarantees that employee cyber hygiene will automatically improve.",
       "recommended_actions": [
-        "Strengthen cybersecurity measures in remote work systems.",
-        "Educate and train employees on cyber hygiene.",
-        "Tailor cyber hygiene improvement initiatives to employee needs.",
-        "Develop cybersecurity policies for remote work systems.",
-        "Adopt incident management training.",
-        "Use cybersecurity protocols for coordinating and managing incidents."
+        {
+          "action_id": "ACT-ORG-TRAINING-POLICIES-001",
+          "action_text": "Ensure relevant employees maintain a high level of cyber hygiene awareness.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ORG-TRAINING-POLICIES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-ORG-TRAINING-POLICIES-002",
+          "action_text": "Tailor cyber hygiene improvement initiatives to different educational levels.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ORG-TRAINING-POLICIES-002"
+          ]
+        },
+        {
+          "action_id": "ACT-ORG-TRAINING-POLICIES-003",
+          "action_text": "Provide older workers with focused information and computer security training using specialized and simplified content.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ORG-TRAINING-POLICIES-003"
+          ]
+        },
+        {
+          "action_id": "ACT-ORG-TRAINING-POLICIES-004",
+          "action_text": "Strengthen cybersecurity measures within remote work systems.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ORG-TRAINING-POLICIES-004"
+          ]
+        },
+        {
+          "action_id": "ACT-ORG-TRAINING-POLICIES-005",
+          "action_text": "Educate and train employees on cyber hygiene to support a cybersecurity culture.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ORG-TRAINING-POLICIES-004",
+            "EVID-KARAYEL-ORG-TRAINING-POLICIES-005"
+          ]
+        },
+        {
+          "action_id": "ACT-ORG-TRAINING-POLICIES-006",
+          "action_text": "Develop cybersecurity policies for remote work systems.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ORG-TRAINING-POLICIES-004"
+          ]
+        },
+        {
+          "action_id": "ACT-ORG-TRAINING-POLICIES-007",
+          "action_text": "Use comprehensive training programs, awareness, policies, and procedures to foster a culture of strong cyber hygiene.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ORG-TRAINING-POLICIES-005"
+          ]
+        },
+        {
+          "action_id": "ACT-ORG-TRAINING-POLICIES-008",
+          "action_text": "Invest in advanced cybersecurity measures as part of organizational support for cyber hygiene.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ORG-TRAINING-POLICIES-006"
+          ]
+        },
+        {
+          "action_id": "ACT-ORG-TRAINING-POLICIES-009",
+          "action_text": "Adopt incident management training, educational booklets, and cybersecurity protocols for coordinating and managing incidents.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ORG-TRAINING-POLICIES-006"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -3868,7 +3926,7 @@
           "SRC-KARAYEL-2024"
         ],
         "citation_granularity": "section_or_paragraph",
-        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 and should be traceable to the RQ3/RQ4 discussion, conclusion, and implications sections where organizational training, tailored initiatives, policies, procedures, incident management training, and cybersecurity protocols are discussed."
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. and should be traceable to the RQ3/RQ4 discussion, conclusion, and implications sections where organizational awareness, tailored initiatives, focused training for older workers, remote-work cybersecurity measures, employee education and training, cybersecurity policies, comprehensive training programs, policies and procedures, incident management training, educational booklets, and cybersecurity protocols are discussed."
       },
       "agent_answer_guidance": {
         "answer_style": "organizational_guidance",
@@ -3888,7 +3946,11 @@
           "All employees should receive identical cybersecurity training regardless of need",
           "Policies and procedures are sufficient without employee behavior change",
           "Organizational support eliminates individual responsibility",
-          "The paper recommends cybersecurity inspections"
+          "The paper recommends cybersecurity inspections",
+          "Training should be tailored using unsupported demographic assumptions beyond the evidence",
+          "Incident management training alone prevents cyberattacks",
+          "Cybersecurity protocols guarantee correct incident handling",
+          "Organizational measures make individual cyber hygiene unnecessary"
         ]
       }
     },
