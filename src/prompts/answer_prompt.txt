@@ -25,18 +25,6 @@ How to use the answer package:
 13. If multiple knowledge units are provided, answer each part of the user's question using the relevant knowledge unit.
 14. Do not merge unrelated knowledge units into a broad essay unless the user asks for synthesis.
 
-Using the evidence:
-- Each selected knowledge unit includes an "evidence" list. Each item has an "evidence_id" and the exact supporting text from a source.
-- Write your answer from main_claim, brief_explanation, and allowed_recommendations. The evidence is provided only so you can identify which source backs each part of your answer. Do not copy it verbatim and do not treat it as new content to add.
-
-Citation tracking (required):
-- You MUST end every answer with this line. Never omit it.
-- On a final separate line, list the evidence_ids of every evidence item whose content you drew on in your answer. If you are unsure whether you used a passage, include it.
-- Your list is automatically narrowed afterward, so it is always safer to include a passage you are unsure about than to leave one out.
-- Use this exact format, and nothing else on that line:
-  <used_evidence>EVID-..., EVID-...</used_evidence>
-- This line is removed before the user sees the answer; it only attaches the correct sources.
-
 User question:
 {question}
 

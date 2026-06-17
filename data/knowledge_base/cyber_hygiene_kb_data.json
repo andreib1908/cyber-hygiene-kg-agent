@@ -3960,12 +3960,45 @@
       "category_id": "CAT-GENERAL-CYBER-HYGIENE",
       "threat_ids": [],
       "practice_ids": [],
-      "claim": "The Cyber Hygiene Inventory organizes user cyber hygiene into five dimensions: storage/device, transmission/browsing, social media, authentication/credential, and email/messaging hygiene. Vishwanath et al. empirically identify these dimensions, and Karayel et al. also applies comparable cyber hygiene categories in the remote-work context.",
-      "explanation": "Vishwanath et al. conceptualize cyber hygiene as an overarching construct whose subdimensions are not fixed in advance, but can be empirically identified and adapted to context. This supports representing cyber hygiene as a set of categories rather than as a single undifferentiated list of security advice.",
+      "claim": "Cyber hygiene can be understood as an overarching construct whose subdimensions are not fixed in advance and can be adapted to different users, technologies, roles, organizations, sectors, and contexts.",
+      "explanation": "This KU explains why cyber hygiene should not be treated as one fixed universal checklist. Vishwanath et al. describe cyber hygiene as an overarching conceptual definition that does not constrain the subdimensions of cyber hygiene in advance. They also state that cyber hygiene guidelines can be broad enough for general consumers while remaining adaptable to professional or cultural contexts, and that employee cyber hygiene subdimensions may depend on role, organization type, or sector. This supports representing cyber hygiene as a multidimensional and context-adaptable construct.",
       "recommended_actions": [
-        "Treat cyber hygiene as a multidimensional concept rather than a single behavior.",
-        "Organize cyber hygiene guidance into specific categories or subdimensions.",
-        "Adapt cyber hygiene guidance to the user's context, role, technology, and organizational environment."
+        {
+          "action_id": "ACT-MULTIDIMENSIONAL-001",
+          "action_text": "Treat cyber hygiene as a multidimensional concept rather than a single fixed behavior.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-MULTIDIMENSIONAL-001"
+          ]
+        },
+        {
+          "action_id": "ACT-MULTIDIMENSIONAL-002",
+          "action_text": "Organize cyber hygiene guidance into subdimensions or categories instead of one undifferentiated checklist.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-MULTIDIMENSIONAL-001",
+            "EVID-VISHWANATH-MULTIDIMENSIONAL-004"
+          ]
+        },
+        {
+          "action_id": "ACT-MULTIDIMENSIONAL-003",
+          "action_text": "Adapt cyber hygiene guidance to professional or cultural contexts.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-MULTIDIMENSIONAL-002"
+          ]
+        },
+        {
+          "action_id": "ACT-MULTIDIMENSIONAL-004",
+          "action_text": "For employees, consider role, organization type, and sector when determining relevant cyber hygiene subdimensions.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-MULTIDIMENSIONAL-003"
+          ]
+        },
+        {
+          "action_id": "ACT-MULTIDIMENSIONAL-005",
+          "action_text": "Allow cyber hygiene guidance to adapt across different users, technologies, practices, and changes over time.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-MULTIDIMENSIONAL-004"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -4075,13 +4108,13 @@
           "SRC-VISHWANATH-2020"
         ],
         "citation_granularity": "section_or_paragraph",
-        "minimum_traceability_requirement": "The answer should cite Vishwanath et al. 2020 and should be traceable to Section 1, Defining cyber hygiene, where cyber hygiene is described as an overarching, empirically determined, and context-adaptable construct."
+        "minimum_traceability_requirement": "The answer should cite Vishwanath et al. and should be traceable to Section 1, Defining cyber hygiene, where cyber hygiene is described as an overarching construct whose subdimensions are not fixed in advance and whose guidance can be adapted to professional, cultural, role-based, organizational, sectoral, user, technology, and practice contexts. This KU should not be used by itself to prove the exact five Cyber Hygiene Inventory dimensions unless a separate direct evidence object for those five dimensions is provided."
       },
       "agent_answer_guidance": {
         "answer_style": "conceptual_explanation",
         "must_include": [
           "multidimensional construct",
-          "subdimensions can be determined empirically",
+          "subdimensions are not fixed in advance",
           "context-adaptable",
           "user context",
           "role, organization, or sector"
@@ -4090,144 +4123,176 @@
           "Cyber hygiene consists of one fixed universal checklist",
           "The same cyber hygiene practices apply identically to every user and organization",
           "Cyber hygiene categories cannot change over time",
-          "Cyber hygiene is only relevant to individual consumers and not employees"
+          "Cyber hygiene is only relevant to individual consumers and not employees",
+          "This KU alone proves the exact five Cyber Hygiene Inventory dimensions",
+          "Cyber hygiene guidance should ignore professional, cultural, organizational, or sector context"
         ]
       }
     },
     {
-      "id": "KU-CHI-FIVE-DIMENSIONS-001",
-      "title": "The Cyber Hygiene Inventory identifies five dimensions of user cyber hygiene",
-      "category_id": "CAT-GENERAL-CYBER-HYGIENE",
-      "threat_ids": [],
-      "practice_ids": [],
-      "claim": "The Cyber Hygiene Inventory organizes user cyber hygiene into five empirically identified dimensions: storage and device hygiene, transmission and browsing hygiene, social media hygiene, authentication and credential hygiene, and email and messaging hygiene.",
-      "explanation": "Vishwanath et al. developed the Cyber Hygiene Inventory through concept mapping, expert sorting, cluster analysis, and confirmatory factor analysis. The resulting inventory identifies five dimensions of cyber hygiene, which support the category structure used in this knowledge base.",
-      "recommended_actions": [
-        "Use the five Cyber Hygiene Inventory dimensions to organize cyber hygiene guidance.",
-        "Classify cyber hygiene practices under storage/device, transmission, social media, authentication/credential, and email/messaging hygiene.",
-        "Use these dimensions to structure benchmark questions and agent responses."
-      ],
-      "evidence_strength": "high",
-      "question_templates": [
-        "What are the five dimensions of cyber hygiene?",
-        "How is cyber hygiene structured in the Cyber Hygiene Inventory?",
-        "What categories does the Cyber Hygiene Inventory use?",
-        "Why is cyber hygiene divided into five categories?",
-        "What does the SAFETY acronym mean in cyber hygiene?"
-      ],
-      "evidence": [
-        {
-          "evidence_id": "EVID-VISHWANATH-CHI-DIMENSIONS-001",
-          "source_id": "SRC-VISHWANATH-2020",
-          "citation_key": "vishwanath_cyber_2020",
-          "support_type": "direct",
-          "exact_supporting_text": "Using this process, the research team settled on dimension names that conveniently fit the acronym: SAFETY, where S: storage and device hygiene; A: authentication and credential hygiene; F: Facebook and social media hygiene; E: email and messaging hygiene, T: transmission and browsing hygiene.",
-          "page": 5,
-          "section": "3.2 Sorting and multidimensional scaling",
-          "paragraph": "3",
-          "claim_location": {
-            "page": 5,
-            "section": "3.2 Sorting and multidimensional scaling",
-            "paragraph": "3"
-          }
-        },
-        {
-          "evidence_id": "EVID-VISHWANATH-CHI-DIMENSIONS-002",
-          "source_id": "SRC-VISHWANATH-2020",
-          "citation_key": "vishwanath_cyber_2020",
-          "support_type": "direct",
-          "exact_supporting_text": "The final 18 items, encompassing five dimensions of cyber hygiene, measure users' cognitive associations between different online actions and the extent to which the individual is aware of them.",
-          "page": 9,
-          "section": "4. Overall discussion",
-          "paragraph": "4",
-          "claim_location": {
-            "page": 9,
-            "section": "4. Overall discussion",
-            "paragraph": "4"
-          }
-        },
-        {
-          "evidence_id": "EVID-VISHWANATH-CHI-DIMENSIONS-003",
-          "source_id": "SRC-VISHWANATH-2020",
-          "citation_key": "vishwanath_cyber_2020",
-          "support_type": "direct",
-          "exact_supporting_text": "The research defined cyber hygiene as a second-order hierarchical construct and empirically found five sub-dimensions or latent factors of cyber hygiene, each covering a specific facet of online behavior.",
-          "page": 9,
-          "section": "4. Overall discussion",
-          "paragraph": "5",
-          "claim_location": {
-            "page": 9,
-            "section": "4. Overall discussion",
-            "paragraph": "5"
-          }
-        },
-        {
-          "evidence_id": "EVID-KARAYEL-CHI-CATEGORIES-001",
-          "source_id": "SRC-KARAYEL-2024",
-          "citation_key": "karayel_human_2024",
-          "support_type": "direct",
-          "exact_supporting_text": "TODO: exact wording from Karayel table/category section",
-          "page": 7,
-          "section": "Table 2. Cyber hygiene categories",
-          "paragraph": "TODO: Check this one",
-          "claim_location": {
-            "page": 7,
-            "section": "Table 2. Cyber hygiene categories",
-            "paragraph": "TODO: Check this one"
-          }
-        }
-      ],
-      "validity_facts": [
-        {
-          "fact_id": "VF-CHI-DIMENSIONS-001",
-          "fact": "The Cyber Hygiene Inventory identifies five dimensions of cyber hygiene.",
-          "source_id": "SRC-VISHWANATH-2020",
-          "evidence_id": "EVID-VISHWANATH-CHI-DIMENSIONS-001"
-        },
-        {
-          "fact_id": "VF-CHI-DIMENSIONS-002",
-          "fact": "The five dimensions are storage and device hygiene, authentication and credential hygiene, Facebook/social media hygiene, email and messaging hygiene, and transmission and browsing hygiene.",
-          "source_id": "SRC-VISHWANATH-2020",
-          "evidence_id": "EVID-VISHWANATH-CHI-DIMENSIONS-001"
-        },
-        {
-          "fact_id": "VF-CHI-DIMENSIONS-003",
-          "fact": "The five cyber hygiene dimensions were empirically identified as latent factors.",
-          "source_id": "SRC-VISHWANATH-2020",
-          "evidence_id": "EVID-VISHWANATH-CHI-DIMENSIONS-003"
-        },
-        {
-          "fact_id": "VF-CHI-DIMENSIONS-004",
-          "fact": "Each cyber hygiene dimension covers a specific facet of online behavior.",
-          "source_id": "SRC-VISHWANATH-2020",
-          "evidence_id": "EVID-VISHWANATH-CHI-DIMENSIONS-003"
-        }
-      ],
-      "traceability": {
-        "requires_citation": true,
-        "acceptable_sources": [
-          "SRC-VISHWANATH-2020"
-        ],
-        "citation_granularity": "section_or_paragraph",
-        "minimum_traceability_requirement": "The answer should cite Vishwanath et al. 2020 and should be traceable to Section 3.2, Sorting and multidimensional scaling, or Section 4, Overall discussion, where the five Cyber Hygiene Inventory dimensions are identified."
+    "id": "KU-CHI-FIVE-DIMENSIONS-001",
+    "title": "The Cyber Hygiene Inventory identifies five dimensions of user cyber hygiene",
+    "category_id": "CAT-GENERAL-CYBER-HYGIENE",
+    "threat_ids": [],
+    "practice_ids": [],
+    "claim": "The Cyber Hygiene Inventory identifies five empirically found dimensions of cyber hygiene: storage and device hygiene, authentication and credential hygiene, Facebook and social media hygiene, email and messaging hygiene, and transmission and browsing hygiene.",
+    "explanation": "This KU explains the five-dimension structure of Vishwanath et al.'s Cyber Hygiene Inventory. Vishwanath et al. describe the SAFETY dimensions as storage and device hygiene, authentication and credential hygiene, Facebook and social media hygiene, email and messaging hygiene, and transmission and browsing hygiene. They also describe the final inventory as encompassing five dimensions and state that the research empirically found five sub-dimensions or latent factors of cyber hygiene, each covering a specific facet of online behavior. The Karayel placeholder evidence should remain unused for citation until its exact supporting wording is verified.",
+    "recommended_actions": [
+      {
+        "action_id": "ACT-CHI-DIMENSIONS-001",
+        "action_text": "Use the five Cyber Hygiene Inventory dimensions to organize cyber hygiene guidance.",
+        "evidence_ids": [
+          "EVID-VISHWANATH-CHI-DIMENSIONS-001",
+          "EVID-VISHWANATH-CHI-DIMENSIONS-002",
+          "EVID-VISHWANATH-CHI-DIMENSIONS-003"
+        ]
       },
-      "agent_answer_guidance": {
-        "answer_style": "structured_explanation",
-        "must_include": [
-          "five dimensions",
-          "storage and device hygiene",
-          "transmission and browsing hygiene",
-          "social media hygiene",
-          "authentication and credential hygiene",
-          "email and messaging hygiene"
-        ],
-        "avoid_claims": [
-          "Cyber hygiene has only one dimension",
-          "The five dimensions were arbitrarily chosen",
-          "The Cyber Hygiene Inventory only measures technical device practices",
-          "The five dimensions are unrelated to user behavior"
+      {
+        "action_id": "ACT-CHI-DIMENSIONS-002",
+        "action_text": "Classify Cyber Hygiene Inventory practices under storage and device hygiene, authentication and credential hygiene, Facebook and social media hygiene, email and messaging hygiene, and transmission and browsing hygiene.",
+        "evidence_ids": [
+          "EVID-VISHWANATH-CHI-DIMENSIONS-001"
+        ]
+      },
+      {
+        "action_id": "ACT-CHI-DIMENSIONS-003",
+        "action_text": "Explain that the five cyber hygiene dimensions were empirically found as sub-dimensions or latent factors.",
+        "evidence_ids": [
+          "EVID-VISHWANATH-CHI-DIMENSIONS-003"
+        ]
+      },
+      {
+        "action_id": "ACT-CHI-DIMENSIONS-004",
+        "action_text": "Use the SAFETY acronym to remember the five Cyber Hygiene Inventory dimensions.",
+        "evidence_ids": [
+          "EVID-VISHWANATH-CHI-DIMENSIONS-001"
         ]
       }
+    ],
+    "evidence_strength": "high",
+    "question_templates": [
+      "What are the five dimensions of cyber hygiene?",
+      "How is cyber hygiene structured in the Cyber Hygiene Inventory?",
+      "What categories does the Cyber Hygiene Inventory use?",
+      "Why is cyber hygiene divided into five categories?",
+      "What does the SAFETY acronym mean in cyber hygiene?"
+    ],
+    "evidence": [
+      {
+        "evidence_id": "EVID-VISHWANATH-CHI-DIMENSIONS-001",
+        "source_id": "SRC-VISHWANATH-2020",
+        "citation_key": "vishwanath_cyber_2020",
+        "support_type": "direct",
+        "exact_supporting_text": "Using this process, the research team settled on dimension names that conveniently fit the acronym: SAFETY, where S: storage and device hygiene; A: authentication and credential hygiene; F: Facebook and social media hygiene; E: email and messaging hygiene, T: transmission and browsing hygiene.",
+        "page": 5,
+        "section": "3.2 Sorting and multidimensional scaling",
+        "paragraph": "3",
+        "claim_location": {
+          "page": 5,
+          "section": "3.2 Sorting and multidimensional scaling",
+          "paragraph": "3"
+        }
+      },
+      {
+        "evidence_id": "EVID-VISHWANATH-CHI-DIMENSIONS-002",
+        "source_id": "SRC-VISHWANATH-2020",
+        "citation_key": "vishwanath_cyber_2020",
+        "support_type": "direct",
+        "exact_supporting_text": "The final 18 items, encompassing five dimensions of cyber hygiene, measure users' cognitive associations between different online actions and the extent to which the individual is aware of them.",
+        "page": 9,
+        "section": "4. Overall discussion",
+        "paragraph": "4",
+        "claim_location": {
+          "page": 9,
+          "section": "4. Overall discussion",
+          "paragraph": "4"
+        }
+      },
+      {
+        "evidence_id": "EVID-VISHWANATH-CHI-DIMENSIONS-003",
+        "source_id": "SRC-VISHWANATH-2020",
+        "citation_key": "vishwanath_cyber_2020",
+        "support_type": "direct",
+        "exact_supporting_text": "The research defined cyber hygiene as a second-order hierarchical construct and empirically found five sub-dimensions or latent factors of cyber hygiene, each covering a specific facet of online behavior.",
+        "page": 9,
+        "section": "4. Overall discussion",
+        "paragraph": "5",
+        "claim_location": {
+          "page": 9,
+          "section": "4. Overall discussion",
+          "paragraph": "5"
+        }
+      },
+      {
+        "evidence_id": "EVID-KARAYEL-CHI-CATEGORIES-001",
+        "source_id": "SRC-KARAYEL-2024",
+        "citation_key": "karayel_human_2024",
+        "support_type": "direct",
+        "exact_supporting_text": "TODO: exact wording from Karayel table/category section",
+        "page": 7,
+        "section": "Table 2. Cyber hygiene categories",
+        "paragraph": "TODO: Check this one",
+        "claim_location": {
+          "page": 7,
+          "section": "Table 2. Cyber hygiene categories",
+          "paragraph": "TODO: Check this one"
+        }
+      }
+    ],
+    "validity_facts": [
+      {
+        "fact_id": "VF-CHI-DIMENSIONS-001",
+        "fact": "The Cyber Hygiene Inventory identifies five dimensions of cyber hygiene.",
+        "source_id": "SRC-VISHWANATH-2020",
+        "evidence_id": "EVID-VISHWANATH-CHI-DIMENSIONS-001"
+      },
+      {
+        "fact_id": "VF-CHI-DIMENSIONS-002",
+        "fact": "The five dimensions are storage and device hygiene, authentication and credential hygiene, Facebook/social media hygiene, email and messaging hygiene, and transmission and browsing hygiene.",
+        "source_id": "SRC-VISHWANATH-2020",
+        "evidence_id": "EVID-VISHWANATH-CHI-DIMENSIONS-001"
+      },
+      {
+        "fact_id": "VF-CHI-DIMENSIONS-003",
+        "fact": "The five cyber hygiene dimensions were empirically identified as latent factors.",
+        "source_id": "SRC-VISHWANATH-2020",
+        "evidence_id": "EVID-VISHWANATH-CHI-DIMENSIONS-003"
+      },
+      {
+        "fact_id": "VF-CHI-DIMENSIONS-004",
+        "fact": "Each cyber hygiene dimension covers a specific facet of online behavior.",
+        "source_id": "SRC-VISHWANATH-2020",
+        "evidence_id": "EVID-VISHWANATH-CHI-DIMENSIONS-003"
+      }
+    ],
+    "traceability": {
+      "requires_citation": true,
+      "acceptable_sources": [
+        "SRC-VISHWANATH-2020"
+      ],
+      "citation_granularity": "section_or_paragraph",
+      "minimum_traceability_requirement": "The answer should cite Vishwanath et al. and should be traceable to Section 3.2, Sorting and multidimensional scaling, or Section 4, Overall discussion, where the five Cyber Hygiene Inventory dimensions are identified. The Karayel placeholder evidence object must not be cited until its exact supporting text is verified and the TODO fields are resolved."
+    },
+    "agent_answer_guidance": {
+      "answer_style": "structured_explanation",
+      "must_include": [
+        "five dimensions",
+        "storage and device hygiene",
+        "transmission and browsing hygiene",
+        "Facebook and social media hygiene",
+        "authentication and credential hygiene",
+        "email and messaging hygiene",
+        "SAFETY acronym"
+      ],
+      "avoid_claims": [
+        "Cyber hygiene has only one dimension",
+        "The five dimensions were arbitrarily chosen",
+        "The Cyber Hygiene Inventory only measures technical device practices",
+        "The five dimensions are unrelated to user behavior",
+        "Karayel et al. supports the five CHI dimensions through the TODO evidence object",
+        "The Karayel placeholder evidence is safe to cite before verification"
+      ]
+    }
     },
     {
       "id": "KU-SOCIAL-MEDIA-001",
@@ -4245,14 +4310,56 @@
         "PRA-REASSESS-SOCIAL-MEDIA-CONNECTIONS",
         "PRA-PREVENT-LOCATION-LEAKS"
       ],
-      "claim": "Social media hygiene involves assessing the authenticity of social media requests, knowing and reassessing one's social media connections, managing privacy settings, and ensuring that location information is not leaked in posts.",
-      "explanation": "Vishwanath et al.'s Cyber Hygiene Inventory includes several social media hygiene practices related to social media connections, privacy settings, request authenticity, and location disclosure. These practices support safer social media behavior by helping users control who can access their information and by reducing unintended exposure of personal or location information.",
+      "claim": "Social media hygiene involves assessing the authenticity of social media friend or information requests, knowing and reassessing one's social media connections, managing privacy settings, and ensuring that location information is not leaked in posts.",
+      "explanation": "This KU covers practical social media hygiene behaviors listed in Vishwanath et al.'s Cyber Hygiene Inventory and repeated by Baraković and Baraković Husić. The core practices are assessing social media request authenticity, knowing who one is connected to, reassessing friends and connections, managing privacy settings, and preventing location information from leaking in posts. Baraković and Baraković Husić also note that modifying user behavior is demanding and may require embedded training, but this should be treated as contextual support rather than as proof that these practices prevent specific named attacks.",
       "recommended_actions": [
-        "Assess the authenticity of social media friend or information requests before responding.",
-        "Be aware of who you are connected to on social media.",
-        "Reassess your social media friends and connections periodically.",
-        "Manage privacy settings on social media platforms.",
-        "Ensure that location information is not leaked in social media posts."
+        {
+          "action_id": "ACT-SOCIAL-MEDIA-001",
+          "action_text": "Assess the authenticity of social media friend or information requests before responding.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-SOCIAL-MEDIA-001",
+            "EVID-BARAKOVIC-SOCIAL-MEDIA-001"
+          ]
+        },
+        {
+          "action_id": "ACT-SOCIAL-MEDIA-002",
+          "action_text": "Know who you are connected to on social media.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-SOCIAL-MEDIA-002",
+            "EVID-BARAKOVIC-SOCIAL-MEDIA-001"
+          ]
+        },
+        {
+          "action_id": "ACT-SOCIAL-MEDIA-003",
+          "action_text": "Reassess your social media friends and connections periodically.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-SOCIAL-MEDIA-003",
+            "EVID-BARAKOVIC-SOCIAL-MEDIA-001"
+          ]
+        },
+        {
+          "action_id": "ACT-SOCIAL-MEDIA-004",
+          "action_text": "Manage privacy settings on social media platforms.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-SOCIAL-MEDIA-004",
+            "EVID-BARAKOVIC-SOCIAL-MEDIA-001"
+          ]
+        },
+        {
+          "action_id": "ACT-SOCIAL-MEDIA-005",
+          "action_text": "Ensure that location information is not leaked in social media posts.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-SOCIAL-MEDIA-005",
+            "EVID-BARAKOVIC-SOCIAL-MEDIA-001"
+          ]
+        },
+        {
+          "action_id": "ACT-SOCIAL-MEDIA-006",
+          "action_text": "When trying to modify social media security behavior, consider embedded training that accounts for security support, notification preferences, and information load.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-SOCIAL-MEDIA-002"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -4420,7 +4527,7 @@
           "SRC-BARAKOVIC-2023"
         ],
         "citation_granularity": "table_row",
-        "minimum_traceability_requirement": "The answer should cite Vishwanath et al. 2020 and should be traceable to Table 1, where social media hygiene practices such as assessing request authenticity, knowing and reassessing connections, managing privacy settings, and preventing location leaks are listed. Barakovic et al. (2023) is also mentionting social media cyber security."
+        "minimum_traceability_requirement": "The answer should cite Vishwanath et al. or Baraković and Baraković Husić depending on the claim. Claims about assessing request authenticity, knowing social media connections, reassessing friends and connections, managing privacy settings, and preventing location information leakage should be traceable to Vishwanath et al.'s Table 1 or Baraković and Baraković Husić's related-work examples. Claims about embedded training and behavior modification should be traceable only to Baraković and Baraković Husić's contextual discussion and should not be treated as direct proof that social media hygiene practices prevent specific named attacks."
       },
       "agent_answer_guidance": {
         "answer_style": "practical_advice",
@@ -4436,7 +4543,10 @@
           "Managing privacy settings eliminates all social media risk",
           "All friend requests from known names are safe",
           "Location sharing is always harmless",
-          "Vishwanath et al. prove these practices prevent specific named attacks"
+          "Vishwanath et al. prove these practices prevent specific named attacks",
+          "These social media hygiene practices guarantee protection from impersonation or privacy exposure",
+          "General personal-information sharing is directly supported by this KU beyond location leakage",
+          "Embedded training alone solves social media security behavior"
         ]
       }
     },
@@ -4451,12 +4561,40 @@
         "PRA-ADDRESS-USER-BEHAVIOR"
       ],
       "claim": "Cyber hygiene awareness is associated with greater enactment of cyber hygiene behaviors across the Cyber Hygiene Inventory dimensions.",
-      "explanation": "Vishwanath et al. report that users with high enactment of cyber hygiene behaviors also showed significantly higher awareness than users with low enactment across each Cyber Hygiene Inventory dimension. This supports the idea that cyber hygiene guidance should not only list practices, but also help users recognize and understand those practices.",
+      "explanation": "This KU explains the relationship between cyber hygiene awareness and behavior enactment. Vishwanath et al. report that, for each Cyber Hygiene Inventory dimension, users in the high enactment group had significantly higher cyber hygiene awareness than low enactors. They also state that cyber hygiene awareness differs significantly between people who enact cyber hygiene at high levels and those who enact it at low levels. This supports treating awareness as relevant to cyber hygiene behavior, while avoiding the stronger claim that awareness alone causes secure behavior.",
       "recommended_actions": [
-        "Increase users' awareness of cyber hygiene practices.",
-        "Help users understand why specific cyber hygiene behaviors matter.",
-        "Use cyber hygiene guidance to support both awareness and behavior enactment.",
-        "Treat awareness as an important part of improving cyber hygiene behavior."
+        {
+          "action_id": "ACT-AWARENESS-ENACTMENT-001",
+          "action_text": "Treat cyber hygiene awareness as relevant when discussing cyber hygiene behavior enactment.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-AWARENESS-ENACTMENT-001",
+            "EVID-VISHWANATH-AWARENESS-ENACTMENT-002"
+          ]
+        },
+        {
+          "action_id": "ACT-AWARENESS-ENACTMENT-002",
+          "action_text": "Explain that high cyber hygiene behavior enactment is associated with significantly higher cyber hygiene awareness.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-AWARENESS-ENACTMENT-001",
+            "EVID-VISHWANATH-AWARENESS-ENACTMENT-002"
+          ]
+        },
+        {
+          "action_id": "ACT-AWARENESS-ENACTMENT-003",
+          "action_text": "When giving cyber hygiene guidance, support users' understanding of the practices rather than only listing behaviors.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-AWARENESS-ENACTMENT-001",
+            "EVID-VISHWANATH-AWARENESS-ENACTMENT-002"
+          ]
+        },
+        {
+          "action_id": "ACT-AWARENESS-ENACTMENT-004",
+          "action_text": "Avoid claiming that awareness alone guarantees secure cyber hygiene behavior.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-AWARENESS-ENACTMENT-001",
+            "EVID-VISHWANATH-AWARENESS-ENACTMENT-002"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -4524,7 +4662,7 @@
           "SRC-VISHWANATH-2020"
         ],
         "citation_granularity": "section_or_paragraph",
-        "minimum_traceability_requirement": "The answer should cite Vishwanath et al. 2020 and should be traceable to the section discussing cyber hygiene awareness and enactment, where high enactment groups are reported to have significantly higher cyber hygiene awareness than low enactment groups."
+        "minimum_traceability_requirement": "The answer should cite Vishwanath et al. and should be traceable to Section 3.7, Concurrent validity, or Section 4, Overall discussion, where users with high cyber hygiene behavior enactment are reported to have significantly higher cyber hygiene awareness than low enactors. The answer should frame the relationship as an association or significant difference between groups, not as proof that awareness alone causes secure behavior."
       },
       "agent_answer_guidance": {
         "answer_style": "conceptual_explanation",
@@ -4541,7 +4679,9 @@
           "Users always act securely once they know what to do",
           "Cyber hygiene awareness proves causation by itself",
           "Training automatically leads to secure behavior",
-          "Awareness is irrelevant if technical controls exist"
+          "Awareness is irrelevant if technical controls exist",
+          "Vishwanath et al. prove that awareness interventions cause better cyber hygiene behavior",
+          "Listing practices is enough to ensure cyber hygiene enactment"
         ]
       }
     },
@@ -4555,13 +4695,39 @@
       "practice_ids": [
         "PRA-ADDRESS-USER-BEHAVIOR"
       ],
-      "claim": "Cyber hygiene matters because it is significantly related to cyber safety-related self-beliefs about technology, cognitive information processing, and online safety-related behavior.",
-      "explanation": "Vishwanath et al. report that the Cyber Hygiene Inventory significantly predicts multiple cyber safety-related aspects of human cyber interaction, including technology-related self-beliefs, systematic processing of online information, and online behavior. This supports treating cyber hygiene as more than a checklist of practices: it is linked to how users think, evaluate information, and behave online.",
+      "claim": "Cyber hygiene matters because it is significantly related to cyber safety-relevant aspects of human cyber interaction, including users' self-beliefs about technology, cognitive processing of online information, and online behavior.",
+      "explanation": "This KU explains why cyber hygiene should be treated as more than a checklist of security practices. Vishwanath et al. report that cyber hygiene significantly predicts aspects of human cyber interaction that are important for cyber safety, including technology-related self-beliefs, cognitive processing of online information, and online banking behavior. They also examine cyber hygiene in relation to a technology-related user belief, a cognitive processing factor, and an online behavior. This supports explaining why cyber hygiene practices matter, while avoiding stronger claims that cyber hygiene alone causes safe behavior in every context.",
       "recommended_actions": [
-        "Treat cyber hygiene as relevant to users' beliefs, information processing, and online behavior.",
-        "Use cyber hygiene guidance to support safer online decision-making.",
-        "Explain why cyber hygiene practices matter instead of only listing what users should do.",
-        "Consider cyber hygiene behavior when evaluating cyber safety-related user behavior."
+        {
+          "action_id": "ACT-CYBER-HYGIENE-MATTERS-001",
+          "action_text": "Treat cyber hygiene as relevant to users' technology-related self-beliefs, cognitive processing of online information, and online behavior.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-CYBER-HYGIENE-MATTERS-001",
+            "EVID-VISHWANATH-CYBER-HYGIENE-MATTERS-002"
+          ]
+        },
+        {
+          "action_id": "ACT-CYBER-HYGIENE-MATTERS-002",
+          "action_text": "Explain that cyber hygiene significantly predicts cyber safety-related aspects of human cyber interaction.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-CYBER-HYGIENE-MATTERS-001"
+          ]
+        },
+        {
+          "action_id": "ACT-CYBER-HYGIENE-MATTERS-003",
+          "action_text": "When explaining why cyber hygiene matters, connect it to self-beliefs about technology, cognitive information processing, and online banking behavior.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-CYBER-HYGIENE-MATTERS-001",
+            "EVID-VISHWANATH-CYBER-HYGIENE-MATTERS-002"
+          ]
+        },
+        {
+          "action_id": "ACT-CYBER-HYGIENE-MATTERS-004",
+          "action_text": "Use the Cyber Hygiene Inventory dimensions as evidence that cyber hygiene is related to cognitive-behavioral facets of human-cyber interaction.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-CYBER-HYGIENE-MATTERS-003"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -4656,7 +4822,7 @@
           "SRC-VISHWANATH-2020"
         ],
         "citation_granularity": "section_or_paragraph",
-        "minimum_traceability_requirement": "The answer should cite Vishwanath et al. 2020 and should be traceable to the abstract, Section 3.8, or Table 6, where cyber hygiene is connected to cyber safety-related self-beliefs, cognitive information processing, and online behavior."      
+        "minimum_traceability_requirement": "The answer should cite Vishwanath et al. and should be traceable to the abstract, Section 3.8, or Table 6, where cyber hygiene is connected to cyber safety-related self-beliefs, cognitive information processing, and online behavior. Claims should be framed as prediction, correlation, or relation, not as proof that cyber hygiene alone causes safe behavior."
       },
       "agent_answer_guidance": {
         "answer_style": "conceptual_explanation",
@@ -4672,7 +4838,9 @@
           "Cyber hygiene explains all cyber safety behavior",
           "Cyber hygiene alone determines whether users are secure online",
           "The study proves that cyber hygiene causes safer behavior in every context",
-          "Cyber hygiene only matters because it is a checklist of practices"
+          "Cyber hygiene only matters because it is a checklist of practices",
+          "Cyber hygiene guidance automatically changes user behavior",
+          "Cyber hygiene is unrelated to how users process online information"
         ]
       }
     },
@@ -4686,13 +4854,49 @@
       "practice_ids": [
         "PRA-ADDRESS-USER-BEHAVIOR"
       ],
-      "claim": "Cyber hygiene guidance needs clear conceptual boundaries because broad, inconsistent, or conflicting advice can confuse users and weaken their ability to protect themselves and the wider cyber environment.",
-      "explanation": "Vishwanath et al. argue that cyber hygiene is widely discussed but conceptually unclear, with advice ranging from obvious recommendations to highly specific technical guidance. This lack of clarity motivates the need for structured, evidence-grounded cyber hygiene guidance rather than unorganized security advice.",
+      "claim": "Cyber hygiene guidance needs clear conceptual boundaries because vague, broadly construed, untested, or conflicting advice can confuse users and weaken their ability to protect cyberspace.",
+      "explanation": "This KU supports the motivation for structured cyber hygiene guidance. Vishwanath et al. argue that cyber hygiene has been widely discussed while remaining conceptually unclear, with limited prior scholarly explication or measurement. They also state that vague, broad, mostly untested, or conflicting advice can confuse IT managers and end-users and weaken cyber resilience. This supports organizing cyber hygiene guidance around clear concepts, defined dimensions, and traceable claims rather than presenting cyber hygiene as an unstructured collection of advice.",
       "recommended_actions": [
-        "Provide cyber hygiene guidance with clear conceptual boundaries.",
-        "Organize cyber hygiene advice into defined categories or dimensions.",
-        "Avoid giving users broad or conflicting advice without explaining its basis.",
-        "Use source-grounded guidance to reduce confusion about cyber hygiene practices."
+        {
+          "action_id": "ACT-GUIDANCE-CLARITY-001",
+          "action_text": "Provide cyber hygiene guidance with clear conceptual boundaries.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-GUIDANCE-CLARITY-001",
+            "EVID-VISHWANATH-GUIDANCE-CLARITY-002",
+            "EVID-VISHWANATH-GUIDANCE-CLARITY-003"
+          ]
+        },
+        {
+          "action_id": "ACT-GUIDANCE-CLARITY-002",
+          "action_text": "Avoid presenting cyber hygiene as a vague or overly broad concept without explaining what it means.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-GUIDANCE-CLARITY-001",
+            "EVID-VISHWANATH-GUIDANCE-CLARITY-003"
+          ]
+        },
+        {
+          "action_id": "ACT-GUIDANCE-CLARITY-003",
+          "action_text": "Organize cyber hygiene advice into structured categories or dimensions where possible.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-GUIDANCE-CLARITY-001",
+            "EVID-VISHWANATH-GUIDANCE-CLARITY-002",
+            "EVID-VISHWANATH-GUIDANCE-CLARITY-003"
+          ]
+        },
+        {
+          "action_id": "ACT-GUIDANCE-CLARITY-004",
+          "action_text": "Avoid giving conflicting cyber hygiene advice without clarifying its conceptual basis.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-GUIDANCE-CLARITY-003"
+          ]
+        },
+        {
+          "action_id": "ACT-GUIDANCE-CLARITY-005",
+          "action_text": "Use structured and conceptually grounded guidance to reduce confusion about cyber hygiene practices.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-GUIDANCE-CLARITY-003"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -4775,7 +4979,7 @@
           "SRC-VISHWANATH-2020"
         ],
         "citation_granularity": "section_or_paragraph",
-        "minimum_traceability_requirement": "The answer should cite Vishwanath et al. 2020 and should be traceable to the Introduction section, where the paper discusses conceptual uncertainty around cyber hygiene, the lack of prior scholarly explication and measurement, and the problem that vague or conflicting advice can confuse users and weaken cyber resilience."    
+        "minimum_traceability_requirement": "The answer should cite Vishwanath et al. and should be traceable to the Introduction or Abstract, where the paper discusses conceptual uncertainty around cyber hygiene, the lack of prior scholarly explication and measurement, and the problem that vague or conflicting advice can confuse users and weaken cyber resilience. This KU should support thesis motivation and guidance-structure claims, not claims that Neo fully solves cyber hygiene confusion."
       },
       "agent_answer_guidance": {
         "answer_style": "thesis_motivation_explanation",
@@ -4783,7 +4987,7 @@
           "cyber hygiene concept needs clarity",
           "structured guidance",
           "conceptual boundaries",
-          "evidence-grounded advice",
+          "conceptually grounded advice",
           "reduce user confusion"
         ],
         "avoid_claims": [
@@ -4791,7 +4995,9 @@
           "Users cannot understand cyber hygiene without an AI assistant",
           "Neo solves all cyber hygiene confusion",
           "Vishwanath et al. directly evaluate LLM-based cyber hygiene assistants",
-          "Conceptual clarity alone guarantees secure behavior"
+          "Conceptual clarity alone guarantees secure behavior",
+          "The paper proves that structured cyber hygiene guidance automatically improves user behavior",
+          "The problem is only that users lack information"
         ]
       }
     },
@@ -4799,20 +5005,10 @@
       "id": "KU-CAIN-CYBERCRIME-IMPACT-001",
       "title": "Weak cybersecurity is associated with substantial organizational and individual cybercrime losses",
       "category_id": "CAT-GENERAL-CYBER-HYGIENE",
-      "threat_ids": [
-        "THR-MALWARE-INFECTION",
-        "THR-PHISHING",
-        "THR-SOCIAL-ENGINEERING",
-        "THR-WEB-BASED-ATTACK",
-        "THR-MALICIOUS-CODE",
-        "THR-BOTNET",
-        "THR-STOLEN-DEVICE",
-        "THR-DENIAL-OF-SERVICE",
-        "THR-MALICIOUS-INSIDER"
-      ],
+      "threat_ids": [],
       "practice_ids": [],
-      "claim": "Cain et al. frame weak cybersecurity as socially and economically costly, citing organizational cybercrime costs and individual cybercrime losses as motivation for improving cyber hygiene.",
-      "explanation": "The introduction reports that US organizations had a higher average cost of cybercrimes than several comparison countries in the cited Ponemon report, and that American individuals reported substantial cybercrime losses through the FBI IC3 in 2015. Cain et al. use these figures to motivate the need for better user cyber hygiene knowledge and behavior rather than to define a single specific attack type.",
+      "claim": "Cain et al. frame weak cybersecurity as socially and economically costly by citing organizational cybercrime cost estimates and FBI cybercrime complaint data as motivation for improving cyber hygiene knowledge and behavior.",
+      "explanation": "This KU provides contextual motivation for why cyber hygiene matters. Cain et al. state that weak cybersecurity is costing society, cite a Ponemon report comparing average organizational cybercrime costs across countries, and cite FBI IC3 complaint data from 2015 showing that many cybercrime complaints involved monetary losses. These figures should be used as background motivation for cyber hygiene, not as direct evidence that one specific cyber hygiene practice prevents financial loss or that one specific attack type is responsible for all costs.",
       "recommended_actions": [],
       "evidence_strength": "contextual",
       "question_templates": [
@@ -4895,20 +5091,23 @@
           "SRC-CAIN-2018"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 1, Section 1.1, where cybercrime costs and individual monetary losses are discussed."
+        "minimum_traceability_requirement": "The answer should cite Cain et al. and should be traceable to page 1, Section 1.1, where weak cybersecurity, organizational cybercrime cost estimates, and FBI cybercrime complaint data are discussed. This KU should be used as contextual motivation for why cyber hygiene matters, not as direct support for specific attack-type mitigation claims."
       },
       "agent_answer_guidance": {
         "answer_style": "contextual_explanation",
         "must_include": [
           "weak cybersecurity is costly",
           "organizational cybercrime costs",
-          "individual cybercrime losses",
+          "individual cybercrime complaints and monetary losses",
           "used as motivation for improving cyber hygiene"
         ],
         "avoid_claims": [
           "Cain et al. independently measured global cybercrime costs",
           "The cost figures prove that one specific cyber hygiene practice prevents financial loss",
-          "Cyber hygiene completely eliminates financial harm from cybercrime"
+          "Cyber hygiene completely eliminates financial harm from cybercrime",
+          "The listed cybercrime costs are directly caused by one specific threat type",
+          "This KU directly supports mitigation claims for phishing, malware, botnets, denial-of-service, malicious insiders, or stolen devices",
+          "The 2015 FBI IC3 complaint data describes current cybercrime rates"
         ]
       }
     },
@@ -4917,15 +5116,50 @@
       "title": "Cyber hygiene involves both security knowledge and protective behavior",
       "category_id": "CAT-GENERAL-CYBER-HYGIENE",
       "threat_ids": [
+        "THR-USER-NONCOMPLIANCE"
       ],
       "practice_ids": [
+        "PRA-ADDRESS-USER-BEHAVIOR"
       ],
-      "claim": "Cain et al. describe cyber hygiene as involving both what users know about cybersecurity and how they behave to protect personal information.",
-      "explanation": "The study frames cyber hygiene as a user-centered issue: end users' cyber hygiene plays a role in cybersecurity breaches, and users with good cyber hygiene follow security best practices and protect personal information. Cain et al. therefore treat cyber hygiene as both a knowledge problem and a behavioral problem.",
+      "claim": "Cain et al. frame cyber hygiene as involving both users' cybersecurity knowledge and their protective behavior, including following security best practices and protecting personal information.",
+      "explanation": "This KU explains cyber hygiene as both a knowledge issue and a behavior issue. Cain et al. state that end users' cyber hygiene often plays a large role in cybersecurity breaches, that individuals with good cyber hygiene follow security best practices and protect their personal information, and that their study surveyed participants about knowledge of concepts, knowledge of threats, and cyber hygiene-related behaviors. Baraković and Baraković Husić add contextual support by stating that personal data is valuable and vulnerable and that good cyber hygiene habits can mitigate this vulnerability. This KU should support answers about why cyber hygiene guidance must address both understanding and behavior, without claiming that knowledge alone guarantees secure behavior.",
       "recommended_actions": [
-        "Treat cyber hygiene guidance as both a knowledge issue and a behavior issue.",
-        "Help users understand cybersecurity concepts, threats, and protective behaviors.",
-        "Encourage users to follow security best practices that protect personal information."
+        {
+          "action_id": "ACT-CAIN-KNOWLEDGE-BEHAVIOR-001",
+          "action_text": "Treat cyber hygiene guidance as both a cybersecurity knowledge issue and a protective behavior issue.",
+          "evidence_ids": [
+            "EVID-CAIN-KNOWLEDGE-BEHAVIOR-003",
+            "EVID-CAIN-KNOWLEDGE-BEHAVIOR-005"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-KNOWLEDGE-BEHAVIOR-002",
+          "action_text": "Help users understand cybersecurity concepts, cybersecurity threats, and cyber hygiene-related behaviors.",
+          "evidence_ids": [
+            "EVID-CAIN-KNOWLEDGE-BEHAVIOR-003"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-KNOWLEDGE-BEHAVIOR-003",
+          "action_text": "Encourage users to follow security best practices that protect personal information.",
+          "evidence_ids": [
+            "EVID-CAIN-KNOWLEDGE-BEHAVIOR-002"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-KNOWLEDGE-BEHAVIOR-004",
+          "action_text": "Recognize that end-user cyber hygiene can play a large role in cybersecurity breaches.",
+          "evidence_ids": [
+            "EVID-CAIN-KNOWLEDGE-BEHAVIOR-001"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-KNOWLEDGE-BEHAVIOR-005",
+          "action_text": "Frame good cyber hygiene habits as relevant to protecting valuable and vulnerable personal data.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-CYBER-HYGIENE-MATTERS-001"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -5041,10 +5275,11 @@
       "traceability": {
         "requires_citation": true,
         "acceptable_sources": [
-          "SRC-CAIN-2018"
+          "SRC-CAIN-2018",
+          "SRC-BARAKOVIC-2023"
         ],
         "citation_granularity": "section",
-        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 1, Abstract, where cyber hygiene is framed through user knowledge, behavior, best practices, and personal information protection."
+        "minimum_traceability_requirement": "The answer should cite Cain et al. for claims that cyber hygiene involves end-user behavior, security best practices, personal information protection, and knowledge of concepts, threats, and behaviors. Claims about personal data being valuable and vulnerable, and good cyber hygiene habits mitigating that vulnerability, should cite Baraković and Baraković Husić. This KU should frame cyber hygiene as involving both knowledge and behavior, without claiming that knowledge alone guarantees good cyber hygiene behavior."
       },
       "agent_answer_guidance": {
         "answer_style": "conceptual_explanation",
@@ -5057,7 +5292,10 @@
         "avoid_claims": [
           "Cyber hygiene is only technical software configuration",
           "Knowledge alone guarantees good cyber hygiene behavior",
-          "Cain et al. provide a complete list of all cyber hygiene practices on page 1"
+          "Cain et al. provide a complete list of all cyber hygiene practices on page 1",
+          "End users are solely responsible for all cybersecurity breaches",
+          "Good cyber hygiene habits eliminate all personal data vulnerability",
+          "Baraković and Baraković Husić prove that any specific practice fully mitigates personal data risk"
         ]
       }
     },
@@ -5068,28 +5306,73 @@
       "threat_ids": [
         "THR-OVERSHARING",
         "THR-PRIVACY-EXPOSURE",
-        "THR-USER-NONCOMPLIANCE"
+        "THR-USER-NONCOMPLIANCE",
+        "THR-SOCIAL-ENGINEERING",
+        "THR-PHISHING"
       ],
       "practice_ids": [
-        "PRA-EVALUATE-FRIEND-REQUESTS",
-        "PRA-KNOW-SOCIAL-MEDIA-CONNECTIONS",
-        "PRA-REASSESS-SOCIAL-MEDIA-CONNECTIONS",
-        "PRA-ENABLE-MFA",
-        "PRA-CHANGE-PASSWORDS-REGULARLY",
-        "PRA-SECURELY-STORE-INFORMATION",
-        "PRA-USE-PASSWORD-VAULT",
-        "PRA-SET-PERSONAL-INFO-ALERTS",
+        "PRA-CREATE-UNIQUE-LOGINS",
         "PRA-AVOID-PASSWORD-REUSE",
-        "PRA-LIMIT-SHARING-PERSONAL-INFORMATION"
+        "PRA-LIMIT-SHARING-PERSONAL-INFORMATION",
+        "PRA-MANAGE-PRIVACY-SETTINGS"
       ],
-      "claim": "Cain et al. identify freely sharing passwords and quickly sharing private information over social networks as examples of poor cyber hygiene that can expose users to attacker interest in user information or technical vulnerabilities.",
-      "explanation": "The introduction contrasts ideal cyber hygiene, such as appreciating software updates and developing unique passwords, with poor cyber hygiene behaviors, including freely sharing passwords and sharing private information over social networks. In the context of Neo's knowledge base, this supports guidance around reducing oversharing, protecting personal information, and improving authentication-related behavior. The linked practices should be treated as relevant mitigation areas rather than as a complete list explicitly provided by Cain et al. on this page.",
+      "claim": "Cain et al. identify freely sharing passwords and quickly sharing private information over social networks as examples of poor cyber hygiene. They also explain that attackers may seek user information or technical vulnerabilities, and that personal information posted on social networking sites can be used in social engineering attacks such as spear phishing.",
+      "explanation": "This KU explains how poor user cyber hygiene can increase personal exposure. Cain et al. contrast ideal cyber hygiene, such as appreciating software updates and developing unique passwords, with poor cyber hygiene behaviors such as freely sharing passwords and quickly sharing private information over social networks. They also state that attackers may seek user information or technical vulnerabilities, and that personal information posted on social networking sites can be stolen or used in social engineering attacks such as spear phishing. The linked practices should be treated as relevant mitigation areas supported by the evidence, not as a complete checklist explicitly provided by Cain et al.",
       "recommended_actions": [
-        "Reduce oversharing of private information on social networks.",
-        "Be cautious about social media connections and the personal information those connections can access.",
-        "Avoid password behaviors that make accounts easier to compromise, such as reusing weak credentials or sharing access carelessly.",
-        "Use authentication and credential hygiene practices, such as changing passwords regularly, avoiding password reuse, enabling multifactor authentication, and using secure password storage where appropriate.",
-        "Treat personal information and authentication behavior as part of the user-facing attack surface attackers may exploit."
+        {
+          "action_id": "ACT-CAIN-POOR-HYGIENE-001",
+          "action_text": "Avoid freely sharing passwords.",
+          "evidence_ids": [
+            "EVID-CAIN-POOR-HYGIENE-002"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-POOR-HYGIENE-002",
+          "action_text": "Develop unique passwords as part of good cyber hygiene.",
+          "evidence_ids": [
+            "EVID-CAIN-POOR-HYGIENE-001"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-POOR-HYGIENE-003",
+          "action_text": "Limit sharing private or personal information over social networks.",
+          "evidence_ids": [
+            "EVID-CAIN-POOR-HYGIENE-002",
+            "EVID-CAIN-POOR-HYGIENE-004",
+            "EVID-CAIN-POOR-HYGIENE-008"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-POOR-HYGIENE-004",
+          "action_text": "Treat personal information posted on social networking sites as information that can be stolen or misused.",
+          "evidence_ids": [
+            "EVID-CAIN-POOR-HYGIENE-004",
+            "EVID-CAIN-POOR-HYGIENE-005"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-POOR-HYGIENE-005",
+          "action_text": "Recognize that personal information can be used in social engineering attacks such as spear phishing.",
+          "evidence_ids": [
+            "EVID-CAIN-POOR-HYGIENE-005"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-POOR-HYGIENE-006",
+          "action_text": "Check and manage social media privacy settings as part of reducing personal information exposure.",
+          "evidence_ids": [
+            "EVID-CAIN-POOR-HYGIENE-004",
+            "EVID-CAIN-POOR-HYGIENE-007",
+            "EVID-CAIN-POOR-HYGIENE-008"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-POOR-HYGIENE-007",
+          "action_text": "Treat personal information and technical vulnerabilities as attacker-relevant exposure points.",
+          "evidence_ids": [
+            "EVID-CAIN-POOR-HYGIENE-003"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -5284,7 +5567,7 @@
           "SRC-CAIN-2018"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 1, Section 1.1, paragraph 1 for password sharing and private information sharing; page 2, Section 1.2, paragraph 8 for social networking information exposure and spear phishing; and pages 5–6, Tables 15–20, for measured social media disclosure and privacy-setting behaviors."
+        "minimum_traceability_requirement": "The answer should cite Cain et al. Claims about freely sharing passwords, developing unique passwords, sharing private information over social networks, or attackers seeking user information or technical vulnerabilities should be traceable to page 1, Section 1.1, paragraph 1. Claims about personal information being stolen from social networking posts or used in social engineering attacks such as spear phishing should be traceable to page 2, Section 1.2, paragraph 8. Claims about measured social media disclosure or privacy-setting behaviors should be traceable to pages 5–6, Tables 15–20, or page 8, Discussion and conclusion. Cain et al.'s participant behavior results should not be generalized beyond the study context."
       },
       "agent_answer_guidance": {
         "answer_style": "practical_advice_with_explanation",
@@ -5293,6 +5576,7 @@
           "sharing private information over social networks is identified as poor cyber hygiene",
           "attackers may seek user information",
           "unique passwords are part of ideal good cyber hygiene",
+          "personal information can be used in social engineering attacks such as spear phishing",
           "linked practices are relevant mitigation areas, not a complete Cain et al. checklist from page 1"
         ],
         "avoid_claims": [
@@ -5301,7 +5585,10 @@
           "Unique passwords alone are sufficient for complete security",
           "Cain et al. explicitly list MFA, password vaults, personal information alerts, or friend-request evaluation on page 1",
           "All linked practices are directly stated in Cain et al. page 1",
-          "Providing a real name or date of birth on social media always leads to compromise"
+          "Providing a real name or date of birth on social media always leads to compromise",
+          "Cain et al.'s social media disclosure findings apply to all users or all populations",
+          "Privacy settings eliminate all risks from social media disclosure",
+          "All personal information posted online will be stolen"
         ]
       }
     },
@@ -5315,12 +5602,39 @@
       "practice_ids": [
         "PRA-ADDRESS-USER-BEHAVIOR"
       ],
-      "claim": "Cain et al. argue that many end users are aware cybersecurity risks exist, but still lack actionable knowledge about how to follow best practices and use available security options.",
-      "explanation": "Page 2 distinguishes general risk awareness from practical understanding. Cain et al. state that users may know they are at risk while not knowing how to protect passwords, find security options, understand those options, or use them. This supports cyber hygiene guidance that explains actions clearly rather than merely warning users that threats exist.",
+      "claim": "Cain et al. argue that many end users may be aware cybersecurity risks exist, but still lack actionable knowledge about how to follow best practices, protect passwords, and find, understand, or use available security options.",
+      "explanation": "This KU distinguishes general cybersecurity risk awareness from actionable cyber hygiene knowledge. Cain et al. state that many end users are aware they are at risk, but do not know how to follow best practices such as protecting passwords. They also state that security options are available, but end users frequently do not know how to find, understand, or use them. This supports cyber hygiene guidance that explains practices clearly and actionably rather than only warning users that threats exist.",
       "recommended_actions": [
-        "Explain cyber hygiene practices in actionable terms.",
-        "Help users understand how to find, understand, and use available security options.",
-        "Do not assume that general awareness of cybersecurity risk is enough for good cyber hygiene behavior."
+        {
+          "action_id": "ACT-CAIN-ACTIONABLE-KNOWLEDGE-GAP-001",
+          "action_text": "Explain cyber hygiene practices in actionable terms rather than only warning users that risks exist.",
+          "evidence_ids": [
+            "EVID-CAIN-ACTIONABLE-KNOWLEDGE-GAP-001",
+            "EVID-CAIN-ACTIONABLE-KNOWLEDGE-GAP-002"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-ACTIONABLE-KNOWLEDGE-GAP-002",
+          "action_text": "Help users understand how to follow cybersecurity best practices, such as protecting passwords.",
+          "evidence_ids": [
+            "EVID-CAIN-ACTIONABLE-KNOWLEDGE-GAP-001"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-ACTIONABLE-KNOWLEDGE-GAP-003",
+          "action_text": "Help users find, understand, and use available security options.",
+          "evidence_ids": [
+            "EVID-CAIN-ACTIONABLE-KNOWLEDGE-GAP-002"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-ACTIONABLE-KNOWLEDGE-GAP-004",
+          "action_text": "Do not assume that general awareness of cybersecurity risk is enough for good cyber hygiene behavior.",
+          "evidence_ids": [
+            "EVID-CAIN-ACTIONABLE-KNOWLEDGE-GAP-001",
+            "EVID-CAIN-ACTIONABLE-KNOWLEDGE-GAP-002"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -5382,7 +5696,7 @@
           "SRC-CAIN-2018"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 2, Section 1.1, paragraph 2, where the paper distinguishes general risk awareness from knowing how to follow best practices and use security options."
+        "minimum_traceability_requirement": "The answer should cite Cain et al. and should be traceable to page 2, Section 1.1, paragraph 2, where the paper distinguishes general awareness of cybersecurity risk from knowing how to follow best practices, protect passwords, and find, understand, or use available security options."
       },
       "agent_answer_guidance": {
         "answer_style": "conceptual_explanation",
@@ -5396,7 +5710,9 @@
           "Users are careless simply because they ignore risks",
           "Awareness automatically leads to good cyber hygiene",
           "Cain et al. show that all users lack cyber hygiene knowledge",
-          "Security options are useless because users do not understand them"
+          "Security options are useless because users do not understand them",
+          "Actionable guidance guarantees secure behavior",
+          "Cyber hygiene problems are only caused by lack of knowledge"
         ]
       }
     },
@@ -5417,15 +5733,64 @@
         "PRA-AVOID-PASSWORD-REUSE",
         "PRA-CHANGE-PASSWORDS-REGULARLY"
       ],
-      "claim": "Cain et al. summarize prior password-hygiene guidance as selecting strong passwords, avoiding personal information or dictionary words, avoiding reuse across multiple accounts, changing passwords often, and not sharing passwords with others.",
-      "explanation": "The password section reviews prior research on authentication and password behavior. It identifies weak passwords as a major source of network vulnerability and summarizes commonly advised password practices. Cain et al. also note a usability tension: long, complex alphanumeric passwords may be hard to remember, which can lead users to workarounds.",
+      "claim": "Cain et al. summarize prior password-hygiene guidance as selecting strong passwords, avoiding personal information or dictionary words, avoiding reuse across multiple accounts, changing passwords often, not sharing passwords with others, and considering memorability because impractical password rules can lead users to workarounds.",
+      "explanation": "This KU covers password-hygiene guidance discussed by Cain et al. The reviewed password section identifies weak passwords as a major source of network vulnerability and states that users are advised to select strong passwords to prevent guessing attacks. It also says passwords should not include personal information or dictionary words, should be complex but memorable, should not be used for multiple accounts, should be changed often, and should not be shared with others. Cain et al. also note a usability tension: long, complex alphanumeric passwords may be difficult to remember and can push users toward workarounds. The empirical percentages from Cain et al. should be treated as results from their study sample, not as universal rates for all users.",
       "recommended_actions": [
-        "Use strong passwords.",
-        "Avoid including personal information or dictionary words in passwords.",
-        "Avoid reusing passwords across multiple accounts.",
-        "Change passwords regularly where appropriate.",
-        "Do not share passwords with others.",
-        "Consider memorability and usability when applying password rules, because impractical password requirements can lead users to workarounds."
+        {
+          "action_id": "ACT-CAIN-PASSWORD-HYGIENE-001",
+          "action_text": "Use strong passwords to reduce susceptibility to guessing attacks.",
+          "evidence_ids": [
+            "EVID-CAIN-PASSWORD-HYGIENE-001",
+            "EVID-CAIN-PASSWORD-HYGIENE-002"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-PASSWORD-HYGIENE-002",
+          "action_text": "Avoid including personal information or dictionary words in passwords.",
+          "evidence_ids": [
+            "EVID-CAIN-PASSWORD-HYGIENE-003"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-PASSWORD-HYGIENE-003",
+          "action_text": "Use passwords that are complex but still memorable enough to avoid unsafe workarounds.",
+          "evidence_ids": [
+            "EVID-CAIN-PASSWORD-HYGIENE-004",
+            "EVID-CAIN-PASSWORD-HYGIENE-005"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-PASSWORD-HYGIENE-004",
+          "action_text": "Avoid reusing the same password across multiple accounts.",
+          "evidence_ids": [
+            "EVID-CAIN-PASSWORD-HYGIENE-004",
+            "EVID-CAIN-PASSWORD-HYGIENE-006"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-PASSWORD-HYGIENE-005",
+          "action_text": "Change passwords often where appropriate and where doing so does not encourage unsafe workarounds.",
+          "evidence_ids": [
+            "EVID-CAIN-PASSWORD-HYGIENE-004",
+            "EVID-CAIN-PASSWORD-HYGIENE-005",
+            "EVID-CAIN-PASSWORD-HYGIENE-006"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-PASSWORD-HYGIENE-006",
+          "action_text": "Do not share passwords with others.",
+          "evidence_ids": [
+            "EVID-CAIN-PASSWORD-HYGIENE-004",
+            "EVID-CAIN-PASSWORD-HYGIENE-006"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-PASSWORD-HYGIENE-007",
+          "action_text": "When applying password rules, consider usability because impractical password requirements can lead users to workarounds.",
+          "evidence_ids": [
+            "EVID-CAIN-PASSWORD-HYGIENE-005"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -5516,7 +5881,7 @@
           "source_id": "SRC-CAIN-2018",
           "citation_key": "cain_exploratory_2018",
           "support_type": "empirical_result",
-          "exact_supporting_text": "50% of users use the same password for multiple accounts. Only 41% of users change their passwords. Only 5% of users do not share their passwords with others.",
+          "exact_supporting_text": "Cain et al.'s Results section reports the following for its study sample: \"50% of users use the same password for multiple accounts. Only 41% of users change their passwords. Only 5% of users do not share their passwords with others.\"",
           "page": 4,
           "section": "3. Results",
           "paragraph": "7",
@@ -5560,19 +5925,19 @@
         },
         {
           "fact_id": "VF-CAIN-PASSWORD-HYGIENE-006",
-          "fact": "Cain et al. report that 50% of users used the same password for multiple accounts.",
+          "fact": "Cain et al. report that 50% of users in their study sample used the same password for multiple accounts.",
           "source_id": "SRC-CAIN-2018",
           "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-006"
         },
         {
           "fact_id": "VF-CAIN-PASSWORD-HYGIENE-007",
-          "fact": "Cain et al. report that only 41% of users changed their passwords.",
+          "fact": "Cain et al. report that only 41% of users in their study sample changed their passwords.",
           "source_id": "SRC-CAIN-2018",
           "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-006"
         },
         {
           "fact_id": "VF-CAIN-PASSWORD-HYGIENE-008",
-          "fact": "Cain et al. report that only 5% of users did not share their passwords with others.",
+          "fact": "Cain et al. report that only 5% of users in their study sample did not share their passwords with others.",
           "source_id": "SRC-CAIN-2018",
           "evidence_id": "EVID-CAIN-PASSWORD-HYGIENE-006"
         }
@@ -5583,7 +5948,7 @@
           "SRC-CAIN-2018"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 2, Section 1.2, paragraph 4, where password vulnerability, strong password advice, password reuse, password sharing, and password usability issues are discussed. Cain et al. found unsafe password behaviors such as password reuse, limited password changing, and password sharing."
+        "minimum_traceability_requirement": "The answer should cite Cain et al. Claims about password vulnerability, strong password advice, avoiding personal information or dictionary words, password reuse, password changing, password sharing, and password usability issues should be traceable to page 2, Section 1.2, paragraph 4. Claims about password reuse, password changing, or password sharing percentages should be traceable to page 4, Section 3, paragraph 7, and should be framed as Cain et al.'s study-sample findings rather than universal user rates."
       },
       "agent_answer_guidance": {
         "answer_style": "practical_advice_with_explanation",
@@ -5602,7 +5967,9 @@
           "Password complexity alone is sufficient for account security",
           "Users should ignore password complexity because it is inconvenient",
           "Changing passwords often always improves security in every context",
-          "Cain et al.'s sample percentages should not be generalized to all users without qualification"
+          "Cain et al.'s sample percentages should be generalized to all users without qualification",
+          "Password rules should be so strict that users cannot realistically follow them",
+          "Memorability is more important than password strength in all cases"
         ]
       }
     },
@@ -5614,19 +5981,50 @@
         "THR-CREDENTIAL-TARGETING",
         "THR-CREDENTIAL-THEFT",
         "THR-PHISHING",
-        "THR-PRIVACY-EXPOSURE"
+        "THR-PRIVACY-EXPOSURE",
+        "THR-SOCIAL-ENGINEERING"
       ],
       "practice_ids": [
         "PRA-AVOID-PASSWORD-REUSE",
         "PRA-CHANGE-PASSWORDS-REGULARLY",
-        "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS"
+        "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS",
+        "PRA-LIMIT-SHARING-PERSONAL-INFORMATION"
       ],
-      "claim": "Cain et al.'s results indicate that unsafe password and phishing-related behaviors were common in their participant sample.",
-      "explanation": "The study reports that many participants reused passwords, did not change passwords, shared passwords, clicked embedded links from unknown senders, downloaded attachments from unknown senders, and sent sensitive information over email when requested. These findings support the need for actionable cyber hygiene guidance around passwords and phishing.",
+      "claim": "Cain et al.'s results indicate that unsafe password and phishing-related behaviors were reported in their participant sample.",
+      "explanation": "This KU summarizes Cain et al.'s empirical findings about unsafe password and phishing-related behavior in their study sample. The results report password reuse, limited password changing, password sharing, clicking embedded links from unknown senders, downloading attachments from unknown senders, and sending sensitive information over email when requested. These findings support the need for actionable cyber hygiene guidance around password hygiene, phishing-related email behavior, and sensitive-information sharing. The percentages should be presented as Cain et al.'s participant-sample findings, not as universal rates for all users.",
       "recommended_actions": [
-        "Use Cain et al.'s findings as motivation for clearer password and phishing guidance.",
-        "Do not assume that users consistently follow password and phishing best practices.",
-        "When discussing these results, describe them as findings from Cain et al.'s participant sample."
+        {
+          "action_id": "ACT-CAIN-UNSAFE-BEHAVIORS-001",
+          "action_text": "Use Cain et al.'s participant-sample findings as motivation for clearer password and phishing guidance.",
+          "evidence_ids": [
+            "EVID-CAIN-UNSAFE-BEHAVIORS-001",
+            "EVID-CAIN-UNSAFE-BEHAVIORS-002"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-UNSAFE-BEHAVIORS-002",
+          "action_text": "Do not assume that users consistently follow password and phishing best practices.",
+          "evidence_ids": [
+            "EVID-CAIN-UNSAFE-BEHAVIORS-001",
+            "EVID-CAIN-UNSAFE-BEHAVIORS-002"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-UNSAFE-BEHAVIORS-003",
+          "action_text": "When discussing Cain et al.'s password and phishing behavior results, describe them as findings from Cain et al.'s participant sample.",
+          "evidence_ids": [
+            "EVID-CAIN-UNSAFE-BEHAVIORS-001",
+            "EVID-CAIN-UNSAFE-BEHAVIORS-002"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-UNSAFE-BEHAVIORS-004",
+          "action_text": "Use Cain et al.'s findings to motivate actionable guidance about password reuse, password changing, password sharing, suspicious links and attachments, and sensitive-information requests.",
+          "evidence_ids": [
+            "EVID-CAIN-UNSAFE-BEHAVIORS-001",
+            "EVID-CAIN-UNSAFE-BEHAVIORS-002"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -5642,7 +6040,7 @@
           "source_id": "SRC-CAIN-2018",
           "citation_key": "cain_exploratory_2018",
           "support_type": "empirical_result",
-          "exact_supporting_text": "50% of users use the same password for multiple accounts. Only 41% of users change their passwords. Only 5% of users do not share their passwords with others.",
+          "exact_supporting_text": "Cain et al.'s Results section reports the following for its study sample: \"50% of users use the same password for multiple accounts. Only 41% of users change their passwords. Only 5% of users do not share their passwords with others.\"",
           "page": 4,
           "section": "3. Results",
           "paragraph": "7",
@@ -5657,7 +6055,7 @@
           "source_id": "SRC-CAIN-2018",
           "citation_key": "cain_exploratory_2018",
           "support_type": "empirical_result",
-          "exact_supporting_text": "Also, good cyber hygiene was not demonstrated for phishing attacks. 96% of users click on embedded links from unknown senders. 98% of users download attachments from unknown senders. 94% of users send sensitive information over email when a sender requests it.",
+          "exact_supporting_text": "Cain et al.'s Results section reports the following for its study sample: \"Also, good cyber hygiene was not demonstrated for phishing attacks. 96% of users click on embedded links from unknown senders. 98% of users download attachments from unknown senders. 94% of users send sensitive information over email when a sender requests it.\"",
           "page": 4,
           "section": "3. Results",
           "paragraph": "7",
@@ -5671,37 +6069,37 @@
       "validity_facts": [
         {
           "fact_id": "VF-CAIN-UNSAFE-BEHAVIORS-001",
-          "fact": "Cain et al. report that 50% of users used the same password for multiple accounts.",
+          "fact": "Cain et al. report that 50% of users in their study sample used the same password for multiple accounts.",
           "source_id": "SRC-CAIN-2018",
           "evidence_id": "EVID-CAIN-UNSAFE-BEHAVIORS-001"
         },
         {
           "fact_id": "VF-CAIN-UNSAFE-BEHAVIORS-002",
-          "fact": "Cain et al. report that only 41% of users changed their passwords.",
+          "fact": "Cain et al. report that only 41% of users in their study sample changed their passwords.",
           "source_id": "SRC-CAIN-2018",
           "evidence_id": "EVID-CAIN-UNSAFE-BEHAVIORS-001"
         },
         {
           "fact_id": "VF-CAIN-UNSAFE-BEHAVIORS-003",
-          "fact": "Cain et al. report that only 5% of users did not share their passwords with others.",
+          "fact": "Cain et al. report that only 5% of users in their study sample did not share their passwords with others.",
           "source_id": "SRC-CAIN-2018",
           "evidence_id": "EVID-CAIN-UNSAFE-BEHAVIORS-001"
         },
         {
           "fact_id": "VF-CAIN-UNSAFE-BEHAVIORS-004",
-          "fact": "Cain et al. report that 96% of users clicked embedded links from unknown senders.",
+          "fact": "Cain et al. report that 96% of users in their study sample clicked embedded links from unknown senders.",
           "source_id": "SRC-CAIN-2018",
           "evidence_id": "EVID-CAIN-UNSAFE-BEHAVIORS-002"
         },
         {
           "fact_id": "VF-CAIN-UNSAFE-BEHAVIORS-005",
-          "fact": "Cain et al. report that 98% of users downloaded attachments from unknown senders.",
+          "fact": "Cain et al. report that 98% of users in their study sample downloaded attachments from unknown senders.",
           "source_id": "SRC-CAIN-2018",
           "evidence_id": "EVID-CAIN-UNSAFE-BEHAVIORS-002"
         },
         {
           "fact_id": "VF-CAIN-UNSAFE-BEHAVIORS-006",
-          "fact": "Cain et al. report that 94% of users sent sensitive information over email when a sender requested it.",
+          "fact": "Cain et al. report that 94% of users in their study sample sent sensitive information over email when a sender requested it.",
           "source_id": "SRC-CAIN-2018",
           "evidence_id": "EVID-CAIN-UNSAFE-BEHAVIORS-002"
         }
@@ -5712,7 +6110,7 @@
           "SRC-CAIN-2018"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 4, Section 3 Results, paragraph 7, where password and phishing behavior results are reported."
+        "minimum_traceability_requirement": "The answer should cite Cain et al. and should be traceable to page 4, Section 3 Results, paragraph 7, where password and phishing behavior results are reported. The percentages must be framed as Cain et al.'s study-sample findings rather than universal rates for all users."
       },
       "agent_answer_guidance": {
         "answer_style": "research_finding",
@@ -5726,7 +6124,9 @@
           "These percentages apply to all users globally",
           "Cain et al. prove that every user behaves unsafely",
           "The results alone prove one specific intervention will solve password or phishing behavior",
-          "The study shows users are hopeless or careless"
+          "The study shows users are hopeless or careless",
+          "Cain et al.'s findings should be used as universal prevalence rates",
+          "The results prove that password or phishing guidance automatically changes behavior"
         ]
       }
     },
@@ -5740,12 +6140,33 @@
       "practice_ids": [
         "PRA-ADDRESS-USER-BEHAVIOR"
       ],
-      "claim": "Cain et al. found that self-identified cybersecurity experts had more cyber hygiene knowledge than non-experts, but reported less secure cyber hygiene behavior than non-experts.",
-      "explanation": "This finding supports the distinction between cyber hygiene knowledge and cyber hygiene behavior. In Cain et al.'s sample, self-identified expertise was associated with higher knowledge scores, but not with better behavior scores. This suggests that cyber hygiene guidance should not assume that knowledge or expertise alone automatically produces secure behavior.",
+      "claim": "Cain et al. found that self-identified cybersecurity experts reported less secure cyber hygiene behaviors than self-identified non-experts, showing that expertise should not be assumed to translate directly into secure cyber hygiene behavior.",
+      "explanation": "This KU supports the distinction between cyber hygiene knowledge, self-identified expertise, and cyber hygiene behavior. Cain et al. report that self-identified experts had less secure behaviors than self-identified non-experts. The discussion also states that self-described experts reported less secure behaviors and had less cyber hygiene knowledge than other participants. This supports treating cyber hygiene as both a knowledge issue and a behavior issue, while avoiding the claim that expertise alone guarantees secure behavior.",
       "recommended_actions": [
-        "Treat cyber hygiene as both a knowledge issue and a behavior issue.",
-        "Do not assume that cybersecurity knowledge alone guarantees secure behavior.",
-        "Design cyber hygiene guidance to support actual behavior, not only conceptual understanding."
+        {
+          "action_id": "ACT-CAIN-EXPERTISE-GAP-001",
+          "action_text": "Do not assume that cybersecurity expertise alone guarantees secure cyber hygiene behavior.",
+          "evidence_ids": [
+            "EVID-CAIN-EXPERTISE-BEHAVIOR-GAP-001",
+            "EVID-CAIN-EXPERTISE-KNOWLEDGE-BEHAVIOR-GAP-002"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-EXPERTISE-GAP-002",
+          "action_text": "Treat cyber hygiene as both a knowledge issue and a behavior issue.",
+          "evidence_ids": [
+            "EVID-CAIN-EXPERTISE-BEHAVIOR-GAP-001",
+            "EVID-CAIN-EXPERTISE-KNOWLEDGE-BEHAVIOR-GAP-002"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-EXPERTISE-GAP-003",
+          "action_text": "Design cyber hygiene guidance to support actual behavior, not only conceptual understanding or self-identified expertise.",
+          "evidence_ids": [
+            "EVID-CAIN-EXPERTISE-BEHAVIOR-GAP-001",
+            "EVID-CAIN-EXPERTISE-KNOWLEDGE-BEHAVIOR-GAP-002"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -5813,13 +6234,12 @@
           "SRC-CAIN-2018"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 7, Section 3.7 for expertise and behavior, and Section 3.8 for expertise and knowledge."
+        "minimum_traceability_requirement": "The answer should cite Cain et al. Claims about self-identified experts reporting less secure behavior than non-experts should be traceable to page 7, Section 3.7, paragraph 3. Claims about self-described experts reporting less secure behavior and less cyber hygiene knowledge should be traceable to page 8, Discussion and conclusion, paragraph 7. This KU currently contains dangling validity-fact evidence IDs that must be repaired before final validation."
       },
       "agent_answer_guidance": {
         "answer_style": "research_finding",
         "must_include": [
           "self-identified experts reported less secure behavior than non-experts",
-          "self-identified experts differed from non-experts in cyber hygiene knowledge",
           "knowledge and behavior should be treated separately",
           "expertise alone should not be assumed to guarantee secure behavior"
         ],
@@ -5828,7 +6248,9 @@
           "Expertise is bad for cyber hygiene",
           "Cybersecurity knowledge is useless",
           "Cain et al. prove that training or expertise causes insecure behavior",
-          "These findings apply to all cybersecurity professionals globally"
+          "These findings apply to all cybersecurity professionals globally",
+          "Cain et al. found that experts had more knowledge than non-experts unless the missing Section 3.8 evidence is added",
+          "This KU is valid while dangling evidence IDs remain unresolved"
         ]
       }
     },
@@ -5840,15 +6262,55 @@
         "THR-USER-NONCOMPLIANCE"
       ],
       "practice_ids": [
-        "PRA-ADDRESS-USER-BEHAVIOR"
+        "PRA-ADDRESS-USER-BEHAVIOR",
+        "PRA-CYBERSECURITY-TRAINING"
       ],
-      "claim": "Cain et al. found no significant differences in cyber hygiene behavior or knowledge between participants who had received cybersecurity training and those who had not.",
-      "explanation": "The study tested whether training status was associated with cyber hygiene behavior and knowledge. Cain et al. reported no detected differences for either behavior or knowledge, and the discussion states that current training programs seemed to have no impact. This supports the idea that cyber hygiene guidance should not assume training alone is sufficient; training may need to be redesigned, made more explicit, or evaluated for effectiveness.",
+      "claim": "Cain et al. found no significant differences in cyber hygiene behavior or knowledge between participants who had received cybersecurity training and those who had not, and their discussion states that training did not increase users' cyber hygiene behaviors or knowledge in their study.",
+      "explanation": "This KU captures Cain et al.'s finding that cybersecurity training status was not associated with detected improvements in cyber hygiene behavior or knowledge in their sample. The study reports no significant behavior difference between trained and untrained participants, no significant knowledge difference between trained and untrained participants, and discusses that current training programs seemed to have no impact. This supports the cautious claim that training alone should not be assumed sufficient; training should be evaluated for whether it actually improves cyber hygiene knowledge and behavior.",
       "recommended_actions": [
-        "Do not assume that cybersecurity training automatically improves cyber hygiene behavior.",
-        "Evaluate whether training improves both cyber hygiene knowledge and behavior.",
-        "Design training to support actual secure behavior, not only awareness or conceptual knowledge.",
-        "Investigate why existing cyber hygiene training may not be effective."
+        {
+          "action_id": "ACT-CAIN-TRAINING-NO-IMPACT-001",
+          "action_text": "Do not assume that cybersecurity training automatically improves cyber hygiene behavior.",
+          "evidence_ids": [
+            "EVID-CAIN-TRAINING-NO-IMPACT-001",
+            "EVID-CAIN-TRAINING-NO-IMPACT-003"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-TRAINING-NO-IMPACT-002",
+          "action_text": "Do not assume that cybersecurity training automatically improves cyber hygiene knowledge.",
+          "evidence_ids": [
+            "EVID-CAIN-TRAINING-NO-IMPACT-002",
+            "EVID-CAIN-TRAINING-NO-IMPACT-003"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-TRAINING-NO-IMPACT-003",
+          "action_text": "Evaluate whether cybersecurity training improves both cyber hygiene behavior and cyber hygiene knowledge.",
+          "evidence_ids": [
+            "EVID-CAIN-TRAINING-NO-IMPACT-001",
+            "EVID-CAIN-TRAINING-NO-IMPACT-002",
+            "EVID-CAIN-TRAINING-NO-IMPACT-003"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-TRAINING-NO-IMPACT-004",
+          "action_text": "Treat training effectiveness as an empirical question rather than assuming training alone is sufficient.",
+          "evidence_ids": [
+            "EVID-CAIN-TRAINING-NO-IMPACT-001",
+            "EVID-CAIN-TRAINING-NO-IMPACT-002",
+            "EVID-CAIN-TRAINING-NO-IMPACT-003"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-TRAINING-NO-IMPACT-005",
+          "action_text": "When training shows no detected improvement, investigate whether the training actually supports secure behavior and usable cyber hygiene knowledge.",
+          "evidence_ids": [
+            "EVID-CAIN-TRAINING-NO-IMPACT-001",
+            "EVID-CAIN-TRAINING-NO-IMPACT-002",
+            "EVID-CAIN-TRAINING-NO-IMPACT-003"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -5931,7 +6393,7 @@
           "SRC-CAIN-2018"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 8, Sections 3.9 and 3.10 for trained/untrained behavior and knowledge results, and page 8, Section 4, paragraph 8 for the discussion statement that training did not increase cyber hygiene behaviors or knowledge."
+        "minimum_traceability_requirement": "The answer should cite Cain et al. Claims about no significant behavior difference between trained and untrained participants should be traceable to page 8, Section 3.9. Claims about no significant knowledge difference should be traceable to page 8, Section 3.10. Claims that training did not increase users' cyber hygiene behaviors or knowledge in Cain et al.'s study should be traceable to page 8, Discussion and conclusion. The result should be framed as Cain et al.'s study finding, not as proof that cybersecurity training is useless in all contexts."
       },
       "agent_answer_guidance": {
         "answer_style": "research_finding_with_guidance",
@@ -5946,7 +6408,10 @@
           "Organizations should stop training users",
           "Training causes worse cyber hygiene",
           "Cain et al. prove that all training programs fail",
-          "The result applies to every population or organization"
+          "The result applies to every population or organization",
+          "Training automatically improves cyber hygiene behavior",
+          "Training automatically improves cyber hygiene knowledge",
+          "Cain et al. prove that training can never work"
         ]
       }
     },
@@ -5958,8 +6423,8 @@
         "THR-USER-NONCOMPLIANCE"
       ],
       "practice_ids": [],
-      "claim": "Cain et al. found that older users tended to report more secure cyber hygiene behavior than younger users, while cyber hygiene knowledge did not differ among age groups.",
-      "explanation": "This finding is reported as counterintuitive because younger users are often assumed to have more technological know-how. Cain et al. did not find that younger users had higher cyber hygiene knowledge, and instead reported more secure behavior among older age groups in their sample.",
+      "claim": "Cain et al. found that, in their sample, older age groups reported more secure cyber hygiene behaviors than the youngest age group, while cyber hygiene knowledge did not significantly differ among age groups.",
+      "explanation": "This KU summarizes Cain et al.'s age-related cyber hygiene findings. Their results report that the 45–54 and 55+ age groups had more secure behaviors than the 18–24 age group, while no significant differences were found in cyber hygiene knowledge among age groups. The discussion frames this as surprising because younger users are often assumed to have greater technological know-how. This KU should be used as a study-specific research finding, not as a general claim that older users are always more secure or that age causes cyber hygiene behavior differences.",
       "recommended_actions": [],
       "evidence_strength": "medium",
       "question_templates": [
@@ -6051,7 +6516,7 @@
           "SRC-CAIN-2018"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 6, Sections 3.1 and 3.2 for the age behavior and knowledge results, and page 8, Section 4, paragraph 4 for the discussion interpretation."
+        "minimum_traceability_requirement": "The answer should cite Cain et al. Claims about older age groups reporting more secure cyber hygiene behavior than the youngest age group should be traceable to page 6, Section 3.1, paragraph 1, or page 8, Discussion and conclusion, paragraph 4. Claims about no significant cyber hygiene knowledge difference among age groups should be traceable to page 6, Section 3.2, paragraph 2, or page 8, Discussion and conclusion, paragraph 4. The result should be framed as Cain et al.'s sample finding, not as a universal age-based rule."
       },
       "agent_answer_guidance": {
         "answer_style": "research_finding",
@@ -6064,7 +6529,11 @@
           "Older users are always more secure than younger users",
           "Younger users are worse at cybersecurity in general",
           "Age causes cyber hygiene behavior differences",
-          "This finding applies to all populations"
+          "This finding applies to all populations",
+          "Younger users always have better cyber hygiene knowledge",
+          "Older users always have better cyber hygiene knowledge",
+          "Age alone is enough to determine a user's cyber hygiene behavior",
+          "This KU supports targeting or stereotyping users by age"
         ]
       }
     },
@@ -6076,23 +6545,41 @@
         "THR-USER-NONCOMPLIANCE"
       ],
       "practice_ids": [
-        "PRA-ADDRESS-USER-BEHAVIOR"
+        "PRA-ADDRESS-USER-BEHAVIOR",
+        "PRA-CYBERSECURITY-TRAINING"
       ],
-      "claim": "Cain et al. argue that users need explicit security cues and better training, and that future research should determine how training can better communicate the benefits and costs of secure behavior.",
-      "explanation": "In the future directions section, Cain et al. connect ineffective training findings to the need for clearer cues and better training across age groups. They also argue that research should investigate information sources and how training communicates benefits and costs, because knowledge alone is only the first step toward improving cyber hygiene attitudes and behavior.",
+      "claim": "Cain et al. argue that users need explicit security clues and better training across age groups, regardless of their experience.",
+      "explanation": "This KU captures Cain et al.'s future-direction recommendation that users should receive explicit security clues and better training across all age groups regardless of experience. It should be used as design guidance for making cyber hygiene support clearer and more behavior-oriented. Because the available evidence only contains this future-direction statement, the KU should not be used to claim that Cain et al. provide a full training design model, prove that explicit cues improve behavior, or evaluate the effectiveness of a specific cue-based intervention.",
       "recommended_actions": [
-        "Provide explicit security cues when users need to behave securely.",
-        "Design cyber hygiene training to communicate the benefits and costs of secure behavior.",
-        "Evaluate the reliability and effectiveness of users' information sources.",
-        "Treat knowledge as a first step, not the final goal, when improving cyber hygiene behavior."
+        {
+          "action_id": "ACT-CAIN-EXPLICIT-CUES-BETTER-TRAINING-001",
+          "action_text": "Provide explicit security cues or clues when users need to behave securely.",
+          "evidence_ids": [
+            "EVID-CAIN-EXPLICIT-CUES-BETTER-TRAINING-001"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-EXPLICIT-CUES-BETTER-TRAINING-002",
+          "action_text": "Provide better cyber hygiene training across age groups regardless of users' experience.",
+          "evidence_ids": [
+            "EVID-CAIN-EXPLICIT-CUES-BETTER-TRAINING-001"
+          ]
+        },
+        {
+          "action_id": "ACT-CAIN-EXPLICIT-CUES-BETTER-TRAINING-003",
+          "action_text": "Do not assume that users' age or experience removes the need for explicit security cues and better training.",
+          "evidence_ids": [
+            "EVID-CAIN-EXPLICIT-CUES-BETTER-TRAINING-001"
+          ]
+        }
       ],
-      "evidence_strength": "high",
+      "evidence_strength": "medium",
       "question_templates": [
         "How should cyber hygiene training be improved?",
         "Why are explicit security cues useful for cyber hygiene?",
-        "Why is knowledge only the first step in cyber hygiene?",
         "How can training better support secure behavior?",
-        "What future directions did Cain et al. suggest for cyber hygiene?"
+        "What future directions did Cain et al. suggest for cyber hygiene?",
+        "Should cyber hygiene training differ only by user age or experience?"
       ],
       "evidence": [
         {
@@ -6125,20 +6612,24 @@
           "SRC-CAIN-2018"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite Cain et al. (2018), page 8, Section 5 Future directions, paragraph 10, where explicit security clues and better training are recommended."
+        "minimum_traceability_requirement": "The answer should cite Cain et al. and should be traceable to page 8, Section 5 Future directions, paragraph 10, where explicit security clues and better training are recommended for all age groups regardless of experience. This KU should not be used for claims about training benefits and costs, information-source reliability, or knowledge being only a first step unless additional direct evidence is added."
       },
       "agent_answer_guidance": {
         "answer_style": "design_guidance",
         "must_include": [
-          "explicit security cues",
+          "explicit security cues or clues",
           "better training",
-          "all age groups regardless of experience",
-          "knowledge is only a first step if using page 9 evidence"
+          "all age groups regardless of experience"
         ],
         "avoid_claims": [
           "Cain et al. provide a complete design specification for cyber hygiene assistants",
           "Explicit cues alone guarantee secure behavior",
-          "Better training automatically solves cyber hygiene behavior"
+          "Better training automatically solves cyber hygiene behavior",
+          "Cain et al. prove that cue-based interventions improve cyber hygiene behavior",
+          "Cain et al. evaluate a specific training redesign in this evidence",
+          "Cain et al. support claims about communicating benefits and costs of secure behavior through this evidence alone",
+          "Cain et al. support claims about evaluating information sources through this evidence alone",
+          "Knowledge is only a first step unless separate supporting evidence is added"
         ]
       }
     },
@@ -6147,25 +6638,68 @@
       "title": "University students may show acceptable cyber hygiene behavior while having low awareness and knowledge",
       "category_id": "CAT-GENERAL-CYBER-HYGIENE",
       "threat_ids": [
-        "THR-USER-NONCOMPLIANCE",
-        "THR-PRIVACY-EXPOSURE"
+        "THR-USER-NONCOMPLIANCE"
       ],
       "practice_ids": [
         "PRA-ADDRESS-USER-BEHAVIOR"
       ],
-      "claim": "Baraković and Baraković Husić frame cyber hygiene through knowledge, awareness, and behavioral practices, and found that these outcomes are related only in some cases rather than uniformly across all cyber hygiene topics.",
-      "explanation": "The study treats cyber hygiene knowledge, awareness, and behavior as separate but related outcomes. Baraković and Baraković Husić found partial relations among them: some behavior-awareness, behavior-knowledge, and awareness-knowledge associations were statistically significant, while others were not. This supports evaluating these outcomes separately instead of assuming that knowledge, awareness, and behavior always move together.",      
+      "claim": "Baraković and Baraković Husić frame cyber hygiene through knowledge, awareness, and behavioral practices, and found that university students in Bosnia and Herzegovina had relatively acceptable cyber hygiene behavior while awareness was not satisfactory and knowledge was quite low. They also found that relations between knowledge, awareness, and behavior existed only in some cases rather than uniformly across all cyber hygiene topics.",
+      "explanation": "This KU explains cyber hygiene as a combination of knowledge, awareness, and behavioral practices. Baraković and Baraković Husić treat these as separate but related user-oriented factors: knowledge and awareness are cognitive factors, while behavioral practices relate to use. Their findings show that university students in Bosnia and Herzegovina had relatively acceptable cyber hygiene behavior, but unsatisfactory awareness and quite low knowledge. They also report partial and topic-specific relations among knowledge, awareness, and behavior, meaning these outcomes should be evaluated separately rather than assumed to move together automatically.",
       "recommended_actions": [
-        "Assess cyber hygiene knowledge, awareness, and behavior separately.",
-        "Do not assume acceptable cyber hygiene behavior means users have satisfactory awareness or knowledge.",
-        "Use cyber hygiene guidance to explain both what should be done and why it matters.",
-        "Support users in turning knowledge and awareness into consistent behavioral practice.",
-        "Assess cyber hygiene knowledge, awareness, and behavior separately.",
-        "Do not assume that cyber hygiene knowledge automatically produces secure behavior.",
-        "Do not assume that cyber hygiene awareness is uniformly associated with every behavior.",
-        "Use cyber hygiene guidance to connect what users know, what they recognize as risky, and what they actually do.",
-        "Treat observed relations between knowledge, awareness, and behavior as topic-specific rather than universal.",
-        "Use cyber hygiene guidance to help convert cybersecurity awareness into behavioral practices."
+        {
+          "action_id": "ACT-BARAKOVIC-STUDENT-KAB-001",
+          "action_text": "Assess cyber hygiene knowledge, awareness, and behavior as separate user-oriented outcomes.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-STUDENT-KAB-001",
+            "EVID-BARAKOVIC-STUDENT-KAB-004",
+            "EVID-BARAKOVIC-STUDENT-KAB-005",
+            "EVID-BARAKOVIC-STUDENT-KAB-008"
+          ]
+        },
+        {
+          "action_id": "ACT-BARAKOVIC-STUDENT-KAB-002",
+          "action_text": "Do not assume that acceptable cyber hygiene behavior means users also have satisfactory awareness or knowledge.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-STUDENT-KAB-002",
+            "EVID-BARAKOVIC-STUDENT-KAB-009"
+          ]
+        },
+        {
+          "action_id": "ACT-BARAKOVIC-STUDENT-KAB-003",
+          "action_text": "Treat observed relations between cyber hygiene knowledge, awareness, and behavior as topic-specific rather than universal.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-KAB-RELATIONS-001",
+            "EVID-BARAKOVIC-KAB-RELATIONS-002",
+            "EVID-BARAKOVIC-KAB-RELATIONS-004",
+            "EVID-BARAKOVIC-KAB-RELATIONS-005"
+          ]
+        },
+        {
+          "action_id": "ACT-BARAKOVIC-STUDENT-KAB-004",
+          "action_text": "Do not assume that cyber hygiene knowledge or awareness automatically produces secure cyber hygiene behavior across all topics.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-STUDENT-KAB-002",
+            "EVID-BARAKOVIC-STUDENT-KAB-005",
+            "EVID-BARAKOVIC-KAB-RELATIONS-002",
+            "EVID-BARAKOVIC-KAB-RELATIONS-004"
+          ]
+        },
+        {
+          "action_id": "ACT-BARAKOVIC-STUDENT-KAB-005",
+          "action_text": "When giving cyber hygiene guidance, connect what users know, what they understand or recognize as important, and what they actually do.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-STUDENT-KAB-005",
+            "EVID-BARAKOVIC-STUDENT-KAB-006",
+            "EVID-BARAKOVIC-STUDENT-KAB-008"
+          ]
+        },
+        {
+          "action_id": "ACT-BARAKOVIC-STUDENT-KAB-006",
+          "action_text": "Frame Baraković and Baraković Husić's findings as findings about university students in Bosnia and Herzegovina rather than all student populations globally.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-STUDENT-KAB-009"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -6479,12 +7013,15 @@
           "SRC-BARAKOVIC-2023"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite Baraković and Baraković Husić (2023), page 2, Abstract, paragraph 1, where the study aim and main results on student cyber hygiene knowledge, awareness, and behavior are stated."
+        "minimum_traceability_requirement": "The answer should cite Baraković and Baraković Husić. Claims about the study aim and the finding that students had acceptable cyber hygiene behavior but unsatisfactory awareness and quite low knowledge should be traceable to page 2, Abstract, paragraph 1, or page 22, Conclusion, paragraph 3. Claims about knowledge, awareness, and behavior as separate user-oriented factors should be traceable to page 6, Related work, paragraph 3. Claims about mutual interplay and partial or topic-specific relations between knowledge, awareness, and behavioral practices should be traceable to page 9, Results, paragraph 2, and page 17, Results, paragraphs 1–3. The answer should frame the empirical results as findings about university students in Bosnia and Herzegovina, not as universal findings about all students or all users."
       },
       "agent_answer_guidance": {
         "answer_style": "research_finding",
         "must_include": [
           "knowledge, awareness, and behavior are separate cyber hygiene outcomes",
+          "students in Bosnia and Herzegovina had relatively acceptable cyber hygiene behavior",
+          "awareness was not satisfactory",
+          "knowledge was quite low",
           "relations exist only in some cases",
           "behavior-awareness relations were found for some topics",
           "behavior-knowledge relations were found for some topics",
@@ -6496,7 +7033,12 @@
           "Cyber hygiene awareness always leads to secure behavior",
           "Cyber hygiene behavior always proves cyber hygiene knowledge",
           "The relations found by Baraković and Baraković Husić apply equally to all cyber hygiene topics",
-          "The findings apply to all student populations globally"
+          "The findings apply to all student populations globally",
+          "Acceptable cyber hygiene behavior means awareness and knowledge are satisfactory",
+          "Low knowledge means every behavior is insecure",
+          "This KU proves that gender or education level should determine cyber hygiene advice",
+          "Topic-specific Chi-square associations prove causation",
+          "This KU directly supports a specific privacy-exposure mitigation claim"
         ]
       }
     },
@@ -6508,8 +7050,7 @@
         "THR-MALWARE-INFECTION",
         "THR-PHISHING",
         "THR-USER-NONCOMPLIANCE",
-        "THR-UNAUTHORIZED-ACCESS",
-        "THR-PRIVACY-EXPOSURE"
+        "THR-UNAUTHORIZED-ACCESS"
       ],
       "practice_ids": [
         "PRA-UPDATE-PROTECTION-SOFTWARE",
@@ -6520,19 +7061,90 @@
         "PRA-BACKUP-FILES",
         "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS",
         "PRA-AVOID-SUSPICIOUS-SITES",
-        "PRA-ADDRESS-USER-BEHAVIOR"
+        "PRA-ADDRESS-USER-BEHAVIOR",
+        "PRA-CYBERSECURITY-TRAINING",
+        "PRA-TAILORED-TRAINING"
       ],
-      "claim": "Baraković and Baraković Husić recommend that cyber hygiene programs combine proactive technical and behavioral practices with education and training that improve knowledge, attitudes, awareness, and routine behavior.",
-      "explanation": "In the conclusion, Baraković and Baraković Husić describe practical implications for developing a cyber hygiene program and guidelines for both organizations and individuals. Their recommendations include limiting access to hardware or software, regular updates, antivirus or antimalware tools, complex password management, multifactor authentication, regular backups, avoiding suspicious sites and email attachments, and making cyber hygiene routine. They also emphasize educational programs that increase cyber hygiene knowledge, develop attitudes toward cybersecurity threats, convert awareness into behavioral practices, and share good cyber hygiene practices.",
+      "claim": "Baraković and Baraković Husić recommend that cyber hygiene programs combine proactive technical and behavioral measures with education and training that improve knowledge, attitudes, awareness, and routine behavior.",
+      "explanation": "This KU captures Baraković and Baraković Husić's program-level cyber hygiene recommendations. In their conclusion, they recommend using the study to develop a cyber hygiene program and guidelines for organizations and individuals. Their listed proactive measures include limiting hardware or software access, regular hardware and software updates, antivirus or anti-malware tools, complex password management, multifactor authentication, regular backups, avoiding suspicious sites and email attachments, and making cyber hygiene part of routine behavior. They also recommend educational trainings and programs to increase cyber hygiene knowledge, develop attitudes toward cybersecurity threats, convert awareness into behavioral practices, and share good practices. These recommendations should be treated as practical program guidance, not as proof that the measures alone eliminate cyber threats.",
       "recommended_actions": [
-        "Update hardware and software regularly.",
-        "Use antivirus or antimalware tools.",
-        "Manage complex passwords.",
-        "Use multifactor authentication.",
-        "Back up data regularly.",
-        "Avoid suspicious sites and email attachments.",
-        "Make cyber hygiene part of routine behavior.",
-        "Use education and training to increase knowledge, develop threat-aware attitudes, and convert awareness into behavioral practice."
+        {
+          "action_id": "ACT-BARAKOVIC-PROGRAM-RECOMMENDATIONS-001",
+          "action_text": "Use cyber hygiene program guidance for both organizations and individuals.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-001"
+          ]
+        },
+        {
+          "action_id": "ACT-BARAKOVIC-PROGRAM-RECOMMENDATIONS-002",
+          "action_text": "Limit user access to hardware and software where appropriate.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-002"
+          ]
+        },
+        {
+          "action_id": "ACT-BARAKOVIC-PROGRAM-RECOMMENDATIONS-003",
+          "action_text": "Update hardware and software regularly.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-002"
+          ]
+        },
+        {
+          "action_id": "ACT-BARAKOVIC-PROGRAM-RECOMMENDATIONS-004",
+          "action_text": "Use antivirus or anti-malware tools.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-002"
+          ]
+        },
+        {
+          "action_id": "ACT-BARAKOVIC-PROGRAM-RECOMMENDATIONS-005",
+          "action_text": "Manage complex passwords.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-002"
+          ]
+        },
+        {
+          "action_id": "ACT-BARAKOVIC-PROGRAM-RECOMMENDATIONS-006",
+          "action_text": "Use multifactor authentication.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-002"
+          ]
+        },
+        {
+          "action_id": "ACT-BARAKOVIC-PROGRAM-RECOMMENDATIONS-007",
+          "action_text": "Back up data regularly.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-002"
+          ]
+        },
+        {
+          "action_id": "ACT-BARAKOVIC-PROGRAM-RECOMMENDATIONS-008",
+          "action_text": "Avoid suspicious sites and email attachments.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-002"
+          ]
+        },
+        {
+          "action_id": "ACT-BARAKOVIC-PROGRAM-RECOMMENDATIONS-009",
+          "action_text": "Make cyber hygiene part of routine behavior.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-002"
+          ]
+        },
+        {
+          "action_id": "ACT-BARAKOVIC-PROGRAM-RECOMMENDATIONS-010",
+          "action_text": "Use educational training and programs to increase cyber hygiene knowledge, develop attitudes toward cybersecurity threats, convert awareness into behavioral practices, and share good cyber hygiene practices.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-003"
+          ]
+        },
+        {
+          "action_id": "ACT-BARAKOVIC-PROGRAM-RECOMMENDATIONS-011",
+          "action_text": "Design cyber hygiene programs to be gender-aware so both sexes have the opportunity to gain the same cybersecurity knowledge and awareness levels.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-PROGRAM-RECOMMENDATIONS-004"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -6636,7 +7248,7 @@
           "SRC-BARAKOVIC-2023"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite Baraković and Baraković Husić (2023), page 22, Section 6 Conclusion, paragraph 5, where practical implications and cyber hygiene program recommendations are listed."
+        "minimum_traceability_requirement": "The answer should cite Baraković and Baraković Husić and should be traceable to page 22, Section 6 Conclusion, paragraph 5, where practical implications and cyber hygiene program recommendations are listed. Claims about proactive measures should cite the proactive-measures sentence. Claims about education, training, knowledge, attitudes, awareness-to-behavior conversion, and sharing good practices should cite the educational-programs sentence. Claims about gender-aware programs should cite the gender-aware program sentence and should not be generalized into different security standards for different groups."
       },
       "agent_answer_guidance": {
         "answer_style": "program_guidance",
@@ -6657,7 +7269,10 @@
           "These recommendations alone eliminate cyber threats",
           "Gender-aware programs mean different security standards for men and women",
           "Awareness automatically converts into behavior without training or support",
-          "The recommendations are validated for all populations globally"
+          "The recommendations are validated for all populations globally",
+          "This KU proves that each listed proactive measure prevents a specific named threat",
+          "This KU directly supports privacy-exposure mitigation beyond the broad goal of protecting from cyber threats",
+          "The Bosnia and Herzegovina program recommendation is automatically universal for every organization or individual"
         ]
       }
     },
@@ -6668,22 +7283,66 @@
       "threat_ids": [
         "THR-RANSOMWARE",
         "THR-MALWARE-INFECTION",
-        "THR-DATA-LOSS",
-        "THR-PRIVACY-EXPOSURE"
+        "THR-DATA-LOSS"
       ],
       "practice_ids": [
-        "PRA-BACKUP-FILES",
         "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS",
         "PRA-CHECK-DEVICE-UPDATES",
-        "PRA-UPDATE-PROTECTION-SOFTWARE"
+        "PRA-AVOID-SUSPICIOUS-SITES",
+        "PRA-USE-SAFE-DOWNLOAD-LINKS"
       ],
-      "claim": "Ransomware is a type of malware that restricts access to a victim's system or data until a ransom is paid, commonly through cryptographic ransomware that encrypts files or locker ransomware that blocks system access.",
-      "explanation": "Oz et al. define ransomware as malware that prevents or limits users from accessing their system or data until a ransom is paid. They classify ransomware into cryptographic ransomware, which encrypts victim files and demands payment for decryption, and locker ransomware, which prevents access to a system without necessarily encrypting data. They also describe ransomware attacks as involving phases such as infection, possible command-and-control communication, destruction through encryption or locking, and extortion through ransom instructions.",
+      "claim": "Ransomware is a subset of malware that prevents or limits access to a victim's system or data until a ransom is paid. Oz et al. classify ransomware into cryptographic ransomware, which encrypts files, and locker ransomware, which blocks access to a system without necessarily encrypting data.",
+      "explanation": "This KU defines ransomware and explains its main taxonomy and infection-vector context. Oz et al. define ransomware as malware that prevents or limits users from accessing their system or data until a ransom is paid. They classify ransomware into cryptographic ransomware, which encrypts victim files and demands payment for decryption, and locker ransomware, which prevents access to a system without necessarily encrypting user data. They also describe ransomware attack phases as infection, possible command-and-control communication, destruction, and extortion, and list infection vectors including malicious emails, SMS or instant messages, malicious applications, drive-by downloads, and vulnerabilities. This KU should be used for ransomware definition, taxonomy, phases, and infection-vector awareness, not as direct support for backup or recovery guidance.",
       "recommended_actions": [
-        "Treat ransomware as a malware threat that can affect access to systems or data.",
-        "Recognize that ransomware may encrypt files, lock systems, or combine extortion with data theft.",
-        "Be cautious with common ransomware infection vectors such as malicious emails, malicious links, drive-by downloads, malicious applications, and exploited vulnerabilities.",
-        "Use backups and timely security updates as part of ransomware risk reduction and recovery planning."
+        {
+          "action_id": "ACT-OZ-RANSOMWARE-DEFINITION-001",
+          "action_text": "Treat ransomware as a malware threat that can prevent or limit access to systems or data until a ransom is paid.",
+          "evidence_ids": [
+            "EVID-OZ-RANSOMWARE-DEFINITION-001"
+          ]
+        },
+        {
+          "action_id": "ACT-OZ-RANSOMWARE-DEFINITION-002",
+          "action_text": "Distinguish cryptographic ransomware, which encrypts victim files, from locker ransomware, which locks access to a system without necessarily encrypting user data.",
+          "evidence_ids": [
+            "EVID-OZ-RANSOMWARE-TYPES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-OZ-RANSOMWARE-DEFINITION-003",
+          "action_text": "Explain ransomware attacks through phases such as infection, possible command-and-control communication, destruction, and extortion.",
+          "evidence_ids": [
+            "EVID-OZ-RANSOMWARE-PHASES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-OZ-RANSOMWARE-DEFINITION-004",
+          "action_text": "Be cautious with ransomware infection vectors such as malicious emails, SMS or instant messages, malicious applications, drive-by downloads, and vulnerabilities.",
+          "evidence_ids": [
+            "EVID-OZ-RANSOMWARE-INFECTION-VECTORS-001"
+          ]
+        },
+        {
+          "action_id": "ACT-OZ-RANSOMWARE-DEFINITION-005",
+          "action_text": "Treat email attachments and links as possible ransomware infection vectors when they are malicious.",
+          "evidence_ids": [
+            "EVID-OZ-RANSOMWARE-INFECTION-VECTORS-001"
+          ]
+        },
+        {
+          "action_id": "ACT-OZ-RANSOMWARE-DEFINITION-006",
+          "action_text": "Avoid malicious applications, suspicious downloads, infected websites, malicious advertisements, and malicious links that may trigger ransomware installation.",
+          "evidence_ids": [
+            "EVID-OZ-RANSOMWARE-INFECTION-VECTORS-001"
+          ]
+        },
+        {
+          "action_id": "ACT-OZ-RANSOMWARE-DEFINITION-007",
+          "action_text": "Reduce exposure to ransomware infection vectors that exploit operating-system, browser, or software vulnerabilities.",
+          "evidence_ids": [
+            "EVID-OZ-RANSOMWARE-INFECTION-VECTORS-001"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -6787,7 +7446,7 @@
           "SRC-OZ-2022"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite Oz et al. (2022), especially page 4, Section 3, where ransomware is defined and classified, and page 9, Section 4.2, where infection vectors are listed."
+        "minimum_traceability_requirement": "The answer should cite Oz et al. Claims about ransomware definition should be traceable to page 4, Section 3, paragraph 2. Claims about cryptographic ransomware and locker ransomware should be traceable to page 4, Section 3, paragraphs 3 and 4. Claims about ransomware attack phases should be traceable to page 5, Section 3, paragraph 1. Claims about infection vectors should be traceable to page 9, Section 4.2. This KU should not be used as direct support for backup or recovery guidance unless separate backup/recovery evidence is retrieved."
       },
       "agent_answer_guidance": {
         "answer_style": "definition_with_explanation",
@@ -6797,43 +7456,91 @@
           "ransomware demands payment",
           "cryptographic ransomware encrypts files",
           "locker ransomware locks system access",
-          "infection vectors include malicious emails, malicious applications, drive-by downloads, and vulnerabilities"
+          "infection vectors include malicious emails, SMS or instant messages, malicious applications, drive-by downloads, and vulnerabilities"
         ],
         "avoid_claims": [
           "All ransomware encrypts files",
           "Locker ransomware always encrypts user data",
           "Ransomware only targets individuals",
           "Ransomware only spreads through email",
-          "Paying ransom guarantees recovery"
+          "Paying ransom guarantees recovery",
+          "This KU directly supports backup guidance",
+          "This KU directly supports antivirus or protection-software update guidance",
+          "All ransomware involves data theft or privacy exposure",
+          "Ransomware infection vectors are limited to the examples in this KU",
+          "Avoiding malicious links alone fully prevents ransomware"
         ]
       }
     },
     {
       "id": "KU-OZ-RANSOMWARE-DEFENSE-RECOVERY-001",
-      "title": "Ransomware defense depends on prevention, detection, and recovery planning",
+      "title": "Ransomware defense includes recovery mechanisms, timely patching, and training about infection vectors",
       "category_id": "CAT-STORAGE-DEVICE",
       "threat_ids": [
         "THR-RANSOMWARE",
         "THR-DATA-LOSS",
         "THR-UNPATCHED-SOFTWARE",
         "THR-MALWARE-INFECTION",
-        "THR-PHISHING"
+        "THR-USER-NONCOMPLIANCE"
       ],
       "practice_ids": [
         "PRA-BACKUP-FILES",
         "PRA-CHECK-DEVICE-UPDATES",
-        "PRA-UPDATE-PROTECTION-SOFTWARE",
-        "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS",
-        "PRA-CONDUCT-SECURITY-SCANS"
+        "PRA-CYBERSECURITY-TRAINING"
       ],
-      "claim": "Ransomware defense should combine prevention, detection, and recovery planning, because ransomware can infect systems through multiple vectors, restrict access to files or systems, and require recovery mechanisms such as key recovery, hardware-based recovery, cloud backup recovery, or external-storage backups.",
-      "explanation": "Oz et al. organize ransomware defense research around analysis, detection, recovery, and other defense mechanisms. They describe ransomware recovery for PCs/workstations through three main categories: recovery of keys, recovery of files via hardware, and recovery of files via cloud backup. For mobile devices, they also mention recovery approaches involving flash-memory behavior analysis and periodic backups to external storage. Oz et al. further identify delayed upgrades or critical software patches and security-unaware end-users as major factors behind ransomware success. This supports treating backups, patching, awareness of infection vectors, and detection/recovery planning as complementary parts of ransomware risk reduction.",
+      "claim": "Oz et al. describe ransomware defense and recovery as involving recovery mechanisms such as key recovery, hardware-based file recovery, cloud backup-based recovery, and mobile-device recovery approaches, while also emphasizing timely upgrades or security-related software patches and end-user training about ransomware infection vectors.",
+      "explanation": "This KU covers ransomware recovery and selected defense-related recommendations from Oz et al. For PCs and workstations, Oz et al. describe ransomware recovery as involving key recovery, hardware-based file recovery, or cloud backup-based file recovery. For mobile devices, they discuss recovery approaches involving flash-memory behavior analysis and periodic backups to external storage. Oz et al. also state that it is vital not to delay upgrades or security-related software patches to prevent infection through vulnerabilities, and that end-user security training about ransomware infection vectors is very vital. This supports treating ransomware defense as a combination of recovery planning, timely patching, and user training, while avoiding claims that backups, patching, training, or detection mechanisms alone guarantee protection or recovery.",
       "recommended_actions": [
-        "Maintain backups that can support recovery if ransomware encrypts, destroys, or restricts access to files.",
-        "Do not delay upgrades or security-related software patches.",
-        "Train users to recognize ransomware infection vectors such as malicious emails, malicious links, malicious applications, drive-by downloads, and exploited vulnerabilities.",
-        "Treat ransomware defense as a combination of prevention, detection, and recovery rather than relying on one measure alone.",
-        "Consider recovery planning across relevant device types, including PCs/workstations and mobile devices."
+        {
+          "action_id": "ACT-OZ-RANSOMWARE-DEFENSE-RECOVERY-001",
+          "action_text": "Plan for ransomware recovery using relevant mechanisms such as key recovery, hardware-based file recovery, or cloud backup-based file recovery.",
+          "evidence_ids": [
+            "EVID-OZ-RANSOMWARE-RECOVERY-001",
+            "EVID-OZ-RANSOMWARE-RECOVERY-002",
+            "EVID-OZ-RANSOMWARE-RECOVERY-003",
+            "EVID-OZ-RANSOMWARE-RECOVERY-004"
+          ]
+        },
+        {
+          "action_id": "ACT-OZ-RANSOMWARE-DEFENSE-RECOVERY-002",
+          "action_text": "Use backup-based recovery planning as one ransomware recovery mechanism, while avoiding claims that backups guarantee full recovery.",
+          "evidence_ids": [
+            "EVID-OZ-RANSOMWARE-RECOVERY-004",
+            "EVID-OZ-RANSOMWARE-RECOVERY-005"
+          ]
+        },
+        {
+          "action_id": "ACT-OZ-RANSOMWARE-DEFENSE-RECOVERY-003",
+          "action_text": "For mobile devices, consider ransomware recovery approaches that include external-storage backups where relevant.",
+          "evidence_ids": [
+            "EVID-OZ-RANSOMWARE-RECOVERY-005"
+          ]
+        },
+        {
+          "action_id": "ACT-OZ-RANSOMWARE-DEFENSE-RECOVERY-004",
+          "action_text": "Do not delay upgrades or security-related software patches that address vulnerabilities ransomware may exploit.",
+          "evidence_ids": [
+            "EVID-OZ-RANSOMWARE-PATCHING-001"
+          ]
+        },
+        {
+          "action_id": "ACT-OZ-RANSOMWARE-DEFENSE-RECOVERY-005",
+          "action_text": "Train end-users about ransomware infection vectors.",
+          "evidence_ids": [
+            "EVID-OZ-RANSOMWARE-AWARENESS-001"
+          ]
+        },
+        {
+          "action_id": "ACT-OZ-RANSOMWARE-DEFENSE-RECOVERY-006",
+          "action_text": "Treat ransomware defense as a combination of recovery planning, timely patching, and user training rather than relying on one measure alone.",
+          "evidence_ids": [
+            "EVID-OZ-RANSOMWARE-RECOVERY-001",
+            "EVID-OZ-RANSOMWARE-RECOVERY-004",
+            "EVID-OZ-RANSOMWARE-RECOVERY-005",
+            "EVID-OZ-RANSOMWARE-PATCHING-001",
+            "EVID-OZ-RANSOMWARE-AWARENESS-001"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -6866,7 +7573,7 @@
           "source_id": "SRC-OZ-2022",
           "citation_key": "oz_survey_2022",
           "support_type": "direct",
-          "exact_supporting_text": "Recovery of Keys: Kolodenker et al. proposed PayBreak - a key-escrow mechanism that intends to capture encryption key(s) by hooking the cryptography APIs and decrypt the victim files. ", 
+          "exact_supporting_text": "Recovery of Keys: Kolodenker et al. proposed PayBreak - a key-escrow mechanism that intends to capture encryption key(s) by hooking the cryptography APIs and decrypt the victim files. ",
           "page": 26,
           "section": "5.3.1 Ransomware Recovery for PCs/Workstations",
           "paragraph": "5",
@@ -6896,7 +7603,7 @@
           "source_id": "SRC-OZ-2022",
           "citation_key": "oz_survey_2022",
           "support_type": "direct",
-          "exact_supporting_text": "Recovery of Files via Cloud Backup: Some of the recovery mechanisms in the literature aimed to recover files utilizing cloud environment for backup purposes. Yun et al. proposed a backup system named CLDSafe that is deployed on the cloud. ", 
+          "exact_supporting_text": "Recovery of Files via Cloud Backup: Some of the recovery mechanisms in the literature aimed to recover files utilizing cloud environment for backup purposes. Yun et al. proposed a backup system named CLDSafe that is deployed on the cloud. ",
           "page": 26,
           "section": "5.3.1 Ransomware Recovery for PCs/Workstations",
           "paragraph": "7",
@@ -6911,7 +7618,7 @@
           "source_id": "SRC-OZ-2022",
           "citation_key": "oz_survey_2022",
           "support_type": "direct",
-          "exact_supporting_text": "Ransomware Recovery for Mobile Devices. Considering the recovery solutions for mobile devices to enable data recovery from ransomware attacks, there exist only two studies... a recovery-based ransomware defense strategy for mobile devices that are equipped with flash memory as external storage. It collects the access behaviors of ransomware samples and applies K-mean clustering to identify the unique access patterns to the Flash Transaction Layer. In [59] Yalew et al. aimed to recover from ransomware by periodically performing backups to an external storage.", 
+          "exact_supporting_text": "Ransomware Recovery for Mobile Devices. Considering the recovery solutions for mobile devices to enable data recovery from ransomware attacks, there exist only two studies... a recovery-based ransomware defense strategy for mobile devices that are equipped with flash memory as external storage. It collects the access behaviors of ransomware samples and applies K-mean clustering to identify the unique access patterns to the Flash Transaction Layer. In [59] Yalew et al. aimed to recover from ransomware by periodically performing backups to an external storage.",
           "page": 26,
           "section": "5.3.2 Ransomware Recovery for Mobile Devices.",
           "paragraph": "8",
@@ -6984,14 +7691,14 @@
           "SRC-OZ-2022"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite Oz et al. (2022), especially page 26, Section 5.3.1 for ransomware recovery mechanisms and page 29, Section 6 for patching and end-user awareness as success factors."
+        "minimum_traceability_requirement": "The answer should cite Oz et al. Claims about ransomware recovery mechanisms for PCs/workstations should be traceable to page 26, Section 5.3.1. Claims about cloud backup-based recovery should be traceable to page 26, Section 5.3.1, paragraph 7. Claims about mobile-device recovery and external-storage backups should be traceable to page 26, Section 5.3.2. Claims about not delaying upgrades or security-related software patches should be traceable to page 29, Section 6, paragraph 2. Claims about end-user training should be traceable to page 29, Section 6, paragraph 3. This KU should not claim that backups, patching, training, detection mechanisms, or any single measure fully prevents ransomware or guarantees recovery."
       },
       "agent_answer_guidance": {
         "answer_style": "practical_advice_with_explanation",
         "must_include": [
           "recovery can involve key recovery, hardware-based recovery, or cloud backup recovery",
           "backups can support file recovery",
-          "delayed upgrades or critical software patches can contribute to ransomware success",
+          "do not delay upgrades or security-related software patches",
           "end-user training about ransomware infection vectors is important",
           "defense should not rely on one measure alone"
         ],
@@ -7001,13 +7708,17 @@
           "Security awareness alone prevents ransomware",
           "Patching eliminates all ransomware risk",
           "Detection tools always detect ransomware",
-          "Paying the ransom guarantees file recovery"
+          "Paying the ransom guarantees file recovery",
+          "This KU directly lists specific ransomware infection vectors",
+          "This KU proves antivirus or protection-software updates directly prevent ransomware",
+          "This KU proves security scans detect all ransomware",
+          "This KU is validation-clean while the dangling backup-recovery evidence ID remains unresolved"
         ]
       }
     },
     {
       "id": "KU-AZEEM-MALWARE-TYPES-DETECTION-LIMITATIONS-001",
-      "title": "Malware appears in multiple forms and cannot be handled by signature-based detection alone",
+      "title": "Malware appears in multiple forms and detection strategies can be signature-based or behavior-based",
       "category_id": "CAT-STORAGE-DEVICE",
       "threat_ids": [
         "THR-MALWARE-INFECTION",
@@ -7016,21 +7727,31 @@
         "THR-UNAUTHORIZED-ACCESS",
         "THR-PRIVACY-EXPOSURE"
       ],
-      "practice_ids": [
-        "PRA-CONDUCT-SECURITY-SCANS",
-        "PRA-UPDATE-ANTIVIRUS",
-        "PRA-UPDATE-PROTECTION-SOFTWARE",
-        "PRA-CHECK-DEVICE-UPDATES",
-        "PRA-MONITOR-DEVICE-ACTIVITY"
-      ],
-      "claim": "Malware is malicious software that can monitor activity, gain access to systems, or gather critical information, and it appears in multiple forms such as trojans, viruses, worms, spyware, rootkits, botnets, crimeware, and adware.",
-      "explanation": "Azeem et al. describe malware as a significant internet security threat and define it as software used to monitor machine activity, obtain access to a computer system, or gather critical information. They list several malware classes, including trojans, viruses, worms, spyware, rootkits, botnets, crimeware, and adware. They also explain that traditional signature-based detection can be evaded, especially by polymorphic malware, and distinguish signature-based and behavior-based antivirus strategies.",
+      "practice_ids": [],
+      "claim": "Malware is software that can monitor machine activity, obtain access to a computer system, or gather critical information, and Azeem et al. list malware classes including trojans, viruses, worms, spyware, rootkits, botnets, crimeware, and adware.",
+      "explanation": "This KU explains malware as a broad threat category and summarizes Azeem et al.'s malware classes and detection-strategy distinction. Azeem et al. define malware as software used to monitor machine activities, obtain access to a computer system, or gather critical information. They also list malware classes including trojans, viruses, worms, spyware, rootkits, botnets, crimeware, and adware. Their related-work section distinguishes two main antiviral strategy types: signature-based and behavior-based. Because the provided evidence list does not include the missing signature-evasion evidence object, this KU should not be used to support claims that signature-based detection can be evaded until that evidence is added or repaired.",
       "recommended_actions": [
-        "Treat malware as a broad threat category rather than a single type of attack.",
-        "Use security scans and antivirus or anti-malware tools as part of storage and device hygiene.",
-        "Keep protection software and device software updated because malware evolves and detection methods can be bypassed.",
-        "Do not rely only on signature-based detection or antivirus software as a complete defense.",
-        "Monitor device activity for suspicious behavior as part of broader malware awareness."
+        {
+          "action_id": "ACT-AZEEM-MALWARE-001",
+          "action_text": "Treat malware as software that can monitor machine activity, obtain system access, or gather critical information.",
+          "evidence_ids": [
+            "EVID-AZEEM-MALWARE-DEFINITION-001"
+          ]
+        },
+        {
+          "action_id": "ACT-AZEEM-MALWARE-002",
+          "action_text": "Treat malware as a broad category that includes multiple classes such as trojans, viruses, worms, spyware, rootkits, botnets, crimeware, and adware.",
+          "evidence_ids": [
+            "EVID-AZEEM-MALWARE-TYPES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-AZEEM-MALWARE-003",
+          "action_text": "Distinguish signature-based and behavior-based antiviral strategies when explaining malware detection approaches.",
+          "evidence_ids": [
+            "EVID-AZEEM-MALWARE-DETECTION-TYPES-001"
+          ]
+        }
       ],
       "evidence_strength": "medium",
       "question_templates": [
@@ -7120,7 +7841,7 @@
           "SRC-AZEEM-2024"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite Azeem et al. (2024), especially page 2 for the malware definition and malware classes, page 3 for signature-based evasion, and page 7 for signature-based and behavior-based antivirus strategies."
+        "minimum_traceability_requirement": "The answer should cite Azeem et al. Claims about the malware definition should be traceable to page 2, Introduction, paragraph 2. Claims about malware classes should be traceable to page 2, Introduction, paragraph 3. Claims about signature-based and behavior-based antiviral strategies should be traceable to page 7, Related work, paragraph 5. Claims about signature evasion or polymorphic malware must not be used until the missing EVID-AZEEM-MALWARE-SIGNATURE-EVASION-001 evidence object is added or the dangling validity fact is repaired."
       },
       "agent_answer_guidance": {
         "answer_style": "definition_with_practical_implications",
@@ -7128,9 +7849,7 @@
           "malware can monitor activity, gain system access, or gather critical information",
           "malware appears in multiple forms",
           "examples include trojans, viruses, worms, spyware, rootkits, botnets, crimeware, and adware",
-          "signature-based detection can be evaded",
-          "behavior-based detection is another detection strategy",
-          "antivirus alone should not be presented as a complete defense"
+          "signature-based and behavior-based antiviral strategies are different detection approaches"
         ],
         "avoid_claims": [
           "Antivirus software alone fully prevents malware",
@@ -7138,7 +7857,11 @@
           "All malware behaves the same way",
           "Polymorphic malware is impossible to detect",
           "Machine learning malware detection guarantees perfect security",
-          "The accuracy results from Azeem et al. apply to all real-world malware detection systems"
+          "The accuracy results from Azeem et al. apply to all real-world malware detection systems",
+          "This KU directly supports user advice to update antivirus or protection software",
+          "This KU directly supports user advice to conduct security scans",
+          "This KU directly supports user advice to monitor device activity",
+          "This KU is validation-clean while EVID-AZEEM-MALWARE-SIGNATURE-EVASION-001 is missing"
         ]
       }
     },
@@ -7149,30 +7872,41 @@
       "threat_ids": [
         "THR-MALWARE-INFECTION",
         "THR-MALICIOUS-CODE",
-        "THR-WEB-BASED-ATTACK",
-        "THR-PHISHING",
-        "THR-BOTNET",
-        "THR-UNAUTHORIZED-ACCESS",
         "THR-PRIVACY-EXPOSURE",
         "THR-DATA-LOSS"
       ],
-      "practice_ids": [
-        "PRA-CONDUCT-SECURITY-SCANS",
-        "PRA-UPDATE-ANTIVIRUS",
-        "PRA-UPDATE-PROTECTION-SOFTWARE",
-        "PRA-CHECK-DEVICE-UPDATES",
-        "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS",
-        "PRA-MONITOR-DEVICE-ACTIVITY",
-        "PRA-BACKUP-FILES"
-      ],
-      "claim": "Malware, also known as malicious code, is covertly inserted software intended to destroy data, run destructive or intrusive programs, or compromise the confidentiality, integrity, or availability of data, applications, or operating systems.",
-      "explanation": "NIST describes malware as a major external threat to hosts and provides classic malware categories such as viruses, worms, Trojan horses, malicious mobile code, and blended attacks. NIST also notes that modern malware often combines characteristics, relies heavily on social engineering, and may include web-based malware, phishing overlap, stealthy behavior, attacker tools, and advanced persistent threats.",
+      "practice_ids": [],
+      "claim": "NIST defines malware, also known as malicious code, as covertly inserted software intended to destroy data, run destructive or intrusive programs, or compromise the confidentiality, integrity, or availability of data, applications, or operating systems.",
+      "explanation": "This KU provides a definition-focused NIST malware node. NIST defines malware, also known as malicious code, as a covertly inserted program intended to destroy data, run destructive or intrusive programs, or otherwise compromise the confidentiality, integrity, or availability of a victim's data, applications, or operating system. NIST also lists classic malware categories including viruses, worms, Trojan horses, malicious mobile code, and blended attacks, and defines Trojan horses as self-contained, nonreplicating programs that appear benign while having a hidden malicious purpose. NIST further notes that modern malware often combines characteristics, making classic categories less useful for malware incident handling than they once were. This KU should be used for malware definition and forms, not as direct support for specific prevention practices such as backups, scans, updates, or email-link checking.",
       "recommended_actions": [
-        "Treat malware as a broad threat category rather than a single type of attack.",
-        "Use security scans, antivirus or anti-malware tools, software updates, and monitoring as part of device hygiene.",
-        "Be cautious with suspicious emails, attachments, links, websites, downloads, and unexpected files.",
-        "Do not assume that antivirus software alone can stop all malware.",
-        "Maintain backups because some malware incidents may require restoring data or rebuilding compromised hosts."
+        {
+          "action_id": "ACT-NIST-MALWARE-DEFINITION-001",
+          "action_text": "Define malware as malicious code that can destroy data, run destructive or intrusive programs, or compromise confidentiality, integrity, or availability.",
+          "evidence_ids": [
+            "EVID-NIST-MALWARE-DEFINITION-001"
+          ]
+        },
+        {
+          "action_id": "ACT-NIST-MALWARE-DEFINITION-002",
+          "action_text": "Explain that classic malware categories include viruses, worms, Trojan horses, malicious mobile code, and blended attacks.",
+          "evidence_ids": [
+            "EVID-NIST-MALWARE-CLASSIC-CATEGORIES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-NIST-MALWARE-DEFINITION-003",
+          "action_text": "Define a Trojan horse as self-contained and nonreplicating while appearing benign and having a hidden malicious purpose.",
+          "evidence_ids": [
+            "EVID-NIST-MALWARE-TROJAN-001"
+          ]
+        },
+        {
+          "action_id": "ACT-NIST-MALWARE-DEFINITION-004",
+          "action_text": "Avoid treating classic malware categories as perfectly clean categories, because modern malware may combine multiple characteristics.",
+          "evidence_ids": [
+            "EVID-NIST-MALWARE-MODERN-CATEGORIES-LIMITATION-001"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -7271,7 +8005,7 @@
           "SRC-NIST-800-83R1-2013"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite NIST SP 800-83 Rev. 1, page 2, Section 2 for the malware definition and page 2, Section 2.1 for classic malware categories."
+        "minimum_traceability_requirement": "The answer should cite NIST SP 800-83 Rev. 1. Claims about the malware definition should be traceable to page 13, Section 2, paragraph 1. Claims about classic malware categories should be traceable to page 13, Section 2.1, paragraph 3. Claims about Trojan horses should be traceable to page 13, Section 2.1, paragraph 10. Claims about modern malware combining characteristics and classic categories being less useful should be traceable to page 14, Section 2.1, paragraph 3."
       },
       "agent_answer_guidance": {
         "answer_style": "definition_with_explanation",
@@ -7287,7 +8021,12 @@
           "Trojan horses self-replicate like viruses or worms",
           "All malware is easy to notice",
           "Malware only causes data loss",
-          "Azeem et al.'s individual malware subtype definitions should override NIST definitions"
+          "Azeem et al.'s individual malware subtype definitions should override NIST definitions",
+          "This KU directly supports advice to run security scans",
+          "This KU directly supports advice to update antivirus or protection software",
+          "This KU directly supports advice to check email links and attachments",
+          "This KU directly supports backup guidance",
+          "Classic malware categories are sufficient for all modern malware incident handling"
         ]
       }
     },
@@ -7299,31 +8038,81 @@
         "THR-MALWARE-INFECTION",
         "THR-MALICIOUS-CODE",
         "THR-WEB-BASED-ATTACK",
-        "THR-PHISHING",
         "THR-UNPATCHED-SOFTWARE",
         "THR-USER-NONCOMPLIANCE"
       ],
       "practice_ids": [
-        "PRA-UPDATE-ANTIVIRUS",
-        "PRA-UPDATE-PROTECTION-SOFTWARE",
-        "PRA-CONDUCT-SECURITY-SCANS",
-        "PRA-CHECK-DEVICE-UPDATES",
         "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS",
-        "PRA-ENABLE-FIREWALLS",
         "PRA-AVOID-UNTRUSTED-DOWNLOADS",
-        "PRA-AVOID-ADMIN-ACCOUNTS-FOR-REGULAR-USE",
-        "PRA-BACKUP-FILES"
+        "PRA-AVOID-ADMIN-ACCOUNTS-FOR-REGULAR-USE"
       ],
-      "claim": "Malware prevention should use layered controls, including policy, awareness, vulnerability mitigation, threat mitigation tools, and defensive architecture, because no single method prevents all malware incidents.",
-      "explanation": "NIST presents malware prevention as a layered approach. It identifies policy, awareness, vulnerability mitigation, threat mitigation, and defensive architecture as main prevention elements. NIST also states that organizations should be aware that malware incidents will still occur despite prevention efforts, including because of unknown threats and human error. This supports cyber hygiene guidance that combines technical controls, user awareness, patching, scanning, email/link caution, and recovery planning.",
+      "claim": "NIST frames malware prevention as a layered effort involving policy, awareness, vulnerability mitigation, threat mitigation, and defensive architecture, while noting that malware incidents can still occur despite prevention efforts.",
+      "explanation": "This KU explains NIST's layered approach to malware prevention. NIST identifies policy, awareness, vulnerability mitigation, threat mitigation, and defensive architecture as the main prevention elements. NIST also warns that malware incidents will still occur despite prevention efforts, including because of previously unknown threats and human error. The awareness guidance includes avoiding suspicious emails, attachments, hyperlinks, suspicious popups, files commonly associated with malware, untrusted applications, disabled malware security controls, and administrator-level accounts for regular host operation. This KU should support layered malware-prevention advice without claiming that any single control, including antivirus, awareness, patching, or user caution, fully prevents malware.",
       "recommended_actions": [
-        "Use layered malware prevention rather than relying on one tool.",
-        "Keep operating systems, applications, antivirus software, and other protection software updated.",
-        "Avoid suspicious emails, attachments, hyperlinks, popup windows, untrusted downloads, and files commonly associated with malware.",
-        "Do not disable security controls such as antivirus software, content filtering, reputation software, or personal firewalls.",
-        "Avoid using administrator-level accounts for regular host operation.",
-        "Use firewalls, content filtering, application controls, and other technical controls where appropriate.",
-        "Maintain backups and incident handling plans because malware incidents can still occur."
+        {
+          "action_id": "ACT-NIST-MALWARE-LAYERED-PREVENTION-001",
+          "action_text": "Use layered malware prevention rather than relying on one defensive tool or method.",
+          "evidence_ids": [
+            "EVID-NIST-MALWARE-PREVENTION-LAYERS-001",
+            "EVID-NIST-MALWARE-PREVENTION-NOT-FOOLPROOF-001"
+          ]
+        },
+        {
+          "action_id": "ACT-NIST-MALWARE-LAYERED-PREVENTION-002",
+          "action_text": "Include policy, awareness, vulnerability mitigation, threat mitigation, and defensive architecture as malware prevention elements.",
+          "evidence_ids": [
+            "EVID-NIST-MALWARE-PREVENTION-LAYERS-001"
+          ]
+        },
+        {
+          "action_id": "ACT-NIST-MALWARE-LAYERED-PREVENTION-003",
+          "action_text": "Do not assume malware prevention efforts will stop every malware incident.",
+          "evidence_ids": [
+            "EVID-NIST-MALWARE-PREVENTION-NOT-FOOLPROOF-001"
+          ]
+        },
+        {
+          "action_id": "ACT-NIST-MALWARE-LAYERED-PREVENTION-004",
+          "action_text": "Avoid opening suspicious emails, email attachments, or hyperlinks from unknown or known senders.",
+          "evidence_ids": [
+            "EVID-NIST-MALWARE-AWARENESS-PRACTICES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-NIST-MALWARE-LAYERED-PREVENTION-005",
+          "action_text": "Avoid visiting websites likely to contain malicious content and avoid clicking suspicious web browser popup windows.",
+          "evidence_ids": [
+            "EVID-NIST-MALWARE-AWARENESS-PRACTICES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-NIST-MALWARE-LAYERED-PREVENTION-006",
+          "action_text": "Avoid opening files with extensions likely to be associated with malware.",
+          "evidence_ids": [
+            "EVID-NIST-MALWARE-AWARENESS-PRACTICES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-NIST-MALWARE-LAYERED-PREVENTION-007",
+          "action_text": "Do not disable malware security control mechanisms.",
+          "evidence_ids": [
+            "EVID-NIST-MALWARE-AWARENESS-PRACTICES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-NIST-MALWARE-LAYERED-PREVENTION-008",
+          "action_text": "Avoid using administrator-level accounts for regular host operation.",
+          "evidence_ids": [
+            "EVID-NIST-MALWARE-AWARENESS-PRACTICES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-NIST-MALWARE-LAYERED-PREVENTION-009",
+          "action_text": "Avoid downloading or executing applications from untrusted sources.",
+          "evidence_ids": [
+            "EVID-NIST-MALWARE-AWARENESS-PRACTICES-001"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -7401,16 +8190,16 @@
           "SRC-NIST-800-83R1-2013"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite NIST SP 800-83 Rev. 1, page 6, Section 3 for layered malware prevention and page 7, Section 3.2 for user awareness practices."
+        "minimum_traceability_requirement": "The answer should cite NIST SP 800-83 Rev. 1. Claims about layered malware prevention should be traceable to page 17, Section 3, paragraphs 1–2. Claims about user awareness practices should be traceable to page 7, Section 3.2, paragraph 9. This KU should not be used as direct support for backups, antivirus updates, security scans, firewall configuration, or specific patching advice unless additional direct evidence for those practices is present."
       },
       "agent_answer_guidance": {
         "answer_style": "practical_advice_with_explanation",
         "must_include": [
           "malware prevention should be layered",
           "policy, awareness, vulnerability mitigation, threat mitigation, and defensive architecture are prevention elements",
-          "technical controls do not prevent all incidents",
+          "prevention efforts do not stop all incidents",
           "avoid suspicious emails, attachments, links, popups, and untrusted downloads",
-          "do not disable security controls",
+          "do not disable malware security controls",
           "avoid administrator-level accounts for regular use"
         ],
         "avoid_claims": [
@@ -7418,7 +8207,12 @@
           "User awareness alone is enough to prevent malware",
           "Patching eliminates all malware risk",
           "No malware incident will occur if layered controls are used",
-          "Administrator accounts are safe for routine use"
+          "Administrator accounts are safe for routine use",
+          "This KU directly supports backup guidance",
+          "This KU directly supports antivirus update guidance",
+          "This KU directly supports security scan guidance",
+          "This KU directly supports firewall configuration guidance",
+          "This KU proves that avoiding suspicious emails and downloads fully prevents malware"
         ]
       }
     },
@@ -7432,19 +8226,46 @@
       ],
       "practice_ids": [
         "PRA-UPDATE-ANTIVIRUS",
-        "PRA-UPDATE-PROTECTION-SOFTWARE",
-        "PRA-CONDUCT-SECURITY-SCANS",
-        "PRA-VIRUS-SCAN-STORAGE",
-        "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS"
+        "PRA-UPDATE-PROTECTION-SOFTWARE"
       ],
-      "claim": "Antivirus software is an important malware mitigation control, but it cannot stop all malware, especially unknown or highly customized threats.",
-      "explanation": "NIST describes antivirus software as the most commonly used technical control for malware threat mitigation and recommends capabilities such as scanning startup files, boot records, email attachments, downloaded/opened/executed files, removable media, and known malware. However, NIST also states that antivirus software cannot stop all malware incidents and is less effective against previously unknown or highly customized malware.",
+      "claim": "NIST describes antivirus software as a common technical control for malware threat mitigation, but states that antivirus software cannot stop all malware incidents.",
+      "explanation": "This KU explains the role and limitation of antivirus software in malware mitigation. NIST describes antivirus software as the most commonly used technical control for malware threat mitigation. NIST also states that antivirus software is most effective when signatures are fully up to date and should be kept current with the latest signature and software updates to improve malware detection. However, NIST also warns that antivirus software cannot stop all malware incidents. This supports using antivirus as part of cyber hygiene while avoiding the claim that antivirus alone is sufficient.",
       "recommended_actions": [
-        "Use antivirus or anti-malware software where available.",
-        "Keep antivirus signatures and software updates current.",
-        "Configure antivirus for real-time/on-access scanning where appropriate.",
-        "Run regular scans and allow manual/on-demand scans when needed.",
-        "Do not rely on antivirus software as the only malware defense."
+        {
+          "action_id": "ACT-NIST-ANTIVIRUS-001",
+          "action_text": "Use antivirus software as a technical control for malware threat mitigation.",
+          "evidence_ids": [
+            "EVID-NIST-ANTIVIRUS-CAPABILITIES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-NIST-ANTIVIRUS-002",
+          "action_text": "Keep antivirus signatures fully up to date.",
+          "evidence_ids": [
+            "EVID-NIST-ANTIVIRUS-UPDATES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-NIST-ANTIVIRUS-003",
+          "action_text": "Keep antivirus software current with the latest signature and software updates to improve malware detection.",
+          "evidence_ids": [
+            "EVID-NIST-ANTIVIRUS-UPDATES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-NIST-ANTIVIRUS-004",
+          "action_text": "Do not rely on antivirus software as the only malware defense.",
+          "evidence_ids": [
+            "EVID-NIST-ANTIVIRUS-LIMITATION-001"
+          ]
+        },
+        {
+          "action_id": "ACT-NIST-ANTIVIRUS-005",
+          "action_text": "Avoid claiming that antivirus software can stop all malware incidents.",
+          "evidence_ids": [
+            "EVID-NIST-ANTIVIRUS-LIMITATION-001"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -7527,22 +8348,25 @@
           "SRC-NIST-800-83R1-2013"
         ],
         "citation_granularity": "paragraph",
-        "minimum_traceability_requirement": "The answer should cite NIST SP 800-83 Rev. 1, page 10-11, Section 3.4.1 for antivirus capabilities, updates, and limitations."
+        "minimum_traceability_requirement": "The answer should cite NIST SP 800-83 Rev. 1. Claims about antivirus software as a technical malware mitigation control should be traceable to page 21, Section 3.4.1, paragraph 4. Claims about keeping antivirus signatures and software updates current should be traceable to page 22, Section 3.4.1, paragraph 2. Claims about antivirus software not stopping all malware incidents should be traceable to page 22, Section 3.4.1, paragraph 5. This KU should not be used as direct support for specific scan targets such as email attachments, removable media, startup files, or storage devices unless additional direct evidence is added."
       },
       "agent_answer_guidance": {
         "answer_style": "practical_advice_with_explanation",
         "must_include": [
           "antivirus is a common malware mitigation control",
           "antivirus should be kept current with signature and software updates",
-          "antivirus can scan files, email attachments, removable media, startup files, and suspicious activity",
           "antivirus cannot stop all malware incidents",
-          "unknown or customized malware can evade signature-based controls"
+          "antivirus should not be presented as the only malware defense"
         ],
         "avoid_claims": [
           "Antivirus software alone is sufficient",
           "Antivirus software detects all malware",
           "Updated antivirus guarantees safety",
-          "Users do not need other cyber hygiene practices if antivirus is installed"
+          "Users do not need other cyber hygiene practices if antivirus is installed",
+          "This KU directly supports scanning email attachments, removable media, startup files, or storage devices unless additional capability evidence is added",
+          "This KU directly supports phishing-link checking guidance",
+          "Unknown or highly customized malware evasion is directly supported by this KU unless additional evidence is added",
+          "Antivirus software should replace layered malware prevention"
         ]
       }
     }

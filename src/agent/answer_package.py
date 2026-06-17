@@ -217,11 +217,13 @@ def _action_texts(ku: dict[str, Any]) -> list[str]:
 
 def _iter_citation_anchors(record: dict[str, Any]):
     """Yield (anchor_text, [evidence_ids]) from a KU's actions and validity_facts."""
-    ku = _first_item(record.get("knowledge_units")) or record
-    for a in _coerce_objs(ku.get("recommended_actions")):
+    ku = _first_item(record.get("knowledge_units"))
+    actions = _coerce_objs(ku.get("recommended_actions")) or _coerce_objs(record.get("recommended_actions"))
+    for a in actions:
         if isinstance(a, dict) and a.get("action_text") and a.get("evidence_ids"):
             yield str(a["action_text"]), list(a["evidence_ids"])
-    for f in _coerce_objs(ku.get("validity_facts")):
+    facts = _coerce_objs(record.get("validity_facts")) or _coerce_objs(ku.get("validity_facts"))
+    for f in facts:
         if isinstance(f, dict) and f.get("fact") and f.get("evidence_id"):
             yield str(f["fact"]), [f["evidence_id"]]
 

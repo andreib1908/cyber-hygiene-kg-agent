@@ -324,7 +324,7 @@ def create_knowledge_unit_base(tx, ku: dict[str, Any]) -> None:
         practice_ids=as_list(ku.get("practice_ids")),
         claim=ku.get("claim"),
         explanation=ku.get("explanation"),
-        recommended_actions=as_list(ku.get("recommended_actions")),
+        recommended_actions=json.dumps(as_list(ku.get("recommended_actions")), ensure_ascii=False),
         evidence_strength=ku.get("evidence_strength"),
     )
 
