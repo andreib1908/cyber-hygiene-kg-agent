@@ -1667,14 +1667,46 @@
       "practice_ids": [
         "PRA-ADDRESS-USER-BEHAVIOR"
       ],
-      "claim": "Cyber hygiene guidance should address individual user behavior, because technical cybersecurity measures alone are insufficient for effective cybersecurity. Individuals with good cyber hygiene follow security best practices and protect their personal information.",
-      "explanation": "Karayel et al. emphasize that noncompliance with security practices is identified as a relevant human-factor concern. Cain et al. (2018) state that individuals with good cyber hygiene follow security best practices and protect their personal information.",
+      "claim": "Cyber hygiene guidance should address individual user behavior as well as technical cybersecurity measures, because cybersecurity investments and measures alone are insufficient. Good cyber hygiene involves following security best practices and protecting personal information.",
+      "explanation": "This KU explains why cyber hygiene guidance should not be treated as only a technical-control issue. Karayel et al. identify cybersecurity investments and measures alone as insufficient, describe human factors as a weak link, and mention noncompliance with security practices as a human-factor concern. Cain et al. add that individuals with good cyber hygiene follow security best practices and protect their personal information, while users may lack understanding of necessary cybersecurity actions.",
       "recommended_actions": [
-        "Address user behavior when designing cyber hygiene guidance.",
-        "Address noncompliance with security practices as part of cyber hygiene guidance.",
-        "Combine technical cybersecurity measures with attention to individual security behavior.",
-        "Recognize noncompliance with security practices as a cyber hygiene concern.",
-        "Encourage individuals to adopt good cyber hygiene practices to protect their personal information."
+        {
+          "action_id": "ACT-HUMAN-FACTORS-001",
+          "action_text": "Address individual user behavior when designing cyber hygiene guidance.",
+          "evidence_ids": [
+            "EVID-KARAYEL-HUMAN-FACTORS-001",
+            "EVID-KARAYEL-HUMAN-FACTORS-002",
+            "EVID-CAIN-HUMAN-FACTORS-002"
+          ]
+        },
+        {
+          "action_id": "ACT-HUMAN-FACTORS-002",
+          "action_text": "Do not rely only on technical cybersecurity investments or measures when explaining cyber hygiene.",
+          "evidence_ids": [
+            "EVID-KARAYEL-HUMAN-FACTORS-001"
+          ]
+        },
+        {
+          "action_id": "ACT-HUMAN-FACTORS-003",
+          "action_text": "Treat noncompliance with security practices as a cyber hygiene concern.",
+          "evidence_ids": [
+            "EVID-KARAYEL-HUMAN-FACTORS-003"
+          ]
+        },
+        {
+          "action_id": "ACT-HUMAN-FACTORS-004",
+          "action_text": "Encourage individuals to follow security best practices that protect their personal information.",
+          "evidence_ids": [
+            "EVID-CAIN-HUMAN-FACTORS-001"
+          ]
+        },
+        {
+          "action_id": "ACT-HUMAN-FACTORS-005",
+          "action_text": "Explain necessary cybersecurity actions clearly so users understand what protective behavior involves.",
+          "evidence_ids": [
+            "EVID-CAIN-HUMAN-FACTORS-002"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -1792,37 +1824,49 @@
         }
       ],
       "validity_facts": [
-          {
-            "fact_id": "VF-HUMAN-FACTORS-001",
-            "fact": "Cybersecurity investments and measures alone are insufficient.",
-            "source_id": "SRC-KARAYEL-2024",
-            "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-001"
-          },
-          {
-            "fact_id": "VF-HUMAN-FACTORS-002",
-            "fact": "Human factors often constitute the weakest link in cybersecurity.",
-            "source_id": "SRC-KARAYEL-2024",
-            "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-002"
-          },
-          {
-            "fact_id": "VF-HUMAN-FACTORS-003",
-            "fact": "Noncompliance with security practices is identified as a human-factor concern.",
-            "source_id": "SRC-KARAYEL-2024",
-            "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-003"
-          },
-          {
-            "fact_id": "VF-HUMAN-FACTORS-004",
-            "fact": "Individuals with good cyber hygiene follow security best practices and protect their personal information.",
-            "source_id": "SRC-CAIN-2018",
-            "evidence_id": "EVID-CAIN-HUMAN-FACTORS-001"
-          },
-          {
-            "fact_id": "VF-HUMAN-FACTORS-005",
-            "fact": "Cain et al. state that users often lack understanding of necessary cybersecurity actions, which can underlie inappropriate attitudes and behaviors.",
-            "source_id": "SRC-CAIN-2018",
-            "evidence_id": "EVID-CAIN-HUMAN-FACTORS-002"
-          }
-        ],
+        {
+          "fact_id": "VF-HUMAN-FACTORS-001",
+          "fact": "Cybersecurity investments and measures alone are insufficient.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-001"
+        },
+        {
+          "fact_id": "VF-HUMAN-FACTORS-002",
+          "fact": "Human factors often constitute the weakest link in cybersecurity.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-002"
+        },
+        {
+          "fact_id": "VF-HUMAN-FACTORS-003",
+          "fact": "Noncompliance with security practices is identified as a human-factor concern.",
+          "source_id": "SRC-KARAYEL-2024",
+          "evidence_id": "EVID-KARAYEL-HUMAN-FACTORS-003"
+        },
+        {
+          "fact_id": "VF-HUMAN-FACTORS-004",
+          "fact": "Individuals with good cyber hygiene follow security best practices and protect their personal information.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-HUMAN-FACTORS-001"
+        },
+        {
+          "fact_id": "VF-HUMAN-FACTORS-005",
+          "fact": "Cain et al. state that users often lack understanding of necessary cybersecurity actions, which can underlie inappropriate attitudes and behaviors.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-HUMAN-FACTORS-002"
+        },
+        {
+          "fact_id": "VF-HUMAN-FACTORS-006",
+          "fact": "Baraković and Baraković Husić state that cybersecurity behavior has become a focus because of individual engagement with cyber protection tools.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-HUMAN-FACTORS-001"
+        },
+        {
+          "fact_id": "VF-HUMAN-FACTORS-007",
+          "fact": "Baraković and Baraković Husić cite results indicating that machine features associated with human behavior were related to the number of malware findings on host machines.",
+          "source_id": "SRC-BARAKOVIC-2023",
+          "evidence_id": "EVID-BARAKOVIC-HUMAN-FACTORS-002"
+        }
+      ],
       "traceability": {
         "requires_citation": true,
         "acceptable_sources": [
@@ -1831,7 +1875,7 @@
           "SRC-BARAKOVIC-2023"
         ],
         "citation_granularity": "section_or_paragraph",
-        "minimum_traceability_requirement": "The answer should cite Karayel et al. (2024) or Cain et al. (2018) and should be traceable to the Introduction section discussing technical measures, individual behavior, and human factors."
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. or Cain et al. for the main claim that cyber hygiene guidance should address user behavior as well as technical measures. Claims about technical measures being insufficient, human factors, and noncompliance should be traceable to Karayel et al.'s Introduction. Claims about good cyber hygiene involving security best practices, personal information protection, or users lacking understanding of necessary cybersecurity actions should be traceable to Cain et al.'s Abstract or Statement of the problem section. Baraković and Baraković Husić may be used only as contextual support for cybersecurity behavior and human-behavior-related device outcomes."
       },
       "agent_answer_guidance": {
         "answer_style": "explanatory_guidance",
@@ -1845,13 +1889,16 @@
         "avoid_claims": [
           "Cybersecurity is only a technical problem",
           "User behavior does not matter if technical controls are strong",
-          "Human error is the only cause of cybersecurity breaches"
+          "Human error is the only cause of cybersecurity breaches",
+          "Technical controls are unnecessary",
+          "Good cyber hygiene guarantees protection from cybersecurity breaches",
+          "Baraković and Baraković Husić prove that human behavior directly causes malware infections"
         ]
       }
     },
     {
       "id": "KU-AUTH-CREDENTIAL-001",
-      "title": "Authentication hygiene includes changing defaults, creating complex credentials, and enabling MFA",
+      "title": "Authentication hygiene includes changing defaults, creating complex or unique credentials, managing browser-stored passwords, and enabling MFA",
       "category_id": "CAT-AUTH-CREDENTIAL",
       "threat_ids": [
         "THR-CREDENTIAL-TARGETING",
@@ -1864,16 +1911,68 @@
         "PRA-CREATE-COMPLEX-CREDENTIALS",
         "PRA-ENABLE-MFA",
         "PRA-CREATE-UNIQUE-LOGINS",
-        "PRA-MANAGE-BROWSER-STORED-PASSWORDS"
+        "PRA-MANAGE-BROWSER-STORED-PASSWORDS",
+        "PRA-AVOID-PASSWORD-REUSE"
       ],
-      "claim": "Authentication and credential hygiene involves changing default usernames and passwords, creating complex or unique credentials, managing browser-stored passwords, and enabling multifactor authentication.",
-      "explanation": "These practices describe authentication and credential hygiene behaviors that help users manage access to accounts and systems through usernames, passwords, stored credentials, and authentication mechanisms. Karayel et al. support changing defaults, creating complex credentials, and enabling multifactor authentication, while Vishwanath et al.'s Cyber Hygiene Inventory additionally includes creating new and unique logins and passwords and managing browser-stored passwords.",
+      "claim": "Authentication and credential hygiene involves changing default usernames and passwords, creating complex or unique credentials, managing browser-stored passwords, avoiding password reuse as lax credential behavior, and enabling multifactor authentication.",
+      "explanation": "These practices describe authentication and credential hygiene behaviors that help users manage access to accounts and systems through usernames, passwords, stored credentials, and authentication mechanisms. Karayel et al. support changing defaults, creating complex credentials, and enabling multifactor authentication. Vishwanath et al.'s Cyber Hygiene Inventory additionally includes changing default usernames and passwords, creating new and unique logins and passwords, managing browser-stored passwords, and enabling two-factor or multifactor authentication. Baraković and Baraković Husić support the broader authentication and credential hygiene category, including secure browsers, default credential changes, browser-stored password management, password reuse as lax security behavior, brute-force risk from weak passwords, and MFA as an additional authentication factor.",
       "recommended_actions": [
-        "Change default usernames and passwords.",
-        "Create complex usernames and passwords.",
-        "Create new and unique logins and passwords for each account.",
-        "Manage passwords stored by browsers.",
-        "Enable two-factor or multifactor authentication where possible."
+        {
+          "action_id": "ACT-AUTH-CREDENTIAL-001",
+          "action_text": "Change default usernames and passwords.",
+          "evidence_ids": [
+            "EVID-KARAYEL-AUTH-001",
+            "EVID-VISHWANATH-AUTH-001",
+            "EVID-VISHWANATH-AUTH-002",
+            "EVID-BARAKOVIC-AUTH-001"
+          ]
+        },
+        {
+          "action_id": "ACT-AUTH-CREDENTIAL-002",
+          "action_text": "Create complex usernames and passwords.",
+          "evidence_ids": [
+            "EVID-KARAYEL-AUTH-001",
+            "EVID-KARAYEL-AUTH-002"
+          ]
+        },
+        {
+          "action_id": "ACT-AUTH-CREDENTIAL-003",
+          "action_text": "Create new and unique logins and passwords for each account.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-AUTH-005"
+          ]
+        },
+        {
+          "action_id": "ACT-AUTH-CREDENTIAL-004",
+          "action_text": "Manage passwords stored by browsers.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-AUTH-004",
+            "EVID-BARAKOVIC-AUTH-001"
+          ]
+        },
+        {
+          "action_id": "ACT-AUTH-CREDENTIAL-005",
+          "action_text": "Enable two-factor or multifactor authentication where possible.",
+          "evidence_ids": [
+            "EVID-KARAYEL-AUTH-001",
+            "EVID-VISHWANATH-AUTH-003",
+            "EVID-BARAKOVIC-AUTH-004"
+          ]
+        },
+        {
+          "action_id": "ACT-AUTH-CREDENTIAL-006",
+          "action_text": "Avoid password reuse as part of authentication and credential hygiene.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-AUTH-002"
+          ]
+        },
+        {
+          "action_id": "ACT-AUTH-CREDENTIAL-007",
+          "action_text": "Do not treat strong passwords alone as protection against password-stealing attacks such as keylogging and phishing.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-AUTH-003"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -2136,7 +2235,7 @@
           "SRC-BARAKOVIC-2023"
         ],
         "citation_granularity": "table_or_section",
-        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020 and should be traceable to Karayel et al.'s Table 2/Section 4.3 discussion or Vishwanath et al.'s Table 1, where changing default usernames/passwords, managing browser-stored passwords, creating new and unique logins/passwords, and enabling two-factor or multifactor authentication are listed."
+        "minimum_traceability_requirement": "The answer should cite Karayel et al., Vishwanath et al., or Baraković and Baraković Husić depending on the claim. Claims about changing defaults, creating complex credentials, enabling MFA, and passwords being frequently targeted should be traceable to Karayel et al.'s Table 2 or RQ4 discussion. Claims about changing default usernames/passwords, managing browser-stored passwords, creating new and unique logins/passwords, and enabling two-factor or multifactor authentication should be traceable to Vishwanath et al.'s Table 1. Claims about authentication and credential hygiene including secure browsers, default credential changes, browser-stored passwords, password reuse as lax security behavior, weak passwords and brute-force attacks, password-stealing attacks such as keylogging and phishing, or MFA requiring more than one factor should be traceable to Baraković and Baraković Husić's related-work discussion."
       },
       "agent_answer_guidance": {
         "answer_style": "practical_advice",
@@ -2146,13 +2245,19 @@
           "create new and unique logins and passwords",
           "manage browser-stored passwords",
           "enable multifactor authentication",
-          "user information and passwords are frequently targeted"
+          "avoid password reuse where relevant",
+          "user information and passwords are frequently targeted",
+          "strong passwords alone do not protect against password-stealing attacks such as keylogging and phishing"
         ],
         "avoid_claims": [
           "Vishwanath et al. retained complex usernames and passwords as a final CHI item",
           "Managing browser-stored passwords eliminates credential risk",
           "Unique passwords alone are sufficient account protection",
-          "Strong passwords alone protect users from all password-stealing attacks"
+          "Strong passwords alone protect users from all password-stealing attacks",
+          "Multifactor authentication eliminates all account compromise risk",
+          "Authentication and credential hygiene is only about passwords",
+          "Weak passwords are the only cause of brute-force attacks",
+          "Strong passwords prevent phishing or keylogging"
         ]
       }
     },
@@ -2174,16 +2279,58 @@
         "PRA-SECURELY-STORE-INFORMATION",
         "PRA-CONDUCT-SECURITY-SCANS"
       ],
-      "claim": "Routine cyber hygiene practices include checking devices for cyber threats, using strong passwords, changing passwords regularly, avoiding password reuse, updating antivirus software, securely storing online information, and conducting security scans.",
-      "explanation": "These practices represent recurring security habits that help users protect personal information, devices, and accounts from cyber threats. They complement the five cyber hygiene categories by providing concrete examples of day-to-day protective behavior.",
+      "claim": "Routine cyber hygiene practices include checking computers for cyber threats or attack attempts, using strong passwords, changing passwords regularly, avoiding password reuse, updating antivirus software, securely storing online information, and conducting appropriate security scans.",
+      "explanation": "This KU provides concrete examples of routine cyber hygiene behaviors listed by Karayel et al. These examples cover password behavior, antivirus updates, secure online information storage, and security scanning. The KU should be used as a basic examples node rather than as a complete checklist of all cyber hygiene practices.",
       "recommended_actions": [
-        "Check computers and devices for cyber threats or attack attempts.",
-        "Use strong passwords.",
-        "Change passwords regularly where appropriate.",
-        "Avoid reusing passwords across accounts.",
-        "Keep antivirus software up to date.",
-        "Securely store online information.",
-        "Conduct appropriate security scans."
+        {
+          "action_id": "ACT-ROUTINE-PRACTICES-001",
+          "action_text": "Check computers for cyber threats or attack attempts.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-ROUTINE-PRACTICES-002",
+          "action_text": "Use strong passwords.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-ROUTINE-PRACTICES-003",
+          "action_text": "Change passwords regularly.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-ROUTINE-PRACTICES-004",
+          "action_text": "Avoid password reuse.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-ROUTINE-PRACTICES-005",
+          "action_text": "Keep antivirus software up to date.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-ROUTINE-PRACTICES-006",
+          "action_text": "Securely store online information.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+          ]
+        },
+        {
+          "action_id": "ACT-ROUTINE-PRACTICES-007",
+          "action_text": "Conduct appropriate security scans.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ROUTINE-PRACTICES-001"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -2260,7 +2407,7 @@
           "SRC-KARAYEL-2024"
         ],
         "citation_granularity": "section_or_paragraph",
-        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 and should be traceable to Section 2.1, Cyber hygiene, where routine cyber hygiene examples are listed."
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. and should be traceable to Section 2.1, Cyber hygiene, where routine cyber hygiene examples are listed. This KU should support basic examples of routine cyber hygiene, not an exhaustive list of all cyber hygiene categories or practices."
       },
       "agent_answer_guidance": {
         "answer_style": "practical_advice",
@@ -2277,13 +2424,15 @@
           "Only technical tools are needed for cyber hygiene",
           "Antivirus software alone is enough for good cyber hygiene",
           "Password reuse is safe if the password is strong",
-          "Cyber hygiene completely eliminates all cyber risk"
+          "Cyber hygiene completely eliminates all cyber risk",
+          "This KU provides a complete list of all cyber hygiene practices",
+          "Checking computers or running scans guarantees that no cyber threats are present"
         ]
       }
     },
     {
-      "id": "KU-EMAIL-MESSAGING-001",
-      "title": "Email and messaging hygiene helps users detect phishing, e-fraud, and social engineering attempts",
+      "id": "KU-EMAIL-MESSAGING-CHECKS-001",
+      "title": "Email and messaging hygiene includes checking senders, headers, links, attachments, and suspicious message features",
       "category_id": "CAT-EMAIL-MESSAGING",
       "threat_ids": [
         "THR-PHISHING",
@@ -2298,21 +2447,86 @@
         "PRA-CHECK-EMAIL-LANGUAGE",
         "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS"
       ],
-      "claim": "Email and messaging hygiene involves checking email subjects, incoming email headers, sender domains, hyperlinks or attachments from unknown senders, and the spelling and grammar of email requests. Karayel et al. link email and messaging hygiene to caution against phishing, e-fraud, and social engineering attempts.",
-      "explanation": "Email and messaging hygiene includes checking sender domains, email headers, links, attachments, and grammatical or typographical errors. Baraković and Baraković Husić also connect these practices to phishing avoidance and cite prior work suggesting that both conceptual and procedural knowledge can improve phishing threat avoidance behavior.",
+      "claim": "Email and messaging hygiene involves checking incoming email subjects, headers, sender domains, hyperlinks or attachments from unknown senders, and grammatical or typographical errors. These practices support caution and awareness against phishing, e-fraud, social engineering, and impersonation attempts.",
+      "explanation": "This KU covers the detection-oriented side of email and messaging hygiene: what users should inspect when evaluating suspicious or unexpected email and messaging requests. Karayel et al. support checking subjects, sender domain names, spelling, and grammar, and link email and messaging hygiene to phishing, e-fraud, and social engineering prevention. Vishwanath et al. support checking email headers, sender domains, hyperlinks or attachments from unknown senders, and grammatical or typographical errors. Cain et al. provide additional warning signs such as sender name/address mismatches, urgency, link-text mismatches, and messages that intuitively seem suspicious. Baraković and Baraković Husić support the broader email and messaging hygiene category and connect these practices to phishing avoidance and conceptual/procedural knowledge.",
       "recommended_actions": [
-        "Check the subject of incoming emails for suspicious or unexpected requests.",
-        "Check the header of incoming emails as part of email and messaging hygiene.",
-        "Check the sender's email domain before trusting an email request.",
-        "Check hyperlinks or attachments in emails from unknown senders.",
-        "Inspect grammatical or typographical errors in email requests.",
-        "Remain cautious when receiving unexpected requests through email or messaging platforms.",
-        "Be suspicious of mismatches between the displayed sender name and sender address.",
-        "Be suspicious of messages that encourage immediate action.",
-        "Check whether link text matches the actual link address before trusting it.",
-        "Never reply to emails requesting financial or personal information.",
-        "In the case of possible phishing, contact the person or the organization at a legitimate phone number or website.",
-        "Do not use contact information from suspicious emails and do not click on any attachments or hyperlinks in the email."
+        {
+          "action_id": "ACT-EMAIL-CHECKS-001",
+          "action_text": "Check the subject of incoming emails for suspicious or unexpected requests.",
+          "evidence_ids": [
+            "EVID-KARAYEL-EMAIL-MESSAGING-001"
+          ]
+        },
+        {
+          "action_id": "ACT-EMAIL-CHECKS-002",
+          "action_text": "Check incoming email headers as part of email and messaging hygiene.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-EMAIL-MESSAGING-001",
+            "EVID-BARAKOVIC-EMAIL-MESSAGING-001"
+          ]
+        },
+        {
+          "action_id": "ACT-EMAIL-CHECKS-003",
+          "action_text": "Check the sender's email domain name before trusting an email request.",
+          "evidence_ids": [
+            "EVID-KARAYEL-EMAIL-MESSAGING-001",
+            "EVID-VISHWANATH-EMAIL-MESSAGING-002",
+            "EVID-BARAKOVIC-EMAIL-MESSAGING-001"
+          ]
+        },
+        {
+          "action_id": "ACT-EMAIL-CHECKS-004",
+          "action_text": "Check whether email requests contain grammatical or typographical errors.",
+          "evidence_ids": [
+            "EVID-KARAYEL-EMAIL-MESSAGING-001",
+            "EVID-VISHWANATH-EMAIL-MESSAGING-003",
+            "EVID-BARAKOVIC-EMAIL-MESSAGING-001",
+            "EVID-CAIN-EMAIL-MESSAGING-003"
+          ]
+        },
+        {
+          "action_id": "ACT-EMAIL-CHECKS-005",
+          "action_text": "Treat hyperlinks or attachments from unknown senders as suspicious email hygiene checkpoints.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-EMAIL-MESSAGING-004"
+          ]
+        },
+        {
+          "action_id": "ACT-EMAIL-CHECKS-006",
+          "action_text": "Be suspicious of mismatches between the displayed sender name and sender address.",
+          "evidence_ids": [
+            "EVID-CAIN-EMAIL-MESSAGING-003"
+          ]
+        },
+        {
+          "action_id": "ACT-EMAIL-CHECKS-007",
+          "action_text": "Be suspicious of email messages that encourage immediate action.",
+          "evidence_ids": [
+            "EVID-CAIN-EMAIL-MESSAGING-003"
+          ]
+        },
+        {
+          "action_id": "ACT-EMAIL-CHECKS-008",
+          "action_text": "Check whether link text matches the actual link address before trusting it.",
+          "evidence_ids": [
+            "EVID-CAIN-EMAIL-MESSAGING-003"
+          ]
+        },
+        {
+          "action_id": "ACT-EMAIL-CHECKS-009",
+          "action_text": "Maintain caution and high awareness when evaluating email or messaging requests.",
+          "evidence_ids": [
+            "EVID-KARAYEL-EMAIL-MESSAGING-002",
+            "EVID-KARAYEL-EMAIL-MESSAGING-003"
+          ]
+        },
+        {
+          "action_id": "ACT-EMAIL-CHECKS-010",
+          "action_text": "Use both conceptual and procedural knowledge when explaining phishing threat avoidance.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-EMAIL-MESSAGING-003"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -2429,36 +2643,6 @@
           }
         },
         {
-          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-001",
-          "source_id": "SRC-CAIN-2018",
-          "citation_key": "cain_exploratory_2018",
-          "support_type": "direct",
-          "exact_supporting_text": "Emails from unknown sources should be approached cautiously.",
-          "page": 2,
-          "section": "1.2 Previous findings of cyber hygiene research",
-          "paragraph": "5",
-          "claim_location": {
-            "page": 2,
-            "section": "1.2 Previous findings of cyber hygiene research",
-            "paragraph": "5"
-          }
-        },
-        {
-          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-002",
-          "source_id": "SRC-CAIN-2018",
-          "citation_key": "cain_exploratory_2018",
-          "support_type": "direct",
-          "exact_supporting_text": "Phishing scams can result in the downloading of malware or the release of sensitive information, such as usernames, passwords, and credit card information.",
-          "page": 2,
-          "section": "1.2 Previous findings of cyber hygiene research",
-          "paragraph": "5",
-          "claim_location": {
-            "page": 2,
-            "section": "1.2 Previous findings of cyber hygiene research",
-            "paragraph": "5"
-          }
-        },
-        {
           "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-003",
           "source_id": "SRC-CAIN-2018",
           "citation_key": "cain_exploratory_2018",
@@ -2471,21 +2655,6 @@
             "page": 2,
             "section": "1.2 Previous findings of cyber hygiene research",
             "paragraph": "5"
-          }
-        },
-        {
-          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-004",
-          "source_id": "SRC-CAIN-2018",
-          "citation_key": "cain_exploratory_2018",
-          "support_type": "empirical_result",
-          "exact_supporting_text": "Also, good cyber hygiene was not demonstrated for phishing attacks. 96% of users click on embedded links from unknown senders. 98% of users download attachments from unknown senders. 94% of users send sensitive information over email when a sender requests it.",
-          "page": 4,
-          "section": "3. Results",
-          "paragraph": "7",
-          "claim_location": {
-            "page": 4,
-            "section": "3. Results",
-            "paragraph": "7"
           }
         },
         {
@@ -2531,21 +2700,6 @@
             "page": 6,
             "section": "2. Related work",
             "paragraph": "2"
-          }
-        },
-        {
-          "evidence_id": "EVID-NIST-PHISHING-SOCIAL-ENGINEERING-001",
-          "source_id": "SRC-NIST-800-83R1-2013",
-          "citation_key": "souppaya_malware_2013",
-          "support_type": "direct",
-          "exact_supporting_text": "Never reply to email requests for financial or personal information. Instead, contact the person or the organization at the legitimate phone number or website. Do not use the contact information provided in the email, and do not click on any attachments or hyperlinks in the email.",
-          "page": 19,
-          "section": "3.2 Awareness",
-          "paragraph": "3",
-          "claim_location": {
-            "page": 19,
-            "section": "3.2 Awareness",
-            "paragraph": "3"
           }
         }
       ],
@@ -2605,46 +2759,10 @@
           "evidence_id": "EVID-VISHWANATH-EMAIL-MESSAGING-004"
         },
         {
-          "fact_id": "VF-EMAIL-MESSAGING-010",
-          "fact": "Cain et al. state that emails from unknown sources should be approached cautiously.",
-          "source_id": "SRC-CAIN-2018",
-          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-001"
-        },
-        {
-          "fact_id": "VF-EMAIL-MESSAGING-011",
-          "fact": "Cain et al. state that phishing scams can result in malware downloads or release of sensitive information such as usernames, passwords, and credit card information.",
-          "source_id": "SRC-CAIN-2018",
-          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-002"
-        },
-        {
           "fact_id": "VF-EMAIL-MESSAGING-012",
           "fact": "Cain et al. list phishing warning signs including mismatched sender names and addresses, spelling or grammar issues, immediate-action pressure, and mismatches between link text and actual link addresses.",
           "source_id": "SRC-CAIN-2018",
           "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-003"
-        },
-        {
-          "fact_id": "VF-EMAIL-MESSAGING-013",
-          "fact": "Cain et al. report that good cyber hygiene was not demonstrated for phishing attacks in their sample.",
-          "source_id": "SRC-CAIN-2018",
-          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-004"
-        },
-        {
-          "fact_id": "VF-EMAIL-MESSAGING-014",
-          "fact": "Cain et al. report that 96% of users clicked embedded links from unknown senders.",
-          "source_id": "SRC-CAIN-2018",
-          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-004"
-        },
-        {
-          "fact_id": "VF-EMAIL-MESSAGING-015",
-          "fact": "Cain et al. report that 98% of users downloaded attachments from unknown senders.",
-          "source_id": "SRC-CAIN-2018",
-          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-004"
-        },
-        {
-          "fact_id": "VF-EMAIL-MESSAGING-016",
-          "fact": "Cain et al. report that 94% of users sent sensitive information over email when a sender requested it.",
-          "source_id": "SRC-CAIN-2018",
-          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-004"
         },
         {
           "fact_id": "VF-BARAKOVIC-EMAIL-MESSAGING-001",
@@ -2663,12 +2781,6 @@
           "fact": "Baraković and Baraković Husić cite prior work indicating that conceptual and procedural knowledge improved phishing threat avoidance behavior.",
           "source_id": "SRC-BARAKOVIC-2023",
           "evidence_id": "EVID-BARAKOVIC-EMAIL-MESSAGING-003"
-        },
-        {
-          "fact_id": "VF-NIST-EMAIL-MESSAGING-001",
-          "fact": "NIST explicitely mentions to never reply to email requests for financial or personal information.",
-          "source_id": "SRC-NIST-800-83R1-2013",
-          "evidence_id": "EVID-NIST-PHISHING-SOCIAL-ENGINEERING-001"
         }
       ],
       "traceability": {
@@ -2677,11 +2789,10 @@
           "SRC-KARAYEL-2024",
           "SRC-VISHWANATH-2020",
           "SRC-CAIN-2018",
-          "SRC-BARAKOVIC-2023",
-          "SRC-NIST-800-83R1-2013"
+          "SRC-BARAKOVIC-2023"
         ],
         "citation_granularity": "table_or_section",
-        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020. Claims linking email and messaging hygiene to phishing, e-fraud, or social engineering should be traceable to Karayel et al.'s Table 2 and Section 4.3 discussion. Claims about checking incoming email headers, sender email domain names, hyperlinks or attachments from unknown senders, and grammatical or typographical errors should be traceable to Vishwanath et al.'s Table 1. Cain et al. (2018) had also identified email cyber hygiene (look at the provided evidence)."
+        "minimum_traceability_requirement": "The answer should cite Karayel et al., Vishwanath et al., Cain et al., or Baraković and Baraković Husić depending on the claim. Claims about checking email subjects, sender domains, spelling and grammar, and the link to phishing, e-fraud, or social engineering should be traceable to Karayel et al.'s Table 2 or RQ3 discussion. Claims about checking headers, sender domains, hyperlinks or attachments from unknown senders, and grammatical or typographical errors should be traceable to Vishwanath et al.'s Table 1. Claims about phishing warning signs such as sender mismatch, urgency, link-text mismatch, spelling, grammar, or strange spacing should be traceable to Cain et al.'s previous findings section. Claims about conceptual and procedural knowledge supporting phishing avoidance should be traceable to Baraković and Baraković Husić's related-work discussion."
       },
       "agent_answer_guidance": {
         "answer_style": "practical_advice",
@@ -2694,10 +2805,9 @@
           "phishing",
           "e-fraud",
           "social engineering",
-          "Cain et al. found poor phishing-related cyber hygiene behaviors in their sample",
-          "checking incoming email headers",
-          "checking sender email domain names",
-          "checking grammatical or typographical errors",
+          "mismatched sender name and address",
+          "immediate-action pressure",
+          "mismatch between link text and actual link address",
           "conceptual and procedural knowledge can support phishing avoidance"
         ],
         "avoid_claims": [
@@ -2710,7 +2820,6 @@
           "Cain et al. prove that users can always detect phishing by hovering links",
           "All urgent emails are phishing",
           "Phishing always contains grammar mistakes",
-          "Do not generalize Cain et al.'s phishing percentages to all users or all populations",
           "Email checks alone guarantee phishing avoidance",
           "Conceptual knowledge alone is sufficient to prevent phishing",
           "All phishing emails contain grammatical or typographical errors"
@@ -2718,27 +2827,312 @@
       }
     },
     {
+      "id": "KU-PHISHING-RESPONSE-AND-RISKY-BEHAVIORS-001",
+      "title": "Phishing response hygiene includes caution with unknown senders, avoiding unsafe replies or clicks, and understanding risky email behaviors",
+      "category_id": "CAT-EMAIL-MESSAGING",
+      "threat_ids": [
+        "THR-PHISHING",
+        "THR-EMAIL-SCAM",
+        "THR-SOCIAL-ENGINEERING",
+        "THR-IMPERSONATION",
+        "THR-MALWARE-INFECTION",
+        "THR-CREDENTIAL-THEFT",
+        "THR-PRIVACY-EXPOSURE"
+      ],
+      "practice_ids": [
+        "PRA-CHECK-EMAIL-LINKS-ATTACHMENTS",
+        "PRA-LIMIT-SHARING-PERSONAL-INFORMATION"
+      ],
+      "claim": "Phishing response hygiene involves approaching emails from unknown sources cautiously, avoiding replies to requests for financial or personal information, verifying suspicious requests through legitimate contact channels, and avoiding attachments or hyperlinks in suspicious emails. Cain et al.'s study also reports poor phishing-related cyber hygiene behaviors within their sample.",
+      "explanation": "This KU covers the response-oriented side of email and phishing hygiene. Cain et al. state that emails from unknown sources should be approached cautiously and that phishing scams can result in malware downloads or the release of sensitive information such as usernames, passwords, and credit card information. NIST provides direct response guidance: never reply to email requests for financial or personal information, contact the person or organization through a legitimate phone number or website, avoid using contact information from suspicious emails, and avoid clicking attachments or hyperlinks in the email. Cain et al.'s phishing percentages should only be interpreted as findings from their study sample, not as population-level rates for all users.",
+      "recommended_actions": [
+        {
+          "action_id": "ACT-PHISHING-RESPONSE-001",
+          "action_text": "Approach emails from unknown sources cautiously.",
+          "evidence_ids": [
+            "EVID-CAIN-EMAIL-MESSAGING-001"
+          ]
+        },
+        {
+          "action_id": "ACT-PHISHING-RESPONSE-002",
+          "action_text": "Recognize that phishing scams can result in malware downloads or the release of sensitive information such as usernames, passwords, and credit card information.",
+          "evidence_ids": [
+            "EVID-CAIN-EMAIL-MESSAGING-002"
+          ]
+        },
+        {
+          "action_id": "ACT-PHISHING-RESPONSE-003",
+          "action_text": "Never reply to email requests for financial or personal information.",
+          "evidence_ids": [
+            "EVID-NIST-PHISHING-SOCIAL-ENGINEERING-001"
+          ]
+        },
+        {
+          "action_id": "ACT-PHISHING-RESPONSE-004",
+          "action_text": "For possible phishing, contact the person or organization through a legitimate phone number or website.",
+          "evidence_ids": [
+            "EVID-NIST-PHISHING-SOCIAL-ENGINEERING-001"
+          ]
+        },
+        {
+          "action_id": "ACT-PHISHING-RESPONSE-005",
+          "action_text": "Do not use contact information provided in a suspicious email.",
+          "evidence_ids": [
+            "EVID-NIST-PHISHING-SOCIAL-ENGINEERING-001"
+          ]
+        },
+        {
+          "action_id": "ACT-PHISHING-RESPONSE-006",
+          "action_text": "Do not click attachments or hyperlinks in suspicious emails.",
+          "evidence_ids": [
+            "EVID-NIST-PHISHING-SOCIAL-ENGINEERING-001"
+          ]
+        },
+        {
+          "action_id": "ACT-PHISHING-RESPONSE-007",
+          "action_text": "Avoid clicking embedded links or downloading attachments from unknown senders.",
+          "evidence_ids": [
+            "EVID-CAIN-EMAIL-MESSAGING-004",
+            "EVID-NIST-PHISHING-SOCIAL-ENGINEERING-001"
+          ]
+        },
+        {
+          "action_id": "ACT-PHISHING-RESPONSE-008",
+          "action_text": "Avoid sending sensitive information over email merely because a sender requests it.",
+          "evidence_ids": [
+            "EVID-CAIN-EMAIL-MESSAGING-004",
+            "EVID-NIST-PHISHING-SOCIAL-ENGINEERING-001"
+          ]
+        }
+      ],
+      "evidence_strength": "high",
+      "question_templates": [
+        "What should users do when they suspect a phishing email?",
+        "How should users respond to emails asking for personal or financial information?",
+        "Why are links and attachments from unknown email senders risky?",
+        "What phishing-related behaviors did Cain et al. observe in their sample?",
+        "How can users avoid unsafe responses to suspicious email requests?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-001",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Emails from unknown sources should be approached cautiously.",
+          "page": 2,
+          "section": "1.2 Previous findings of cyber hygiene research",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 2,
+            "section": "1.2 Previous findings of cyber hygiene research",
+            "paragraph": "5"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-002",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "direct",
+          "exact_supporting_text": "Phishing scams can result in the downloading of malware or the release of sensitive information, such as usernames, passwords, and credit card information.",
+          "page": 2,
+          "section": "1.2 Previous findings of cyber hygiene research",
+          "paragraph": "5",
+          "claim_location": {
+            "page": 2,
+            "section": "1.2 Previous findings of cyber hygiene research",
+            "paragraph": "5"
+          }
+        },
+        {
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-004",
+          "source_id": "SRC-CAIN-2018",
+          "citation_key": "cain_exploratory_2018",
+          "support_type": "empirical_result",
+          "exact_supporting_text": "Cain et al.'s Results section reports the following for its study sample: \"Also, good cyber hygiene was not demonstrated for phishing attacks. 96% of users click on embedded links from unknown senders. 98% of users download attachments from unknown senders. 94% of users send sensitive information over email when a sender requests it.\"",
+          "page": 4,
+          "section": "3. Results",
+          "paragraph": "7",
+          "claim_location": {
+            "page": 4,
+            "section": "3. Results",
+            "paragraph": "7"
+          }
+        },
+        {
+          "evidence_id": "EVID-NIST-PHISHING-SOCIAL-ENGINEERING-001",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "citation_key": "souppaya_malware_2013",
+          "support_type": "direct",
+          "exact_supporting_text": "Never reply to email requests for financial or personal information. Instead, contact the person or the organization at the legitimate phone number or website. Do not use the contact information provided in the email, and do not click on any attachments or hyperlinks in the email.",
+          "page": 19,
+          "section": "3.2 Awareness",
+          "paragraph": "3",
+          "claim_location": {
+            "page": 19,
+            "section": "3.2 Awareness",
+            "paragraph": "3"
+          }
+        }
+      ],
+      "validity_facts": [
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-010",
+          "fact": "Cain et al. state that emails from unknown sources should be approached cautiously.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-001"
+        },
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-011",
+          "fact": "Cain et al. state that phishing scams can result in malware downloads or release of sensitive information such as usernames, passwords, and credit card information.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-002"
+        },
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-013",
+          "fact": "Cain et al. report that good cyber hygiene was not demonstrated for phishing attacks in their sample.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-004"
+        },
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-014",
+          "fact": "Cain et al. report that 96% of users in their study sample clicked embedded links from unknown senders.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-004"
+        },
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-015",
+          "fact": "Cain et al. report that 98% of users in their study sample downloaded attachments from unknown senders.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-004"
+        },
+        {
+          "fact_id": "VF-EMAIL-MESSAGING-016",
+          "fact": "Cain et al. report that 94% of users in their study sample sent sensitive information over email when a sender requested it.",
+          "source_id": "SRC-CAIN-2018",
+          "evidence_id": "EVID-CAIN-EMAIL-MESSAGING-004"
+        },
+        {
+          "fact_id": "VF-NIST-EMAIL-MESSAGING-001",
+          "fact": "NIST explicitely mentions to never reply to email requests for financial or personal information.",
+          "source_id": "SRC-NIST-800-83R1-2013",
+          "evidence_id": "EVID-NIST-PHISHING-SOCIAL-ENGINEERING-001"
+        }
+      ],
+      "traceability": {
+        "requires_citation": true,
+        "acceptable_sources": [
+          "SRC-CAIN-2018",
+          "SRC-NIST-800-83R1-2013"
+        ],
+        "citation_granularity": "section_or_paragraph",
+        "minimum_traceability_requirement": "The answer should cite Cain et al. or NIST depending on the claim. Claims about unknown email sources, phishing leading to malware downloads or sensitive information release, and phishing-related behavior percentages should be traceable to Cain et al.'s previous findings or results sections. Any percentage from Cain et al. must be described as coming from Cain et al.'s study sample, not from all internet users. Claims about not replying to financial or personal information requests, contacting the legitimate person or organization, avoiding contact information from suspicious emails, and not clicking attachments or hyperlinks should be traceable to NIST SP 800-83 Rev. 1, Section 3.2 Awareness."
+      },
+      "agent_answer_guidance": {
+        "answer_style": "practical_advice_with_empirical_context",
+        "must_include": [
+          "approach emails from unknown sources cautiously",
+          "phishing can result in malware downloads",
+          "phishing can result in the release of sensitive information",
+          "never reply to email requests for financial or personal information",
+          "contact the person or organization through a legitimate phone number or website",
+          "do not use contact information from suspicious emails",
+          "do not click attachments or hyperlinks in suspicious emails",
+          "Cain et al. found poor phishing-related cyber hygiene behaviors in their study sample"
+        ],
+        "avoid_claims": [
+          "Do not generalize Cain et al.'s phishing percentages to all users or all populations",
+          "Cain et al.'s percentages describe all internet users",
+          "All users click phishing links",
+          "Most users universally download unknown attachments",
+          "Never replying to suspicious emails completely eliminates phishing risk",
+          "Contacting an organization guarantees the email is safe",
+          "All unknown-sender emails are malicious",
+          "Any email asking for personal information is automatically phishing without context"
+        ]
+      }
+    },
+    {
       "id": "KU-TRANSMISSION-001",
-      "title": "Transmission hygiene involves checking secure website connections and SSL indicators",
+      "title": "Transmission hygiene involves checking secure website connections, SSL indicators, and risky wireless network use",
       "category_id": "CAT-TRANSMISSION",
       "threat_ids": [
         "THR-INSECURE-CONNECTION"
       ],
       "practice_ids": [
         "PRA-CHECK-SSL-CERTIFICATE",
-        "PRA-CHECK-BROWSER-LOCK"
+        "PRA-CHECK-BROWSER-LOCK",
+        "PRA-USE-VPN-PUBLIC-WIFI"
       ],
-      "claim": "Transmission hygiene involves checking secure website indicators such as SSL certificate quality and the browser lock icon, and being cautious with unknown, public, unsecured, or merely password-protected Wi-Fi networks, especially when performing sensitive activities.",
-      "explanation": "Karayel et al. and Vishwanath et al. associate transmission and browsing hygiene with secure website connections, SSL indicators, and risks from unknown or insecure wireless networks. Baraković and Baraković Husić add student survey evidence showing that many students use public Wi-Fi and that awareness and knowledge about Wi-Fi safety and encryption are incomplete: only about half recognized that password-required Wi-Fi networks are not safe for sensitive activities, and only 16.3% correctly answered that Wi-Fi traffic is not encrypted by default on all wireless routers.",
+      "claim": "Transmission hygiene involves checking secure website indicators such as SSL certificate quality and the browser lock icon, and being cautious with unknown, public, unsecured, or password-protected Wi-Fi networks when performing sensitive activities.",
+      "explanation": "This KU explains transmission and browsing hygiene as practices related to secure website connections and risky wireless-network use. Karayel et al. and Vishwanath et al. support checking SSL certificate quality and the browser lock icon, while Karayel et al. and Baraković and Baraković Husić associate transmission hygiene with unknown or insecure wireless networks. Baraković and Baraković Husić also list VPN use on public Wi-Fi as a good practice and report participant-level survey findings about public Wi-Fi use, password-protected Wi-Fi safety, and uncertainty about default Wi-Fi traffic encryption. These survey percentages should be treated as findings from their participant sample, not as global student or user rates.",
       "recommended_actions": [
-        "Check whether a website has a valid SSL certificate before entering sensitive information.",
-        "Check for the browser lock icon when assessing whether a website connection appears secured.",
-        "Be cautious when connecting to unknown or insecure wireless networks.",
-        "Avoid entering sensitive information on websites that lack SSL security indicators.",
-        "Be cautious when using public or free Wi-Fi networks.",
-        "Do not assume a Wi-Fi network is safe for sensitive activities just because it requires a password.",
-        "Do not assume all Wi-Fi traffic is encrypted by default on wireless routers."
-        ],
+        {
+          "action_id": "ACT-TRANSMISSION-001",
+          "action_text": "Check whether a website has a valid SSL certificate before entering sensitive information.",
+          "evidence_ids": [
+            "EVID-KARAYEL-TRANSMISSION-001",
+            "EVID-VISHWANATH-TRANSMISSION-001",
+            "EVID-BARAKOVIC-TRANSMISSION-002"
+          ]
+        },
+        {
+          "action_id": "ACT-TRANSMISSION-002",
+          "action_text": "Check for the browser lock icon when assessing whether a website connection appears secured.",
+          "evidence_ids": [
+            "EVID-KARAYEL-TRANSMISSION-001",
+            "EVID-VISHWANATH-TRANSMISSION-002",
+            "EVID-BARAKOVIC-TRANSMISSION-002"
+          ]
+        },
+        {
+          "action_id": "ACT-TRANSMISSION-003",
+          "action_text": "Be cautious when connecting to unknown or insecure wireless networks.",
+          "evidence_ids": [
+            "EVID-KARAYEL-TRANSMISSION-002",
+            "EVID-BARAKOVIC-TRANSMISSION-001"
+          ]
+        },
+        {
+          "action_id": "ACT-TRANSMISSION-004",
+          "action_text": "Avoid entering sensitive information on websites that lack SSL security indicators.",
+          "evidence_ids": [
+            "EVID-KARAYEL-TRANSMISSION-003",
+            "EVID-VISHWANATH-TRANSMISSION-001",
+            "EVID-VISHWANATH-TRANSMISSION-002"
+          ]
+        },
+        {
+          "action_id": "ACT-TRANSMISSION-005",
+          "action_text": "Use a VPN when using a public Wi-Fi network.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-TRANSMISSION-002"
+          ]
+        },
+        {
+          "action_id": "ACT-TRANSMISSION-006",
+          "action_text": "Be cautious when using public or free Wi-Fi networks.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-TRANSMISSION-001",
+            "EVID-BARAKOVIC-TRANSMISSION-002",
+            "EVID-BARAKOVIC-TRANSMISSION-BEHAVIOR-001"
+          ]
+        },
+        {
+          "action_id": "ACT-TRANSMISSION-007",
+          "action_text": "Do not assume a Wi-Fi network is safe for sensitive activities just because it requires a password.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-TRANSMISSION-AWARENESS-001"
+          ]
+        },
+        {
+          "action_id": "ACT-TRANSMISSION-008",
+          "action_text": "Do not assume all Wi-Fi traffic is encrypted by default on wireless routers.",
+          "evidence_ids": [
+            "EVID-BARAKOVIC-TRANSMISSION-KNOWLEDGE-001"
+          ]
+        }
+      ],
       "evidence_strength": "high",
       "question_templates": [
         "What is transmission hygiene?",
@@ -2975,7 +3369,7 @@
           "SRC-BARAKOVIC-2023"
         ],
         "citation_granularity": "table_or_section",
-        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020 and should be traceable to Karayel et al.'s Table 2/Section 4.3 discussion or Vishwanath et al.'s Table 1, where SSL certificate and browser lock icon practices are listed. Vishwanath and Barakovic are also utilized in evidence."
+        "minimum_traceability_requirement": "The answer should cite Karayel et al., Vishwanath et al., or Baraković and Baraković Husić depending on the claim. Claims about checking SSL certificate quality and browser lock icons should be traceable to Karayel et al.'s Table 2, Vishwanath et al.'s Table 1, or Baraković and Baraković Husić's related-work discussion. Claims about unknown or insecure wireless networks should be traceable to Karayel et al.'s RQ3 discussion or Baraković and Baraković Husić's related-work discussion. Claims about public Wi-Fi use, password-protected Wi-Fi safety, and default Wi-Fi traffic encryption should be traceable to Baraković and Baraković Husić's participant-level survey results and must not be generalized to all users, all students, or all populations."
       },
       "agent_answer_guidance": {
         "answer_style": "practical_advice",
@@ -2985,6 +3379,7 @@
           "unknown or insecure wireless networks",
           "websites without SSL security certificates",
           "public Wi-Fi use",
+          "use a VPN on public Wi-Fi where relevant",
           "password-protected Wi-Fi does not automatically mean safe for sensitive activities",
           "Wi-Fi traffic is not encrypted by default on all wireless routers",
           "SSL certificate quality",
@@ -2999,28 +3394,50 @@
           "All Wi-Fi traffic is encrypted by default",
           "Public Wi-Fi is always unsafe for every activity",
           "Using a familiar Wi-Fi network eliminates transmission risk",
-          "Survey percentages from Baraković and Baraković Husić apply to all students globally"
+          "Survey percentages from Baraković and Baraković Husić apply to all students globally",
+          "VPN use makes public Wi-Fi completely safe",
+          "All public Wi-Fi use is automatically malicious or compromised"
         ]
       }
     },
     {
       "id": "KU-TRANSMISSION-002",
-      "title": "Transmission hygiene also includes VPN use, encrypted password vaults, and personal-information alerts",
+      "title": "Vishwanath et al.'s transmission and browsing hygiene items include VPN use, encrypted password vaults, and personal-information alerts",
       "category_id": "CAT-TRANSMISSION",
       "threat_ids": [
-        "THR-INSECURE-CONNECTION"
+        "THR-INSECURE-CONNECTION",
+        "THR-CREDENTIAL-TARGETING",
+        "THR-PRIVACY-EXPOSURE"
       ],
       "practice_ids": [
         "PRA-USE-VPN-PUBLIC-WIFI",
         "PRA-USE-PASSWORD-VAULT",
         "PRA-SET-PERSONAL-INFO-ALERTS"
       ],
-      "claim": "Vishwanath et al.'s Cyber Hygiene Inventory includes additional transmission and browsing hygiene practices such as using a VPN on free or public Wi-Fi, storing logins and passwords in encrypted online password vaults, and placing online alerts for one's name or personal information.",
-      "explanation": "In the Cyber Hygiene Inventory, Vishwanath et al. include several practices under transmission and browsing hygiene beyond checking SSL indicators. These include VPN use on free or public Wi-Fi, encrypted online password vault use, and online alerts for personal information. These items should be treated as source-listed CHI practices, while their detailed threat mappings may require additional sources. Baraković and Baraković Husić's results also suggest that users may misunderstand Wi-Fi encryption and the safety of password-required Wi-Fi networks, which provides context for VPN guidance on public Wi-Fi.",
+      "claim": "Vishwanath et al.'s Cyber Hygiene Inventory lists additional transmission and browsing hygiene practices, including using a VPN on free or public Wi-Fi, storing logins and passwords in encrypted online password vaults, and placing online alerts for one's name or personal information.",
+      "explanation": "This KU should be used as a source-listed practices node for additional transmission and browsing hygiene items in Vishwanath et al.'s Cyber Hygiene Inventory. The evidence directly supports that the inventory includes VPN use on free or public Wi-Fi, encrypted online password vaults, and online alerts for one's name or personal information. The KU can support practical advice to use these listed practices, but it should not overclaim that Vishwanath et al. proved these practices mitigate specific named attacks. Threat links should be treated as semantic retrieval links based on the type of practice: VPN use relates to insecure connections, password vaults relate to credential protection, and personal-information alerts relate to privacy exposure.",
       "recommended_actions": [
-        "Use a VPN when using free or public Wi-Fi.",
-        "Store logins and passwords in encrypted online password vaults.",
-        "Place online alerts for your name or personal information."
+        {
+          "action_id": "ACT-TRANSMISSION-EXTRA-001",
+          "action_text": "Use a VPN when using free or public Wi-Fi.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-TRANSMISSION-002-001"
+          ]
+        },
+        {
+          "action_id": "ACT-TRANSMISSION-EXTRA-002",
+          "action_text": "Store logins and passwords in encrypted online password vaults.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-TRANSMISSION-002-002"
+          ]
+        },
+        {
+          "action_id": "ACT-TRANSMISSION-EXTRA-003",
+          "action_text": "Place online alerts for your name or personal information.",
+          "evidence_ids": [
+            "EVID-VISHWANATH-TRANSMISSION-002-003"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -3103,7 +3520,7 @@
           "SRC-VISHWANATH-2020"
         ],
         "citation_granularity": "table_row",
-        "minimum_traceability_requirement": "The answer should cite Vishwanath et al. 2020 and should be traceable to Table 1, where VPN use on free/public Wi-Fi, encrypted online password vaults, and online alerts for personal information are listed under transmission and browsing hygiene."
+        "minimum_traceability_requirement": "The answer should cite Vishwanath et al. and should be traceable to Table 1, where VPN use on free/public Wi-Fi, encrypted online password vaults, and online alerts for personal information are listed under transmission and browsing hygiene. The answer may describe these as Cyber Hygiene Inventory practices, but should not claim that Vishwanath et al. proved these practices mitigate specific named attacks."
       },
       "agent_answer_guidance": {
         "answer_style": "practical_advice_with_traceability_note",
@@ -3118,554 +3535,9 @@
           "Password vaults eliminate all credential risk",
           "Personal-information alerts prevent identity theft",
           "These practices are proven by Vishwanath et al. to mitigate specific named attacks",
-          "All transmission hygiene practices are only about SSL certificates"
-        ]
-      }
-    },
-    {
-      "id": "KU-STORAGE-DEVICE-001",
-      "title": "Storage and device hygiene includes backups, antivirus updates, secure storage, and virus scans",
-      "category_id": "CAT-STORAGE-DEVICE",
-      "threat_ids": [
-        "THR-MALWARE-INFECTION",
-        "THR-DATA-LOSS",
-        "THR-UNPATCHED-SOFTWARE",
-        "THR-INFECTED-USB-DRIVE"
-      ],
-      "practice_ids": [
-        "PRA-VIRUS-SCAN-STORAGE",
-        "PRA-BACKUP-FILES",
-        "PRA-UPDATE-PROTECTION-SOFTWARE",
-        "PRA-UPDATE-ANTIVIRUS",
-        "PRA-SECURELY-STORE-INFORMATION",
-        "PRA-CONDUCT-SECURITY-SCANS",
-        "PRA-ENABLE-FIREWALLS",
-        "PRA-CHECK-DEVICE-UPDATES",
-        "PRA-MONITOR-DEVICE-USAGE"
-      ],
-      "claim": "Storage and device hygiene involves conducting virus scans, backing up important files, keeping virus protection and device software up to date, enabling firewalls, checking device updates, monitoring device usage, securely storing data, and using checked or safe download links for software and applications.",
-      "explanation": "Karayel et al. describe storage and device hygiene as cyber hygiene behavior related to the configuration and security of digital devices, including scanning storage devices, backing up important files, keeping protection software updated, and securely storing data. Vishwanath et al.'s Cyber Hygiene Inventory additionally includes enabling firewalls, checking for operating system or software updates, keeping virus protection updated, and monitoring CPU, power, or network usage. Baraković and Baraković Husić add student-behavior evidence showing that scanning downloaded files and used devices is common among surveyed students, while backup behavior and download-link safety remain concerning. Oz et al. strengthen the importance of backups and updates in the ransomware context by describing backup-based recovery mechanisms and identifying delayed upgrades or critical software patches as a ransomware success factor. NIST SP 800-83 Rev. 1 strengthens this category by defining malware as malicious code that can compromise data, applications, or operating systems, and by recommending layered malware prevention involving awareness, vulnerability mitigation, threat mitigation tools, and defensive architecture.",
-      "recommended_actions": [
-        "Conduct virus scans or security scans on storage devices.",
-        "Back up important files.",
-        "Keep antivirus, virus protection, and device software up to date.",
-        "Check whether devices have the latest operating system, software update, or patch.",
-        "Enable firewalls on computing devices.",
-        "Monitor device processes such as CPU, power, and network usage.",
-        "Securely store data, including physical and cloud-based information.",
-        "Run antivirus scans on storage devices",
-        "Use checked and safe links when downloading software or applications.",
-        "Do not rely only on occasional backups; maintain a regular backup routine.",
-        "Maintain backups as part of ransomware recovery planning.",
-        "Do not delay security-related software patches or upgrades.",
-        "Use antivirus and security scans as part of a broader device hygiene routine rather than as the only protection against malware.",
-        "Do not open suspicious email attachments, suspicious links, suspicious popup windows, or applications from untrusted sources.",
-        "Do not use administrator-level accounts for regular host operation.",
-        "Do not disable malware security controls such as antivirus software, content filtering, reputation software, or personal firewalls."
-      ],
-      "evidence_strength": "high",
-      "question_templates": [
-        "What is storage and device hygiene?",
-        "How can users improve storage and device hygiene?",
-        "What device security practices help maintain cyber hygiene?",
-        "Why are antivirus updates and virus scans part of cyber hygiene?",
-        "What should users do to protect important files and devices?"
-      ],
-      "evidence": [
-        {
-          "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-001",
-          "source_id": "SRC-KARAYEL-2024",
-          "citation_key": "karayel_human_2024",
-          "support_type": "direct",
-          "exact_supporting_text": "Conducting virus scans on any storage device, backing up important files and keeping the device’s virus protection and device software up to date",
-          "page": 7,
-          "section": "Table 2. Cyber hygiene categories",
-          "paragraph": "Third column, first row of the table",
-          "claim_location": {
-            "page": 7,
-            "section": "Table 2. Cyber hygiene categories",
-            "paragraph": "Third column, first row of the table"
-          }
-        },
-        {
-          "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-002",
-          "source_id": "SRC-KARAYEL-2024",
-          "citation_key": "karayel_human_2024",
-          "support_type": "direct",
-          "exact_supporting_text": "Storage and device hygiene, encompassing secure data storage (both physical and cloud-based), up-to-date antivirus software and regular virus scans",
-          "page": 13,
-          "section": "4. Results and discussion, RQ4 explanation",
-          "paragraph": "7",
-          "claim_location": {
-            "page": 13,
-            "section": "4. Results and discussion, RQ4 explanation",
-            "paragraph": "7"
-          }
-        },
-        {
-          "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-001",
-          "source_id": "SRC-VISHWANATH-2020",
-          "citation_key": "vishwanath_cyber_2020",
-          "support_type": "direct",
-          "exact_supporting_text": "Run a virus scan on new USB or external storage devices.",
-          "page": 6,
-          "section": "Table 1. Final CHI items, and the original items",
-          "paragraph": "table row 13",
-          "claim_location": {
-            "page": 6,
-            "section": "Table 1. Final CHI items, and the original items",
-            "paragraph": "table row 13"
-          }
-        },
-        {
-          "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-002",
-          "source_id": "SRC-VISHWANATH-2020",
-          "citation_key": "vishwanath_cyber_2020",
-          "support_type": "direct",
-          "exact_supporting_text": "Backup important files.",
-          "page": 6,
-          "section": "Table 1. Final CHI items, and the original items",
-          "paragraph": "table row 14",
-          "claim_location": {
-            "page": 6,
-            "section": "Table 1. Final CHI items, and the original items",
-            "paragraph": "table row 14"
-          }
-        },
-        {
-          "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-003",
-          "source_id": "SRC-VISHWANATH-2020",
-          "citation_key": "vishwanath_cyber_2020",
-          "support_type": "direct",
-          "exact_supporting_text": "Enabling firewalls on your computing devices",
-          "page": 6,
-          "section": "Table 1. Final CHI items, and the original items",
-          "paragraph": "table row 6",
-          "claim_location": {
-            "page": 6,
-            "section": "Table 1. Final CHI items, and the original items",
-            "paragraph": "table row 6"
-          }
-        },
-        {
-          "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-004",
-          "source_id": "SRC-VISHWANATH-2020",
-          "citation_key": "vishwanath_cyber_2020",
-          "support_type": "direct",
-          "exact_supporting_text": "Checking your device to ensure it has the latest OS, software update, or patch",
-          "page": 6,
-          "section": "Table 1. Final CHI items, and the original items",
-          "paragraph": "table row 21",
-          "claim_location": {
-            "page": 6,
-            "section": "Table 1. Final CHI items, and the original items",
-            "paragraph": "table row 21"
-          }
-        },
-        {
-          "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-005",
-          "source_id": "SRC-VISHWANATH-2020",
-          "citation_key": "vishwanath_cyber_2020",
-          "support_type": "direct",
-          "exact_supporting_text": "Monitoring different processes such as CPU, power, or network usage on your device",
-          "page": 6,
-          "section": "Table 1. Final CHI items, and the original items",
-          "paragraph": "table row 23",
-          "claim_location": {
-            "page": 6,
-            "section": "Table 1. Final CHI items, and the original items",
-            "paragraph": "table row 23"
-          }
-        },
-        {
-          "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-006",
-          "source_id": "SRC-VISHWANATH-2020",
-          "citation_key": "vishwanath_cyber_2020",
-          "support_type": "direct",
-          "exact_supporting_text": "Keeping virus protection updated",
-          "page": 6,
-          "section": "Table 1. Final CHI items, and the original items",
-          "paragraph": "table row 26",
-          "claim_location": {
-            "page": 6,
-            "section": "Table 1. Final CHI items, and the original items",
-            "paragraph": "table row 26"
-          }
-        },
-        {
-          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-001",
-          "source_id": "SRC-CAIN-2018",
-          "citation_key": "cain_exploratory_2018",
-          "support_type": "direct",
-          "exact_supporting_text": "Security software, such as antivirus, firewalls, and Intrusion Detection Systems are available to end users, and are essential factors in secure computing.",
-          "page": 2,
-          "section": "1.2 Previous findings of cyber hygiene research",
-          "paragraph": "3",
-          "claim_location": {
-            "page": 2,
-            "section": "1.2 Previous findings of cyber hygiene research",
-            "paragraph": "3"
-          }
-        },
-        {
-          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-002",
-          "source_id": "SRC-CAIN-2018",
-          "citation_key": "cain_exploratory_2018",
-          "support_type": "direct",
-          "exact_supporting_text": "It is important to update security software.",
-          "page": 2,
-          "section": "1.2 Previous findings of cyber hygiene research",
-          "paragraph": "1",
-          "claim_location": {
-            "page": 2,
-            "section": "1.2 Previous findings of cyber hygiene research",
-            "paragraph": "1"
-          }
-        },
-        {
-          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-003",
-          "source_id": "SRC-CAIN-2018",
-          "citation_key": "cain_exploratory_2018",
-          "support_type": "source_listed_practice",
-          "exact_supporting_text": "Update your applications, software, and operating systems; Back up your data and files; Use firewalls; Use anti-virus and separate anti-spyware; Perform weekly anti-virus scans",
-          "page": 3,
-          "section": "Table 1. Tips found on government websites",
-          "paragraph": "table",
-          "claim_location": {
-            "page": 3,
-            "section": "Table 1. Tips found on government websites",
-            "paragraph": "table"
-          }
-        },
-        {
-          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-004",
-          "source_id": "SRC-CAIN-2018",
-          "citation_key": "cain_exploratory_2018",
-          "support_type": "empirical_result",
-          "exact_supporting_text": "Tables 8–13 report participant behavior for antivirus updates, antivirus scans, firewall use, firewall settings, anti-spyware use, and anti-spyware scans across age groups.",
-          "page": 5,
-          "section": "3. Results, Tables 8–13",
-          "paragraph": "tables",
-          "claim_location": {
-            "page": 5,
-            "section": "3. Results, Tables 8–13",
-            "paragraph": "tables"
-          }
-        },
-        {
-          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-005",
-          "source_id": "SRC-CAIN-2018",
-          "citation_key": "cain_exploratory_2018",
-          "support_type": "empirical_result",
-          "exact_supporting_text": "We found that most users have antivirus software and update it regularly, but also that most users do not run frequent-enough scans.",
-          "page": 8,
-          "section": "4. Discussion and conclusion",
-          "paragraph": "3",
-          "claim_location": {
-            "page": 8,
-            "section": "4. Discussion and conclusion",
-            "paragraph": "3"
-          }
-        },
-        {
-          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-006",
-          "source_id": "SRC-CAIN-2018",
-          "citation_key": "cain_exploratory_2018",
-          "support_type": "empirical_result",
-          "exact_supporting_text": "Most users employ a firewall, but most users do not change the firewall settings when needed.",
-          "page": 8,
-          "section": "4. Discussion and conclusion",
-          "paragraph": "3",
-          "claim_location": {
-            "page": 8,
-            "section": "4. Discussion and conclusion",
-            "paragraph": "3"
-          }
-        },
-        {
-          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-001",
-          "source_id": "SRC-BARAKOVIC-2023",
-          "citation_key": "barakovic_cyber_2023",
-          "support_type": "direct",
-          "exact_supporting_text": "Examples of good hygiene involve running virus scan on any storage device, maintaining a backup of all important files, ensuring that device has latest operating system, and keeping the virus protection and software updated.",
-          "page": 5,
-          "section": "2. Related work",
-          "paragraph": "2",
-          "claim_location": {
-            "page": 5,
-            "section": "2. Related work",
-            "paragraph": "2"
-          }
-        },
-        {
-          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-002",
-          "source_id": "SRC-BARAKOVIC-2023",
-          "citation_key": "barakovic_cyber_2023",
-          "support_type": "contextual",
-          "exact_supporting_text": "Users are familiar with general threats, whereas they have poor knowledge of complex threats. The same is true for the use of security features.",
-          "page": 5,
-          "section": "2. Related work",
-          "paragraph": "2",
-          "claim_location": {
-            "page": 5,
-            "section": "2. Related work",
-            "paragraph": "2"
-          }
-        },
-        {
-          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-001",
-          "source_id": "SRC-BARAKOVIC-2023",
-          "citation_key": "barakovic_cyber_2023",
-          "support_type": "empirical_result",
-          "exact_supporting_text": "The results show that most users (regardless of being male or female, or BSc or MSc students) use desktop or laptop computers (96.3%) and smartphones (96.1%) to access the Internet.",
-          "page": 9,
-          "section": "4. Results",
-          "paragraph": "4",
-          "claim_location": {
-            "page": 9,
-            "section": "4. Results",
-            "paragraph": "4"
-          }
-        },
-        {
-          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-002",
-          "source_id": "SRC-BARAKOVIC-2023",
-          "citation_key": "barakovic_cyber_2023",
-          "support_type": "empirical_result",
-          "exact_supporting_text": "Furthermore, most of participants are aware of the dangers posed by downloaded files and used devices since 59% of them scan both, while 9.6% scan files only and 5.6% scan devices only.",
-          "page": 13,
-          "section": "4. Results",
-          "paragraph": "2",
-          "claim_location": {
-            "page": 13,
-            "section": "4. Results",
-            "paragraph": "2"
-          }
-        },
-        {
-          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-003",
-          "source_id": "SRC-BARAKOVIC-2023",
-          "citation_key": "barakovic_cyber_2023",
-          "support_type": "empirical_result",
-          "exact_supporting_text": "Results regarding data backups are concerning, since almost one third of participants never perform backups, while only one third of participants perform them once a month.",
-          "page": 13,
-          "section": "4. Results",
-          "paragraph": "3",
-          "claim_location": {
-            "page": 13,
-            "section": "4. Results",
-            "paragraph": "3"
-          }
-        },
-        {
-          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-004",
-          "source_id": "SRC-BARAKOVIC-2023",
-          "citation_key": "barakovic_cyber_2023",
-          "support_type": "empirical_result",
-          "exact_supporting_text": "The same situation is with links used for software and application download on computers and smartphones.",
-          "page": 13,
-          "section": "4. Results",
-          "paragraph": "3",
-          "claim_location": {
-            "page": 13,
-            "section": "4. Results",
-            "paragraph": "3"
-          }
-        }
-      ],
-      "validity_facts": [
-        {
-          "fact_id": "VF-STORAGE-DEVICE-001",
-          "fact": "Storage and device hygiene includes conducting virus scans on storage devices.",
-          "source_id": "SRC-KARAYEL-2024",
-          "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-001"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-002",
-          "fact": "Storage and device hygiene includes backing up important files.",
-          "source_id": "SRC-KARAYEL-2024",
-          "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-001"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-003",
-          "fact": "Storage and device hygiene includes keeping virus protection and device software up to date.",
-          "source_id": "SRC-KARAYEL-2024",
-          "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-001"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-004",
-          "fact": "Storage and device hygiene includes secure data storage, including physical and cloud-based storage.",
-          "source_id": "SRC-KARAYEL-2024",
-          "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-002"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-005",
-          "fact": "Storage and device hygiene includes up-to-date antivirus software.",
-          "source_id": "SRC-KARAYEL-2024",
-          "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-002"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-006",
-          "fact": "Storage and device hygiene includes regular virus scans.",
-          "source_id": "SRC-KARAYEL-2024",
-          "evidence_id": "EVID-KARAYEL-STORAGE-DEVICE-002"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-007",
-          "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes running a virus scan on new USB or external storage devices.",
-          "source_id": "SRC-VISHWANATH-2020",
-          "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-001"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-008",
-          "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes backing up important files.",
-          "source_id": "SRC-VISHWANATH-2020",
-          "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-002"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-009",
-          "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes enabling firewalls on computing devices.",
-          "source_id": "SRC-VISHWANATH-2020",
-          "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-003"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-010",
-          "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes checking whether a device has the latest operating system, software update, or patch.",
-          "source_id": "SRC-VISHWANATH-2020",
-          "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-004"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-011",
-          "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes monitoring device processes such as CPU, power, or network usage.",
-          "source_id": "SRC-VISHWANATH-2020",
-          "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-005"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-012",
-          "fact": "Vishwanath et al.'s Cyber Hygiene Inventory includes keeping virus protection updated.",
-          "source_id": "SRC-VISHWANATH-2020",
-          "evidence_id": "EVID-VISHWANATH-STORAGE-DEVICE-006"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-013",
-          "fact": "Cain et al. state that antivirus, firewalls, and intrusion detection systems are essential factors in secure computing.",
-          "source_id": "SRC-CAIN-2018",
-          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-001"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-014",
-          "fact": "Cain et al. state that updating security software is important.",
-          "source_id": "SRC-CAIN-2018",
-          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-002"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-015",
-          "fact": "Cain et al.'s Table 1 lists updating applications/software/operating systems, backing up data/files, using firewalls, using antivirus/antispyware, and performing antivirus scans as cyber hygiene practices found on government websites.",
-          "source_id": "SRC-CAIN-2018",
-          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-003"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-016",
-          "fact": "Cain et al. report participant behavior for antivirus updates, antivirus scans, firewall use, firewall settings, anti-spyware use, and anti-spyware scans across age groups.",
-          "source_id": "SRC-CAIN-2018",
-          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-004"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-017",
-          "fact": "Cain et al. found that most users had antivirus software and updated it regularly, but did not run frequent enough scans.",
-          "source_id": "SRC-CAIN-2018",
-          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-005"
-        },
-        {
-          "fact_id": "VF-STORAGE-DEVICE-018",
-          "fact": "Cain et al. found that most users used a firewall, but did not change firewall settings when needed.",
-          "source_id": "SRC-CAIN-2018",
-          "evidence_id": "EVID-CAIN-STORAGE-DEVICE-006"
-        },
-        {
-          "fact_id": "VF-BARAKOVIC-STORAGE-DEVICE-001",
-          "fact": "Baraković and Baraković Husić describe storage and device hygiene examples including virus scans, backups, latest operating systems, and updated virus protection/software.",
-          "source_id": "SRC-BARAKOVIC-2023",
-          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-001"
-        },
-        {
-          "fact_id": "VF-BARAKOVIC-STORAGE-DEVICE-002",
-          "fact": "Baraković and Baraković Husić note that users may know general threats while having poor knowledge of complex threats and security features.",
-          "source_id": "SRC-BARAKOVIC-2023",
-          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-002"
-        },
-        {
-          "fact_id": "VF-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-001",
-          "fact": "Baraković and Baraković Husić report that most surveyed students used desktop or laptop computers and smartphones to access the Internet.",
-          "source_id": "SRC-BARAKOVIC-2023",
-          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-001"
-        },
-        {
-          "fact_id": "VF-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-002",
-          "fact": "Baraković and Baraković Husić report that 59% of participants scanned both downloaded files and used devices.",
-          "source_id": "SRC-BARAKOVIC-2023",
-          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-002"
-        },
-        {
-          "fact_id": "VF-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-003",
-          "fact": "Baraković and Baraković Husić report that almost one third of participants never performed backups, while only one third performed backups once a month.",
-          "source_id": "SRC-BARAKOVIC-2023",
-          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-003"
-        },
-        {
-          "fact_id": "VF-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-004",
-          "fact": "Baraković and Baraković Husić report concerning results for links used for software and application downloads on computers and smartphones.",
-          "source_id": "SRC-BARAKOVIC-2023",
-          "evidence_id": "EVID-BARAKOVIC-STORAGE-DEVICE-BEHAVIOR-004"
-        }
-      ],
-      "traceability": {
-        "requires_citation": true,
-        "acceptable_sources": [
-          "SRC-KARAYEL-2024",
-          "SRC-VISHWANATH-2020",
-          "SRC-CAIN-2018",
-          "SRC-BARAKOVIC-2023",
-          "SRC-AZEEM-2024",
-          "SRC-NIST-800-83R1-2013"
-        ],
-        "citation_granularity": "table_or_section",
-        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 or Vishwanath et al. 2020 and should be traceable to Karayel et al.'s Table 2/RQ4 discussion or Vishwanath et al.'s Table 1, where storage and device hygiene practices such as virus scans, backups, firewalls, operating system or software updates, virus protection updates, device software updates, secure data storage, and device usage monitoring are listed. Barakovic et al. (2023) also support this claim."
-      },
-      "agent_answer_guidance": {
-        "answer_style": "practical_advice",
-        "must_include": [
-          "virus scans",
-          "backing up important files",
-          "keeping virus protection and device software up to date",
-          "checking operating system, software update, or patch status",
-          "enabling firewalls",
-          "monitoring CPU, power, or network usage",
-          "secure data storage",
-          "up-to-date antivirus software",
-          "regular virus scans",
-          "scanning downloaded files and used devices",
-          "regular backups",
-          "checked and safe software or application download links"
-        ],
-        "avoid_claims": [
-          "Antivirus software alone is enough for storage and device hygiene",
-          "Backups prevent all malware damage",
-          "Cloud storage is automatically secure",
-          "Virus scans eliminate all device security risk",
-          "Firewalls eliminate all device security risk",
-          "Monitoring CPU, power, or network usage proves a device is infected",
-          "Vishwanath et al. directly state that device monitoring prevents malware",
-          "Cain et al.'s age-group percentages should not be generalized to all users without qualification",
-          "Baraković and Baraković Husić prove that monthly backups are sufficient",
-          "Using checked download links eliminates malware risk",
-          "Survey percentages from Baraković and Baraković Husić apply to all university students globally",
-          "Backups always guarantee complete recovery from ransomware",
-          "Installing updates eliminates all ransomware risk",
-          "Antivirus or signature-based detection catches all malware",
-          "Antivirus software alone prevents all malware incidents",
-          "User awareness alone is enough to prevent malware incidents",
-          "All malware can be reliably categorized into one classic malware type"
+          "All transmission hygiene practices are only about SSL certificates",
+          "Vishwanath et al. directly prove that password vaults prevent credential theft",
+          "Vishwanath et al. directly prove that personal-information alerts prevent privacy exposure"
         ]
       }
     },
@@ -3680,12 +3552,40 @@
       "practice_ids": [
         "PRA-STRENGTHEN-ORG-CYBERSECURITY-MEASURES"
       ],
-      "claim": "Stronger organizational cybersecurity measures are associated with improved cyber hygiene practices among remote employees.",
-      "explanation": "Karayel et al. found a statistically significant positive relationship between the cybersecurity measures adopted by organizations and employees' cyber hygiene practices. This suggests that individual cyber hygiene should be understood not only as a personal behavior issue, but also as something influenced by the organizational security environment.",
+      "claim": "Organizational cybersecurity measures are significantly associated with employees' cyber hygiene practices, suggesting that employee cyber hygiene should be understood in relation to the broader organizational security environment rather than only as an individual behavior issue.",
+      "explanation": "This KU explains the organizational context of employee cyber hygiene. Karayel et al. report a significant correlation between company security measures and employees' cyber hygiene practices, and a statistically significant positive relationship between companies' cybersecurity measures and individual cyber hygiene behavior. This supports treating employee cyber hygiene as connected to organizational security measures, while avoiding a stronger causal claim that organizational measures alone directly cause improved employee behavior.",
       "recommended_actions": [
-        "Strengthen organizational cybersecurity measures that support employees' cyber hygiene practices.",
-        "Consider organizational cybersecurity measures when trying to improve employees' cyber hygiene.",
-        "Treat employee cyber hygiene as connected to the broader organizational security environment."
+        {
+          "action_id": "ACT-ORG-MEASURES-001",
+          "action_text": "Consider organizational cybersecurity measures when assessing employees' cyber hygiene practices.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ORG-MEASURES-001",
+            "EVID-KARAYEL-ORG-MEASURES-002"
+          ]
+        },
+        {
+          "action_id": "ACT-ORG-MEASURES-002",
+          "action_text": "Treat employee cyber hygiene as connected to the broader organizational cybersecurity environment.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ORG-MEASURES-001",
+            "EVID-KARAYEL-ORG-MEASURES-002"
+          ]
+        },
+        {
+          "action_id": "ACT-ORG-MEASURES-003",
+          "action_text": "Do not frame employee cyber hygiene as only an individual responsibility.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ORG-MEASURES-001",
+            "EVID-KARAYEL-ORG-MEASURES-002"
+          ]
+        },
+        {
+          "action_id": "ACT-ORG-MEASURES-004",
+          "action_text": "Use stronger organizational cybersecurity measures as a relevant support area for employee cyber hygiene, while avoiding claims of guaranteed causal improvement.",
+          "evidence_ids": [
+            "EVID-KARAYEL-ORG-MEASURES-002"
+          ]
+        }
       ],
       "evidence_strength": "high",
       "question_templates": [
@@ -3753,7 +3653,7 @@
           "SRC-KARAYEL-2024"
         ],
         "citation_granularity": "section_or_paragraph",
-        "minimum_traceability_requirement": "The answer should cite Karayel et al. 2024 and should be traceable to the abstract findings and the RQ2 discussion in Section 4.3 regarding the statistically significant relationship between organizational cybersecurity measures and employee cyber hygiene behavior."
+        "minimum_traceability_requirement": "The answer should cite Karayel et al. and should be traceable to the abstract findings or the RQ2 discussion in Section 4.3 regarding the significant correlation and statistically significant positive relationship between organizational cybersecurity measures and employee cyber hygiene behavior. The answer should describe the relationship as an association or positive relationship unless further causal evidence is provided."
       },
       "agent_answer_guidance": {
         "answer_style": "explanatory_guidance",
@@ -3768,7 +3668,9 @@
           "Organizational cybersecurity measures guarantee good employee cyber hygiene",
           "Employee cyber hygiene depends only on individual behavior",
           "The study proves strict causation between company measures and employee behavior",
-          "Technical controls alone are sufficient to improve cyber hygiene"
+          "Technical controls alone are sufficient to improve cyber hygiene",
+          "Stronger organizational cybersecurity measures automatically improve every employee's cyber hygiene",
+          "Organizational measures eliminate the need for individual cyber hygiene practices"
         ]
       }
     },

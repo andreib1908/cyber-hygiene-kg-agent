@@ -8,13 +8,20 @@ handled deterministically outside the model.
 """
 
 from __future__ import annotations
+from typing import Any
 
 import os
-from typing import Any
+import json
+import re
 
 
 MAX_EVIDENCE_PER_KU = 3
-
+_AUTHOR_PREFIX = re.compile(
+    r"^.*?\bet al\.?(?:’s|'s)?\b[^.]*?\b(?:state|states|report|reports|note|notes|"
+    r"describe|describes|define|defines|include|includes|cite|cites|found|find|"
+    r"list|lists|mention|mentions)\b\s*(?:that\s+)?",
+    re.IGNORECASE,
+)
 
 def _first_item(items: list[dict[str, Any]] | None) -> dict[str, Any]:
     """Return the first dict from a list, or an empty dict."""
@@ -159,7 +166,99 @@ def select_sources_by_relevance(context, answer, floor, debug=False, max_total=i
     kept = _dedupe_sources_by_text(kept)
     return kept[:max_total] if kept else select_sources_used(context)
 
+def _strip_attribution(text: str) -> str:
+    """Drop leading author attributions like 'Cain et al. state that ...'."""
+    return _AUTHOR_PREFIX.sub("", (text or "").strip()).strip()
 
+
+def _split_clauses(text: str) -> list[str]:
+    """Answer -> clauses for matching (sentence enders, semicolons, bullets)."""
+    out: list[str] = []
+    for chunk in re.split(r"[.!?;\n]+|,\s+(?=and\s)", text or ""):
+        for piece in chunk.split("\n"):
+            piece = piece.strip(" -*•\t")
+            if len(piece.split()) >= 3:
+                out.append(piece)
+    return out
+
+
+def _fuzzy(anchor: str, sentence: str) -> float:
+    try:
+        from rapidfuzz import fuzz
+        return max(fuzz.token_set_ratio(anchor, sentence),
+                   fuzz.partial_token_sort_ratio(anchor, sentence))
+    except Exception:  # graceful fallback if rapidfuzz isn't installed
+        import difflib
+        norm = lambda s: " ".join(sorted(set(re.findall(r"[a-z0-9]+", s.lower()))))
+        return difflib.SequenceMatcher(None, norm(anchor), norm(sentence)).ratio() * 100
+
+
+def _coerce_objs(value: Any) -> list[Any]:
+    """Accept a list, or a JSON-encoded string of a list (Neo4j prop) -> list."""
+    if value is None:
+        return []
+    if isinstance(value, str):
+        try:
+            value = json.loads(value)
+        except Exception:
+            return []
+    return value if isinstance(value, list) else []
+
+
+def _action_texts(ku: dict[str, Any]) -> list[str]:
+    """Plain recommendation texts for the model (handles strings or action objects)."""
+    texts = []
+    for a in _coerce_objs(ku.get("recommended_actions")):
+        text = a.get("action_text") if isinstance(a, dict) else a
+        if text:
+            texts.append(str(text).strip())
+    return texts
+
+
+def _iter_citation_anchors(record: dict[str, Any]):
+    """Yield (anchor_text, [evidence_ids]) from a KU's actions and validity_facts."""
+    ku = _first_item(record.get("knowledge_units")) or record
+    for a in _coerce_objs(ku.get("recommended_actions")):
+        if isinstance(a, dict) and a.get("action_text") and a.get("evidence_ids"):
+            yield str(a["action_text"]), list(a["evidence_ids"])
+    for f in _coerce_objs(ku.get("validity_facts")):
+        if isinstance(f, dict) and f.get("fact") and f.get("evidence_id"):
+            yield str(f["fact"]), [f["evidence_id"]]
+
+
+def _evidence_by_id(context: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    out: dict[str, dict[str, Any]] = {}
+    for record in context:
+        for e in _as_list(record.get("evidence")):
+            eid = e.get("evidence_id")
+            if eid and eid not in out:
+                out[eid] = e
+    return out
+
+
+def select_sources_by_actions(context, answer, threshold=75.0, debug=False):
+    """Cite evidence by fuzzy-matching answer clauses to action_text / validity_fact.
+
+    An evidence item is cited if ANY of its anchors (action or fact) clears
+    `threshold` against an answer clause. Fully deterministic; no model self-report.
+    """
+    if not context or not answer:
+        return []
+    clauses = _split_clauses(answer) or [answer]
+    ev_by_id = _evidence_by_id(context)
+    selected, seen = [], set()
+    for record in context:
+        for anchor_text, evidence_ids in _iter_citation_anchors(record):
+            best = max((_fuzzy(_strip_attribution(anchor_text), c) for c in clauses), default=0.0)
+            hit = best >= threshold
+            if debug:
+                print(f"[citation-action] {best:>5.1f} {'HIT ' if hit else 'miss'} :: {anchor_text[:60]}")
+            if hit:
+                for eid in evidence_ids:
+                    if eid in ev_by_id and eid not in seen:
+                        seen.add(eid)
+                        selected.append(ev_by_id[eid])
+    return _dedupe_sources_by_text(selected)
 
 def _build_ku_package(record: dict[str, Any]) -> dict[str, Any]:
     """Build a compact package for one retrieved KnowledgeUnit."""
@@ -184,11 +283,10 @@ def _build_ku_package(record: dict[str, Any]) -> dict[str, Any]:
         "answer_style": _sanitize_answer_style(guidance.get("answer_style")),
         "main_claim": ku.get("claim") or "",
         "brief_explanation": ku.get("explanation") or "",
-        "allowed_recommendations": _dedupe_preserve_order(recommended_actions),
+        "allowed_recommendations": _dedupe_preserve_order(_action_texts(ku)),
         "must_include": _dedupe_preserve_order(must_include),
         "avoid_claims": _dedupe_preserve_order(avoid_claims),
         "question_templates": _dedupe_preserve_order(question_templates),
-        "evidence": evidence_passages,
     }
 
 def _record_ku_id(record: dict[str, Any]) -> str | None:
